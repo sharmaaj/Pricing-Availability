@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="PricingAndAvailability" id="com.company.PricingAndAvailability"
+                   appControllerFolder="ApplicationController" listener-class="application.LifeCycleListenerImpl">
+  <adfmf:featureReference refId="dashboard" id="fr1" showOnNavigationBar="false"/>
+  <adfmf:featureReference refId="myCart" id="fr2" showOnNavigationBar="false"/>
+  <adfmf:featureReference refId="orders" id="fr3" showOnNavigationBar="false"/>
+  <adfmf:featureReference refId="alerts" id="fr4" showOnNavigationBar="false"/>
+  <adfmf:featureReference refId="settings" id="fr5" showOnNavigationBar="false"/>
+  <adfmf:featureReference refId="springboard" id="fr6" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:navigation>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="200">
+      <adfmf:springboardFeatureReference refId="springboard" id="sfr1"/>
+    </adfmf:springboard>
+    <adfmf:navigationBar enabled="false"/>
+  </adfmf:navigation>
+  <adfmf:login defaultConnRefId="EBSSecurity">
+    <adfmf:localHTML url="Login.html"/>
+  </adfmf:login>
+</adfmf:application>

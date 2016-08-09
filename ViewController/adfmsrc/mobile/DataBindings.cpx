@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.1.20" id="DataBindings"
+             SeparateXMLFiles="false" Package="mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/dashboard/DashboardPG.amx" usageId="mobile_DashboardPGPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="mobile_DashboardPGPageDef" path="dashboard.DashboardPGPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ApplicationFeatures" path="application.ApplicationFeatures"/>
+  </dataControlUsages>
+</Application>
