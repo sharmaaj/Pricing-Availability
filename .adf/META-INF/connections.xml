@@ -30,4 +30,14 @@
       </XmlRefAddr>
     </RefAddresses>
   </Reference>
+  <Reference name="snet" className="oracle.adf.model.connection.rest.RestConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="snet">
+        <Contents>
+          <restconnection name="snet" url="http://ussltcsnl3432.solutions.glbsnet.com:7004/paa"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
 </References>
