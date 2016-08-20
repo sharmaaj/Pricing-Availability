@@ -7,16 +7,101 @@
       <property
          name="activityId">DashboardPG</property>
       <property
-         name="x">554.0</property>
+         name="x">155.0</property>
       <property
          name="start">true</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>DashboardPG&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">333.5459</property>
+         name="y">131.33887</property>
       <property
          name="page">/dashboard/DashboardPG.amx</property>
       <property
          name="exceptionHandler">false</property>
    </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View2"
+      to="TaskFlowCall6">
+      <property
+         name="fromOutcome">myCart</property>
+      <property
+         name="sdm:polyPoints">R50,196.0,130.98828,574.6885,158.79297,L46</property>
+   </ControlFlowCase>
+   <View
+      id="View5">
+      <property
+         name="activityId">PricingandAvailabilityPG</property>
+      <property
+         name="x">159.36426</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>PricingandAvailabilityPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">518.4883</property>
+      <property
+         name="page">/pricingandAvailability/PricingandAvailabilityPG.amx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall6">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>AddToCartr-task-flow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">AddToCartr-task-flow</property>
+      <property
+         name="x">615.6885</property>
+      <property
+         name="y">162.64355</property>
+      <property
+         name="documentReference">/myCart/AddToCartr-task-flow.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">AddToCartr-task-flow</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="View5"
+      to="TaskFlowCall6">
+      <property
+         name="fromOutcome">AddToCart</property>
+      <property
+         name="sdm:polyPoints">T56,162.86426,464.1377,574.6885,165.79297,L54</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall8">
+      <property
+         name="activityId">search</property>
+      <property
+         name="x">155.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>search&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">324.84473</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="MethodCall8"
+      to="View5">
+      <property
+         name="fromOutcome">searchResult</property>
+      <property
+         name="sdm:polyPoints">B50,155.0,378.49414,155.86426,464.1377,T44</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View2"
+      to="MethodCall8">
+      <property
+         name="fromOutcome">search</property>
+      <property
+         name="sdm:polyPoints">B50,155.0,184.98828,155.0,270.49414,T50</property>
+   </ControlFlowCase>
 </SDM>

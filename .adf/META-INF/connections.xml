@@ -30,12 +30,23 @@
       </XmlRefAddr>
     </RefAddresses>
   </Reference>
-  <Reference name="snet" className="oracle.adf.model.connection.rest.RestConnection" xmlns="">
+  <Reference name="test" className="oracle.adf.model.connection.url.HttpURLConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.url.URLConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="test">
+        <Contents>
+          <urlconnection name="test"
+                         url="http://USSLTCSNL3432.solutions.glbsnet.com:7004/pnaAddToCartSBProject/addToCart"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="SNET" className="oracle.adf.model.connection.rest.RestConnection" xmlns="">
     <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
     <RefAddresses>
-      <XmlRefAddr addrType="snet">
+      <XmlRefAddr addrType="SNET">
         <Contents>
-          <restconnection name="snet" url="http://ussltcsnl3432.solutions.glbsnet.com:7004/paa"/>
+          <restconnection name="SNET" url="http://USSLTCSNL3432.solutions.glbsnet.com:7004/pna"/>
         </Contents>
       </XmlRefAddr>
     </RefAddresses>

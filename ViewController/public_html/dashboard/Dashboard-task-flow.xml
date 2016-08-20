@@ -2,9 +2,59 @@
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
   <task-flow-definition id="Dashboard-task-flow">
     <default-activity>DashboardPG</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name>PnABean</managed-bean-name>
+      <managed-bean-class>mobile.PnABeanClass</managed-bean-class>
+      <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__4">
+      <managed-bean-name>pnaDashboardPGBean</managed-bean-name>
+      <managed-bean-class>mobile.bean.pnaDashboardPGBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
     <view id="DashboardPG">
       <page>/dashboard/DashboardPG.amx</page>
     </view>
+    <view id="PricingandAvailabilityPG">
+      <page>/pricingandAvailability/PricingandAvailabilityPG.amx</page>
+    </view>
+    <task-flow-call id="AddToCartr-task-flow">
+      <task-flow-reference>
+        <document>/myCart/AddToCartr-task-flow.xml</document>
+        <id>AddToCartr-task-flow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <method-call id="search">
+      <method>#{pageFlowScope.pnaDashboardPGBean.onSearchButtonClick}</method>
+      <outcome>
+        <fixed-outcome>searchResult</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>DashboardPG</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>myCart</from-outcome>
+        <to-activity-id>AddToCartr-task-flow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>search</from-outcome>
+        <to-activity-id>search</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>PricingandAvailabilityPG</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>AddToCart</from-outcome>
+        <to-activity-id>AddToCartr-task-flow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>search</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>searchResult</from-outcome>
+        <to-activity-id>PricingandAvailabilityPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <page-flow-scope-behavior>
       <push-new/>
     </page-flow-scope-behavior>

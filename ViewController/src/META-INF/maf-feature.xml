@@ -7,7 +7,7 @@
   </adfmf:feature>
   <adfmf:feature id="myCart" name="My Cart" securityEnabled="true">
     <adfmf:content id="myCart.1">
-      <adfmf:amx/>
+      <adfmf:amx file="myCart/myCart.amx"/>
     </adfmf:content>
   </adfmf:feature>
   <adfmf:feature id="orders" name="My Orders" securityEnabled="true">

@@ -3,11 +3,58 @@
                 Package="dashboard">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
+    <variableIterator id="variables">
+      <variable Name="itemNumber" Type="java.lang.Number"/>
+      <variable Name="itemDescription" Type="java.lang.String"/>
+      <variable Name="customerNumber" Type="java.lang.String"/>
+      <variable Name="itemQuantity" Type="java.lang.Number"/>
+      <variable Name="priceList" Type="java.lang.Number"/>
+      <variable Name="requestedDate" Type="java.sql.Date"/>
+    </variableIterator>
+    <iterator Binds="root" RangeSize="25" DataControl="PnaDataControl" id="PnaDataControlIterator"/>
+    <accessorIterator MasterBinding="PnaDataControlIterator" Binds="getAllItemNumbers" RangeSize="25"
+                      DataControl="PnaDataControl" BeanClass="mobile.entity.GetItemNumberLOV"
+                      id="getAllItemNumbersIterator"/>
   </executables>
   <bindings>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <attributeValues IterBinding="variables" id="itemNumber1">
+      <AttrNames>
+        <Item Value="itemNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="itemDescription1">
+      <AttrNames>
+        <Item Value="itemDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="customerNumber1">
+      <AttrNames>
+        <Item Value="customerNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="itemQuantity1">
+      <AttrNames>
+        <Item Value="itemQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="priceList1">
+      <AttrNames>
+        <Item Value="priceList"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="requestedDate1">
+      <AttrNames>
+        <Item Value="requestedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="getAllItemNumbersIterator" ListOperMode="navigation" ListIter="getAllItemNumbersIterator"
+          id="getAllItemNumbers" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="itemNum"/>
+      </AttrNames>
+    </list>
   </bindings>
 </pageDefinition>

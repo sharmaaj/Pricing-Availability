@@ -1,19 +1,88 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-  <amx:panelPage id="pp1">
-    <amx:facet name="header">
-      <amx:outputText value="Pricing and Availability" id="ot1"/>
-    </amx:facet>
-    <amx:facet name="primary">
-      <amx:commandButton actionListener="#{bindings.gotoSpringboard.execute}" text="Springboard"
-                         id="cb3"/>
-    </amx:facet>
-    <amx:facet name="secondary">
-      <amx:commandButton id="cb2"/>
-    </amx:facet>
-    <amx:facet name="footer">
-      <amx:outputText value="Footer" id="ot2"/>
-    </amx:facet>
-  </amx:panelPage>
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="My Search" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandButton actionListener="#{bindings.gotoSpringboard.execute}" text="Springboard" id="cb3"/>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandButton id="cb2" action="myCart" text="My Cart"/>
+        </amx:facet>
+        <amx:tableLayout id="tl1" >
+            <amx:rowLayout id="rl1">
+                <amx:cellFormat valign="middle" id="cf1" rowSpan="1">
+                    <amx:commandButton text="My New Search" id="cb1"
+                                       actionListener="#{pageFlowScope.pnaDashboardPGBean.whenMyNewSearchTabClicked}"/>
+                </amx:cellFormat>
+                <amx:cellFormat valign="middle" id="cf2">
+                    <amx:commandButton text="Search History" id="cb4"
+                                       actionListener="#{pageFlowScope.pnaDashboardPGBean.whenSearchHistoryTabClicked}"/>
+                </amx:cellFormat>
+            </amx:rowLayout>
+            <amx:rowLayout id="rl2" rendered="#{pageFlowScope.pnaDashboardPGBean.myNewSearchFlag eq 'true'}">
+                <amx:cellFormat id="cf10">
+                    <amx:tableLayout id="tl2">
+                        <amx:rowLayout id="rl3">
+                            <amx:cellFormat id="cf3">
+                                <amx:outputText value="Item Number" id="ot2"/>
+                                <amx:inputText simple="true" label="Item Number" id="it1" rows="1"
+                                               inlineStyle=" min-width:800px;"
+                                               value="#{pageFlowScope.pnaDashboardPGBean.itemNumber}"/>
+                                <amx:selectOneChoice value="#{bindings.getAllItemNumbers.inputValue}"
+                                                     label="#{bindings.getAllItemNumbers.label}" id="soc1">
+                                    <amx:selectItems value="#{bindings.getAllItemNumbers.items}" id="si1"/>
+                                </amx:selectOneChoice>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl4">
+                            <amx:cellFormat id="cf4">
+                                <amx:outputText value="Item Description" id="ot3"/>
+                                <amx:inputText simple="true" label="Item Description" id="it2" inputType="text"
+                                               value="#{pageFlowScope.pnaDashboardPGBean.itemDesc}"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl5">
+                            <amx:cellFormat id="cf5">
+                                <amx:outputText value="Customer Number" id="ot4"/>
+                                <amx:inputText simple="true" label="Customer Number" id="it3"
+                                               value="#{pageFlowScope.pnaDashboardPGBean.cutomerNumber}"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl6">
+                            <amx:cellFormat id="cf6">
+                                <amx:outputText value="Quantity" id="ot5"/>
+                                <amx:inputText simple="true" label="Quantity" id="it4" inputType="number"
+                                               value="#{pageFlowScope.pnaDashboardPGBean.itemQuantity}"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl7">
+                            <amx:cellFormat id="cf7">
+                                <amx:outputText value="Price List" id="ot6"/>
+                                <amx:inputText simple="true" label="Price List" id="it5"
+                                               value="#{pageFlowScope.pnaDashboardPGBean.priceList}"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl8">
+                            <amx:cellFormat id="cf8">
+                                <amx:outputText value="Requested Date" id="ot7"/>
+                                <amx:inputDate label="Requested Date" id="id1" simple="true"
+                                               value="#{pageFlowScope.pnaDashboardPGBean.requestedDate}"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl9">
+                            <amx:cellFormat id="cf9" rowSpan="2">
+                                <amx:commandButton text="Search" id="cb5"
+                                                   action="search"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                    </amx:tableLayout>
+
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+        
+    </amx:panelPage>
 </amx:view>
