@@ -1,6 +1,6 @@
 package mobile.json.helper;
 
-import mobile.entity.GetItemNumberLOV;
+import mobile.entity.ItemEntity;
 import mobile.entity.GetPriceListLov;
 import mobile.entity.GetPricingInformation;
 import mobile.entity.MyNewSearch;
@@ -10,7 +10,7 @@ public class EntityArrayToJson {
         super();
     }
     
-    public static String getJsonForItemNumLovEntity(GetItemNumberLOV getItemNumberLov) {
+    public static String getJsonForItemNumLovEntity(ItemEntity getItemNumberLov) {
 
         StringBuffer sb = new StringBuffer();
         sb.append("{");

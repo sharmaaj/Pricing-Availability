@@ -1,27 +1,37 @@
 package mobile.entity;
 
+import java.math.BigDecimal;
+
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
+import oracle.adfmf.json.JSONException;
+import oracle.adfmf.json.JSONObject;
 
-public class GetItemNumberLOV {
+public class ItemEntity {
     
     private String itemNum;
     private String itemDesc;
     private Number orgId;
     private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
 
-    public GetItemNumberLOV() {
+    public ItemEntity() {
         super();
     }
     
     public Object clone() {
 
-        GetItemNumberLOV getItemLov = new GetItemNumberLOV();
+        ItemEntity getItemLov = new ItemEntity();
         getItemLov.setItemNum(itemNum);
         getItemLov.setItemDesc(itemDesc);
         getItemLov.setOrgId(orgId);
         
         return getItemLov;
+    }
+    
+    public ItemEntity(JSONObject temp) throws JSONException {
+        this.setItemNum(temp.getString("ITEMNUM"));
+        this.setOrgId(new BigDecimal(temp.getString("ORGID")));
+        this.setItemDesc(temp.getString("ITEMDESC"));
     }
 
 

@@ -6,8 +6,8 @@ import oracle.adfmf.dc.ws.rest.RestServiceAdapter;
 import oracle.adfmf.framework.api.Model;
 import oracle.adfmf.util.logging.Trace;
 
-public class RestServiceHelperClass {
-    public RestServiceHelperClass() {
+public class RestServiceManager {
+    public RestServiceManager() {
         super();
     }
     

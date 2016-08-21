@@ -1,12 +1,12 @@
 package mobile.json.arraystructure;
 
-import mobile.entity.GetItemNumberLOV;
+import mobile.entity.ItemEntity;
 import mobile.entity.GetPriceListLov;
 import mobile.entity.GetPricingInformation;
 
 public class EntityResultArray {
 
-    private GetItemNumberLOV[] getItemNumLov = null;
+    private ItemEntity[] getItemNumLov = null;
     private GetPriceListLov[] getPriceListLov = null;
     private GetPricingInformation[] getPricingInfo = null;
 
@@ -19,7 +19,7 @@ public class EntityResultArray {
         return getPriceListLov;
     }
 
-    public void setGetItemNumLov(GetItemNumberLOV[] getItemNumLov) {
+    public void setGetItemNumLov(ItemEntity[] getItemNumLov) {
         this.getItemNumLov = getItemNumLov;
     }
 
@@ -36,7 +36,7 @@ public class EntityResultArray {
     }
 
 
-    public GetItemNumberLOV[] getGetItemNumLov() {
+    public ItemEntity[] getGetItemNumLov() {
         return getItemNumLov;
     }
 }

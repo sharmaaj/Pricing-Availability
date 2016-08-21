@@ -13,7 +13,7 @@
     </variableIterator>
     <iterator Binds="root" RangeSize="25" DataControl="PnaDataControl" id="PnaDataControlIterator"/>
     <accessorIterator MasterBinding="PnaDataControlIterator" Binds="getAllItemNumbers" RangeSize="25"
-                      DataControl="PnaDataControl" BeanClass="mobile.entity.GetItemNumberLOV"
+                      DataControl="PnaDataControl" BeanClass="mobile.entity.ItemEntity"
                       id="getAllItemNumbersIterator"/>
   </executables>
   <bindings>

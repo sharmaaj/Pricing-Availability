@@ -3,11 +3,17 @@
              SeparateXMLFiles="false" Package="mobile" ClientType="Generic">
   <pageMap>
     <page path="/dashboard/DashboardPG.amx" usageId="mobile_DashboardPGPageDef"/>
+    <page path="/springboard/Springboard.amx" usageId="mobile_SpringboardPageDef"/>
+    <page path="/LovPage/ItemLOVPG.amx" usageId="mobile_ItemLOVPGPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="mobile_DashboardPGPageDef" path="dashboard.DashboardPGPageDef"/>
+    <page id="mobile_SpringboardPageDef" path="springboard.SpringboardPageDef"/>
+    <page id="mobile_ItemLOVPGPageDef" path="LovPage.ItemLOVPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="ItemLovDC" path="mobile.ItemLovDC"/>
+    <dc id="ApplicationFeatures1" path="ofa.application.ApplicationFeatures"/>
     <dc id="PnaDataControl" path="mobile.PnaDataControl"/>
     <dc id="ApplicationFeatures" path="application.ApplicationFeatures"/>
   </dataControlUsages>

@@ -12,6 +12,11 @@
       <managed-bean-class>mobile.bean.pnaDashboardPGBean</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__12">
+      <managed-bean-name>NavigationListenerBean</managed-bean-name>
+      <managed-bean-class>pna.mobile.navigation.NavigationListener</managed-bean-class>
+      <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
     <view id="DashboardPG">
       <page>/dashboard/DashboardPG.amx</page>
     </view>
@@ -30,6 +35,9 @@
         <fixed-outcome>searchResult</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="ItemLovPG">
+    <page>/LovPage/ItemLOVPG.amx</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>DashboardPG</from-activity-id>
       <control-flow-case id="__2">
@@ -39,6 +47,14 @@
       <control-flow-case id="__9">
         <from-outcome>search</from-outcome>
         <to-activity-id>search</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>searchResults</from-outcome>
+        <to-activity-id>PricingandAvailabilityPG</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>itemLov</from-outcome>
+        <to-activity-id>ItemLovPG</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__5">

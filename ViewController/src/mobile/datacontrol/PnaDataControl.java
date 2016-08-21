@@ -4,14 +4,14 @@ import java.util.Date;
 
 import java.util.List;
 
-import mobile.entity.GetItemNumberLOV;
+import mobile.entity.ItemEntity;
 import mobile.entity.GetPriceListLov;
 import mobile.entity.GetPricingInformation;
 import mobile.entity.MyNewSearch;
 
 import mobile.json.helper.JsonToEntityArray;
 
-import mobile.rest.RestServiceHelperClass;
+import mobile.rest.RestServiceManager;
 import mobile.rest.RestURIs;
 
 public class PnaDataControl {
@@ -21,23 +21,23 @@ public class PnaDataControl {
         super();
     }
 
-    private GetItemNumberLOV[] getAllItemNumbers = null;
+    private ItemEntity[] getAllItemNumbers = null;
     private GetPriceListLov[] getAllPriceList = null;
 
-    public void setGetAllItemNumbers(GetItemNumberLOV[] getAllItemNumbers) {
+    public void setGetAllItemNumbers(ItemEntity[] getAllItemNumbers) {
         this.getAllItemNumbers = getAllItemNumbers;
     }
 
-    public GetItemNumberLOV[] getGetAllItemNumbers() {
+    public ItemEntity[] getGetAllItemNumbers() {
         if (getAllItemNumbers == null) {
 
             String payload = "{ \"POU\" : \"" + null + "\",\"PITEMNUM\" : \"" + null + "\"}";
 
 
             String restURI = RestURIs.getItemNumberLov();
-            RestServiceHelperClass rshc = new RestServiceHelperClass();
+            RestServiceManager rshc = new RestServiceManager();
             String jsonArrayAsString = rshc.invokeUPDATE(restURI, payload);
-            GetItemNumberLOV[] getAllItems = JsonToEntityArray.getItemNumberLovArray(jsonArrayAsString);
+            ItemEntity[] getAllItems = JsonToEntityArray.getItemNumberLovArray(jsonArrayAsString);
             getAllItemNumbers = getAllItems;
 
         }
@@ -45,14 +45,14 @@ public class PnaDataControl {
     }
 
 
-    public GetItemNumberLOV getItemDetailsByItemNumber(String orgId, String itemNumber) {
+    public ItemEntity getItemDetailsByItemNumber(String orgId, String itemNumber) {
 
         String payload = "{ \"POU\" : \"" + orgId + "\",\"PITEMNUM\" : \"" + itemNumber + "\"}";
 
         String restURI = RestURIs.getItemNumberLov();
-        RestServiceHelperClass rshc = new RestServiceHelperClass();
+        RestServiceManager rshc = new RestServiceManager();
         String jsonArrayAsString = rshc.invokeUPDATE(restURI, payload);
-        GetItemNumberLOV[] getItemsdtls = JsonToEntityArray.getItemNumberLovArray(jsonArrayAsString);
+        ItemEntity[] getItemsdtls = JsonToEntityArray.getItemNumberLovArray(jsonArrayAsString);
         //    getAllItemNumbers = getAllItems;
 
         if (getItemsdtls.length > 0) {
@@ -73,7 +73,7 @@ public class PnaDataControl {
 
 
             String restURI = RestURIs.getItemNumberLov();
-            RestServiceHelperClass rshc = new RestServiceHelperClass();
+            RestServiceManager rshc = new RestServiceManager();
             String jsonArrayAsString = rshc.invokeUPDATE(restURI, payload);
             GetPriceListLov[] getAllPriceListLt = JsonToEntityArray.getPriceListLovArray(jsonArrayAsString);
             getAllPriceList = getAllPriceListLt;
@@ -88,7 +88,7 @@ public class PnaDataControl {
 
 
         String restURI = RestURIs.getItemNumberLov();
-        RestServiceHelperClass rshc = new RestServiceHelperClass();
+        RestServiceManager rshc = new RestServiceManager();
         String jsonArrayAsString = rshc.invokeUPDATE(restURI, payload);
         GetPriceListLov[] getAllPriceListLt = JsonToEntityArray.getPriceListLovArray(jsonArrayAsString);
         //     getAllPriceList = getAllPriceListLt;
@@ -105,7 +105,7 @@ public class PnaDataControl {
 
 
         String restURI = RestURIs.getItemNumberLov();
-        RestServiceHelperClass rshc = new RestServiceHelperClass();
+        RestServiceManager rshc = new RestServiceManager();
         String jsonArrayAsString = rshc.invokeUPDATE(restURI, payload);
         GetPricingInformation[] getAllPriceListLt = JsonToEntityArray.getPricingInforamation(jsonArrayAsString);
         //     getAllPriceList = getAllPriceListLt;

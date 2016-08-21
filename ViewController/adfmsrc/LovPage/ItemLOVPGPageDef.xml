@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.1.20" id="ItemLOVPGPageDef"
+                Package="LovPage">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="ItemLovDC" id="ItemLovDCIterator"/>
+    <accessorIterator MasterBinding="ItemLovDCIterator" Binds="itemDetails" RangeSize="25" DataControl="ItemLovDC"
+                      BeanClass="mobile.entity.ItemEntity" id="itemDetailsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="itemDetailsIterator" id="itemDetails">
+      <nodeDefinition DefName="mobile.entity.ItemEntity" Name="itemDetails0">
+        <AttrNames>
+          <Item Value="itemNum"/>
+          <Item Value="itemDesc"/>
+          <Item Value="orgId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="refreshItems" RequiresUpdateModel="true" Action="invokeMethod" MethodName="refreshItems"
+                  IsViewObjectMethod="false" DataControl="ItemLovDC" InstanceName="data.ItemLovDC.dataProvider"/>
+  </bindings>
+</pageDefinition>

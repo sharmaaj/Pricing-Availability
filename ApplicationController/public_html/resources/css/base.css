@@ -1,3 +1,72 @@
 @charset "windows-1252";
 
 @import url("../font-awesome-4.6.3/css/font-awesome.css");
+
+@import url("../font-awesome-4.6.3/css/font-awesome.min.css");
+
+.springboard-cell-border {
+    border-bottom-color: #86bc25;
+    border-bottom-style: solid !important;
+    border-bottom-width: thin;
+}
+
+.cell-header {
+    background-color: Black;
+    border-top-color: #86bc25;
+    border-top-style: solid !important;
+}
+
+.amx-panelPage-header {
+    background: black;
+}
+
+.amx-panelPage-footer {
+    background: black;
+}
+
+.amx-android-generic .amx-listItem, .amx-android-chrome .amx-listItem {
+    padding-top: 3px;
+    padding-bottom: 2px;
+    width: 394px;
+}
+
+.sub-header {
+    background-color: White;
+    border-top-color: #86bc25;
+    border-top-style: solid !important;
+    border-top: #86bc25 ;
+    border-bottom: #86bc25;
+    border-bottom-style: solid !important;
+    
+}
+
+.commandButton {
+                -webkit-appearance: none;
+                width: 100%;
+                height: 33px;
+                padding: 0px 10px;
+                border-radius: 2px;
+                border-width: 0;
+                background-color: #86BC25;
+                color: #FFFFFF;
+            }
+
+.cell-border {
+    background-color: White;
+    border-top-color: #808080;
+    border-top-style: solid !important;
+    border-top: #808080 ;
+    border-bottom: #808080;
+    border-bottom-style: solid !important;
+    border-right: #808080;
+    border-right-style: solid !important;
+    border-left: #808080;
+    border-left-style: solid !important;
+    border-width: thin;
+    
+}
+
+
+.iconstyle-buttonBackground{
+    background: Black;
+}

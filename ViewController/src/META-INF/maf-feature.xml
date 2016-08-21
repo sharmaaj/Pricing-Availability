@@ -2,7 +2,11 @@
 <adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
   <adfmf:feature id="dashboard" name="Pricing &amp; Availability Dashboard" securityEnabled="true">
     <adfmf:content id="dashboard.1">
-      <adfmf:amx file="dashboard/Dashboard-task-flow.xml#Dashboard-task-flow"/>
+      <adfmf:amx file="dashboard/Dashboard-task-flow.xml#Dashboard-task-flow">
+        <adfmf:includes>
+          <adfmf:include type="JavaScript" file="js/Alert.js" id="i1"/>
+        </adfmf:includes>
+      </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
   <adfmf:feature id="myCart" name="My Cart" securityEnabled="true">

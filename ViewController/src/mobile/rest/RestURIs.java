@@ -39,8 +39,10 @@ public class RestURIs {
         return "/v1/checkUserType";
     }
     
+    private static final String ITEM_DETAILS_URI = "/v1/getItemNumber";
+    
     public static String getItemNumberLov() {
-        return "/v1/getItemNumber";
+        return ITEM_DETAILS_URI;
     }
     
     public static String getPriceListLov() {
