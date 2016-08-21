@@ -3,7 +3,7 @@ package mobile.json.helper;
 import java.util.logging.Level;
 
 import mobile.entity.ItemEntity;
-import mobile.entity.GetPriceListLov;
+import mobile.entity.PriceListEntity;
 import mobile.entity.GetPricingInformation;
 import mobile.entity.MyNewSearch;
 
@@ -34,7 +34,7 @@ public class JsonToEntityArray {
         return getItemNumberLov.getGetItemNumLov();
     }
    
-    public static GetPriceListLov[] getPriceListLovArray(String jsonArrayAsString) {
+    public static PriceListEntity[] getPriceListLovArray(String jsonArrayAsString) {
         EntityResultArray getPriceListLov = null;
 
         //object that serializes the JSON payload into the Java object

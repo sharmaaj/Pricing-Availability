@@ -1,21 +1,30 @@
 package mobile.entity;
 
+import java.math.BigDecimal;
+
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
+import oracle.adfmf.json.JSONException;
+import oracle.adfmf.json.JSONObject;
 
-public class GetPriceListLov {
+public class PriceListEntity {
     
     private String listName;
     private String LISTDESC;
     private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
 
-    public GetPriceListLov() {
+    public PriceListEntity() {
         super();
+    }
+    
+    public PriceListEntity(JSONObject temp) throws JSONException {
+        this.setLISTDESC(temp.getString("LISTDESC"));
+        this.setListName(temp.getString("LISTNAME"));
     }
     
     public Object clone() {
 
-        GetPriceListLov getPriceListLov = new GetPriceListLov();
+        PriceListEntity getPriceListLov = new PriceListEntity();
         getPriceListLov.setListName(listName);
         getPriceListLov.setLISTDESC(LISTDESC);
         

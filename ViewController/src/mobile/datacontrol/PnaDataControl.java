@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import mobile.entity.ItemEntity;
-import mobile.entity.GetPriceListLov;
+import mobile.entity.PriceListEntity;
 import mobile.entity.GetPricingInformation;
 import mobile.entity.MyNewSearch;
 
@@ -22,7 +22,7 @@ public class PnaDataControl {
     }
 
     private ItemEntity[] getAllItemNumbers = null;
-    private GetPriceListLov[] getAllPriceList = null;
+    private PriceListEntity[] getAllPriceList = null;
 
     public void setGetAllItemNumbers(ItemEntity[] getAllItemNumbers) {
         this.getAllItemNumbers = getAllItemNumbers;
@@ -62,11 +62,11 @@ public class PnaDataControl {
     }
 
 
-    public void setGetAllPriceList(GetPriceListLov[] getAllPriceList) {
+    public void setGetAllPriceList(PriceListEntity[] getAllPriceList) {
         this.getAllPriceList = getAllPriceList;
     }
 
-    public GetPriceListLov[] getGetAllPriceList1() {
+    public PriceListEntity[] getGetAllPriceList1() {
         if (getAllPriceList == null) {
 
             String payload = "{ \"PORGID\" : \"" + null + "\",\"PITEMNUM\" : \"" + null + "\"}";
@@ -75,14 +75,14 @@ public class PnaDataControl {
             String restURI = RestURIs.getItemNumberLov();
             RestServiceManager rshc = new RestServiceManager();
             String jsonArrayAsString = rshc.invokeUPDATE(restURI, payload);
-            GetPriceListLov[] getAllPriceListLt = JsonToEntityArray.getPriceListLovArray(jsonArrayAsString);
+            PriceListEntity[] getAllPriceListLt = JsonToEntityArray.getPriceListLovArray(jsonArrayAsString);
             getAllPriceList = getAllPriceListLt;
 
         }
         return getAllPriceList;
     }
 
-    public GetPriceListLov getGetAllPriceList(Number orgId, String ItemNum) {
+    public PriceListEntity getGetAllPriceList(Number orgId, String ItemNum) {
 
         String payload = "{ \"PORGID\" : \"" + orgId + "\",\"PITEMNUM\" : \"" + ItemNum + "\"}";
 
@@ -90,7 +90,7 @@ public class PnaDataControl {
         String restURI = RestURIs.getItemNumberLov();
         RestServiceManager rshc = new RestServiceManager();
         String jsonArrayAsString = rshc.invokeUPDATE(restURI, payload);
-        GetPriceListLov[] getAllPriceListLt = JsonToEntityArray.getPriceListLovArray(jsonArrayAsString);
+        PriceListEntity[] getAllPriceListLt = JsonToEntityArray.getPriceListLovArray(jsonArrayAsString);
         //     getAllPriceList = getAllPriceListLt;
 
         if (getAllPriceListLt.length > 0) {

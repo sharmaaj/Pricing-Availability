@@ -15,6 +15,9 @@
     <accessorIterator MasterBinding="PnaDataControlIterator" Binds="getAllItemNumbers" RangeSize="25"
                       DataControl="PnaDataControl" BeanClass="mobile.entity.ItemEntity"
                       id="getAllItemNumbersIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="PriceListDC" id="PriceListDCIterator"/>
+    <accessorIterator MasterBinding="PriceListDCIterator" Binds="priceList" RangeSize="-1" DataControl="PriceListDC"
+                      BeanClass="mobile.entity.PriceListEntity" id="priceListIterator"/>
   </executables>
   <bindings>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
@@ -55,6 +58,18 @@
       <AttrNames>
         <Item Value="itemNum"/>
       </AttrNames>
+    </list>
+    <list IterBinding="PriceListDCIterator" id="LISTDESC" DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="false" ListIter="priceListIterator">
+      <AttrNames>
+        <Item Value="priceList"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="listName"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="LISTDESC"/>
+      </ListDisplayAttrNames>
     </list>
   </bindings>
 </pageDefinition>

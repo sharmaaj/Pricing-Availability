@@ -3,33 +3,28 @@ package mobile.datacontrol;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.logging.Level;
-
 import javax.el.ValueExpression;
 
 import mobile.entity.ItemEntity;
+import mobile.entity.PriceListEntity;
 
-import mobile.rest.RestURIs;
 import mobile.rest.RestServiceManager;
+import mobile.rest.RestURIs;
 
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
-import oracle.adfmf.java.beans.PropertyChangeSupport;
-import oracle.adfmf.java.beans.ProviderChangeSupport;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONObject;
 
-public class ItemLovDC {
-    public ItemLovDC() {
+public class PriceListDC {
+    public PriceListDC() {
         super();
     }
-    private static List<ItemEntity> s_ItemList;
-    private transient ProviderChangeSupport providerChangeSupport = new ProviderChangeSupport(this);
-    private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
-    public ItemEntity[] getItemDetails() {
+    private static List<PriceListEntity> s_PriceList;
+    public PriceListEntity[] getPriceList() {
         ValueExpression ve = null;
-        s_ItemList = new ArrayList<ItemEntity>();
-        s_ItemList.clear();
-        ItemEntity[] itemDetailsArray = null;
+        s_PriceList = new ArrayList<PriceListEntity>();
+        s_PriceList.clear();
+        PriceListEntity[] priceListArray = null;
         String itemId = null;
         String orgId = null;
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
@@ -49,40 +44,19 @@ public class ItemLovDC {
             int size = nodeArray.length();
             for (int i = 0; i < size; i++) {
                 JSONObject temp = nodeArray.getJSONObject(i);
-                ItemEntity item = new ItemEntity(temp);
-                s_ItemList.add(item);
+                PriceListEntity priceList = new PriceListEntity(temp);
+                s_PriceList.add(priceList);
             }
         } catch (Exception e) {
             e.getMessage();
             e.printStackTrace();
         }
-        itemDetailsArray = (ItemEntity[]) s_ItemList.toArray(new ItemEntity[s_ItemList.size()]);
-        if (s_ItemList.size() != 0) {
+        priceListArray = (PriceListEntity[]) s_PriceList.toArray(new PriceListEntity[s_PriceList.size()]);
+        if (s_PriceList.size() != 0) {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.ItemServiceResults}", "");
         } else {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.ItemServiceResults}", "No Search Results");
         }
-        return itemDetailsArray;
+        return priceListArray;
     }
-
-    public void setProviderChangeSupport(ProviderChangeSupport providerChangeSupport) {
-        this.providerChangeSupport = providerChangeSupport;
-    }
-
-    public ProviderChangeSupport getProviderChangeSupport() {
-        return providerChangeSupport;
-    }
-
-    public void setPropertyChangeSupport(PropertyChangeSupport propertyChangeSupport) {
-        this.propertyChangeSupport = propertyChangeSupport;
-    }
-
-    public PropertyChangeSupport getPropertyChangeSupport() {
-        return propertyChangeSupport;
-    }
-
-    public void refreshItems() {
-        providerChangeSupport.fireProviderRefresh("itemDetails");
-    }
-
 }

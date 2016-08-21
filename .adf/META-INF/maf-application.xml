@@ -15,7 +15,7 @@
     </adfmf:springboard>
     <adfmf:navigationBar enabled="false"/>
   </adfmf:navigation>
-  <adfmf:login defaultConnRefId="EBSSecurity">
+  <adfmf:login>
     <adfmf:localHTML url="Login.html"/>
   </adfmf:login>
 </adfmf:application>

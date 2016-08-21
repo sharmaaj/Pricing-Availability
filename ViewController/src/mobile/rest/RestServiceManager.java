@@ -50,7 +50,7 @@ public class RestServiceManager {
         RestServiceAdapter restServiceAdapter = Model.createRestServiceAdapter();
         restServiceAdapter.clearRequestProperties();
         //bioConnection URL :http://ussltcsnl3432.solutions.glbsnet.com:7004/
-        restServiceAdapter.setConnectionName("snet");
+        restServiceAdapter.setConnectionName("SNET");
 
         //set GET, POST, DELETE, PUT
         restServiceAdapter.setRequestType(httpMethod);
