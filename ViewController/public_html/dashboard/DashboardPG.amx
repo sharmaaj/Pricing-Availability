@@ -19,13 +19,23 @@
         </amx:facet>
         <amx:tableLayout id="tl1" width="100%">
             <amx:rowLayout id="rl1">
-                <amx:cellFormat valign="middle" id="cf1" width="50%" styleClass="sub-header">
-                    <amx:commandLink actionListener="#{pageFlowScope.pnaDashboardPGBean.whenMyNewSearchTabClicked}"
-                                     text="My New Search" styleClass="label" inlineStyle="color:#000000;"/>
+                <amx:cellFormat valign="middle" id="cf1" height="50px" width="50%"
+                                styleClass="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass}">
+                    <amx:commandLink text="My New Search" styleClass="label" inlineStyle="color:#000000;">
+                        <amx:setPropertyListener from="sub-header" to="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass}"
+                                                 type="action" id="spl1"/>
+                        <amx:setPropertyListener from="sub-header-disable" to="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass}"
+                                                 type="action" id="spl2"/>
+                    </amx:commandLink>
                 </amx:cellFormat>
-                <amx:cellFormat valign="middle" id="cf2" width="50%" styleClass="sub-header">
-                    <amx:commandLink actionListener="#{pageFlowScope.pnaDashboardPGBean.whenSearchHistoryTabClicked}"
-                                     text="Search History" styleClass="label" inlineStyle="color:#000000;"/>
+                <amx:cellFormat valign="middle" id="cf2" height="50px" width="50%"
+                                styleClass="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass}">
+                    <amx:commandLink text="Search History" styleClass="label" inlineStyle="color:#000000;">
+                        <amx:setPropertyListener from="sub-header" to="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass}"
+                                                 type="action" id="spl3"/>
+                        <amx:setPropertyListener from="sub-header-disable" to="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass}"
+                                                 type="action" id="spl4"/>
+                    </amx:commandLink>
                 </amx:cellFormat>
             </amx:rowLayout>
         </amx:tableLayout>
@@ -34,8 +44,8 @@
                 <amx:tableLayout id="tl3" width="100%">
                     <amx:rowLayout id="rl10">
                         <amx:cellFormat height="40px" styleClass="cell-border" id="cf11" width="90%">
-                            <amx:inputText hintText="Enter Item Number" inlineStyle="text-align:left;color:#808080;"
-                                           id="it6" inputType="text" value="#{pageFlowScope.searchKeyword}"/>
+                            <amx:inputText hintText="Enter Item Number" styleClass="inputTextValue" id="it6"
+                                           inputType="text" value="#{pageFlowScope.searchKeyword}"/>
                         </amx:cellFormat>
                         <amx:cellFormat styleClass="cell-border" id="cf12">
                             <amx:spacer width="10" id="s14"/>
@@ -82,7 +92,7 @@
             <amx:panelLabelAndMessage styleClass="label" label="Requested Date" id="plam3">
                 <amx:tableLayout id="tl8" width="100%">
                     <amx:rowLayout id="rl13">
-                        <amx:cellFormat id="cf15" height="40px" styleClass="cell-border">
+                        <amx:cellFormat id="cf15" height="40px" width="100%" styleClass="cell-border">
                             <amx:inputDate inlineStyle="text-align:left;color:#808080;" id="it8" inputType="date"
                                            value="#{pageFlowScope.requestedDate}"/>
                         </amx:cellFormat>

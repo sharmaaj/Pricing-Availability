@@ -35,7 +35,7 @@
     <RefAddresses>
       <XmlRefAddr addrType="SNET">
         <Contents>
-          <restconnection name="SNET" url="http://10.118.37.123:7002/pna"/>
+          <restconnection name="SNET" url="http://10.118.37.123:7004/pna"/>
         </Contents>
       </XmlRefAddr>
     </RefAddresses>

@@ -20,7 +20,7 @@
                            label="Item Number" id="it3"/>
         </amx:panelFormLayout>
         <amx:commandButton shortDesc="Search" actionListener="#{bindings.refreshItems.execute}"
-                           styleClass="commandButton" text="Search" id="cb2"/>
+                           styleClass="commandLink" text="Search" id="cb2"/>
         <amx:outputText id="ot3" value="#{pageFlowScope.ItemServiceResults}"
                         inlineStyle="text-align:left;color:#808080;"/>
         <amx:listView var="row" value="#{bindings.itemDetails.collectionModel}"
@@ -29,7 +29,7 @@
                       initialScrollRowKeys="#{bindings.itemDetails.collectionModel.selectedRow}"
                       selectionListener="#{bindings.itemDetails.collectionModel.makeCurrent}"
                       showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1" layout="cards">
-            <amx:listItem action="__back" showLinkIcon="false" id="li1">
+            <amx:listItem action="__back" actionListener="#{bindings.fetchPriceList.execute}"  showLinkIcon="false" id="li1">
                 <amx:tableLayout width="100%" id="tl1">
                     <amx:rowLayout id="rl1">
                         <amx:cellFormat width="20px" rowSpan="2" id="cf5"/>
@@ -49,6 +49,7 @@
                 <amx:setPropertyListener from="#{row.itemNum}" type="action" to="#{pageFlowScope.searchKeyword}"
                                          id="spl1"/>
                 <amx:setPropertyListener from="#{row.itemDesc}" type="action" to="#{pageFlowScope.itemDesc}" id="spl2"/>
+                <amx:setPropertyListener from="#{row.orgId}" type="action" to="#{pageFlowScope.orgId}" id="spl3"/>
             </amx:listItem>
         </amx:listView>
     </amx:panelPage>

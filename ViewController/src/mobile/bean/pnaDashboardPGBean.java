@@ -6,16 +6,43 @@ import mobile.PnABeanClass;
 
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
+import oracle.adfmf.java.beans.PropertyChangeListener;
+import oracle.adfmf.java.beans.PropertyChangeSupport;
 
 public class pnaDashboardPGBean {
+    private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
+
     public pnaDashboardPGBean() {
         super();
     }
     
     private  Boolean myNewSearchFlag = true;
     private Boolean searchHistoryFlag = false;
+    private String newSearchTabClass = "sub-header";
+    private String searchHistoryTabClass = "sub-header-disable";
     private Number itemNumber;
     private Number itemQuantity;
+
+    public void setNewSearchTabClass(String newSearchTabClass) {
+        String oldNewSearchTabClass = this.newSearchTabClass;
+        this.newSearchTabClass = newSearchTabClass;
+        _propertyChangeSupport.firePropertyChange("newSearchTabClass", oldNewSearchTabClass, newSearchTabClass);
+    }
+
+    public String getNewSearchTabClass() {
+        return newSearchTabClass;
+    }
+
+    public void setSearchHistoryTabClass(String searchHistoryTabClass) {
+        String oldSearchHistoryTabClass = this.searchHistoryTabClass;
+        this.searchHistoryTabClass = searchHistoryTabClass;
+        _propertyChangeSupport.firePropertyChange("searchHistoryTabClass", oldSearchHistoryTabClass,
+                                                  searchHistoryTabClass);
+    }
+
+    public String getSearchHistoryTabClass() {
+        return searchHistoryTabClass;
+    }
     private Number priceList;
     private String itemDesc;
     private String cutomerNumber;
@@ -104,5 +131,13 @@ public class pnaDashboardPGBean {
 
     public void onSearchButtonClick() {
         // Add event code here...
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        _propertyChangeSupport.addPropertyChangeListener(l);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        _propertyChangeSupport.removePropertyChangeListener(l);
     }
 }

@@ -29,18 +29,18 @@ public class PriceListDC {
         String orgId = null;
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
         itemId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.org}", String.class);
+        if(itemId != null && !"".equals(itemId)){
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orgId}", String.class);
         orgId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         String restURI = RestURIs.getItemNumberLov();
         RestServiceManager rcu = new RestServiceManager();
-        String payload = "{\n"  + "\"POU\" : \"Vision Operations\",\n" + "\"PITEMNUM\" : \"" + itemId + "\"\n" + "}";
+        String payload = "{\n"  + "\"PORGID\" : \""+orgId+"\",\n" + "\"PITEMNUM\" : \"" + itemId + "\"\n" + "}";
         System.out.println("paylod is "+payload);
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
         try {
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
-            JSONObject parentNode = (JSONObject) jsonObject.get("XITEM");
-            JSONArray nodeArray = parentNode.getJSONArray("XITEM_ITEM");
+            JSONObject parentNode = (JSONObject) jsonObject.get("XPRICELIST");
+            JSONArray nodeArray = parentNode.getJSONArray("XPRICELIST_ITEM");
             int size = nodeArray.length();
             for (int i = 0; i < size; i++) {
                 JSONObject temp = nodeArray.getJSONObject(i);
@@ -51,6 +51,7 @@ public class PriceListDC {
             e.getMessage();
             e.printStackTrace();
         }
+        }
         priceListArray = (PriceListEntity[]) s_PriceList.toArray(new PriceListEntity[s_PriceList.size()]);
         if (s_PriceList.size() != 0) {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.ItemServiceResults}", "");
@@ -58,5 +59,8 @@ public class PriceListDC {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.ItemServiceResults}", "No Search Results");
         }
         return priceListArray;
+    }
+    public void fetchPriceList(){
+        this.getPriceList();
     }
 }

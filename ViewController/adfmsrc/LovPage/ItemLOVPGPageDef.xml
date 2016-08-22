@@ -20,5 +20,7 @@
     </tree>
     <methodAction id="refreshItems" RequiresUpdateModel="true" Action="invokeMethod" MethodName="refreshItems"
                   IsViewObjectMethod="false" DataControl="ItemLovDC" InstanceName="data.ItemLovDC.dataProvider"/>
+    <methodAction id="fetchPriceList" RequiresUpdateModel="true" Action="invokeMethod" MethodName="fetchPriceList"
+                  IsViewObjectMethod="false" DataControl="PriceListDC" InstanceName="data.PriceListDC.dataProvider"/>
   </bindings>
 </pageDefinition>
