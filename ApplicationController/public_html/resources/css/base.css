@@ -67,6 +67,15 @@
     color: #808080;
 }
 
+.amx-inputDate-text{
+    text-align: left;
+    color: #808080;
+}
+
+.selectItemsContainer{
+    text-align: left;
+    color: #808080;
+}
 .commandLink {
                 -webkit-appearance: none;
                 width: 85%;

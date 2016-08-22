@@ -103,7 +103,7 @@
                 <amx:tableLayout id="tl2" width="100%">
                     <amx:rowLayout id="rl2">
                         <amx:cellFormat id="cf3" height="40px" styleClass="cell-border">
-                            <amx:selectOneChoice value="#{bindings.LISTDESC.inputValue}" id="soc1">
+                            <amx:selectOneChoice value="#{bindings.LISTDESC.inputValue}"  inlineStyle="text-align:left;color:#808080;" id="soc1">
                                 <amx:selectItem label="Choose" value="0" id="si4"/>
                                 <amx:selectItems value="#{bindings.LISTDESC.items}" id="si1"/>
                             </amx:selectOneChoice>
