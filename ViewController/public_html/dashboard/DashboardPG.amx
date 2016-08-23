@@ -18,7 +18,7 @@
             </amx:commandLink>
         </amx:facet>
         
-<!--New Search Page Section Begins -->
+<!--Header Section Ebds -->
         <amx:tableLayout id="tl1" width="100%">
             <amx:rowLayout id="rl1">
                 <amx:cellFormat valign="middle" id="cf1" height="50px" width="50%"
@@ -34,7 +34,8 @@
                 </amx:cellFormat>
                 <amx:cellFormat valign="middle" id="cf2" height="50px" width="50%"
                                 styleClass="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass}">
-                    <amx:commandLink text="Search History" styleClass="label" inlineStyle="color:#000000;">
+                    <amx:commandLink text="Search History" styleClass="label" inlineStyle="color:#000000;"
+                                     actionListener="#{NavigationListenerBean.getSearchHistory}">
                         <amx:setPropertyListener from="sub-header"
                                                  to="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass}"
                                                  type="action" id="spl3"/>
@@ -45,6 +46,9 @@
                 </amx:cellFormat>
             </amx:rowLayout>
         </amx:tableLayout>
+<!--Header Section Ebds -->
+        
+<!--New Search Page Section Begins -->
         <amx:panelFormLayout id="pfl1" labelPosition="topStart">
             <amx:panelLabelAndMessage styleClass="label" label="Item Number" id="plm1">
                 <amx:tableLayout id="tl3" width="90%">

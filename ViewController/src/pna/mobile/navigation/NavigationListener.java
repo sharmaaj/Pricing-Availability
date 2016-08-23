@@ -4,6 +4,7 @@ import mobile.datacontrol.CheckUserDC;
 
 import mobile.datacontrol.SearchHistoryDC;
 
+import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 
@@ -45,9 +46,8 @@ public class NavigationListener {
         }
     }
 
-    public void validateAndNavigateSearchHistory() {
+    public void getSearchHistory(ActionEvent actionEvent) {
         SearchHistoryDC scd = new SearchHistoryDC();
         scd.getSearchHistory();
     }
-
 }
