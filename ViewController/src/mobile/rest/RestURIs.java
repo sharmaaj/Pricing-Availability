@@ -3,49 +3,59 @@ package mobile.rest;
 import java.util.Date;
 
 public class RestURIs {
+    
+    private static final String USER_TYPE_URI = "/v1/User/checkUserType";
+    private static final String ITEM_DETAILS_URI = "/v1/Item/getItemLov";
+    private static final String PRICE_LIST_URI = "/v1/PriceList/getPriceListLov";
+    private static final String PRICING_INFO_URI = "/v1/Pricing/getPricingInformation";
+    private static final String CREATE_ORDER_URI = "/v1/Order/createOrder";
+    private static final String ADD_TO_CART_URI = "/v1/Cart/addToCart";
+    private static final String ADD_ITEM_QTY_URI = "/v1/addQtyItemCart";
+    private static final String APPLY_DISCOUNT_URI = "/v1/Discount/applyDiscount";
+    private static final String DELETE_ITEM_URI = "/v1/CartItem/deleteItemFromCart";
+    private static final String SEARCH_HISTORY_URI = "/v1/Search/getSearchHistory";
+    
     public RestURIs() {
         super();
     }
     
     public static String addToCart() {
-        return "/v1/addToCart";
+        return ADD_TO_CART_URI;
     }
     
     public static String addQtyItemToCart() {
-        return "/v1/addQtyItemCart";
+        return ADD_ITEM_QTY_URI;
     }
     
     public static String applyDiscount() {
-        return "/v1/applyDiscount";
+        return APPLY_DISCOUNT_URI;
     }
 
     public static String deleteItemFromCart() {
-        return "/v1/deleteItemFromCart";
+        return DELETE_ITEM_URI;
     }
 
     public static String createOrder() {
-        return "/v1/createOrder";
+        return CREATE_ORDER_URI;
     }
     
     public static String getPricingInformation() {
-        return "/v1/getPricingInformation";
+        return PRICING_INFO_URI;
     }
     
     public static String getSearchHistory() {
-        return "/v1/getSearchHistory";
+        return SEARCH_HISTORY_URI;
     }
     
     public static String checkUserType() {
-        return "/v1/checkUserType";
+        return USER_TYPE_URI;
     }
-    
-    private static final String ITEM_DETAILS_URI = "/v1/getItemLov";
     
     public static String getItemNumberLov() {
         return ITEM_DETAILS_URI;
     }
     
     public static String getPriceListLov() {
-        return "/v1/getPriceList";
+        return PRICE_LIST_URI;
     }
 }
