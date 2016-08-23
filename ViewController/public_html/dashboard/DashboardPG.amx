@@ -41,9 +41,9 @@
         </amx:tableLayout>
         <amx:panelFormLayout id="pfl1" labelPosition="topStart">
             <amx:panelLabelAndMessage styleClass="label" label="Item Number" id="plm1">
-                <amx:tableLayout id="tl3" width="100%">
+                <amx:tableLayout id="tl3" width="90%">
                     <amx:rowLayout id="rl10">
-                        <amx:cellFormat height="40px" styleClass="cell-border" id="cf11" width="90%">
+                        <amx:cellFormat height="40px" styleClass="cell-border" id="cf11" width="80%">
                             <amx:inputText hintText="Enter Item Number" styleClass="inputTextValue" id="it6"
                                            inputType="text" value="#{pageFlowScope.searchKeyword}"/>
                         </amx:cellFormat>
@@ -59,7 +59,7 @@
             </amx:panelLabelAndMessage>
             <amx:panelLabelAndMessage styleClass="label" label="Item Description" inlineStyle="text-align:center;"
                                       id="plam6">
-                <amx:tableLayout id="tl4" width="100%">
+                <amx:tableLayout id="tl4" width="90%">
                     <amx:rowLayout id="rl11">
                         <amx:cellFormat height="40px" styleClass="cell-border" id="cf13">
                             <amx:spacer id="s1"/>
@@ -70,7 +70,7 @@
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
             <amx:panelLabelAndMessage styleClass="label" label="Customer Number" id="plam1">
-                <amx:tableLayout id="tl6" width="100%">
+                <amx:tableLayout id="tl6" width="90%">
                     <amx:rowLayout id="rl6">
                         <amx:cellFormat id="cf6" height="40px" styleClass="cell-border">
                             <amx:inputText hintText="Enter Customer Number" inlineStyle="text-align:left;color:#808080;"
@@ -80,7 +80,7 @@
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
             <amx:panelLabelAndMessage styleClass="label" label="Quantity" id="plam2">
-                <amx:tableLayout id="tl7" width="100%">
+                <amx:tableLayout id="tl7" width="90%">
                     <amx:rowLayout id="rl12">
                         <amx:cellFormat id="cf14" height="40px" styleClass="cell-border">
                             <amx:inputText hintText="Enter Quantity" inlineStyle="text-align:left;color:#808080;"
@@ -90,7 +90,7 @@
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
             <amx:panelLabelAndMessage styleClass="label" label="Requested Date" id="plam3">
-                <amx:tableLayout id="tl8" width="100%">
+                <amx:tableLayout id="tl8" width="90%">
                     <amx:rowLayout id="rl13">
                         <amx:cellFormat id="cf15" height="40px" width="100%" styleClass="cell-border">
                             <amx:inputDate inlineStyle="text-align:left;color:#808080;" id="it8" inputType="date"
@@ -100,7 +100,7 @@
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
             <amx:panelLabelAndMessage styleClass="label" label="Price List" id="plam4">
-                <amx:tableLayout id="tl2" width="100%">
+                <amx:tableLayout id="tl2" width="90%">
                     <amx:rowLayout id="rl2">
                         <amx:cellFormat id="cf3" height="40px" styleClass="cell-border">
                             <amx:selectOneChoice value="#{bindings.LISTDESC.inputValue}"  inlineStyle="text-align:left;color:#808080;" id="soc1">

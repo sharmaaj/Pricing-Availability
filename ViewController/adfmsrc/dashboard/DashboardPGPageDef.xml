@@ -68,6 +68,7 @@
         <Item Value="listName"/>
       </ListAttrNames>
       <ListDisplayAttrNames>
+        <Item Value="listName"/>
         <Item Value="LISTDESC"/>
       </ListDisplayAttrNames>
     </list>
