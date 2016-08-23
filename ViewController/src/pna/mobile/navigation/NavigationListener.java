@@ -30,14 +30,14 @@ public class NavigationListener {
      cud.getUserTypeInfo();
      
         String userTypeInfo =
-            AdfmfJavaUtilities.getELValue("#{sessionScope.UserType}") == null ? "" :
-            AdfmfJavaUtilities.getELValue("#{sessionScope.UserType}").toString();
+            AdfmfJavaUtilities.getELValue("#{applicationScope.UserType}") == null ? "" :
+            AdfmfJavaUtilities.getELValue("#{applicationScope.UserType}").toString();
         
             if(userTypeInfo.equalsIgnoreCase("INTERNAL"))
                 return "internalUser";
             else if (userTypeInfo.equalsIgnoreCase("EXTERNAL"))
                return "externalUser";
-            else
+            else{
                 return "noUserFound";
      
     }

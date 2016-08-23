@@ -11,6 +11,7 @@ import mobile.entity.ItemEntity;
 import mobile.rest.RestServiceManager;
 import mobile.rest.RestURIs;
 
+import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.java.beans.ProviderChangeSupport;
@@ -41,32 +42,46 @@ public class CheckUserDC {
         String payload = "{\n"  + "\"PIV_USER_NAME\" : \"" +userName + "\"\n" +  "}";
         System.out.println("paylod is "+payload);
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
-        
+        String status = null;
         try {
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
-            JSONObject parentNode = (JSONObject) jsonObject.get("POUT_STATUS");
-            JSONArray nodeArray = parentNode.getJSONArray("POUT_STATUS_USER");
-            int size = nodeArray.length();
-            for (int i = 0; i < size; i++) {
-                JSONObject temp = nodeArray.getJSONObject(i);
-                CheckUser checkUsr = new CheckUser(temp);
-                s_CheckUserList.add(checkUsr);
-            }
+//            JSONObject parentNode = (JSONObject) jsonObject.get("POUT_STATUS");
+            status = jsonObject.getString("POUT_STATUS");
+//            JSONArray nodeArray = parentNode.getJSONArray("POUT_STATUS_USER");
+//            int size = nodeArray.length();
+//            for (int i = 0; i < size; i++) {
+//                JSONObject temp = nodeArray.getJSONObject(i);
+//                CheckUser checkUsr = new CheckUser(temp);
+//                s_CheckUserList.add(checkUsr);
+//            }
         } catch (Exception e) {
             e.getMessage();
             e.printStackTrace();
         }
-        
-        userTypeArray = (CheckUser[]) s_CheckUserList.toArray(new CheckUser[s_CheckUserList.size()]);
-        
-        if (s_CheckUserList.size() != 0) {   
-          if(s_CheckUserList.get(0).getUserTypeStatus().equalsIgnoreCase("SUCCESS"))
-            AdfmfJavaUtilities.setELValue("#{sessionScope.UserType}", "INTERNAL");
-          else if (s_CheckUserList.get(0).getUserTypeStatus().equalsIgnoreCase("FAILURE"))
-            AdfmfJavaUtilities.setELValue("#{sessionScope.UserType}", "EXTERNAL");
-        } else {
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.UserType}", "USER NOT FOUND");
+        if(status.equalsIgnoreCase("INTERNAL_USER")){
+            AdfmfJavaUtilities.setELValue("#{applicationScope.UserType}", "INTERNAL");
+        }else if (status.equalsIgnoreCase("EXTERNAL_USER")){
+            AdfmfJavaUtilities.setELValue("#{applicationScope.UserType}", "EXTERNAL");
+        }else {
+            AdfmfJavaUtilities.setELValue("#{applicationScope.UserType}", "INVALID_USER");
+            AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(), "showAlert",
+                                                                      new Object[] { "Error",
+                                                                                     "Invalid User for PNA App.",
+                                                                                     "Ok" });
+            AdfmfJavaUtilities.logout();
+            AdfmfContainerUtilities.gotoFeature("dashboard");
         }
+            
+//        userTypeArray = (CheckUser[]) s_CheckUserList.toArray(new CheckUser[s_CheckUserList.size()]);
+//        
+//        if (s_CheckUserList.size() != 0) {   
+//          if(s_CheckUserList.get(0).getUserTypeStatus().equalsIgnoreCase("SUCCESS"))
+//            AdfmfJavaUtilities.setELValue("#{sessionScope.UserType}", "INTERNAL");
+//          else if (s_CheckUserList.get(0).getUserTypeStatus().equalsIgnoreCase("FAILURE"))
+//            AdfmfJavaUtilities.setELValue("#{sessionScope.UserType}", "EXTERNAL");
+//        } else {
+//            AdfmfJavaUtilities.setELValue("#{pageFlowScope.UserType}", "USER NOT FOUND");
+//        }
     //    return userTypeArray[0].getUserTypeStatus().toString();
     }
 

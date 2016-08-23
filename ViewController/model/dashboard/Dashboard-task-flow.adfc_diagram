@@ -9,9 +9,9 @@
       <property
          name="x">155.0</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>DashboardPG&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>DashboardPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="y">131.33887</property>
       <property
@@ -146,7 +146,9 @@
       <property
          name="x">-53.0</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>CheckUserType&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CheckUserType&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
          name="y">119.19531</property>
       <property
