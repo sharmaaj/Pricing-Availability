@@ -145,7 +145,8 @@
                             <amx:outputText value="#{row.itemQuantity}" id="ot5"
                                             inlineStyle="font-size:48px; color:#000000;"/>
                         </amx:panelGroupLayout>
-                        <amx:panelGroupLayout id="dateRow2" layout="vertical">
+                        <amx:panelGroupLayout id="dateRow2" layout="vertical"
+                                              rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
                             <amx:panelLabelAndMessage label="Customer Number" id="plam5"
                                                       inlineStyle="font-size:36px; color:#000000;"/>
                             <amx:outputText value="#{row.customerNumber}" id="ot3"
