@@ -12,6 +12,7 @@
     <page id="mobile_ItemLOVPGPageDef" path="LovPage.ItemLOVPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="SearchHistoryDC" path="mobile.SearchHistoryDC"/>
     <dc id="PriceListDC" path="mobile.PriceListDC"/>
     <dc id="ItemLovDC" path="mobile.ItemLovDC"/>
     <dc id="ApplicationFeatures1" path="ofa.application.ApplicationFeatures"/>
