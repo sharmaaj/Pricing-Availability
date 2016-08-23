@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.el.ValueExpression;
 
-import mobile.entity.PriceListEntity;
 import mobile.entity.SearchHistory;
 
 import mobile.rest.RestServiceManager;
