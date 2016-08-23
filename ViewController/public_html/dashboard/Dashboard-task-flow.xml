@@ -38,6 +38,12 @@
     <view id="ItemLovPG">
     <page>/LovPage/ItemLOVPG.amx</page>
     </view>
+    <method-call id="CheckUserType">
+      <method>#{applicationScope.NavigationListenerBean.validateAndNavigateUserType}</method>
+      <outcome>
+        <fixed-outcome>internalUser</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>DashboardPG</from-activity-id>
       <control-flow-case id="__2">
@@ -69,6 +75,21 @@
       <control-flow-case id="__8">
         <from-outcome>searchResult</from-outcome>
         <to-activity-id>PricingandAvailabilityPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>CheckUserType</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>internalUser</from-outcome>
+        <to-activity-id>DashboardPG</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>externalUser</from-outcome>
+        <to-activity-id>DashboardPG</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>noUserFound</from-outcome>
+        <to-activity-id>CheckUserType</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

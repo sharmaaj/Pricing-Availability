@@ -112,18 +112,18 @@
       <property
          name="fromOutcome">searchResults</property>
       <property
-         name="sdm:polyPoints">L50,114.0,130.98828,118.36426,518.1377,L50</property>
+         name="sdm:polyPoints">L58,114.0,137.98828,118.36426,518.1377,L50</property>
    </ControlFlowCase>
    <View
       id="View12">
       <property
          name="activityId">ItemLovPG</property>
       <property
-         name="x">362.0</property>
+         name="x">375.0</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ItemLovPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">105.29883</property>
+         name="y">62.597656</property>
       <property
          name="page">/LovPage/ItemLOVPG.amx</property>
       <property
@@ -137,6 +137,49 @@
       <property
          name="fromOutcome">itemLov</property>
       <property
-         name="sdm:polyPoints">R46,196.0,127.48828,321.0,104.94824,L50</property>
+         name="sdm:polyPoints">R46,196.0,127.48828,334.0,62.24707,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall14">
+      <property
+         name="activityId">CheckUserType</property>
+      <property
+         name="x">-53.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CheckUserType&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">119.19531</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase15"
+      from="MethodCall14"
+      to="View2">
+      <property
+         name="fromOutcome">internalUser</property>
+      <property
+         name="sdm:polyPoints">R46,-11.759955,115.34473,114.0,123.98828,L42</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase16"
+      from="MethodCall14"
+      to="View2">
+      <property
+         name="fromOutcome">externalUser</property>
+      <property
+         name="sdm:polyPoints">R54,-12.0,122.34473,113.760185,130.98828,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase18"
+      from="MethodCall14"
+      to="MethodCall14">
+      <property
+         name="fromOutcome">noUserFound</property>
+      <property
+         name="sdm:polyPoints">T44,-56.5,64.84473,-49.5,64.84473,T56</property>
    </ControlFlowCase>
 </SDM>
