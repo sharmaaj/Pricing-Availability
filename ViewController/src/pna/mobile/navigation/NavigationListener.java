@@ -2,6 +2,8 @@ package pna.mobile.navigation;
 
 import mobile.datacontrol.CheckUserDC;
 
+import mobile.datacontrol.SearchHistoryDC;
+
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 
@@ -24,22 +26,28 @@ public class NavigationListener {
         } else
             return "itemLov";
     }
-    
-    public String validateAndNavigateUserType(){
-     CheckUserDC  cud = new CheckUserDC();
-     cud.getUserTypeInfo();
-     
+
+    public String validateAndNavigateUserType() {
+        CheckUserDC cud = new CheckUserDC();
+        cud.getUserTypeInfo();
+
         String userTypeInfo =
             AdfmfJavaUtilities.getELValue("#{applicationScope.UserType}") == null ? "" :
             AdfmfJavaUtilities.getELValue("#{applicationScope.UserType}").toString();
-        
-            if(userTypeInfo.equalsIgnoreCase("INTERNAL"))
-                return "internalUser";
-            else if (userTypeInfo.equalsIgnoreCase("EXTERNAL"))
-               return "externalUser";
-            else{
-                return "noUserFound";
-     
+
+        if (userTypeInfo.equalsIgnoreCase("INTERNAL"))
+            return "internalUser";
+        else if (userTypeInfo.equalsIgnoreCase("EXTERNAL"))
+            return "externalUser";
+        else {
+            return "noUserFound";
+
+        }
     }
-}
+
+    public void validateAndNavigateSearchHistory() {
+        SearchHistoryDC scd = new SearchHistoryDC();
+        scd.getSearchHistory();
+    }
+
 }
