@@ -18,6 +18,9 @@
     <iterator Binds="root" RangeSize="25" DataControl="PriceListDC" id="PriceListDCIterator"/>
     <accessorIterator MasterBinding="PriceListDCIterator" Binds="priceList" RangeSize="-1" DataControl="PriceListDC"
                       BeanClass="mobile.entity.PriceListEntity" id="priceListIterator"/>
+    <iterator Binds="root" RangeSize="25" DataControl="SearchHistoryDC" id="SearchHistoryDCIterator"/>
+    <accessorIterator MasterBinding="SearchHistoryDCIterator" Binds="searchHistory" RangeSize="25"
+                      DataControl="SearchHistoryDC" BeanClass="mobile.entity.SearchHistory" id="searchHistoryIterator"/>
   </executables>
   <bindings>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
@@ -72,5 +75,17 @@
         <Item Value="LISTDESC"/>
       </ListDisplayAttrNames>
     </list>
+    <tree IterBinding="searchHistoryIterator" id="searchHistory">
+      <nodeDefinition DefName="mobile.entity.SearchHistory" Name="searchHistory0">
+        <AttrNames>
+          <Item Value="itemNumber"/>
+          <Item Value="itemDescription"/>
+          <Item Value="itemQuantity"/>
+          <Item Value="requestDate"/>
+          <Item Value="customerNumber"/>
+          <Item Value="priceList"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
