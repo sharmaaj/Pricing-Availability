@@ -17,8 +17,7 @@
                 <amx:outputHtml id="oh2" styleClass="fa fa-shopping-cart fa-lg" inlineStyle="color:white;"/>
             </amx:commandLink>
         </amx:facet>
-        
-<!--Header Section Ebds -->
+        <!--Header Section Ebds -->
         <amx:tableLayout id="tl1" width="100%">
             <amx:rowLayout id="rl1">
                 <amx:cellFormat valign="middle" id="cf1" height="50px" width="50%"
@@ -46,9 +45,8 @@
                 </amx:cellFormat>
             </amx:rowLayout>
         </amx:tableLayout>
-<!--Header Section Ebds -->
-        
-<!--New Search Page Section Begins -->
+        <!--Header Section Ebds -->
+        <!--New Search Page Section Begins -->
         <amx:panelFormLayout id="pfl1" labelPosition="topStart">
             <amx:panelLabelAndMessage styleClass="label" label="Item Number" id="plm1">
                 <amx:tableLayout id="tl3" width="90%">
@@ -124,46 +122,40 @@
             </amx:panelLabelAndMessage>
         </amx:panelFormLayout>
         <amx:commandLink shortDesc="Search" styleClass="commandLink" text="Search" id="cl2"/>
-<!--New Search Page Section Ends -->
-
-<!--Search History Section Begins -->
+        <!--New Search Page Section Ends -->
+        
+        <!--Search History Section Begins -->
         <amx:panelFormLayout id="pfl2">
             <amx:iterator var="row" value="#{bindings.searchHistory.collectionModel}" id="i1">
-            
-                <amx:panelGroupLayout id="parentlayout" layout="vertical" inlineStyle="height:263px; width:1080px;">
-                
-                <amx:panelGroupLayout id="labelRow1" layout="horizontal">
-                    <amx:panelLabelAndMessage label="Item Number" id="plam5" inlineStyle="font-size:36px; color:#000000;"/>
-                    <amx:panelLabelAndMessage label="Item Desc" id="plam7" inlineStyle="font-size:36px; color:#000000;"/>
-                    <amx:panelLabelAndMessage label="Quantity" id="plam8" inlineStyle="font-size:36px; color:#000000;"/>
-                </amx:panelGroupLayout>                
-                
-                <amx:panelGroupLayout id="dateRow1" layout="horizontal" >
-                    <amx:outputText value="#{row.itemNumber}" id="ot7" inlineStyle="font-size:36px; color:#000000;"/>
-                    <amx:outputText value="#{row.itemDescription}" id="ot8" inlineStyle="font-size:36px; color:#000000;"/>
-                    <amx:outputText value="#{row.itemQuantity}" id="ot5" inlineStyle="font-size:36px; color:#000000;"/>
+                <amx:panelGroupLayout id="parentlayout" layout="vertical" inlineStyle="height:404px; width:1080px;">
+                    <amx:panelGroupLayout id="itemNumRow" layout="horizontal">
+                        <amx:outputText value="#{row.itemNumber}" id="ot7"
+                                        inlineStyle="font-size:60px; color:#000000;"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="pgl1" layout="horizontal">
+                        <amx:panelLabelAndMessage label="Item Desc" id="plam7"
+                                                  inlineStyle="font-size:36px; color:#000000;"/>
+                        <amx:outputText value="#{row.itemDescription}" id="ot8"
+                                        inlineStyle="font-size:48px; color:#000000;"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="lastRow" layout="horizontal">
+                        <amx:panelGroupLayout id="labitemQtyRow" layout="vertical">
+                            <amx:panelLabelAndMessage label="Quantity" id="plam8"
+                                                      inlineStyle="font-size:36px; color:#000000;"/>
+                            <amx:outputText value="#{row.itemQuantity}" id="ot5"
+                                            inlineStyle="font-size:48px; color:#000000;"/>
+                        </amx:panelGroupLayout>
+                        <amx:panelGroupLayout id="dateRow2" layout="vertical">
+                            <amx:panelLabelAndMessage label="Customer Number" id="plam5"
+                                                      inlineStyle="font-size:36px; color:#000000;"/>
+                            <amx:outputText value="#{row.customerNumber}" id="ot3"
+                                            inlineStyle="font-size:48px; color:#000000;"/>
+                        </amx:panelGroupLayout>
+                    </amx:panelGroupLayout>
                 </amx:panelGroupLayout>
-                
-                <amx:panelGroupLayout id="labelRow2">
-                    <amx:panelLabelAndMessage label="Request Date" id="plam9" inlineStyle="font-size:36px; color:#000000;"/>
-                    <amx:panelLabelAndMessage label="Customer No" id="plam10" inlineStyle="font-size:36px; color:#000000;"/>
-                    <amx:panelLabelAndMessage label="Price List" id="plam11" inlineStyle="font-size:36px; color:#000000;"/>
-                </amx:panelGroupLayout>
-                
-                <amx:panelGroupLayout id="dateRow2" layout="horizontal">
-                    <amx:outputText value="#{row.requestDate}" id="ot4" inlineStyle="font-size:36px; color:#000000;">
-                        <amx:convertDateTime pattern="#{bindings.searchHistory.hints.requestDate.format}" id="cdt1"/>
-                    </amx:outputText>
-                    <amx:outputText value="#{row.customerNumber}" id="ot3" inlineStyle="font-size:36px; color:#000000;"/>
-                    <amx:outputText value="#{row.priceList}" id="ot6" inlineStyle="font-size:36px; color:#000000;">
-                        <amx:convertNumber groupingUsed="false" id="cn1" />
-                    </amx:outputText>
-                </amx:panelGroupLayout>
-                
-                </amx:panelGroupLayout>
-                
+                <amx:spacer id="s2" inlineStyle="color:#86BC25; height:2px; border-style:double;"/>
             </amx:iterator>
         </amx:panelFormLayout>
-<!--Search History Section Ends -->
+        <!--Search History Section Ends -->
     </amx:panelPage>
 </amx:view>
