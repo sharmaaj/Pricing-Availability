@@ -128,13 +128,14 @@
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
         </amx:panelFormLayout>
-        <amx:commandLink shortDesc="Search" styleClass="commandLink" text="Search" id="cl2"/>
+        <amx:commandLink shortDesc="Search" styleClass="commandLink" text="Search" id="cl2"
+                         rendered="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass eq 'sub-header'}"/>
         <!--New Search Page Section Ends -->
         <!--Search History Section Begins -->
         <!--      <amx:panelFormLayout id="pfl2" rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}"> -->
-        <!--       <amx:iterator var="row" value="#{bindings.searchHistory.collectionModel}" id="i1"> -->
+        <!--       <amx:iterator var="row" value="#{bindings.searchHistory.collectionModel}" id="i1"> 
+        rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}"-->
         <amx:listView var="row" value="#{bindings.searchHistory.collectionModel}"
-                      rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}"
                       fetchSize="#{bindings.searchHistory.rangeSize}" id="lv1" showMoreStrategy="autoScroll"
                       bufferStrategy="viewport" selectedRowKeys="#{bindings.searchHistory.collectionModel.selectedRow}"
                       selectionListener="#{bindings.searchHistory.collectionModel.makeCurrent}"
