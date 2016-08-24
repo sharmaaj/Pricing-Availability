@@ -67,7 +67,7 @@
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
             <amx:panelLabelAndMessage styleClass="label" label="Item Description" inlineStyle="text-align:center;"
-                                      id="plam6">
+                                      id="plam6"  rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
                 <amx:tableLayout id="tl4" width="90%">
                     <amx:rowLayout id="rl11">
                         <amx:cellFormat height="40px" styleClass="cell-border" id="cf13">
@@ -78,7 +78,8 @@
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
-            <amx:panelLabelAndMessage styleClass="label" label="Customer Number" id="plam1">
+            <amx:panelLabelAndMessage styleClass="label" label="Customer Number" id="plam1"
+                                      rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
                 <amx:tableLayout id="tl6" width="90%">
                     <amx:rowLayout id="rl6">
                         <amx:cellFormat id="cf6" height="40px" styleClass="cell-border">
@@ -88,7 +89,8 @@
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
-            <amx:panelLabelAndMessage styleClass="label" label="Quantity" id="plam2">
+            <amx:panelLabelAndMessage styleClass="label" label="Quantity" id="plam2"
+                                      rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
                 <amx:tableLayout id="tl7" width="90%">
                     <amx:rowLayout id="rl12">
                         <amx:cellFormat id="cf14" height="40px" styleClass="cell-border">
@@ -98,7 +100,8 @@
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
-            <amx:panelLabelAndMessage styleClass="label" label="Requested Date" id="plam3">
+            <amx:panelLabelAndMessage styleClass="label" label="Requested Date" id="plam3"
+                                      rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
                 <amx:tableLayout id="tl8" width="90%">
                     <amx:rowLayout id="rl13">
                         <amx:cellFormat id="cf15" height="40px" width="100%" styleClass="cell-border">
@@ -108,7 +111,8 @@
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
-            <amx:panelLabelAndMessage styleClass="label" label="Price List" id="plam4">
+            <amx:panelLabelAndMessage styleClass="label" label="Price List" id="plam4" 
+                                      rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
                 <amx:tableLayout id="tl2" width="90%">
                     <amx:rowLayout id="rl2">
                         <amx:cellFormat id="cf3" height="40px" styleClass="cell-border">
@@ -147,8 +151,7 @@
                             <amx:outputText value="#{row.itemQuantity}" id="ot5"
                                             inlineStyle="font-size:48px; color:#000000;"/>
                         </amx:panelGroupLayout>
-                        <amx:panelGroupLayout id="dateRow2" layout="vertical"
-                                              rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
+                        <amx:panelGroupLayout id="dateRow2" layout="vertical">
                             <amx:panelLabelAndMessage label="Customer Number" id="plam5"
                                                       inlineStyle="font-size:36px; color:#000000;"/>
                             <amx:outputText value="#{row.customerNumber}" id="ot3"
