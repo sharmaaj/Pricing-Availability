@@ -1,12 +1,23 @@
 package pna.mobile.navigation;
 
+import javax.el.ELContext;
+import javax.el.ExpressionFactory;
+import javax.el.MethodExpression;
+
+import javax.el.ValueExpression;
+
 import mobile.datacontrol.CheckUserDC;
 
 import mobile.datacontrol.SearchHistoryDC;
 
 import oracle.adfmf.amx.event.ActionEvent;
+import oracle.adfmf.amx.event.SelectionEvent;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
+
+import oracle.adfmf.framework.internal.AdfmfJavaUtilitiesInternal;
+
+import oracle.jbo.Row;
 
 public class NavigationListener {
     public NavigationListener() {
@@ -50,4 +61,14 @@ public class NavigationListener {
         SearchHistoryDC scd = new SearchHistoryDC();
         scd.getSearchHistory();
     }
+    
+  /*  public void selectedSearchHistoryRow(SelectionEvent selectionEvent) {
+ 
+        Row selectedRow = (Row) AdfmfJavaUtilities.getELValue("#{bindings.searchHistory.collectionModel.makeCurrent}");
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchKeyword}", selectedRow.getAttribute("itemNumber"));
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.itemDesc}", selectedRow.getAttribute("itemDescription"));
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.itemQuantity}", selectedRow.getAttribute("itemQuantity"));
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.customerNumber}", selectedRow.getAttribute("customerNumber"));
+            
+    }  */
 }
