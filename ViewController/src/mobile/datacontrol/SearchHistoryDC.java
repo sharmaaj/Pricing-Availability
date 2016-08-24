@@ -27,22 +27,26 @@ public class SearchHistoryDC {
         s_searchHistory = new ArrayList<SearchHistory>();
         s_searchHistory.clear();
         SearchHistory[] searchHisArray = null;
-        String itemNumber = null;
+        String userId = null;
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
-        itemNumber = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-
-        String userName = null;
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.userName}", String.class);
+        userId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        String orgId = null;
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
-        userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        orgId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+
+  /*      String userName = null;
+        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
+        userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();*/
 
 
-        if (itemNumber != null && !"".equals(itemNumber)) {
+  //      if (itemNumber != null && !"".equals(itemNumber)) {
 
             String restURI = RestURIs.getSearchHistory();
             RestServiceManager rcu = new RestServiceManager();
             String payload =
-                "{\n" + "\"P_ORG_ID\" : \"" + userName + "\",\n" + "\"P_USER_ID\" : \"" + itemNumber + "\"\n" +
+                "{\n" + "\"P_ORG_ID\" : \"" + 201 + "\",\n" + "\"P_USER_ID\" : \"" + userId + "\"\n" +
                 "}";
             System.out.println("paylod is " + payload);
             String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
@@ -60,7 +64,7 @@ public class SearchHistoryDC {
                 e.getMessage();
                 e.printStackTrace();
             }
-        }
+  //      }
         searchHisArray = (SearchHistory[]) s_searchHistory.toArray(new SearchHistory[s_searchHistory.size()]);
         if (s_searchHistory.size() != 0) {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.SearchHistoryServiceResults}", "");
