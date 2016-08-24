@@ -42,14 +42,14 @@ public class SearchHistoryDC {
             String restURI = RestURIs.getSearchHistory();
             RestServiceManager rcu = new RestServiceManager();
             String payload =
-                "{\n" + "\"P_USER_NAME\" : \"" + userName + "\",\n" + "\"P_ITEM_NUMBER\" : \"" + itemNumber + "\"\n" +
+                "{\n" + "\"P_ORG_ID\" : \"" + userName + "\",\n" + "\"P_USER_ID\" : \"" + itemNumber + "\"\n" +
                 "}";
             System.out.println("paylod is " + payload);
             String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
             try {
                 JSONObject jsonObject = new JSONObject(jsonArrayAsString);
-                JSONObject parentNode = (JSONObject) jsonObject.get("P_ITEM_DETAIL");
-                JSONArray nodeArray = parentNode.getJSONArray("P_ITEM_DETAIL_ITEM_SEARCH");
+                JSONObject parentNode = (JSONObject) jsonObject.get("P_SEARCH_HIS");
+                JSONArray nodeArray = parentNode.getJSONArray("P_SEARCH_HIS_ITEM");
                 int size = nodeArray.length();
                 for (int i = 0; i < size; i++) {
                     JSONObject temp = nodeArray.getJSONObject(i);
