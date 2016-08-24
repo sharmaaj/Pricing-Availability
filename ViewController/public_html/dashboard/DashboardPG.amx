@@ -67,7 +67,8 @@
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
             <amx:panelLabelAndMessage styleClass="label" label="Item Description" inlineStyle="text-align:center;"
-                                      id="plam6"  rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
+                                      id="plam6"
+                                      rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
                 <amx:tableLayout id="tl4" width="90%">
                     <amx:rowLayout id="rl11">
                         <amx:cellFormat height="40px" styleClass="cell-border" id="cf13">
@@ -112,7 +113,7 @@
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
-            <amx:panelLabelAndMessage styleClass="label" label="Price List" id="plam4" 
+            <amx:panelLabelAndMessage styleClass="label" label="Price List" id="plam4"
                                       rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
                 <amx:tableLayout id="tl2" width="90%">
                     <amx:rowLayout id="rl2">
@@ -129,11 +130,29 @@
         </amx:panelFormLayout>
         <amx:commandLink shortDesc="Search" styleClass="commandLink" text="Search" id="cl2"/>
         <!--New Search Page Section Ends -->
-        
         <!--Search History Section Begins -->
-        <amx:panelFormLayout id="pfl2"
-                             rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}">
-            <amx:iterator var="row" value="#{bindings.searchHistory.collectionModel}" id="i1">
+        <!--      <amx:panelFormLayout id="pfl2" rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}"> -->
+        <!--       <amx:iterator var="row" value="#{bindings.searchHistory.collectionModel}" id="i1"> -->
+        <amx:listView var="row" value="#{bindings.searchHistory.collectionModel}"
+                      rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}"
+                      fetchSize="#{bindings.searchHistory.rangeSize}" id="lv1" showMoreStrategy="autoScroll"
+                      bufferStrategy="viewport" selectedRowKeys="#{bindings.searchHistory.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.searchHistory.collectionModel.makeCurrent}"
+                      initialScrollRowKeys="#{bindings.searchHistory.collectionModel.selectedRow}">
+            <amx:listItem id="li1">
+                <amx:setPropertyListener id="spl5" from="#{row.itemNumber}" type="tapHold"
+                                         to="#{pageFlowScope.searchKeyword}"/>
+                <amx:setPropertyListener id="spl6" from="#{row.itemDescription}" type="tapHold"
+                                         to="#{pageFlowScope.itemDesc}"/>
+                <amx:setPropertyListener id="spl7" from="#{row.itemQuantity}" type="tapHold"
+                                         to="#{pageFlowScope.itemQuantity}"/>
+                <amx:setPropertyListener id="spl8" from="#{row.customerNumber}" type="tapHold"
+                                         to="#{pageFlowScope.customerNumber}"/>
+                <amx:setPropertyListener from="sub-header" to="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass}"
+                                         type="tapHold" id="sp20"/>
+                <amx:setPropertyListener from="sub-header-disable"
+                                         to="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass}" type="tapHold"
+                                         id="sp21"/>
                 <amx:panelGroupLayout id="parentlayout" layout="vertical" inlineStyle="height:404px; width:1080px;">
                     <amx:panelGroupLayout id="itemNumRow" layout="horizontal">
                         <amx:outputText value="#{row.itemNumber}" id="ot7"
@@ -161,8 +180,10 @@
                     </amx:panelGroupLayout>
                 </amx:panelGroupLayout>
                 <amx:spacer id="s2" inlineStyle="color:#86BC25; height:2px; border-style:double;"/>
-            </amx:iterator>
-        </amx:panelFormLayout>
+            </amx:listItem>
+        </amx:listView>
+        <!--           </amx:iterator> -->
+        <!--       </amx:panelFormLayout>  -->
         <!--Search History Section Ends -->
     </amx:panelPage>
 </amx:view>
