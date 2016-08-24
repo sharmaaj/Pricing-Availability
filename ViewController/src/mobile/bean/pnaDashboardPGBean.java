@@ -1,5 +1,9 @@
 package mobile.bean;
 
+import java.text.DateFormat;
+
+import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 import mobile.PnABeanClass;
@@ -22,6 +26,20 @@ public class pnaDashboardPGBean {
     private String searchHistoryTabClass = "sub-header-disable";
     private Number itemNumber;
     private Number itemQuantity;
+    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    Date date = new Date();
+    private String defaultDate = dateFormat.format(date);
+
+
+    public void setDefaultDate(String defaultDate) {
+        String oldDefaultDate = this.defaultDate;
+        this.defaultDate = defaultDate;
+        _propertyChangeSupport.firePropertyChange("defaultDate", oldDefaultDate, defaultDate);
+    }
+
+    public String getDefaultDate() {
+        return defaultDate;
+    }
 
     public void setNewSearchTabClass(String newSearchTabClass) {
         String oldNewSearchTabClass = this.newSearchTabClass;
