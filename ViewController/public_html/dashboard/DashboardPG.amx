@@ -47,8 +47,9 @@
         </amx:tableLayout>
         <!--Header Section Ebds -->
         <!--New Search Page Section Begins -->
-        <amx:panelFormLayout id="pfl1" labelPosition="topStart">
-            <amx:panelLabelAndMessage styleClass="label" label="Item Number" id="plm1">
+        <amx:panelFormLayout id="pfl1" labelPosition="topStart"
+                             rendered="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass eq 'sub-header'}">
+            <amx:panelLabelAndMessage styleClass="label" label="Item Number" id="plm1" showRequired="true">
                 <amx:tableLayout id="tl3" width="90%">
                     <amx:rowLayout id="rl10">
                         <amx:cellFormat height="40px" styleClass="cell-border" id="cf11" width="80%">
@@ -125,7 +126,8 @@
         <!--New Search Page Section Ends -->
         
         <!--Search History Section Begins -->
-        <amx:panelFormLayout id="pfl2">
+        <amx:panelFormLayout id="pfl2"
+                             rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}">
             <amx:iterator var="row" value="#{bindings.searchHistory.collectionModel}" id="i1">
                 <amx:panelGroupLayout id="parentlayout" layout="vertical" inlineStyle="height:404px; width:1080px;">
                     <amx:panelGroupLayout id="itemNumRow" layout="horizontal">
