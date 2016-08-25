@@ -8,6 +8,7 @@ import java.util.Date;
 
 import mobile.PnABeanClass;
 
+import mobile.datacontrol.PricingInfoDC;
 import mobile.datacontrol.SearchHistoryDC;
 
 import oracle.adfmf.amx.event.ActionEvent;
@@ -164,5 +165,10 @@ public class pnaDashboardPGBean {
     public void getSearchHistory(ActionEvent actionEvent) {
         SearchHistoryDC scd = new SearchHistoryDC();
         scd.fetchSearchHistory();
+    }
+    
+    public void fetchSearchHistory(){
+        PricingInfoDC scd = new PricingInfoDC();
+        scd.fetchPricingInformation();
     }
 }
