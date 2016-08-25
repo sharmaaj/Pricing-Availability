@@ -1,9 +1,13 @@
 package mobile.entity;
 
+import java.math.BigDecimal;
+
 import java.util.Date;
 
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
+import oracle.adfmf.json.JSONException;
+import oracle.adfmf.json.JSONObject;
 
 public class GetPricingInformation {
     
@@ -49,7 +53,48 @@ public class GetPricingInformation {
         super();
     }
     
-    public Object clone() {
+    public GetPricingInformation(JSONObject temp) throws JSONException {
+        
+        this.setP_item_description(temp.getString("PITEMDESCRIPTION"));
+        this.setP_item_quantity(temp.getString("PITEMQUANTITY"));
+        this.setP_request_date(new Date (temp.getString("PREQUESTDATE")));
+        this.setP_customer_number(temp.getString("PCUSTOMERNUMBER"));
+        this.setCreated_by(new BigDecimal(temp.getString("CREATEDBY")));
+        this.setLast_updated_by(new BigDecimal (temp.getString("LASTUPDATEDBY")));
+        //this.setLast_updated_date(new Date (temp.get("LASTUPDATEDDATE")));
+        this.setCreation_date(new Date (temp.getString("CREATIONDATE")));
+        this.setLast_update_login(new BigDecimal (temp.getString("LASTUDATELOGIN")));
+        this.setP_price_list(new BigDecimal (temp.getString("PPRICELIST")));
+        this.setP_item_number(temp.getString("PITEMNUMBER"));
+        this.setP_currency(temp.getString("PCURRENCY"));
+        this.setP_selling_price(new BigDecimal(temp.getString("PSELLINGPRICE")));
+        this.setP_availabe(new BigDecimal (temp.getString("PAVAILABLE")));
+        this.setP_available_date(new Date (temp.getString("PAVAILABLEDATE")));
+        this.setP_uom(temp.getString("PUOM"));
+        this.setP_atp_flag(temp.getString("PATPFLAG"));
+        this.setP_discount(temp.getString("PDISCOUNT"));
+        this.setP_dis_desc(temp.getString("PDIDDESC"));
+        this.setP_dis_valid_date(new Date(temp.getString("PDISVALIDDATE")));
+        this.setP_warehouse(temp.getString("PWAREHOUSE"));
+        this.setAttribute1(temp.getString("ATTRIBUTE1"));
+        this.setAttribute2(temp.getString("ATTRIBUTE2"));
+        this.setAttribute3(temp.getString("ATTRIBUTE3"));
+        this.setAttribute4(temp.getString("ATTRIBUTE4"));
+        this.setAttribute5(temp.getString("ATTRIBUTE5"));
+        this.setAttribute6(temp.getString("ATTRIBUTE6"));
+        this.setAttribute7(temp.getString("ATTRIBUTE7"));
+        this.setAttribute8(temp.getString("ATTRIBUTE8"));
+        this.setAttribute9(temp.getString("ATTRIBUTE9"));
+        this.setAttribute10(temp.getString("ATTRIBUTE10"));
+        this.setAttribute11(temp.getString("ATTRIBUTE11"));
+        this.setAttribute12(temp.getString("ATTRIBUTE12"));
+        this.setAttribute13(temp.getString("ATTRIBUTE13"));
+        this.setAttribute14(temp.getString("ATTRIBUTE14"));
+        this.setAttribute15(temp.getString("ATTRIBUTE15"));
+        
+    }
+    
+ /*   public Object clone() {
 
         GetPricingInformation getPricingInfo = new GetPricingInformation();
         getPricingInfo.setP_item_description(p_item_description);
@@ -90,7 +135,7 @@ public class GetPricingInformation {
         getPricingInfo.setAttribute14(attribute14);
         getPricingInfo.setAttribute15(attribute15);
         return getPricingInfo;
-    }
+    }  */
 
     public void setP_item_description(String p_item_description) {
         String oldP_item_description = this.p_item_description;
