@@ -163,6 +163,6 @@ public class pnaDashboardPGBean {
     
     public void getSearchHistory(ActionEvent actionEvent) {
         SearchHistoryDC scd = new SearchHistoryDC();
-        scd.getSearchHistory();
+        scd.fetchSearchHistory();
     }
 }

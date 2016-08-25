@@ -107,4 +107,8 @@ public class SearchHistoryDC {
     public void removePropertyChangeListener(PropertyChangeListener l) {
         propertyChangeSupport.removePropertyChangeListener(l);
     }
+    
+    public void fetchSearchHistory(){
+        this.getSearchHistory();
+    }
 }
