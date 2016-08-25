@@ -8,6 +8,8 @@ import java.util.Date;
 
 import mobile.PnABeanClass;
 
+import mobile.datacontrol.SearchHistoryDC;
+
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeListener;
@@ -157,5 +159,10 @@ public class pnaDashboardPGBean {
 
     public void removePropertyChangeListener(PropertyChangeListener l) {
         _propertyChangeSupport.removePropertyChangeListener(l);
+    }
+    
+    public void getSearchHistory(ActionEvent actionEvent) {
+        SearchHistoryDC scd = new SearchHistoryDC();
+        scd.getSearchHistory();
     }
 }

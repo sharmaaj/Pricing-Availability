@@ -57,10 +57,6 @@ public class NavigationListener {
         }
     }
 
-    public void getSearchHistory(ActionEvent actionEvent) {
-        SearchHistoryDC scd = new SearchHistoryDC();
-        scd.getSearchHistory();
-    }
     
   /*  public void selectedSearchHistoryRow(SelectionEvent selectionEvent) {
  

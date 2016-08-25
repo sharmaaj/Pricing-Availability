@@ -34,7 +34,7 @@
                 <amx:cellFormat valign="middle" id="cf2" height="50px" width="50%"
                                 styleClass="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass}">
                     <amx:commandLink text="Search History" styleClass="label" inlineStyle="color:#000000;"
-                                     actionListener="#{NavigationListenerBean.getSearchHistory}">
+                                     actionListener="#{pnaDashboardPGBean.getSearchHistory}">
                         <amx:setPropertyListener from="sub-header"
                                                  to="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass}"
                                                  type="action" id="spl3"/>
