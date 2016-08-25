@@ -171,4 +171,8 @@ public class pnaDashboardPGBean {
         PricingInfoDC scd = new PricingInfoDC();
         scd.fetchPricingInformation();
     }
+
+    public void searchButtonClicked(ActionEvent actionEvent) {
+        getPricingInformation();
+    }
 }

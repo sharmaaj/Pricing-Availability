@@ -129,7 +129,8 @@
             </amx:panelLabelAndMessage>
         </amx:panelFormLayout>
         <amx:commandLink shortDesc="Search" styleClass="commandLink" text="Search" id="cl2"
-                         rendered="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass eq 'sub-header'}"/>
+                         rendered="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass eq 'sub-header'}"
+                         actionListener="#{pageFlowScope.pnaDashboardPGBean.searchButtonClicked}"/>
         <!--New Search Page Section Ends -->
         <!--Search History Section Begins -->
         <!--      <amx:panelFormLayout id="pfl2" rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}"> -->
