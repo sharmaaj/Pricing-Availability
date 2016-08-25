@@ -151,7 +151,7 @@ public class pnaDashboardPGBean {
      }
 
     public void onSearchButtonClick() {
-        // Add event code here...
+        getPricingInformation();
     }
 
     public void addPropertyChangeListener(PropertyChangeListener l) {
@@ -167,7 +167,7 @@ public class pnaDashboardPGBean {
         scd.fetchSearchHistory();
     }
     
-    public void fetchSearchHistory(){
+    public void getPricingInformation(){
         PricingInfoDC scd = new PricingInfoDC();
         scd.fetchPricingInformation();
     }
