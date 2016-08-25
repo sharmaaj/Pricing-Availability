@@ -31,40 +31,38 @@ public class SearchHistoryDC {
 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.userName}", String.class);
         userId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-        
+
         String orgId = null;
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         orgId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
 
-  /*      String userName = null;
+        /*      String userName = null;
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();*/
 
 
-  //      if (itemNumber != null && !"".equals(itemNumber)) {
+        //      if (itemNumber != null && !"".equals(itemNumber)) {
 
-            String restURI = RestURIs.getSearchHistory();
-            RestServiceManager rcu = new RestServiceManager();
-            String payload =
-                "{\n" + "\"P_ORG_ID\" : \"" + 201 + "\",\n" + "\"P_USER_ID\" : \"" + userId + "\"\n" +
-                "}";
-            System.out.println("paylod is " + payload);
-            String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
-            try {
-                JSONObject jsonObject = new JSONObject(jsonArrayAsString);
-                JSONObject parentNode = (JSONObject) jsonObject.get("P_SEARCH_HIS");
-                JSONArray nodeArray = parentNode.getJSONArray("P_SEARCH_HIS_ITEM");
-                int size = nodeArray.length();
-                for (int i = 0; i < size; i++) {
-                    JSONObject temp = nodeArray.getJSONObject(i);
-                    SearchHistory searchHis = new SearchHistory(temp);
-                    s_searchHistory.add(searchHis);
-                }
-            } catch (Exception e) {
-                e.getMessage();
-                e.printStackTrace();
+        String restURI = RestURIs.getSearchHistory();
+        RestServiceManager rcu = new RestServiceManager();
+        String payload = "{\n" + "\"P_ORG_ID\" : \"" + 201 + "\",\n" + "\"P_USER_ID\" : \"" + userId + "\"\n" + "}";
+        System.out.println("paylod is " + payload);
+        String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
+        try {
+            JSONObject jsonObject = new JSONObject(jsonArrayAsString);
+            JSONObject parentNode = (JSONObject) jsonObject.get("P_SEARCH_HIS");
+            JSONArray nodeArray = parentNode.getJSONArray("P_SEARCH_HIS_ITEM");
+            int size = nodeArray.length();
+            for (int i = 0; i < size; i++) {
+                JSONObject temp = nodeArray.getJSONObject(i);
+                SearchHistory searchHis = new SearchHistory(temp);
+                s_searchHistory.add(searchHis);
             }
-  //      }
+        } catch (Exception e) {
+            e.getMessage();
+            e.printStackTrace();
+        }
+        //      }
         searchHisArray = (SearchHistory[]) s_searchHistory.toArray(new SearchHistory[s_searchHistory.size()]);
         if (s_searchHistory.size() != 0) {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.SearchHistoryServiceResults}", "");
