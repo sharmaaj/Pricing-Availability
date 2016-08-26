@@ -53,8 +53,8 @@ public class PricingInfoDC {
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
         try {
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
-            JSONObject parentNode = (JSONObject) jsonObject.get("P_SEARCH_HIS");
-            JSONArray nodeArray = parentNode.getJSONArray("P_SEARCH_HIS_ITEM");
+            JSONObject parentNode = (JSONObject) jsonObject.get("P_ITEM_DETAIL");
+            JSONArray nodeArray = parentNode.getJSONArray("P_ITEM_DETAIL_ITEM");
             int size = nodeArray.length();
             for (int i = 0; i < size; i++) {
                 JSONObject temp = nodeArray.getJSONObject(i);
