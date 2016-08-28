@@ -32,15 +32,15 @@ public class SearchHistoryDC {
         s_searchHistory = new ArrayList<SearchHistory>();
         s_searchHistory.clear();
         SearchHistory[] searchHisArray = null;
-        String userId = null;
+        String userName = null;
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.userName}", String.class);
-        userId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
+        userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
 
         String orgId = null;
-        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orgId}", String.class);
         orgId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-
+        orgId = "204";
         /*      String userName = null;
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();*/
@@ -50,7 +50,7 @@ public class SearchHistoryDC {
 
         String restURI = RestURIs.getSearchHistory();
         RestServiceManager rcu = new RestServiceManager();
-        String payload = "{\n" + "\"P_ORG_ID\" : \"" + 201 + "\",\n" + "\"P_USER_ID\" : \"" + userId + "\"\n" + "}";
+        String payload = "{\n" + "\"P_ORG_ID\" : \"" + orgId + "\",\n" + "\"P_USER_NAME\" : \"" + userName + "\"\n" + "}";
         System.out.println("paylod is " + payload);
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
         try {

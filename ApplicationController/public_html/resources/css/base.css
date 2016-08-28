@@ -50,6 +50,12 @@
     
 }
 
+.listItem-border {
+    border-bottom: #86bc25;
+    border-bottom-style: solid !important;
+    border-width: thin ;
+}
+
 .label {
     font-size : 20px;
     text-decoration: none;

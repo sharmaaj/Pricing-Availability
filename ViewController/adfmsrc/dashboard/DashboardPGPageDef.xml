@@ -72,7 +72,6 @@
       </ListAttrNames>
       <ListDisplayAttrNames>
         <Item Value="listName"/>
-        <Item Value="LISTDESC"/>
       </ListDisplayAttrNames>
     </list>
     <tree IterBinding="searchHistoryIterator" id="searchHistory">

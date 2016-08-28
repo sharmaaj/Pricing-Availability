@@ -14,6 +14,7 @@ import mobile.rest.RestServiceManager;
 
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
+import oracle.adfmf.java.beans.ProviderChangeListener;
 import oracle.adfmf.java.beans.ProviderChangeSupport;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONObject;
@@ -31,15 +32,16 @@ public class ItemLovDC {
         s_ItemList.clear();
         ItemEntity[] itemDetailsArray = null;
         String itemId = null;
-        String orgId = null;
+        String orgName = null;
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
         itemId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.org}", String.class);
-        orgId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orgName}", String.class);
+        orgName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        orgName = "Vision Operations";
         String restURI = RestURIs.getItemNumberLov();
         RestServiceManager rcu = new RestServiceManager();
-        String payload = "{\n"  + "\"POU\" : \"Vision Operations\",\n" + "\"PITEMNUM\" : \"" + itemId + "\"\n" + "}";
+        String payload = "{\n"  + "\"POU\" : \""+orgName +"\",\n" + "\"PITEMNUM\" : \"" + itemId + "\"\n" + "}";
         System.out.println("paylod is "+payload);
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
         try {
@@ -65,12 +67,12 @@ public class ItemLovDC {
         return itemDetailsArray;
     }
 
-    public void setProviderChangeSupport(ProviderChangeSupport providerChangeSupport) {
-        this.providerChangeSupport = providerChangeSupport;
+    public void addProviderChangeListener(ProviderChangeListener l) {
+        providerChangeSupport.addProviderChangeListener(l);
     }
 
-    public ProviderChangeSupport getProviderChangeSupport() {
-        return providerChangeSupport;
+    public void removeProviderChangeListener(ProviderChangeListener l) {
+        providerChangeSupport.removeProviderChangeListener(l);
     }
 
     public void setPropertyChangeSupport(PropertyChangeSupport propertyChangeSupport) {

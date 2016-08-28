@@ -37,11 +37,11 @@ public class PricingInfoDC {
         GetPricingInformation[] pricngInfoArray = null;
         String userId = null;
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.userName}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
 
         String orgId = null;
-        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlow.orgId}", String.class);
         orgId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
 
         String restURI = RestURIs.getPricingInformation();

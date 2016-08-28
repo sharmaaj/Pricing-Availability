@@ -32,7 +32,7 @@ public class PriceListDC {
         if(itemId != null && !"".equals(itemId)){
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orgId}", String.class);
         orgId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-        String restURI = RestURIs.getItemNumberLov();
+        String restURI = RestURIs.getPriceListLov();
         RestServiceManager rcu = new RestServiceManager();
         String payload = "{\n"  + "\"PORGID\" : \""+orgId+"\",\n" + "\"PITEMNUM\" : \"" + itemId + "\"\n" + "}";
         System.out.println("paylod is "+payload);

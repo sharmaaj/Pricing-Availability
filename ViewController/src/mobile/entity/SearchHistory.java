@@ -2,21 +2,27 @@ package mobile.entity;
 
 import java.math.BigDecimal;
 
+import java.text.DateFormat;
+
+import java.text.SimpleDateFormat;
+
 import java.util.Date;
+
+import mobile.bean.AEntity;
 
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.json.JSONException;
 import oracle.adfmf.json.JSONObject;
 
-public class SearchHistory {
+public class SearchHistory extends AEntity {
 
     private String itemNumber;
     private String itemDescription;
     private String itemQuantity;
     private Date requestDate;
     private String customerNumber;
-    private Number priceList;
+    private String priceList;
     private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
 
     public SearchHistory() {
@@ -24,12 +30,18 @@ public class SearchHistory {
     }
 
     public SearchHistory(JSONObject temp) throws JSONException {
-        this.setItemNumber(temp.getString("ITEMNUMBER"));
-        this.setItemDescription(temp.getString("ITEMDESCRIPTION"));
-        this.setItemQuantity(temp.getString("ITEMQUANTITY"));
-        this.setRequestDate(new Date(temp.getString("REQUESTDATE")));
-        this.setCustomerNumber(temp.getString("CUSTOMERNUMBER"));
-        this.setPriceList(new BigDecimal(temp.getString("PRICELIST")));
+        this.setItemNumber(temp.getString("ITEM_NUMBER"));
+        this.setItemDescription(temp.getString("ITEM_DESCRIPTION"));
+        this.setItemQuantity(temp.getString("ITEM_QUANTITY"));
+        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+        try{
+        Date startDate = df.parse(temp.getString("REQUEST_DATE").substring(0,10));
+        this.setRequestDate(startDate);
+        }catch(Exception e){
+            System.out.println("Error during request date conversion");
+        }
+        this.setCustomerNumber(temp.getString("CUSTOMER_NUMBER"));
+        this.setPriceList(temp.getString("PRICE_LIST"));
     }
 
     public void setItemNumber(String itemNumber) {
@@ -39,7 +51,7 @@ public class SearchHistory {
     }
 
     public String getItemNumber() {
-        return itemNumber;
+        return super.getAttributeValue(itemNumber);
     }
 
     public void setItemDescription(String itemDescription) {
@@ -49,7 +61,7 @@ public class SearchHistory {
     }
 
     public String getItemDescription() {
-        return itemDescription;
+        return super.getAttributeValue(itemDescription);
     }
 
     public void setItemQuantity(String itemQuantity) {
@@ -59,7 +71,7 @@ public class SearchHistory {
     }
 
     public String getItemQuantity() {
-        return itemQuantity;
+        return super.getAttributeValue(itemQuantity);
     }
 
     public void setRequestDate(Date requestDate) {
@@ -79,17 +91,17 @@ public class SearchHistory {
     }
 
     public String getCustomerNumber() {
-        return customerNumber;
+        return super.getAttributeValue(customerNumber);
     }
 
-    public void setPriceList(Number priceList) {
-        Number oldPriceList = this.priceList;
+    public void setPriceList(String priceList) {
+        String oldPriceList = this.priceList;
         this.priceList = priceList;
         _propertyChangeSupport.firePropertyChange("priceList", oldPriceList, priceList);
     }
 
-    public Number getPriceList() {
-        return priceList;
+    public String getPriceList() {
+        return super.getAttributeValue(priceList);
     }
 
     public void addPropertyChangeListener(PropertyChangeListener l) {

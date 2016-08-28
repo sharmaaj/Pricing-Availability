@@ -1,5 +1,10 @@
 package pna.mobile.navigation;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+import java.util.Date;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.MethodExpression;
@@ -47,8 +52,13 @@ public class NavigationListener {
             AdfmfJavaUtilities.getELValue("#{applicationScope.UserType}") == null ? "" :
             AdfmfJavaUtilities.getELValue("#{applicationScope.UserType}").toString();
 
-        if (userTypeInfo.equalsIgnoreCase("INTERNAL"))
+        if (userTypeInfo.equalsIgnoreCase("INTERNAL")){
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.itemQuantity}", "1");
+                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+                Date date = new Date();
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.requestedDate}", dateFormat.format(date));
             return "internalUser";
+            }
         else if (userTypeInfo.equalsIgnoreCase("EXTERNAL"))
             return "externalUser";
         else {
