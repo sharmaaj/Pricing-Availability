@@ -75,7 +75,8 @@
                                 <amx:outputText value="#{row.itemQuantity}" id="ot5" inlineStyle="color:#000000;"/>
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
-                        <amx:panelGroupLayout id="dateRow2" layout="vertical">
+                        <amx:panelGroupLayout  id="dateRow2" layout="vertical"
+                                              rendered="#{applicationScope.UserType eq 'external' || applicationScope.UserType eq 'External' || applicationScope.UserType eq 'EXTERNAL' }">
                             <amx:panelLabelAndMessage label="Customer Number" id="plam5" styleClass="label"/>
                             <amx:panelGroupLayout id="pgl14" layout="horizontal">
                                 <amx:spacer width="25" id="s13"/>
