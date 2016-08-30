@@ -28,7 +28,7 @@ public class pnaDashboardPGBean {
     private String newSearchTabClass = "sub-header";
     private String searchHistoryTabClass = "sub-header-disable";
     private Number itemNumber;
-    private Number itemQuantity;
+    private Number itemQuantity = 1;
     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
     Date date = new Date();
     private String defaultDate = dateFormat.format(date);
@@ -67,17 +67,19 @@ public class pnaDashboardPGBean {
     private Number priceList;
     private String itemDesc;
     private String cutomerNumber;
+    private Date requestedDate = date;
 
     public void setRequestedDate(Date requestedDate) {
-        if (requestedDate == null)
-            requestedDate = date;
+  //      if (requestedDate == null)
+ //           AdfmfJavaUtilities.setELValue("#{pageFlowScope.pnaDashboardPGBean.requestedDate}", dateFormat.format(date));
+     //       requestedDate = date;
         this.requestedDate = requestedDate;
     }
 
     public Date getRequestedDate() {
         return requestedDate;
     }
-    private Date requestedDate;
+    
 
     public void setItemNumber(Number itemNumber) {
         this.itemNumber = itemNumber;
@@ -90,6 +92,8 @@ public class pnaDashboardPGBean {
     }
 
     public void setItemQuantity(Number itemQuantity) {
+        if (itemQuantity == null)
+            itemQuantity = 1;
         this.itemQuantity = itemQuantity;
     }
 
