@@ -69,6 +69,8 @@ public class pnaDashboardPGBean {
     private String cutomerNumber;
 
     public void setRequestedDate(Date requestedDate) {
+        if (requestedDate == null)
+            requestedDate = date;
         this.requestedDate = requestedDate;
     }
 

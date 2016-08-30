@@ -110,7 +110,7 @@
                     <amx:rowLayout id="rl13">
                         <amx:cellFormat id="cf15" height="40px" width="100%" styleClass="cell-border">
                             <amx:inputDate inlineStyle="text-align:left;color:#808080;" id="it8" inputType="date"
-                                           value="#{pageFlowScope.requestedDate eq 'null' ? pageFlowScope.pnaDashboardPGBean.defaultDate : pageFlowScope.requestedDate }"/>
+                                           value="#{pageFlowScope.requestedDate}"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
