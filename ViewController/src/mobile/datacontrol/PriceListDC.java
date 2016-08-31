@@ -46,6 +46,11 @@ public class PriceListDC {
                 JSONObject temp = nodeArray.getJSONObject(i);
                 PriceListEntity priceList = new PriceListEntity(temp);
                 s_PriceList.add(priceList);
+                System.out.println(" Here 1 -->"+priceList.getLISTDESC());
+                if(priceList.getLISTDESC().equalsIgnoreCase("Y")){
+                    System.out.println(" Here");
+                    AdfmfJavaUtilities.setELValue("#{pageFlowScope.priceList}", priceList.getListName());
+                }
             }
         } catch (Exception e) {
             e.getMessage();
@@ -58,6 +63,7 @@ public class PriceListDC {
         } else {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.ItemServiceResults}", "No Search Results");
         }
+        
         return priceListArray;
     }
     public void fetchPriceList(){

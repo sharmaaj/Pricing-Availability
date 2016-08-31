@@ -86,5 +86,15 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <list IterBinding="priceListIterator" ListOperMode="multiSelect" ListIter="priceListIterator" id="priceList2"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="LISTDESC"/>
+      </AttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="LISTDESC"/>
+        <Item Value="listName"/>
+      </ListDisplayAttrNames>
+    </list>
   </bindings>
 </pageDefinition>

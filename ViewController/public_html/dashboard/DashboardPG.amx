@@ -125,6 +125,10 @@
                                 <amx:selectItem label="Choose" value="0" id="si4"/>
                                 <amx:selectItems value="#{bindings.LISTDESC.items}" id="si1"/>
                             </amx:selectOneChoice>
+                            <amx:selectManyChoice value="#{pageFlowScope.priceList}"
+                                                  label="Choose" id="smc1" rendered="false">
+                                <amx:selectItems value="#{bindings.priceList2.items}" id="si2"/>
+                            </amx:selectManyChoice>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
