@@ -69,8 +69,7 @@
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
             <amx:panelLabelAndMessage styleClass="label" label="Item Description" inlineStyle="text-align:center;"
-                                      id="plam6"
-                                      rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
+                                      id="plam6">
                 <amx:tableLayout id="tl4" width="90%">
                     <amx:rowLayout id="rl11">
                         <amx:cellFormat height="40px" styleClass="cell-border" id="cf13">
@@ -92,8 +91,7 @@
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
-            <amx:panelLabelAndMessage styleClass="label" label="Quantity" id="plam2"
-                                      rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
+            <amx:panelLabelAndMessage styleClass="label" label="Quantity" id="plam2">
                 <amx:tableLayout id="tl7" width="90%">
                     <amx:rowLayout id="rl12">
                         <amx:cellFormat id="cf14" height="40px" styleClass="cell-border">
@@ -104,8 +102,7 @@
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
-            <amx:panelLabelAndMessage styleClass="label" label="Requested Date" id="plam3"
-                                      rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
+            <amx:panelLabelAndMessage styleClass="label" label="Requested Date" id="plam3">
                 <amx:tableLayout id="tl8" width="90%">
                     <amx:rowLayout id="rl13">
                         <amx:cellFormat id="cf15" height="40px" width="100%" styleClass="cell-border">
