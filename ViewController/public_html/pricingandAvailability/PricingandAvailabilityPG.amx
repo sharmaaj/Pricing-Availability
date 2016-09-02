@@ -11,5 +11,16 @@
     <amx:facet name="secondary">
       <amx:commandButton id="cb2"/>
     </amx:facet>
+    <amx:listView var="row" value="#{bindings.pricingInformation.collectionModel}"
+                  fetchSize="#{bindings.pricingInformation.rangeSize}"
+                  selectedRowKeys="#{bindings.pricingInformation.collectionModel.selectedRow}"
+                  initialScrollRowKeys="#{bindings.pricingInformation.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.pricingInformation.collectionModel.makeCurrent}"
+                  dividerAttribute="p_item_number" dividerMode="all" showMoreStrategy="autoScroll"
+                  bufferStrategy="viewport" id="lv1">
+      <amx:listItem id="li1">
+        <amx:outputText value="#{row.p_item_number}" id="ot2"/>
+      </amx:listItem>
+    </amx:listView>
   </amx:panelPage>
 </amx:view>

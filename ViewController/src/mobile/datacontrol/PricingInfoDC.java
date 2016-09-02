@@ -20,6 +20,8 @@ import oracle.adfmf.java.beans.ProviderChangeSupport;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONObject;
 
+import pna.mobile.navigation.NavigationListener;
+
 public class PricingInfoDC {
 
     private static List<GetPricingInformation> s_pricngInfo;
@@ -35,20 +37,57 @@ public class PricingInfoDC {
         s_pricngInfo = new ArrayList<GetPricingInformation>();
         s_pricngInfo.clear();
         GetPricingInformation[] pricngInfoArray = null;
+        
         String userId = null;
-
-        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
-        userId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-
+        String itemNum = null;
+        String itemDesc = null;
         String orgId = null;
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlow.orgId}", String.class);
+        String quantity = null;
+        String custNumber = null;
+        String priceList = null;
+        String reqDate = null;
+        
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orgId}", String.class);
         orgId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.userName}", String.class);
+        userId = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
+        itemNum = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemDesc}", String.class);
+        itemDesc = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.itemQuantity}", String.class);
+        quantity = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.customerNumber}", String.class);
+        custNumber = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.priceList}", String.class);
+        priceList = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.requestedDate}", String.class);
+        reqDate = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        
         String restURI = RestURIs.getPricingInformation();
         RestServiceManager rcu = new RestServiceManager();
+        
+        
 
-        String payload = "{\n" + "\"P_ORG_ID\" : \"" + 201 + "\",\n" + "\"P_USER_ID\" : \"" + userId + "\"\n" + "}";
-
+        String payload = "{  \n" + "\"P_USER_ID\" : \"" + userId + "\"," +
+                            "\n" + "\"P_ITEM_NUMBER\" : \"" + itemNum + "\"," +
+                            "\n" + "\"P_ITEM_DESCRIPTION\" : \"" + itemDesc + "\"," +
+                            "\n" + "\"P_ORG_ID\" : \"" + orgId + "\"," +
+                            "\n" + "\"P_QUANTITY\" : \"" + quantity + "\"," +
+                            "\n" + "\"P_CUSTOMER_NUMBER\" : \"" + custNumber + "\"," +
+                            "\n" + "\"P_PRICE_LIST\" : \"" + priceList + "\"," +
+                            "\n" + "\"P_REQUESTED_DATE\" : \"" + reqDate + "\"\n" + "}";
+        
+        
         System.out.println("paylod is " + payload);
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
         try {
@@ -108,5 +147,8 @@ public class PricingInfoDC {
     
     public void fetchPricingInformation(){
         this.getPricingInformation();
+        
+        NavigationListener nl = new NavigationListener();
+        nl.validateAndNavigateForPricingInformation();
     }
 }

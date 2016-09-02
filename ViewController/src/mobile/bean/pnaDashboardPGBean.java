@@ -156,9 +156,9 @@ public class pnaDashboardPGBean {
          
      }
 
-    public void onSearchButtonClick() {
+  /*  public void onSearchButtonClick() {
         getPricingInformation();
-    }
+    }  */
 
     public void addPropertyChangeListener(PropertyChangeListener l) {
         _propertyChangeSupport.addPropertyChangeListener(l);
@@ -173,12 +173,12 @@ public class pnaDashboardPGBean {
         scd.fetchSearchHistory();
     }
     
-    public void getPricingInformation(){
+ /*   public void getPricingInformation(){
         PricingInfoDC scd = new PricingInfoDC();
         scd.fetchPricingInformation();
-    }
+    } */
 
-    public void searchButtonClicked(ActionEvent actionEvent) {
+ /*   public void searchButtonClicked(ActionEvent actionEvent) {
         getPricingInformation();
-    }
+    }*/
 }
