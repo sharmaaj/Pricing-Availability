@@ -7,13 +7,13 @@
       <property
          name="activityId">DashboardPG</property>
       <property
-         name="x">155.0</property>
+         name="x">154.0</property>
       <property
          name="start">false</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>DashboardPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">131.33887</property>
+         name="y">124.93652</property>
       <property
          name="page">/dashboard/DashboardPG.amx</property>
       <property
@@ -27,18 +27,18 @@
       <property
          name="fromOutcome">myCart</property>
       <property
-         name="sdm:polyPoints">R54,196.0,134.48828,574.6885,158.79297,L46</property>
+         name="sdm:polyPoints">R54,195.0,128.08594,358.68848,240.0918,L46</property>
    </ControlFlowCase>
    <View
       id="View5">
       <property
          name="activityId">PricingandAvailabilityPG</property>
       <property
-         name="x">159.36426</property>
+         name="x">156.36426</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>PricingandAvailabilityPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">518.4883</property>
+         name="y">346.43652</property>
       <property
          name="page">/pricingandAvailability/PricingandAvailabilityPG.amx</property>
       <property
@@ -51,9 +51,9 @@
       <property
          name="activityId">AddToCartr-task-flow</property>
       <property
-         name="x">615.6885</property>
+         name="x">399.68848</property>
       <property
-         name="y">162.64355</property>
+         name="y">243.5918</property>
       <property
          name="documentReference">/myCart/AddToCartr-task-flow.xml</property>
       <property
@@ -69,40 +69,7 @@
       <property
          name="fromOutcome">AddToCart</property>
       <property
-         name="sdm:polyPoints">T56,162.86426,464.1377,574.6885,165.79297,L54</property>
-   </ControlFlowCase>
-   <MethodCall
-      id="MethodCall8">
-      <property
-         name="activityId">search</property>
-      <property
-         name="x">155.0</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>search&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="y">324.84473</property>
-      <property
-         name="exceptionHandler">false</property>
-   </MethodCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase9"
-      from="MethodCall8"
-      to="View5">
-      <property
-         name="fromOutcome">searchResult</property>
-      <property
-         name="sdm:polyPoints">B50,155.0,378.49414,155.86426,464.1377,T44</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase10"
-      from="View2"
-      to="MethodCall8">
-      <property
-         name="fromOutcome">search</property>
-      <property
-         name="sdm:polyPoints">B50,155.0,184.98828,155.0,270.49414,T50</property>
+         name="sdm:polyPoints">R50,197.36426,346.43652,358.68848,247.0918,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -112,18 +79,18 @@
       <property
          name="fromOutcome">searchResults</property>
       <property
-         name="sdm:polyPoints">L58,114.0,137.98828,118.36426,518.1377,L50</property>
+         name="sdm:polyPoints">B50,154.0,178.58594,156.36426,292.43652,T50</property>
    </ControlFlowCase>
    <View
       id="View12">
       <property
          name="activityId">ItemLovPG</property>
       <property
-         name="x">375.0</property>
+         name="x">365.0</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ItemLovPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">62.597656</property>
+         name="y">126.5459</property>
       <property
          name="page">/LovPage/ItemLOVPG.amx</property>
       <property
@@ -137,20 +104,20 @@
       <property
          name="fromOutcome">itemLov</property>
       <property
-         name="sdm:polyPoints">R46,196.0,127.48828,334.0,62.24707,L50</property>
+         name="sdm:polyPoints">R46,196.15688,121.08594,324.0,126.5459,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall14">
       <property
          name="activityId">CheckUserType</property>
       <property
-         name="x">-53.0</property>
+         name="x">-133.48633</property>
       <property
          name="start">true</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>CheckUserType&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">119.19531</property>
+         name="y">126.04004</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -162,7 +129,7 @@
       <property
          name="fromOutcome">internalUser</property>
       <property
-         name="sdm:polyPoints">R46,-11.759955,115.34473,114.0,123.98828,L42</property>
+         name="sdm:polyPoints">R46,-92.48633,122.18945,112.9812,121.08594,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -172,7 +139,7 @@
       <property
          name="fromOutcome">externalUser</property>
       <property
-         name="sdm:polyPoints">R54,-12.0,122.34473,113.760185,130.98828,L50</property>
+         name="sdm:polyPoints">R54,-92.46753,129.18945,113.0,128.08594,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -182,6 +149,6 @@
       <property
          name="fromOutcome">noUserFound</property>
       <property
-         name="sdm:polyPoints">T44,-56.5,64.84473,-49.5,64.84473,T56</property>
+         name="sdm:polyPoints">T44,-136.98633,71.68945,-129.98633,71.68945,T56</property>
    </ControlFlowCase>
 </SDM>

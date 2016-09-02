@@ -96,5 +96,7 @@
         <Item Value="listName"/>
       </ListDisplayAttrNames>
     </list>
+    <methodAction id="fetchPriceList" RequiresUpdateModel="true" Action="invokeMethod" MethodName="fetchPriceList"
+                  IsViewObjectMethod="false" DataControl="PriceListDC" InstanceName="data.PriceListDC.dataProvider"/>
   </bindings>
 </pageDefinition>

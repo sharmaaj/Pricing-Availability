@@ -29,12 +29,6 @@
         <id>AddToCartr-task-flow</id>
       </task-flow-reference>
     </task-flow-call>
-    <method-call id="search">
-      <method>#{pageFlowScope.pnaDashboardPGBean.onSearchButtonClick}</method>
-      <outcome>
-        <fixed-outcome>searchResult</fixed-outcome>
-      </outcome>
-    </method-call>
     <view id="ItemLovPG">
     <page>/LovPage/ItemLOVPG.amx</page>
     </view>
@@ -50,10 +44,6 @@
         <from-outcome>myCart</from-outcome>
         <to-activity-id>AddToCartr-task-flow</to-activity-id>
       </control-flow-case>
-      <control-flow-case id="__9">
-        <from-outcome>search</from-outcome>
-        <to-activity-id>search</to-activity-id>
-      </control-flow-case>
       <control-flow-case id="__10">
         <from-outcome>searchResults</from-outcome>
         <to-activity-id>PricingandAvailabilityPG</to-activity-id>
@@ -68,13 +58,6 @@
       <control-flow-case id="__6">
         <from-outcome>AddToCart</from-outcome>
         <to-activity-id>AddToCartr-task-flow</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__7">
-      <from-activity-id>search</from-activity-id>
-      <control-flow-case id="__8">
-        <from-outcome>searchResult</from-outcome>
-        <to-activity-id>PricingandAvailabilityPG</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__13">

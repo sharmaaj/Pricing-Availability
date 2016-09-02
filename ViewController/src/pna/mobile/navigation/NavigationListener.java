@@ -77,4 +77,8 @@ public class NavigationListener {
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.customerNumber}", selectedRow.getAttribute("customerNumber"));
             
     }  */
+    
+  public String validateAndNavigateForPricingInformation() {
+      return "searchResults";
+  }
 }

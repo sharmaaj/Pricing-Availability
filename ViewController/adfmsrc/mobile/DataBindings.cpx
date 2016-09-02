@@ -5,13 +5,16 @@
     <page path="/dashboard/DashboardPG.amx" usageId="mobile_DashboardPGPageDef"/>
     <page path="/springboard/Springboard.amx" usageId="mobile_SpringboardPageDef"/>
     <page path="/LovPage/ItemLOVPG.amx" usageId="mobile_ItemLOVPGPageDef"/>
+    <page path="/pricingandAvailability/PricingandAvailabilityPG.amx" usageId="mobile_PricingandAvailabilityPGPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="mobile_DashboardPGPageDef" path="dashboard.DashboardPGPageDef"/>
     <page id="mobile_SpringboardPageDef" path="springboard.SpringboardPageDef"/>
     <page id="mobile_ItemLOVPGPageDef" path="LovPage.ItemLOVPGPageDef"/>
+    <page id="mobile_PricingandAvailabilityPGPageDef" path="pricingandAvailability.PricingandAvailabilityPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="PricingInfoDC" path="mobile.PricingInfoDC"/>
     <dc id="SearchHistoryDC" path="mobile.SearchHistoryDC"/>
     <dc id="PriceListDC" path="mobile.PriceListDC"/>
     <dc id="ItemLovDC" path="mobile.ItemLovDC"/>
