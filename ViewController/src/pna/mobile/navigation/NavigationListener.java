@@ -78,7 +78,7 @@ public class NavigationListener {
             
     }  */
     
-  public String validateAndNavigateForPricingInformation() {
+ /* public String validateAndNavigateForPricingInformation() {
       return "searchResults";
-  }
+  } */
 }
