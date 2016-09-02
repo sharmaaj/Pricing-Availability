@@ -147,8 +147,6 @@ public class PricingInfoDC {
     
     public void fetchPricingInformation(){
         this.getPricingInformation();
-        
-        NavigationListener nl = new NavigationListener();
-        nl.validateAndNavigateForPricingInformation();
+
     }
 }
