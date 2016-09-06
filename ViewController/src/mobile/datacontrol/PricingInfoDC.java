@@ -1,7 +1,11 @@
 package mobile.datacontrol;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.el.ValueExpression;
@@ -33,6 +37,8 @@ public class PricingInfoDC {
     }
 
     public GetPricingInformation[] getPricingInformation() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mmm-dd");
+        Date date = new Date();
         ValueExpression ve = null;
         s_pricngInfo = new ArrayList<GetPricingInformation>();
         s_pricngInfo.clear();
@@ -45,7 +51,7 @@ public class PricingInfoDC {
         String quantity = null;
         String custNumber = null;
         String priceList = null;
-        String reqDate = null;
+        Date reqDate = null;
         
         
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orgId}", String.class);
@@ -68,9 +74,9 @@ public class PricingInfoDC {
         
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.priceList}", String.class);
         priceList = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-        
+    
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.requestedDate}", String.class);
-        reqDate = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        reqDate = (Date) (ve.getValue(AdfmfJavaUtilities.getELContext()));
         
         
         String restURI = RestURIs.getPricingInformation();
@@ -94,7 +100,7 @@ public class PricingInfoDC {
                             "\n" + "\"P_QUANTITY\" : \"" + quantity + "\"," +
                             "\n" + "\"P_CUSTOMER_NUMBER\" : \"" + custNumber + "\"," +
                             "\n" + "\"P_PRICE_LIST\" : \"" + priceList + "\"," +
-                            "\n" + "\"P_REQUESTED_DATE\" : \"" + reqDate + "\"\n" + "}";
+                            "\n" + "\"P_REQUESTED_DATE\" : \"" + dateFormat.format(reqDate) + "\"\n" + "}";
         
         
         System.out.println("paylod is " + payload);
