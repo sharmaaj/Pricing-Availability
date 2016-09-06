@@ -135,5 +135,7 @@
                 </amx:panelGroupLayout>
             </amx:listItem>
         </amx:listView>
+        <amx:commandLink shortDesc="Add To Cart" styleClass="commandLink" text="Add To Cart" id="cl2"
+                         action="AddToCart"/>
     </amx:panelPage>
 </amx:view>
