@@ -51,7 +51,7 @@ public class PricingInfoDC {
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orgId}", String.class);
         orgId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.userName}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userId = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
