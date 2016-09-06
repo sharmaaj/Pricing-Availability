@@ -13,24 +13,24 @@ public class GetPricingInformation {
     
      private String p_item_description  ;
      private String p_item_quantity  ;
-     private Date p_request_date  ;
+     private String p_request_date  ;
      private String p_customer_number  ;
-     private Number created_by  ;
-     private Number last_updated_by  ;
-     private Date last_updated_date  ;
-     private Date creation_date  ;
-     private Number last_update_login  ;
-     private Number p_price_list  ;
+     private String created_by  ;
+     private String last_updated_by  ;
+     private String last_updated_date  ;
+     private String creation_date  ;
+     private String last_update_login  ;
+     private String p_price_list  ;
      private String p_item_number  ;
      private String p_currency  ;
-     private Number p_selling_price  ;
-     private Number p_availabe  ;
-     private Date p_available_date  ;
+     private String p_selling_price  ;
+     private String p_availabe  ;
+     private String p_available_date  ;
      private String p_uom  ;
      private String p_atp_flag  ;
      private String p_discount  ;
      private String p_dis_desc  ;
-     private Date p_dis_valid_date;
+     private String p_dis_valid_date;
      private String p_warehouse  ;
      private String attribute1 ;
      private String attribute2 ;
@@ -55,27 +55,28 @@ public class GetPricingInformation {
     
     public GetPricingInformation(JSONObject temp) throws JSONException {
         
-        this.setP_item_description(temp.getString("PITEMDESCRIPTION"));
-        this.setP_item_quantity(temp.getString("PITEMQUANTITY"));
-        this.setP_request_date(new Date (temp.getString("PREQUESTDATE")));
-        this.setP_customer_number(temp.getString("PCUSTOMERNUMBER"));
-        this.setCreated_by(new BigDecimal(temp.getString("CREATEDBY")));
-        this.setLast_updated_by(new BigDecimal (temp.getString("LASTUPDATEDBY")));
-        //this.setLast_updated_date(new Date (temp.get("LASTUPDATEDDATE")));
-        this.setCreation_date(new Date (temp.getString("CREATIONDATE")));
-        this.setLast_update_login(new BigDecimal (temp.getString("LASTUDATELOGIN")));
-        this.setP_price_list(new BigDecimal (temp.getString("PPRICELIST")));
-        this.setP_item_number(temp.getString("PITEMNUMBER"));
-        this.setP_currency(temp.getString("PCURRENCY"));
-        this.setP_selling_price(new BigDecimal(temp.getString("PSELLINGPRICE")));
-        this.setP_availabe(new BigDecimal (temp.getString("PAVAILABLE")));
-        this.setP_available_date(new Date (temp.getString("PAVAILABLEDATE")));
-        this.setP_uom(temp.getString("PUOM"));
-        this.setP_atp_flag(temp.getString("PATPFLAG"));
-        this.setP_discount(temp.getString("PDISCOUNT"));
-        this.setP_dis_desc(temp.getString("PDIDDESC"));
-        this.setP_dis_valid_date(new Date(temp.getString("PDISVALIDDATE")));
-        this.setP_warehouse(temp.getString("PWAREHOUSE"));
+       
+        this.setP_item_description(temp.getString("P_ITEM_DESCRIPTION"));
+        this.setP_item_quantity(temp.getString("P_ITEM_QUANTITY"));
+        this.setP_request_date(temp.getString("P_REQUEST_DATE"));
+        this.setP_customer_number(temp.getString("P_CUSTOMER_NUMBER"));
+        this.setCreated_by(temp.getString("CREATED_BY"));
+        this.setLast_updated_by(temp.getString("LAST_UPDATED_BY"));
+        this.setLast_updated_date(temp.getString("LAST_UPDATED_DATE"));
+        this.setCreation_date(temp.getString("CREATION_DATE"));
+        this.setLast_update_login(temp.getString("LAST_UPDATE_LOGIN"));
+        this.setP_price_list(temp.getString("P_PRICE_LIST"));
+        this.setP_item_number(temp.getString("P_ITEM_NUMBER"));
+        this.setP_currency(temp.getString("P_CURRENCY"));
+        this.setP_selling_price(temp.getString("P_SELLING_PRICE"));
+        this.setP_availabe(temp.getString("P_AVAILABLE"));
+        this.setP_available_date(temp.getString("P_AVAILABLE_DATE"));
+        this.setP_uom(temp.getString("P_UOM"));
+        this.setP_atp_flag(temp.getString("P_ATP_FLAG"));
+        this.setP_discount(temp.getString("P_DISCOUNT"));
+        this.setP_dis_desc(temp.getString("P_DIS_DESC"));
+        this.setP_dis_valid_date(temp.getString("P_DIS_VALID_DATE"));
+        this.setP_warehouse(temp.getString("P_WAREHOUSE"));
         this.setAttribute1(temp.getString("ATTRIBUTE1"));
         this.setAttribute2(temp.getString("ATTRIBUTE2"));
         this.setAttribute3(temp.getString("ATTRIBUTE3"));
@@ -93,49 +94,6 @@ public class GetPricingInformation {
         this.setAttribute15(temp.getString("ATTRIBUTE15"));
         
     }
-    
- /*   public Object clone() {
-
-        GetPricingInformation getPricingInfo = new GetPricingInformation();
-        getPricingInfo.setP_item_description(p_item_description);
-        getPricingInfo.setP_item_quantity(p_item_quantity);
-        getPricingInfo.setP_request_date(p_request_date);
-        
-        getPricingInfo.setP_customer_number(p_customer_number);
-        getPricingInfo.setCreated_by(created_by);
-        getPricingInfo.setLast_updated_by(last_updated_by);
-        getPricingInfo.setLast_updated_date(last_updated_date);
-        getPricingInfo.setCreation_date(creation_date);
-        getPricingInfo.setLast_update_login(last_update_login);
-        getPricingInfo.setP_price_list(p_price_list);
-        getPricingInfo.setP_item_number(p_item_number);
-        getPricingInfo.setP_currency(p_currency);
-        getPricingInfo.setP_selling_price(p_selling_price);
-        getPricingInfo.setP_availabe(p_availabe);
-        getPricingInfo.setP_available_date(p_available_date);
-        getPricingInfo.setP_uom(p_uom);
-        getPricingInfo.setP_atp_flag(p_atp_flag);
-        getPricingInfo.setP_discount(p_discount);
-        getPricingInfo.setP_dis_desc(p_dis_desc);
-        getPricingInfo.setP_dis_valid_date(p_dis_valid_date);
-        getPricingInfo.setP_warehouse(p_warehouse);
-        getPricingInfo.setAttribute1(attribute1);
-        getPricingInfo.setAttribute2(attribute2);
-        getPricingInfo.setAttribute3(attribute3);
-        getPricingInfo.setAttribute4(attribute4);
-        getPricingInfo.setAttribute5(attribute5);
-        getPricingInfo.setAttribute6(attribute6);
-        getPricingInfo.setAttribute7(attribute7);
-        getPricingInfo.setAttribute8(attribute8);
-        getPricingInfo.setAttribute9(attribute9);
-        getPricingInfo.setAttribute10(attribute10);
-        getPricingInfo.setAttribute11(attribute11);
-        getPricingInfo.setAttribute12(attribute12);
-        getPricingInfo.setAttribute13(attribute13);
-        getPricingInfo.setAttribute14(attribute14);
-        getPricingInfo.setAttribute15(attribute15);
-        return getPricingInfo;
-    }  */
 
     public void setP_item_description(String p_item_description) {
         String oldP_item_description = this.p_item_description;
@@ -157,13 +115,13 @@ public class GetPricingInformation {
         return p_item_quantity;
     }
 
-    public void setP_request_date(Date p_request_date) {
-        Date oldP_request_date = this.p_request_date;
+    public void setP_request_date(String p_request_date) {
+        String oldP_request_date = this.p_request_date;
         this.p_request_date = p_request_date;
         _propertyChangeSupport.firePropertyChange("p_request_date", oldP_request_date, p_request_date);
     }
 
-    public Date getP_request_date() {
+    public String getP_request_date() {
         return p_request_date;
     }
 
@@ -177,63 +135,63 @@ public class GetPricingInformation {
         return p_customer_number;
     }
 
-    public void setCreated_by(Number created_by) {
-        Number oldCreated_by = this.created_by;
+    public void setCreated_by(String created_by) {
+        String oldCreated_by = this.created_by;
         this.created_by = created_by;
         _propertyChangeSupport.firePropertyChange("created_by", oldCreated_by, created_by);
     }
 
-    public Number getCreated_by() {
+    public String getCreated_by() {
         return created_by;
     }
 
-    public void setLast_updated_by(Number last_updated_by) {
-        Number oldLast_updated_by = this.last_updated_by;
+    public void setLast_updated_by(String last_updated_by) {
+        String oldLast_updated_by = this.last_updated_by;
         this.last_updated_by = last_updated_by;
         _propertyChangeSupport.firePropertyChange("last_updated_by", oldLast_updated_by, last_updated_by);
     }
 
-    public Number getLast_updated_by() {
+    public String getLast_updated_by() {
         return last_updated_by;
     }
 
-    public void setLast_updated_date(Date last_updated_date) {
-        Date oldLast_updated_date = this.last_updated_date;
+    public void setLast_updated_date(String last_updated_date) {
+        String oldLast_updated_date = this.last_updated_date;
         this.last_updated_date = last_updated_date;
         _propertyChangeSupport.firePropertyChange("last_updated_date", oldLast_updated_date, last_updated_date);
     }
 
-    public Date getLast_updated_date() {
+    public String getLast_updated_date() {
         return last_updated_date;
     }
 
-    public void setCreation_date(Date creation_date) {
-        Date oldCreation_date = this.creation_date;
+    public void setCreation_date(String creation_date) {
+        String oldCreation_date = this.creation_date;
         this.creation_date = creation_date;
         _propertyChangeSupport.firePropertyChange("creation_date", oldCreation_date, creation_date);
     }
 
-    public Date getCreation_date() {
+    public String getCreation_date() {
         return creation_date;
     }
 
-    public void setLast_update_login(Number last_update_login) {
-        Number oldLast_update_login = this.last_update_login;
+    public void setLast_update_login(String last_update_login) {
+        String oldLast_update_login = this.last_update_login;
         this.last_update_login = last_update_login;
         _propertyChangeSupport.firePropertyChange("last_update_login", oldLast_update_login, last_update_login);
     }
 
-    public Number getLast_update_login() {
+    public String getLast_update_login() {
         return last_update_login;
     }
 
-    public void setP_price_list(Number p_price_list) {
-        Number oldP_price_list = this.p_price_list;
+    public void setP_price_list(String p_price_list) {
+        String oldP_price_list = this.p_price_list;
         this.p_price_list = p_price_list;
         _propertyChangeSupport.firePropertyChange("p_price_list", oldP_price_list, p_price_list);
     }
 
-    public Number getP_price_list() {
+    public String getP_price_list() {
         return p_price_list;
     }
 
@@ -257,33 +215,33 @@ public class GetPricingInformation {
         return p_currency;
     }
 
-    public void setP_selling_price(Number p_selling_price) {
-        Number oldP_selling_price = this.p_selling_price;
+    public void setP_selling_price(String p_selling_price) {
+        String oldP_selling_price = this.p_selling_price;
         this.p_selling_price = p_selling_price;
         _propertyChangeSupport.firePropertyChange("p_selling_price", oldP_selling_price, p_selling_price);
     }
 
-    public Number getP_selling_price() {
+    public String getP_selling_price() {
         return p_selling_price;
     }
 
-    public void setP_availabe(Number p_availabe) {
-        Number oldP_availabe = this.p_availabe;
+    public void setP_availabe(String p_availabe) {
+        String oldP_availabe = this.p_availabe;
         this.p_availabe = p_availabe;
         _propertyChangeSupport.firePropertyChange("p_availabe", oldP_availabe, p_availabe);
     }
 
-    public Number getP_availabe() {
+    public String getP_availabe() {
         return p_availabe;
     }
 
-    public void setP_available_date(Date p_available_date) {
-        Date oldP_available_date = this.p_available_date;
+    public void setP_available_date(String p_available_date) {
+        String oldP_available_date = this.p_available_date;
         this.p_available_date = p_available_date;
         _propertyChangeSupport.firePropertyChange("p_available_date", oldP_available_date, p_available_date);
     }
 
-    public Date getP_available_date() {
+    public String getP_available_date() {
         return p_available_date;
     }
 
@@ -327,13 +285,13 @@ public class GetPricingInformation {
         return p_dis_desc;
     }
 
-    public void setP_dis_valid_date(Date p_dis_valid_date) {
-        Date oldP_dis_valid_date = this.p_dis_valid_date;
+    public void setP_dis_valid_date(String p_dis_valid_date) {
+        String oldP_dis_valid_date = this.p_dis_valid_date;
         this.p_dis_valid_date = p_dis_valid_date;
         _propertyChangeSupport.firePropertyChange("p_dis_valid_date", oldP_dis_valid_date, p_dis_valid_date);
     }
 
-    public Date getP_dis_valid_date() {
+    public String getP_dis_valid_date() {
         return p_dis_valid_date;
     }
 
