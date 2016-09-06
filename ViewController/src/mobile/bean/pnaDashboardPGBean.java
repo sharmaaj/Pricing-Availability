@@ -172,13 +172,5 @@ public class pnaDashboardPGBean {
         SearchHistoryDC scd = new SearchHistoryDC();
         scd.fetchSearchHistory();
     }
-    
- /*   public void getPricingInformation(){
-        PricingInfoDC scd = new PricingInfoDC();
-        scd.fetchPricingInformation();
-    } */
-
- /*   public void searchButtonClicked(ActionEvent actionEvent) {
-        getPricingInformation();
-    }*/
+   
 }
