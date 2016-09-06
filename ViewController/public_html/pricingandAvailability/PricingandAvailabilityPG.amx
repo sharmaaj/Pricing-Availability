@@ -17,6 +17,37 @@
                 <amx:outputHtml id="oh2" styleClass="fa fa-shopping-cart fa-lg" inlineStyle="color:white;"/>
             </amx:commandLink>
         </amx:facet>
+        
+                <!--Header Section Ebds -->
+        <amx:tableLayout id="tl1" width="100%">
+            <amx:rowLayout id="rl1">
+                <amx:cellFormat valign="middle" id="cf1" height="50px" width="50%"
+                                styleClass="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass}">
+                    <amx:commandLink text="Pricing" styleClass="label" inlineStyle="color:#000000;">
+                        <amx:setPropertyListener from="sub-header"
+                                                 to="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass}"
+                                                 type="action" id="spl1"/>
+                        <amx:setPropertyListener from="sub-header-disable"
+                                                 to="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass}"
+                                                 type="action" id="spl2"/>
+                    </amx:commandLink>
+                </amx:cellFormat>
+                <amx:cellFormat valign="middle" id="cf2" height="50px" width="50%"
+                                styleClass="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass}">
+                    <amx:commandLink text="Availability" styleClass="label" inlineStyle="color:#000000;"
+                                     actionListener="#{pageFlowScope.pnaDashboardPGBean.getSearchHistory}">
+                        <amx:setPropertyListener from="sub-header"
+                                                 to="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass}"
+                                                 type="action" id="spl3"/>
+                        <amx:setPropertyListener from="sub-header-disable"
+                                                 to="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass}"
+                                                 type="action" id="spl4"/>
+                    </amx:commandLink>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
+        <!--Header Section Ebds -->
+        
     <amx:iterator var="row" value="#{bindings.pricingInformation.collectionModel}" id="i1">
       <amx:panelLabelAndMessage label="#{bindings.pricingInformation.hints.p_item_description.label}" id="plam1">
         <amx:outputText value="#{row.p_item_description}" id="ot2"/>
