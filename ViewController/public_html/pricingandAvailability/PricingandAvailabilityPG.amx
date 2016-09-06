@@ -46,6 +46,63 @@
             </amx:rowLayout>
         </amx:tableLayout>
         <!--Header Section Ebds -->
+        <amx:listView var="row" value="#{bindings.pricingInformation.collectionModel}"
+                      fetchSize="#{bindings.pricingInformation.rangeSize}"
+                      selectedRowKeys="#{bindings.pricingInformation.collectionModel.selectedRow}"
+                      initialScrollRowKeys="#{bindings.pricingInformation.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.pricingInformation.collectionModel.makeCurrent}"
+                      dividerAttribute="p_item_number" dividerMode="all" showMoreStrategy="autoScroll"
+                      bufferStrategy="viewport" id="lv2">
+            <amx:listItem id="li2">
+                                <amx:panelGroupLayout id="parentlayout1" layout="vertical">
+                    <amx:panelGroupLayout id="itemNumRow1" layout="horizontal">
+                        <amx:spacer width="15" id="s120"/>
+                        <amx:outputText value="#{row.p_item_number}" id="ot22" styleClass="label"/>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="pg2l1" layout="vertical">
+                        <amx:panelLabelAndMessage label="Item Description" id="plam7" styleClass="label"/>
+                        <amx:panelGroupLayout id="pgl2112" layout="horizontal">
+                            <amx:spacer width="25" id="s11"/>
+                            <amx:outputText value="#{row.p_item_description}" id="o2t8" inlineStyle="color:#000000;"/>
+                        </amx:panelGroupLayout>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="lastRow11" layout="horizontal">
+                        <amx:panelGroupLayout id="labitemQtyRow11" layout="vertical">
+                            <amx:panelLabelAndMessage label="Quantity" id="plam81" styleClass="label"/>
+                            <amx:panelGroupLayout id="pgl1113" layout="horizontal">
+                                <amx:spacer width="25" id="s112"/>
+                                <amx:outputText value="#{row.p_item_quantity}" id="ot15" inlineStyle="color:#000000;"/>
+                            </amx:panelGroupLayout>
+                        </amx:panelGroupLayout>
+                        <amx:panelGroupLayout id="dateRow211" layout="vertical">
+                            <amx:panelLabelAndMessage label="Customer Number" id="plam51" styleClass="label"/>
+                            <amx:panelGroupLayout id="pgl141" layout="horizontal">
+                                <amx:spacer width="25" id="s131"/>
+                                <amx:outputText value="#{row.p_customer_number}" id="ot31"
+                                                inlineStyle=" color:#000000;"/>
+                            </amx:panelGroupLayout>
+                        </amx:panelGroupLayout>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="lastRow111" layout="horizontal">
+                        <amx:panelGroupLayout id="Quantity" layout="vertical">
+                            <amx:panelLabelAndMessage label="Request Date" id="plam18" styleClass="label"/>
+                            <amx:panelGroupLayout id="pgl113" layout="horizontal">
+                                <amx:spacer width="25" id="s1112"/>
+                                <amx:outputText value="#{row.p_request_date}" id="ot115" inlineStyle="color:#000000;"/>
+                            </amx:panelGroupLayout>
+                        </amx:panelGroupLayout>
+                        <amx:panelGroupLayout id="dateRow12" layout="vertical">
+                            <amx:panelLabelAndMessage label="List Price" id="plam75" styleClass="label"/>
+                            <amx:panelGroupLayout id="pgl114" layout="horizontal">
+                                <amx:spacer width="25" id="s113"/>
+                                <amx:outputText value="#{row.p_price_list}" id="ot13" inlineStyle=" color:#000000;"/>
+                            </amx:panelGroupLayout>
+                        </amx:panelGroupLayout>
+                    </amx:panelGroupLayout>
+                    </amx:panelGroupLayout>
+            </amx:listItem>
+        </amx:listView>
+        <!--Availability Section starts -->
         <amx:listView var="row" value="#{bindings.pricingInformation1.collectionModel}"
                       fetchSize="#{bindings.pricingInformation1.rangeSize}"
                       selectedRowKeys="#{bindings.pricingInformation1.collectionModel.selectedRow}"
@@ -61,9 +118,9 @@
                         <amx:outputText value="#{row.p_item_number}" id="ot2" styleClass="label"/>
                     </amx:panelGroupLayout>
                     <amx:panelGroupLayout id="pgl1" layout="vertical">
-                        <amx:panelLabelAndMessage label="Item Description" id="plam7" styleClass="label"/>
+                        <amx:panelLabelAndMessage label="Item Description" id="plam758" styleClass="label"/>
                         <amx:panelGroupLayout id="pgl12" layout="horizontal">
-                            <amx:spacer width="25" id="s11"/>
+                            <amx:spacer width="25" id="s151"/>
                             <amx:outputText value="#{row.p_item_description}" id="ot8" inlineStyle="color:#000000;"/>
                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
@@ -85,22 +142,22 @@
                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
                     <amx:panelGroupLayout id="lastRow1" layout="horizontal">
-                        <amx:panelGroupLayout id="Quantity" layout="vertical">
-                            <amx:panelLabelAndMessage label="Request Date" id="plam18" styleClass="label"/>
-                            <amx:panelGroupLayout id="pgl113" layout="horizontal">
-                                <amx:spacer width="25" id="s112"/>
-                                <amx:outputText value="#{row.p_request_date}" id="ot15" inlineStyle="color:#000000;"/>
+                        <amx:panelGroupLayout id="Quantity4" layout="vertical">
+                            <amx:panelLabelAndMessage label="Request Date" id="plam184" styleClass="label"/>
+                            <amx:panelGroupLayout id="pgl1413" layout="horizontal">
+                                <amx:spacer width="25" id="s1142"/>
+                                <amx:outputText value="#{row.p_request_date}" id="ot145" inlineStyle="color:#000000;"/>
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
-                        <amx:panelGroupLayout id="dateRow12" layout="vertical">
-                            <amx:panelLabelAndMessage label="List Price" id="plam75" styleClass="label"/>
-                            <amx:panelGroupLayout id="pgl114" layout="horizontal">
-                                <amx:spacer width="25" id="s113"/>
-                                <amx:outputText value="#{row.p_price_list}" id="ot13" inlineStyle=" color:#000000;"/>
+                        <amx:panelGroupLayout id="dateRow142" layout="vertical">
+                            <amx:panelLabelAndMessage label="List Price" id="plam745" styleClass="label"/>
+                            <amx:panelGroupLayout id="pg4l114" layout="horizontal">
+                                <amx:spacer width="25" id="s1213"/>
+                                <amx:outputText value="#{row.p_price_list}" id="ot213" inlineStyle=" color:#000000;"/>
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
-                    <amx:panelGroupLayout id="lastRow11" layout="horizontal">
+                    <amx:panelGroupLayout id="lastRow1211" layout="horizontal">
                         <amx:panelGroupLayout id="Quantity1" layout="vertical">
                             <amx:panelLabelAndMessage label="Availability" id="plam118" styleClass="label"/>
                             <amx:panelGroupLayout id="pgl1213" layout="horizontal">
@@ -111,12 +168,12 @@
                         <amx:panelGroupLayout id="dateRow122" layout="vertical">
                             <amx:panelLabelAndMessage label="Availability Date" id="plam725" styleClass="label"/>
                             <amx:panelGroupLayout id="pgl1124" layout="horizontal">
-                                <amx:spacer width="25" id="s1213"/>
+                                <amx:spacer width="25" id="s12213"/>
                                 <amx:outputText value="#{row.p_price_list}" id="ot123" inlineStyle=" color:#000000;"/>
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
-                    <amx:panelGroupLayout id="lastRow111" layout="horizontal">
+                    <amx:panelGroupLayout id="lastRow1121" layout="horizontal">
                         <amx:panelGroupLayout id="Quantity11" layout="vertical">
                             <amx:panelLabelAndMessage label="Warehouse" id="plam1118" styleClass="label"/>
                             <amx:panelGroupLayout id="pgl11213" layout="horizontal">
@@ -137,6 +194,7 @@
                 </amx:panelGroupLayout>
             </amx:listItem>
         </amx:listView>
+        <!--Availability Section starts -->
         <amx:commandLink shortDesc="Add To Cart" styleClass="commandLink" text="Add To Cart" id="cl2"
                          action="AddToCart"/>
     </amx:panelPage>
