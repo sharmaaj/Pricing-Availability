@@ -76,6 +76,15 @@ public class PricingInfoDC {
         String restURI = RestURIs.getPricingInformation();
         RestServiceManager rcu = new RestServiceManager();
         
+        System.out.println("UserId-->"+userId);
+        System.out.println("itemNum-->"+itemNum);
+        System.out.println("itemDesc-->"+itemDesc);
+        System.out.println("orgId-->"+orgId);
+        System.out.println("quantity-->"+quantity);
+        System.out.println("custNumber-->"+custNumber);
+        System.out.println("priceList-->"+priceList);
+        System.out.println("reqDate-->"+userId);
+        
         
 
         String payload = "{  \n" + "\"P_USER_ID\" : \"" + userId + "\"," +
