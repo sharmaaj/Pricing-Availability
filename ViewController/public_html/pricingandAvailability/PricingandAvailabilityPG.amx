@@ -22,5 +22,8 @@
         <amx:outputText value="#{row.p_item_number}" id="ot2"/>
       </amx:listItem>
     </amx:listView>
+    <amx:selectOneChoice value="#{bindings.p_item_number.inputValue}" label="#{bindings.p_item_number.label}" id="soc1">
+      <amx:selectItems value="#{bindings.p_item_number.items}" id="si1"/>
+    </amx:selectOneChoice>
   </amx:panelPage>
 </amx:view>
