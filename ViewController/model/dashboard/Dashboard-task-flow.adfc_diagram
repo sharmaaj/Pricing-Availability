@@ -27,7 +27,7 @@
       <property
          name="fromOutcome">myCart</property>
       <property
-         name="sdm:polyPoints">R54,195.0,128.08594,358.68848,240.0918,L46</property>
+         name="sdm:polyPoints">R54,195.0,128.08594,358.68848,239.74121,L46</property>
    </ControlFlowCase>
    <View
       id="View5">
@@ -69,7 +69,7 @@
       <property
          name="fromOutcome">AddToCart</property>
       <property
-         name="sdm:polyPoints">R50,197.36426,346.43652,358.68848,247.0918,L54</property>
+         name="sdm:polyPoints">R50,197.36426,346.08594,358.68848,246.74121,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -79,7 +79,7 @@
       <property
          name="fromOutcome">searchResults</property>
       <property
-         name="sdm:polyPoints">B50,154.0,178.58594,156.36426,292.43652,T50</property>
+         name="sdm:polyPoints">B50,154.0,178.58594,156.36426,292.08594,T50</property>
    </ControlFlowCase>
    <View
       id="View12">
@@ -90,7 +90,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>ItemLovPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">126.5459</property>
+         name="y">125.84473</property>
       <property
          name="page">/LovPage/ItemLOVPG.amx</property>
       <property
@@ -104,7 +104,7 @@
       <property
          name="fromOutcome">itemLov</property>
       <property
-         name="sdm:polyPoints">R46,196.15688,121.08594,324.0,126.5459,L50</property>
+         name="sdm:polyPoints">R46,196.14458,121.08594,324.0,125.84473,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall14">
