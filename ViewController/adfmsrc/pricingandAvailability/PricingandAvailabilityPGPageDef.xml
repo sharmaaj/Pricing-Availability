@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.1.20" id="PricingandAvailabilityPGPageDef"
+                Package="pricingandAvailability">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="PricingInfoDC" id="PricingInfoDCIterator"/>
+    <accessorIterator MasterBinding="PricingInfoDCIterator" Binds="pricingInformation" RangeSize="-1"
+                      DataControl="PricingInfoDC" BeanClass="mobile.entity.GetPricingInformation"
+                      id="pricingInformationIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <tree IterBinding="pricingInformationIterator" id="pricingInformation1">
+      <nodeDefinition DefName="mobile.entity.GetPricingInformation" Name="pricingInformation10">
+        <AttrNames>
+          <Item Value="p_item_number"/>
+          <Item Value="attribute1"/>
+          <Item Value="attribute10"/>
+          <Item Value="attribute11"/>
+          <Item Value="attribute12"/>
+          <Item Value="attribute13"/>
+          <Item Value="attribute14"/>
+          <Item Value="attribute15"/>
+          <Item Value="attribute2"/>
+          <Item Value="attribute3"/>
+          <Item Value="attribute4"/>
+          <Item Value="attribute5"/>
+          <Item Value="attribute6"/>
+          <Item Value="attribute7"/>
+          <Item Value="attribute8"/>
+          <Item Value="attribute9"/>
+          <Item Value="created_by"/>
+          <Item Value="creation_date"/>
+          <Item Value="last_update_login"/>
+          <Item Value="last_updated_by"/>
+          <Item Value="last_updated_date"/>
+          <Item Value="p_atp_flag"/>
+          <Item Value="p_availabe"/>
+          <Item Value="p_available_date"/>
+          <Item Value="p_currency"/>
+          <Item Value="p_customer_number"/>
+          <Item Value="p_dis_desc"/>
+          <Item Value="p_dis_valid_date"/>
+          <Item Value="p_discount"/>
+          <Item Value="p_item_description"/>
+          <Item Value="p_item_quantity"/>
+          <Item Value="p_price_list"/>
+          <Item Value="p_request_date"/>
+          <Item Value="p_selling_price"/>
+          <Item Value="p_uom"/>
+          <Item Value="p_warehouse"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="pricingInformationIterator" id="pricingInformation">
+      <nodeDefinition DefName="mobile.entity.GetPricingInformation" Name="pricingInformation0">
+        <AttrNames>
+          <Item Value="p_item_number"/>
+          <Item Value="attribute1"/>
+          <Item Value="attribute10"/>
+          <Item Value="attribute11"/>
+          <Item Value="attribute12"/>
+          <Item Value="attribute13"/>
+          <Item Value="attribute14"/>
+          <Item Value="attribute15"/>
+          <Item Value="attribute2"/>
+          <Item Value="attribute3"/>
+          <Item Value="attribute4"/>
+          <Item Value="attribute5"/>
+          <Item Value="attribute6"/>
+          <Item Value="attribute7"/>
+          <Item Value="attribute8"/>
+          <Item Value="attribute9"/>
+          <Item Value="created_by"/>
+          <Item Value="creation_date"/>
+          <Item Value="last_update_login"/>
+          <Item Value="last_updated_by"/>
+          <Item Value="last_updated_date"/>
+          <Item Value="p_atp_flag"/>
+          <Item Value="p_availabe"/>
+          <Item Value="p_available_date"/>
+          <Item Value="p_currency"/>
+          <Item Value="p_customer_number"/>
+          <Item Value="p_dis_desc"/>
+          <Item Value="p_dis_valid_date"/>
+          <Item Value="p_discount"/>
+          <Item Value="p_item_description"/>
+          <Item Value="p_item_quantity"/>
+          <Item Value="p_price_list"/>
+          <Item Value="p_request_date"/>
+          <Item Value="p_selling_price"/>
+          <Item Value="p_uom"/>
+          <Item Value="p_warehouse"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_dis_desc">
+      <AttrNames>
+        <Item Value="p_dis_desc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_item_description">
+      <AttrNames>
+        <Item Value="p_item_description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_item_quantity">
+      <AttrNames>
+        <Item Value="p_item_quantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_request_date">
+      <AttrNames>
+        <Item Value="p_request_date"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_customer_number">
+      <AttrNames>
+        <Item Value="p_customer_number"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_price_list">
+      <AttrNames>
+        <Item Value="p_price_list"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_item_number">
+      <AttrNames>
+        <Item Value="p_item_number"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_currency">
+      <AttrNames>
+        <Item Value="p_currency"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_selling_price">
+      <AttrNames>
+        <Item Value="p_selling_price"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_selling_price1">
+      <AttrNames>
+        <Item Value="p_selling_price"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_availabe">
+      <AttrNames>
+        <Item Value="p_availabe"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_available_date">
+      <AttrNames>
+        <Item Value="p_available_date"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_uom">
+      <AttrNames>
+        <Item Value="p_uom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_atp_flag">
+      <AttrNames>
+        <Item Value="p_atp_flag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_discount">
+      <AttrNames>
+        <Item Value="p_discount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_dis_valid_date">
+      <AttrNames>
+        <Item Value="p_dis_valid_date"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_warehouse">
+      <AttrNames>
+        <Item Value="p_warehouse"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
