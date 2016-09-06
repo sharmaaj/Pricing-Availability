@@ -96,7 +96,12 @@
         <Item Value="listName"/>
       </ListDisplayAttrNames>
     </list>
-    <methodAction id="fetchPriceList" RequiresUpdateModel="true" Action="invokeMethod" MethodName="fetchPriceList"
-                  IsViewObjectMethod="false" DataControl="PriceListDC" InstanceName="data.PriceListDC.dataProvider"/>
+    <methodAction id="fetchPriceList" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="fetchPriceList"
+                  IsViewObjectMethod="false" DataControl="PriceListDC"
+                  InstanceName="data.PriceListDC.dataProvider"/>
+    <methodAction id="fetchPricingInformation" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="fetchPricingInformation" IsViewObjectMethod="false" DataControl="PricingInfoDC"
+                  InstanceName="data.PricingInfoDC.dataProvider"/>
   </bindings>
 </pageDefinition>
