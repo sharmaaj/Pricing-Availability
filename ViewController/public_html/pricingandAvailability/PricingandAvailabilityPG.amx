@@ -7,12 +7,16 @@
       <amx:outputText value="Item Details" id="ot1" inlineStyle="color:White; padding-left:40px;"/>
       </amx:panelGroupLayout>
     </amx:facet>
-    <amx:facet name="primary">
-      <amx:commandButton id="cb1"/>
-    </amx:facet>
-    <amx:facet name="secondary">
-      <amx:commandButton id="cb2"/>
-    </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl3">
+                <amx:outputHtml id="oh1" styleClass="fa fa-bars fa-lg" inlineStyle="color:white;"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl4">
+                <amx:outputHtml id="oh2" styleClass="fa fa-shopping-cart fa-lg" inlineStyle="color:white;"/>
+            </amx:commandLink>
+        </amx:facet>
     <amx:iterator var="row" value="#{bindings.pricingInformation.collectionModel}" id="i1">
       <amx:panelLabelAndMessage label="#{bindings.pricingInformation.hints.p_item_description.label}" id="plam1">
         <amx:outputText value="#{row.p_item_description}" id="ot2"/>
