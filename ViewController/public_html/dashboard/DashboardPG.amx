@@ -133,7 +133,7 @@
         </amx:panelFormLayout>
         <amx:commandLink shortDesc="Search" styleClass="commandLink" text="Search" id="cl2"
                          rendered="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass eq 'sub-header'}"
-                         actionListener="#{bindings.fetchPriceList.execute}" action="searchResults"/>
+                         actionListener="#{bindings.fetchPricingInformation.execute}" action="searchResults"/>
         <!--New Search Page Section Ends -->
         <!--Search History Section Begins -->
                 <amx:listView var="row" value="#{bindings.searchHistory.collectionModel}"
