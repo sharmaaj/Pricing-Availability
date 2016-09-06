@@ -17,7 +17,7 @@
                 <amx:outputHtml id="oh2" styleClass="fa fa-shopping-cart fa-lg" inlineStyle="color:white;"/>
             </amx:commandLink>
         </amx:facet>
-        <!--Header Section Ebds -->
+        <!--Header Section Starts -->
         <amx:tableLayout id="tl1" width="100%">
             <amx:rowLayout id="rl1">
                 <amx:cellFormat valign="middle" id="cf1" height="50px" width="50%"
@@ -45,12 +45,16 @@
                 </amx:cellFormat>
             </amx:rowLayout>
         </amx:tableLayout>
-        <!--Header Section Ebds -->
+        <!--Header Section ends -->
+        
+        <!--Pricing Section starts -->
+        
         <amx:listView var="row" value="#{bindings.pricingInformation.collectionModel}"
                       fetchSize="#{bindings.pricingInformation.rangeSize}"
                       selectedRowKeys="#{bindings.pricingInformation.collectionModel.selectedRow}"
                       initialScrollRowKeys="#{bindings.pricingInformation.collectionModel.selectedRow}"
                       selectionListener="#{bindings.pricingInformation.collectionModel.makeCurrent}"
+                      rendered="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass eq 'sub-header'}"
                       dividerAttribute="p_item_number" dividerMode="all" showMoreStrategy="autoScroll"
                       bufferStrategy="viewport" id="lv2">
             <amx:listItem id="li2">
@@ -102,6 +106,8 @@
                     </amx:panelGroupLayout>
             </amx:listItem>
         </amx:listView>
+        <!--Pricing Section ends -->
+        
         <!--Availability Section starts -->
         <amx:listView var="row" value="#{bindings.pricingInformation1.collectionModel}"
                       fetchSize="#{bindings.pricingInformation1.rangeSize}"
