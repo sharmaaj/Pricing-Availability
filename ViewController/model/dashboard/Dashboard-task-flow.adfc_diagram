@@ -104,7 +104,7 @@
       <property
          name="fromOutcome">itemLov</property>
       <property
-         name="sdm:polyPoints">R46,196.14458,121.08594,324.0,125.84473,L50</property>
+         name="sdm:polyPoints">R46,196.13983,121.08594,324.0,125.49414,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall14">
