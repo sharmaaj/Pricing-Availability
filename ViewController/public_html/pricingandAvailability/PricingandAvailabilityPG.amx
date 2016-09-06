@@ -132,6 +132,8 @@
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
+                    <amx:panelLabelAndMessage label="Warning!Item is not ATP enabled" id="plam1"
+                                              rendered="#{row.p_atp_flag eq 'N' || row.p_atp_flag eq 'n'}"/>
                 </amx:panelGroupLayout>
             </amx:listItem>
         </amx:listView>
