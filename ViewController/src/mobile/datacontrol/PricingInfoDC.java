@@ -37,8 +37,7 @@ public class PricingInfoDC {
     }
 
     public GetPricingInformation[] getPricingInformation() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mmm-dd");
-        Date date = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-YYYY");
         ValueExpression ve = null;
         s_pricngInfo = new ArrayList<GetPricingInformation>();
         s_pricngInfo.clear();
@@ -47,15 +46,16 @@ public class PricingInfoDC {
         String userId = null;
         String itemNum = null;
         String itemDesc = null;
-        String orgId = null;
-        String quantity = null;
+        Number orgId = null;
+        Number quantity = null;
         String custNumber = null;
         String priceList = null;
         Date reqDate = null;
         
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orgId}", String.class);
-        orgId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orgId}", Number.class);
+        orgId = (Number) (ve.getValue(AdfmfJavaUtilities.getELContext()));
+        orgId = 209;
         
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userId = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
@@ -66,8 +66,8 @@ public class PricingInfoDC {
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemDesc}", String.class);
         itemDesc = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.itemQuantity}", String.class);
-        quantity = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.itemQuantity}", Number.class);
+        quantity = (Number) (ve.getValue(AdfmfJavaUtilities.getELContext()));
         
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.customerNumber}", String.class);
         custNumber = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
@@ -75,7 +75,7 @@ public class PricingInfoDC {
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.priceList}", String.class);
         priceList = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
     
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.requestedDate}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.requestedDate}", Date.class);
         reqDate = (Date) (ve.getValue(AdfmfJavaUtilities.getELContext()));
         
         
@@ -89,7 +89,7 @@ public class PricingInfoDC {
         System.out.println("quantity-->"+quantity);
         System.out.println("custNumber-->"+custNumber);
         System.out.println("priceList-->"+priceList);
-        System.out.println("reqDate-->"+userId);
+        System.out.println("reqDate-->"+reqDate);
         
         
 
@@ -100,21 +100,26 @@ public class PricingInfoDC {
                             "\n" + "\"P_QUANTITY\" : \"" + quantity + "\"," +
                             "\n" + "\"P_CUSTOMER_NUMBER\" : \"" + custNumber + "\"," +
                             "\n" + "\"P_PRICE_LIST\" : \"" + priceList + "\"," +
-                            "\n" + "\"P_REQUESTED_DATE\" : \"" + dateFormat.format(reqDate) + "\"\n" + "}";
+                            "\n" + "\"P_REQUESTED_DATE\" : \"" +dateFormat.format(reqDate) + "\"\n" + "}";
         
         
         System.out.println("paylod is " + payload);
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
+        
+        System.out.println("jsonArrayAsString-->"+jsonArrayAsString);
         try {
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
             JSONObject parentNode = (JSONObject) jsonObject.get("P_ITEM_DETAIL");
-            JSONArray nodeArray = parentNode.getJSONArray("P_ITEM_DETAIL_ITEM");
-            int size = nodeArray.length();
-            for (int i = 0; i < size; i++) {
+          //  JSONArray nodeArray = parentNode.getJSONArray("P_ITEM_DETAIL");
+            int size = parentNode.length();
+            /* int size = parentNode.length();
+               for (int i = 0; i < size; i++) {
                 JSONObject temp = nodeArray.getJSONObject(i);
                 GetPricingInformation pricngInf = new GetPricingInformation(temp);
                 s_pricngInfo.add(pricngInf);
-            }
+            } */
+            GetPricingInformation pricngInf = new GetPricingInformation(parentNode);
+            s_pricngInfo.add(pricngInf);
         } catch (Exception e) {
             e.getMessage();
             e.printStackTrace();
