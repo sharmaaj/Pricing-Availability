@@ -53,6 +53,7 @@ public class SearchHistoryDC {
         String payload = "{\n" + "\"P_ORG_ID\" : \"" + orgId + "\",\n" + "\"P_USER_NAME\" : \"" + userName + "\"\n" + "}";
         System.out.println("paylod is " + payload);
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
+        System.out.println("jsonArrayAsString for Search History-->"+jsonArrayAsString);
         try {
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
             JSONObject parentNode = (JSONObject) jsonObject.get("P_SEARCH_HIS");
