@@ -3,7 +3,9 @@
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
     <amx:facet name="header">
-      <amx:outputText value="Header" id="ot1"/>
+    <amx:panelGroupLayout id="pgl2" layout="horizontal" halign="center" valign="middle">
+      <amx:outputText value="Item Details" id="ot1" inlineStyle="color:White; padding-left:40px;"/>
+      </amx:panelGroupLayout>
     </amx:facet>
     <amx:facet name="primary">
       <amx:commandButton id="cb1"/>
@@ -11,19 +13,18 @@
     <amx:facet name="secondary">
       <amx:commandButton id="cb2"/>
     </amx:facet>
-    <amx:listView var="row" value="#{bindings.pricingInformation.collectionModel}"
-                  fetchSize="#{bindings.pricingInformation.rangeSize}"
-                  selectedRowKeys="#{bindings.pricingInformation.collectionModel.selectedRow}"
-                  initialScrollRowKeys="#{bindings.pricingInformation.collectionModel.selectedRow}"
-                  selectionListener="#{bindings.pricingInformation.collectionModel.makeCurrent}"
-                  dividerAttribute="p_item_number" dividerMode="all" showMoreStrategy="autoScroll"
-                  bufferStrategy="viewport" id="lv1">
-      <amx:listItem id="li1">
-        <amx:outputText value="#{row.p_item_number}" id="ot2"/>
-      </amx:listItem>
-    </amx:listView>
-    <amx:selectOneChoice value="#{bindings.p_item_number.inputValue}" label="#{bindings.p_item_number.label}" id="soc1">
-      <amx:selectItems value="#{bindings.p_item_number.items}" id="si1"/>
-    </amx:selectOneChoice>
+    <amx:iterator var="row" value="#{bindings.pricingInformation.collectionModel}" id="i1">
+      <amx:panelLabelAndMessage label="#{bindings.pricingInformation.hints.p_item_description.label}" id="plam1">
+        <amx:outputText value="#{row.p_item_description}" id="ot2"/>
+      </amx:panelLabelAndMessage>
+      <amx:panelLabelAndMessage label="#{bindings.pricingInformation.hints.p_price_list.label}" id="plam2">
+        <amx:outputText value="#{row.p_price_list}" id="ot3">
+          <amx:convertNumber groupingUsed="false" id="cn1"/>
+        </amx:outputText>
+      </amx:panelLabelAndMessage>
+      <amx:panelLabelAndMessage label="#{bindings.pricingInformation.hints.p_item_number.label}" id="plam3">
+        <amx:outputText value="#{row.p_item_number}" id="ot4"/>
+      </amx:panelLabelAndMessage>
+    </amx:iterator>
   </amx:panelPage>
 </amx:view>
