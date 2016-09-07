@@ -173,7 +173,7 @@
         <amx:panelGroupLayout id="parentlayout" layout="vertical"
                               rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}">
             <amx:panelLabelAndMessage label="" id="plam4"
-                                      inlineStyle="border-left-color:transparent; border-right-color:transparent; border-top-color:transparent;border-bottom-color:#86BC25; border-bottom-width:2px; ">
+                                      inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:2px;">
                 <amx:panelGroupLayout id="itemNumRow" layout="horizontal">
                     <amx:spacer width="15" id="s10"/>
                     <amx:outputText value="#{bindings.p_item_number.inputValue}" id="ot2" styleClass="label"
@@ -233,7 +233,7 @@
                 <amx:spacer id="s166" height="10"/>
             </amx:panelLabelAndMessage>
             <amx:panelLabelAndMessage label="" id="plam6"
-                                      inlineStyle="border-style:ridge; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:2px;">
+                                      inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:2px;">
                 <amx:panelGroupLayout id="lastRow1211" layout="horizontal">
                     <amx:panelGroupLayout id="Quantity1" layout="vertical">
                         <amx:panelLabelAndMessage label="Availability" inlineStyle="color:#808080; font-size:36px;" id="plam118" styleClass="label"/>
