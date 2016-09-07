@@ -12,6 +12,7 @@ import mobile.datacontrol.PricingInfoDC;
 import mobile.datacontrol.SearchHistoryDC;
 
 import oracle.adfmf.amx.event.ActionEvent;
+import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
@@ -171,6 +172,11 @@ public class pnaDashboardPGBean {
     public void getSearchHistory(ActionEvent actionEvent) {
         SearchHistoryDC scd = new SearchHistoryDC();
         scd.fetchSearchHistory();
+    }
+    
+    public void signOut(){
+        AdfmfJavaUtilities.logout();
+        AdfmfContainerUtilities.gotoFeature("dashboard");
     }
    
 }
