@@ -70,7 +70,8 @@
           <amx:outputHtml id="oh10" styleClass="fa fa-power-off fa-lg"/>
         </amx:cellFormat>
         <amx:cellFormat id="cf20" styleClass="springboard-cell-border">
-          <amx:outputText value="Sign Out" id="ot2"/>
+          <!--<amx:outputText value="Sign Out" id="ot2"/>-->
+          <amx:commandLink text="Sign Out" id="cl2" actionListener="#{bindings.signOut.execute}"/>
         </amx:cellFormat>
       </amx:rowLayout>
     </amx:tableLayout>
