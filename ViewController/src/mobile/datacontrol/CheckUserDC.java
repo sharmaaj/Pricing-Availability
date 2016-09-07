@@ -100,5 +100,10 @@ public class CheckUserDC {
     public PropertyChangeSupport getPropertyChangeSupport() {
         return propertyChangeSupport;
     }
+    
+     public void signOut(){
+         AdfmfJavaUtilities.logout();
+         AdfmfContainerUtilities.gotoFeature("dashboard");
+     }
 
  }
