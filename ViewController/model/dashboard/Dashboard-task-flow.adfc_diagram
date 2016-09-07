@@ -23,11 +23,11 @@
       islink="true"
       id="ControlFlowCase5"
       from="View2"
-      to="TaskFlowCall6">
+      to="View18">
       <property
          name="fromOutcome">myCart</property>
       <property
-         name="sdm:polyPoints">R54,195.0,128.08594,358.68848,239.74121,L46</property>
+         name="sdm:polyPoints">B56,157.5,178.58594,318.5,260.94824,L46</property>
    </ControlFlowCase>
    <View
       id="View5">
@@ -44,32 +44,15 @@
       <property
          name="exceptionHandler">false</property>
    </View>
-   <TaskFlowCall
-      id="TaskFlowCall6">
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>AddToCartr-task-flow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
-      <property
-         name="activityId">AddToCartr-task-flow</property>
-      <property
-         name="x">399.68848</property>
-      <property
-         name="y">243.5918</property>
-      <property
-         name="documentReference">/myCart/AddToCartr-task-flow.xml</property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="taskFlowId">AddToCartr-task-flow</property>
-   </TaskFlowCall>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase7"
       from="View5"
-      to="TaskFlowCall6">
+      to="View18">
       <property
          name="fromOutcome">AddToCart</property>
       <property
-         name="sdm:polyPoints">R50,197.36426,346.08594,358.68848,246.74121,L54</property>
+         name="sdm:polyPoints">R50,197.36426,346.08594,318.5,267.94824,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -79,7 +62,7 @@
       <property
          name="fromOutcome">searchResults</property>
       <property
-         name="sdm:polyPoints">B50,154.0,178.58594,156.36426,292.08594,T50</property>
+         name="sdm:polyPoints">B44,150.5,180.8172,156.36426,292.08594,T50</property>
    </ControlFlowCase>
    <View
       id="View12">
@@ -151,4 +134,19 @@
       <property
          name="sdm:polyPoints">T44,-136.98633,71.68945,-129.98633,71.68945,T56</property>
    </ControlFlowCase>
+   <View
+      id="View18">
+      <property
+         name="activityId">myCart</property>
+      <property
+         name="x">359.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>myCart&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">264.44824</property>
+      <property
+         name="page">/myCart/myCart.amx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
 </SDM>

@@ -23,12 +23,6 @@
     <view id="PricingandAvailabilityPG">
       <page>/pricingandAvailability/PricingandAvailabilityPG.amx</page>
     </view>
-    <task-flow-call id="AddToCartr-task-flow">
-      <task-flow-reference>
-        <document>/myCart/AddToCartr-task-flow.xml</document>
-        <id>AddToCartr-task-flow</id>
-      </task-flow-reference>
-    </task-flow-call>
     <view id="ItemLovPG">
     <page>/LovPage/ItemLOVPG.amx</page>
     </view>
@@ -38,11 +32,14 @@
         <fixed-outcome>internalUser</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="myCart">
+      <page>/myCart/myCart.amx</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>DashboardPG</from-activity-id>
       <control-flow-case id="__2">
         <from-outcome>myCart</from-outcome>
-        <to-activity-id>AddToCartr-task-flow</to-activity-id>
+        <to-activity-id>myCart</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__10">
         <from-outcome>searchResults</from-outcome>
@@ -57,7 +54,7 @@
       <from-activity-id>PricingandAvailabilityPG</from-activity-id>
       <control-flow-case id="__6">
         <from-outcome>AddToCart</from-outcome>
-        <to-activity-id>AddToCartr-task-flow</to-activity-id>
+        <to-activity-id>myCart</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__13">
