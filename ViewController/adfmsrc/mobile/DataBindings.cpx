@@ -14,6 +14,7 @@
     <page id="mobile_PricingandAvailabilityPGPageDef" path="pricingandAvailability.PricingandAvailabilityPGPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="CheckUserDC" path="mobile.CheckUserDC"/>
     <dc id="PricingInfoDC" path="mobile.PricingInfoDC"/>
     <dc id="SearchHistoryDC" path="mobile.SearchHistoryDC"/>
     <dc id="PriceListDC" path="mobile.PriceListDC"/>

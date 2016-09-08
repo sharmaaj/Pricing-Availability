@@ -11,5 +11,7 @@
                   InstanceName="data.ApplicationFeatures.dataProvider">
       <NamedData NDName="featureId" NDType="java.lang.String"/>
     </methodAction>
+    <methodAction id="signOut" RequiresUpdateModel="true" Action="invokeMethod" MethodName="signOut"
+                  IsViewObjectMethod="false" DataControl="CheckUserDC" InstanceName="data.CheckUserDC.dataProvider"/>
   </bindings>
 </pageDefinition>
