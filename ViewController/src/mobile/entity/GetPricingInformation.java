@@ -99,7 +99,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_item_description(String p_item_description) {
         String oldP_item_description = this.p_item_description;
-        this.p_item_description = p_item_description;
+        this.p_item_description = super.getValue(p_item_description);
         _propertyChangeSupport.firePropertyChange("p_item_description", oldP_item_description, p_item_description);
     }
 
@@ -109,7 +109,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_item_quantity(String p_item_quantity) {
         String oldP_item_quantity = this.p_item_quantity;
-        this.p_item_quantity = p_item_quantity;
+        this.p_item_quantity = super.getValue(p_item_quantity);
         _propertyChangeSupport.firePropertyChange("p_item_quantity", oldP_item_quantity, p_item_quantity);
     }
 
@@ -139,7 +139,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setCreated_by(String created_by) {
         String oldCreated_by = this.created_by;
-        this.created_by = created_by;
+        this.created_by = super.getValue(created_by);
         _propertyChangeSupport.firePropertyChange("created_by", oldCreated_by, created_by);
     }
 
@@ -149,7 +149,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setLast_updated_by(String last_updated_by) {
         String oldLast_updated_by = this.last_updated_by;
-        this.last_updated_by = last_updated_by;
+        this.last_updated_by = super.getValue(last_updated_by);
         _propertyChangeSupport.firePropertyChange("last_updated_by", oldLast_updated_by, last_updated_by);
     }
 
@@ -159,7 +159,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setLast_updated_date(String last_updated_date) {
         String oldLast_updated_date = this.last_updated_date;
-        this.last_updated_date = last_updated_date;
+        this.last_updated_date = super.getValue(last_updated_date);
         _propertyChangeSupport.firePropertyChange("last_updated_date", oldLast_updated_date, last_updated_date);
     }
 
@@ -169,7 +169,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setCreation_date(String creation_date) {
         String oldCreation_date = this.creation_date;
-        this.creation_date = creation_date;
+        this.creation_date = super.getValue(creation_date);
         _propertyChangeSupport.firePropertyChange("creation_date", oldCreation_date, creation_date);
     }
 
@@ -179,7 +179,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setLast_update_login(String last_update_login) {
         String oldLast_update_login = this.last_update_login;
-        this.last_update_login = last_update_login;
+        this.last_update_login = super.getValue(last_update_login);
         _propertyChangeSupport.firePropertyChange("last_update_login", oldLast_update_login, last_update_login);
     }
 
@@ -189,7 +189,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_price_list(String p_price_list) {
         String oldP_price_list = this.p_price_list;
-        this.p_price_list = p_price_list;
+        this.p_price_list = super.getValue(p_price_list);
         _propertyChangeSupport.firePropertyChange("p_price_list", oldP_price_list, p_price_list);
     }
 
@@ -199,7 +199,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_item_number(String p_item_number) {
         String oldP_item_number = this.p_item_number;
-        this.p_item_number = p_item_number;
+        this.p_item_number = super.getValue(p_item_number);
         _propertyChangeSupport.firePropertyChange("p_item_number", oldP_item_number, p_item_number);
     }
 
@@ -209,7 +209,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_currency(String p_currency) {
         String oldP_currency = this.p_currency;
-        this.p_currency = p_currency;
+        this.p_currency = super.getValue(p_currency);
         _propertyChangeSupport.firePropertyChange("p_currency", oldP_currency, p_currency);
     }
 
@@ -219,7 +219,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_selling_price(String p_selling_price) {
         String oldP_selling_price = this.p_selling_price;
-        this.p_selling_price = p_selling_price;
+        this.p_selling_price = super.getValue(p_selling_price);
         _propertyChangeSupport.firePropertyChange("p_selling_price", oldP_selling_price, p_selling_price);
     }
 
@@ -229,7 +229,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_availabe(String p_availabe) {
         String oldP_availabe = this.p_availabe;
-        this.p_availabe = p_availabe;
+        this.p_availabe = super.getValue(p_availabe);
         _propertyChangeSupport.firePropertyChange("p_availabe", oldP_availabe, p_availabe);
     }
 
@@ -239,7 +239,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_available_date(String p_available_date) {
         String oldP_available_date = this.p_available_date;
-        this.p_available_date = p_available_date;
+        this.p_available_date = super.getValue(p_available_date);
         _propertyChangeSupport.firePropertyChange("p_available_date", oldP_available_date, p_available_date);
     }
 
@@ -249,7 +249,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_uom(String p_uom) {
         String oldP_uom = this.p_uom;
-        this.p_uom = p_uom;
+        this.p_uom = super.getValue(p_uom);
         _propertyChangeSupport.firePropertyChange("p_uom", oldP_uom, p_uom);
     }
 
@@ -259,7 +259,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_atp_flag(String p_atp_flag) {
         String oldP_atp_flag = this.p_atp_flag;
-        this.p_atp_flag = p_atp_flag;
+        this.p_atp_flag = super.getValue(p_atp_flag);
         _propertyChangeSupport.firePropertyChange("p_atp_flag", oldP_atp_flag, p_atp_flag);
     }
 
@@ -269,7 +269,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_discount(String p_discount) {
         String oldP_discount = this.p_discount;
-        this.p_discount = p_discount;
+        this.p_discount = super.getValue(p_discount);
         _propertyChangeSupport.firePropertyChange("p_discount", oldP_discount, p_discount);
     }
 
@@ -279,7 +279,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_dis_desc(String p_dis_desc) {
         String oldP_dis_desc = this.p_dis_desc;
-        this.p_dis_desc = p_dis_desc;
+        this.p_dis_desc = super.getValue(p_dis_desc);
         _propertyChangeSupport.firePropertyChange("p_dis_desc", oldP_dis_desc, p_dis_desc);
     }
 
@@ -289,7 +289,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_dis_valid_date(String p_dis_valid_date) {
         String oldP_dis_valid_date = this.p_dis_valid_date;
-        this.p_dis_valid_date = p_dis_valid_date;
+        this.p_dis_valid_date = super.getValue(p_dis_valid_date);
         _propertyChangeSupport.firePropertyChange("p_dis_valid_date", oldP_dis_valid_date, p_dis_valid_date);
     }
 
@@ -299,7 +299,7 @@ public class GetPricingInformation extends AEntity {
 
     public void setP_warehouse(String p_warehouse) {
         String oldP_warehouse = this.p_warehouse;
-        this.p_warehouse = p_warehouse;
+        this.p_warehouse = super.getValue(p_warehouse);
         _propertyChangeSupport.firePropertyChange("p_warehouse", oldP_warehouse, p_warehouse);
     }
 
