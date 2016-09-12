@@ -10,6 +10,8 @@ import java.util.List;
 
 import javax.el.ValueExpression;
 
+import mobile.bean.AEntity;
+
 import mobile.entity.GetPricingInformation;
 
 import mobile.entity.SearchHistory;
@@ -71,6 +73,8 @@ public class PricingInfoDC {
         
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.customerNumber}", String.class);
         custNumber = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        AEntity ent = new AEntity();
+        custNumber = ent.getAttributeValue(custNumber);
         
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.priceList}", String.class);
         priceList = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();

@@ -5,7 +5,7 @@ public class AEntity {
         super();
     }
     
-    protected String getAttributeValue(String value) {
+    public String getAttributeValue(String value) {
         if (value.contains("@xsi")) {
             return "";
         }
