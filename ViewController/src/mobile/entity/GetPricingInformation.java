@@ -4,12 +4,14 @@ import java.math.BigDecimal;
 
 import java.util.Date;
 
+import mobile.bean.AEntity;
+
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.json.JSONException;
 import oracle.adfmf.json.JSONObject;
 
-public class GetPricingInformation {
+public class GetPricingInformation extends AEntity {
     
      private String p_item_description  ;
      private String p_item_quantity  ;
@@ -117,7 +119,7 @@ public class GetPricingInformation {
 
     public void setP_request_date(String p_request_date) {
         String oldP_request_date = this.p_request_date;
-        this.p_request_date = p_request_date;
+        this.p_request_date = super.getValue(p_request_date);
         _propertyChangeSupport.firePropertyChange("p_request_date", oldP_request_date, p_request_date);
     }
 
@@ -127,7 +129,7 @@ public class GetPricingInformation {
 
     public void setP_customer_number(String p_customer_number) {
         String oldP_customer_number = this.p_customer_number;
-        this.p_customer_number = p_customer_number;
+        this.p_customer_number = super.getValue(p_customer_number);
         _propertyChangeSupport.firePropertyChange("p_customer_number", oldP_customer_number, p_customer_number);
     }
 

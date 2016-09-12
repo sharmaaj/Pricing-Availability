@@ -74,7 +74,7 @@ public class PricingInfoDC {
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.customerNumber}", String.class);
         custNumber = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         AEntity ent = new AEntity();
-        custNumber = ent.getAttributeValue(custNumber);
+        custNumber = ent.getValue(custNumber);
         
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.priceList}", String.class);
         priceList = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();

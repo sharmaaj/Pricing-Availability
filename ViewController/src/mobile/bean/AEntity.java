@@ -5,8 +5,15 @@ public class AEntity {
         super();
     }
     
-    public String getAttributeValue(String value) {
+    protected String getAttributeValue(String value) {
         if (value.contains("@xsi")) {
+            return "";
+        }
+        return value;
+    }
+    
+    public String getValue(String value) {
+        if (value.contains("@nil")) {
             return "";
         }
         return value;
