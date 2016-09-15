@@ -74,7 +74,7 @@
                 <amx:tableLayout id="tl4" width="90%">
                     <amx:rowLayout id="rl11">
                         <amx:cellFormat height="40px" styleClass="cell-border" id="cf13"
-                                        inlineStyle="background-color:ThreeDShadow;">
+                                        inlineStyle="background-color:ThreeDFace;">
                             <amx:spacer id="s1"/>
                             <amx:outputText id="ot2" 
                                             inlineStyle="text-align:right;"
