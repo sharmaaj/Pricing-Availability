@@ -182,5 +182,7 @@
         <Item Value="p_warehouse"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="addtoCart" RequiresUpdateModel="true" Action="invokeMethod" MethodName="addtoCart"
+                  IsViewObjectMethod="false" DataControl="AddToCartDC" InstanceName="data.AddToCartDC.dataProvider"/>
   </bindings>
 </pageDefinition>
