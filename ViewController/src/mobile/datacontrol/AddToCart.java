@@ -67,16 +67,16 @@ public class AddToCart {
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", Number.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemNum}", Number.class);
         itemNum = (Number) (ve.getValue(AdfmfJavaUtilities.getELContext()));
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemDesc}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemNum}", String.class);
         itemDesc = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.itemQuantity}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemName}", String.class);
         itemName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext()));
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.customerNumber}", Number.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemQuantity}", Number.class);
         itemQuantity = (Number) (ve.getValue(AdfmfJavaUtilities.getELContext()));
 
         String restURI = RestURIs.getPricingInformation();
