@@ -56,30 +56,39 @@ public class AddToCart {
     public void addtoCart() {
 
         String userName = null;
-        Number itemNum = null;
+        String itemNum = null;
         String itemName = null;
         String itemDesc = null;
         Number itemQuantity = null;
 
 
         ValueExpression ve = null;
+        
+        System.out.println("Here 1");
 
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        System.out.println("Here 2-->"+userName);
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemNum}", Number.class);
-        itemNum = (Number) (ve.getValue(AdfmfJavaUtilities.getELContext()));
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
+        itemNum = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        System.out.println("Here 3-->"+itemNum);
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemNum}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemDesc}", String.class);
         itemDesc = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        System.out.println("Here 4-->"+itemDesc);
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemName}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemDesc}", String.class);
         itemName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext()));
+        System.out.println("Here 5-->"+itemName);
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemQuantity}", Number.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.itemQuantity}", Number.class);
         itemQuantity = (Number) (ve.getValue(AdfmfJavaUtilities.getELContext()));
+        System.out.println("Here 6-->"+itemQuantity);
 
-        String restURI = RestURIs.getPricingInformation();
+        String restURI = RestURIs.addToCart();
+        System.out.println("restURI is " + restURI);
         RestServiceManager rcu = new RestServiceManager();
 
         String payload =
@@ -88,7 +97,12 @@ public class AddToCart {
             "\n" + "\"P_ITEM_QUANTITY\" : \"" + itemQuantity + "\"\n" + "}";
 
         System.out.println("paylod is " + payload);
-        String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
+        (rcu.invokeUPDATE(restURI, payload)).toString();
 
+    }
+    
+    public static void Main(String args[]){
+        AddToCart a = new AddToCart();
+        a.addtoCart();
     }
 }
