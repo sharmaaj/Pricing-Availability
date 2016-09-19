@@ -14,6 +14,7 @@ public class RestURIs {
     private static final String APPLY_DISCOUNT_URI = "/v1/Discount/applyDiscount";
     private static final String DELETE_ITEM_URI = "/v1/CartItem/deleteItemFromCart";
     private static final String SEARCH_HISTORY_URI = "/v1/Search/getSearchHistory";
+    private static final String GET_ALL_ITEMS_FROM_URI = "/v1/CartItems/getCartItems";
     
     public RestURIs() {
         super();
@@ -21,6 +22,10 @@ public class RestURIs {
     
     public static String addToCart() {
         return ADD_TO_CART_URI;
+    }
+    
+    public static String getAllItemsFromCart() {
+        return GET_ALL_ITEMS_FROM_URI;
     }
     
     public static String addQtyItemToCart() {
