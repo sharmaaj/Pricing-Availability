@@ -5,10 +5,15 @@ import javax.el.ValueExpression;
 import mobile.rest.RestServiceManager;
 import mobile.rest.RestURIs;
 
+import oracle.adfmf.bindings.dbf.AmxIteratorBinding;
+import oracle.adfmf.bindings.iterator.BasicIterator;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.java.beans.ProviderChangeSupport;
+import oracle.adfmf.util.GenericType;
+
+import oracle.jbo.Row;
 
 public class DeleteItemFromCart {
     
@@ -62,9 +67,23 @@ public class DeleteItemFromCart {
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         
         System.out.println("Here 2-->"+userName);
+        
+     /*   try {
+             ve = AdfmfJavaUtilities.getValueExpression("#{bindings.itemsFromCart.IteratorBinding}", String.class);
+            AmxIteratorBinding iter = (AmxIteratorBinding)ve.getValue(AdfmfJavaUtilities.getAdfELContext());
+            
+            BasicIterator bIter = iter.getIterator();
+            Row row = (Row) iter.getCurrentRow();
+            
+            System.out.println("itemNum in Delete Method is -->"+itemNum);
+            itemNum = row.getAttribute("ITEM_NUMBER").toString();
+            }
+        catch(Exception e){
+            System.out.println("Exception in Delete Method is -->"+e);
+        }  */
 
        /*The current row of the iterator and delete based on row selection */
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.deleteItemNum}", String.class);
         itemNum = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         System.out.println("Here 3-->"+itemNum);
 
