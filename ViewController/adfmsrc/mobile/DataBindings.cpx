@@ -16,6 +16,8 @@
     <page id="mobile_myCartPageDef" path="myCart.myCartPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="DeleteItemFromCartDC" path="mobile.DeleteItemFromCartDC"/>
+    <dc id="UpdateItemQuantityFromCartDC" path="mobile.UpdateItemQuantityFromCartDC"/>
     <dc id="GetAllCartItemsDC" path="mobile.GetAllCartItemsDC"/>
     <dc id="AddToCartDC" path="mobile.AddToCartDC"/>
     <dc id="CheckUserDC" path="mobile.CheckUserDC"/>
