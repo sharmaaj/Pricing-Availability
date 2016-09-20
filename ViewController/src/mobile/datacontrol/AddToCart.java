@@ -60,6 +60,7 @@ public class AddToCart {
         String itemName = null;
         String itemDesc = null;
         Number itemQuantity = null;
+        Number listPrice = null;
 
 
         ValueExpression ve = null;
@@ -86,6 +87,16 @@ public class AddToCart {
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.itemQuantity}", Number.class);
         itemQuantity = (Number) (ve.getValue(AdfmfJavaUtilities.getELContext()));
         System.out.println("Here 6-->"+itemQuantity);
+        
+        String listPriceInString = null;
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.listPrice}", String.class);
+        listPriceInString = ((String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        System.out.println("Here 7 listPriceInString-->"+listPriceInString);
+        
+        listPrice = Integer.parseInt(listPriceInString);
+        
+        System.out.println("Here 8 listPrice in Integer-->"+listPrice);
 
         String restURI = RestURIs.addToCart();
         System.out.println("restURI is " + restURI);
@@ -94,8 +105,9 @@ public class AddToCart {
         String payload =
             "{  \n" + "\"P_USER_NAME\" : \"" + userName + "\"," + "\n" + "\"P_ITEM_NUMBER\" : \"" + itemNum + "\"," +
             "\n" + "\"P_ITEM_NAME\" : \"" + itemName + "\"," + "\n" + "\"P_ITEM_DESCRIPTION\" : \"" + itemDesc + "\"," +
-            "\n" + "\"P_ITEM_QUANTITY\" : \"" + itemQuantity + "\"\n" + "}";
-
+            "\n" + "\"P_ITEM_QUANTITY\" : \"" + itemQuantity + "\"," + "\n" + "\"P_LIST_PRICE\" : \"" + listPrice +"\"\n" + "}";
+        
+         
         System.out.println("paylod is " + payload);
         (rcu.invokeUPDATE(restURI, payload)).toString();
 
