@@ -15,8 +15,11 @@ import mobile.datacontrol.CheckUserDC;
 
 import mobile.datacontrol.SearchHistoryDC;
 
+import mobile.datacontrol.UpdateItemQuantityFromCart;
+
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.amx.event.SelectionEvent;
+import oracle.adfmf.amx.event.ValueChangeEvent;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 
@@ -81,4 +84,10 @@ public class NavigationListener {
  /* public String validateAndNavigateForPricingInformation() {
       return "searchResults";
   } */
+    public void updateItemQuantity(ValueChangeEvent valueChangeEvent) {
+        System.out.println("In Here updatingItem");
+        UpdateItemQuantityFromCart updQty =  new UpdateItemQuantityFromCart();
+        updQty.updateQtyFrmCart();
+        System.out.println("After updatingItem");
+    }
 }
