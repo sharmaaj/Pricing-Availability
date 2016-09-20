@@ -51,13 +51,17 @@
                             <amx:panelLabelAndMessage label="Quantity" id="plam8" styleClass="label"/>
                             <amx:panelGroupLayout id="pgl13" layout="horizontal">
                                 <amx:spacer width="25" id="s12"/>
-                                <amx:selectOneChoice value="#{pageFlowScope.newItemQuantity}"
+                                <amx:selectOneChoice value="#{pageFlowScope.newItemQuantity}" valueChangeListener="#{NavigationListenerBean.updateItemQuantity}"
+                                                     label="#{bindings.quantity.label}" id="soc2">
+                                    <amx:selectItems value="#{bindings.quantity.items}" id="si2"/>
+                                </amx:selectOneChoice>
+                               <!-- <amx:selectOneChoice value="#{pageFlowScope.newItemQuantity}"
                                                      styleClass="cell-border"
                                                      inlineStyle="color:#000000;"
                                                      id="soc1"
                                                      valueChangeListener="#{NavigationListenerBean.updateItemQuantity}">
                                     <amx:selectItems value="#{bindings.ITEM_QUANTITY.items}" id="si1"/>
-                                </amx:selectOneChoice>
+                                </amx:selectOneChoice> -->
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
                         <amx:panelGroupLayout id="dateRow2" layout="vertical">
