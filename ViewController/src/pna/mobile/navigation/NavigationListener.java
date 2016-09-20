@@ -69,25 +69,20 @@ public class NavigationListener {
 
         }
     }
+    
+    public String NavigateToCartPage(){
+        return "myCart";
+    }
 
     
-  /*  public void selectedSearchHistoryRow(SelectionEvent selectionEvent) {
- 
-        Row selectedRow = (Row) AdfmfJavaUtilities.getELValue("#{bindings.searchHistory.collectionModel.makeCurrent}");
-        AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchKeyword}", selectedRow.getAttribute("itemNumber"));
-        AdfmfJavaUtilities.setELValue("#{pageFlowScope.itemDesc}", selectedRow.getAttribute("itemDescription"));
-        AdfmfJavaUtilities.setELValue("#{pageFlowScope.itemQuantity}", selectedRow.getAttribute("itemQuantity"));
-        AdfmfJavaUtilities.setELValue("#{pageFlowScope.customerNumber}", selectedRow.getAttribute("customerNumber"));
-            
-    }  */
-    
- /* public String validateAndNavigateForPricingInformation() {
-      return "searchResults";
-  } */
     public void updateItemQuantity(ValueChangeEvent valueChangeEvent) {
         System.out.println("In Here updatingItem");
         UpdateItemQuantityFromCart updQty =  new UpdateItemQuantityFromCart();
         updQty.updateQtyFrmCart();
         System.out.println("After updatingItem");
+    }
+
+    public void navigateToCartPage(ActionEvent actionEvent) {
+        NavigateToCartPage();
     }
 }
