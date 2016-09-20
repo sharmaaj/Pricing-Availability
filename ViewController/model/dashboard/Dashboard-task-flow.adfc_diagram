@@ -27,7 +27,7 @@
       <property
          name="fromOutcome">myCart</property>
       <property
-         name="sdm:polyPoints">B56,157.5,178.58594,318.5,260.94824,L46</property>
+         name="sdm:polyPoints">B56,157.5,178.58594,318.5,260.59766,L46</property>
    </ControlFlowCase>
    <View
       id="View5">
@@ -50,9 +50,9 @@
       from="View5"
       to="View18">
       <property
-         name="fromOutcome">AddToCart</property>
+         name="fromOutcome">myCart</property>
       <property
-         name="sdm:polyPoints">R50,197.36426,346.08594,318.5,267.94824,L54</property>
+         name="sdm:polyPoints">R50,197.36426,346.08594,318.5,267.59766,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -87,7 +87,7 @@
       <property
          name="fromOutcome">itemLov</property>
       <property
-         name="sdm:polyPoints">R46,196.13983,121.08594,324.0,125.49414,L50</property>
+         name="sdm:polyPoints">R50,195.0,124.58594,324.0,125.49414,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall14">

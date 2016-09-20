@@ -53,7 +53,7 @@
     <control-flow-rule id="__5">
       <from-activity-id>PricingandAvailabilityPG</from-activity-id>
       <control-flow-case id="__6">
-        <from-outcome>AddToCart</from-outcome>
+        <from-outcome>myCart</from-outcome>
         <to-activity-id>myCart</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
