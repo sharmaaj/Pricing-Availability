@@ -19,7 +19,7 @@ public class GetItemFromCart {
     private String  REQUEST_DATE;  
     private Number  PRICE_LIST;
     private String CUSTOMER_NUMBER; 
-    private String  ATTRIBUTE1;
+    private String  ATTRIBUTE1; //Amount
     private String ATTRIBUTE2;
     private String ATTRIBUTE3;
     private String ATTRIBUTE4;
@@ -110,6 +110,7 @@ public class GetItemFromCart {
         Number oldITEM_QUANTITY = this.ITEM_QUANTITY;
         this.ITEM_QUANTITY = ITEM_QUANTITY;
         _propertyChangeSupport.firePropertyChange("ITEM_QUANTITY", oldITEM_QUANTITY, ITEM_QUANTITY);
+        
     }
 
     public Number getITEM_QUANTITY() {
