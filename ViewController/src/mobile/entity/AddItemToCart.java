@@ -11,6 +11,7 @@ public class AddItemToCart {
     
     private Number itemNumber, item_quantity,user_id;
     private String item_name, item_description;
+    private Number listPrice;
     private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
     
     public AddItemToCart() {
@@ -23,10 +24,20 @@ public class AddItemToCart {
         this.setUser_id(new BigDecimal(temp.getString("USER_ID")));
         this.setItem_name(temp.getString("ITEM_NAME"));
         this.setItem_description(temp.getString("ITEM_DESCRIPTION"));
+        this.setListPrice(new BigDecimal(temp.getString("PRICE_LIST")));
     }
 
-  
-    
+
+    public void setListPrice(Number listPrice) {
+        Number oldListPrice = this.listPrice;
+        this.listPrice = listPrice;
+        _propertyChangeSupport.firePropertyChange("listPrice", oldListPrice, listPrice);
+    }
+
+    public Number getListPrice() {
+        return listPrice;
+    }
+
     public void addPropertyChangeListener(PropertyChangeListener l) {
         _propertyChangeSupport.addPropertyChangeListener(l);
     }
