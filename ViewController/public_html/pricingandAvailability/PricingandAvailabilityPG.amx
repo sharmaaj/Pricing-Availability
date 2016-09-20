@@ -15,7 +15,7 @@
             </amx:commandLink>
         </amx:facet>
         <amx:facet name="secondary">
-            <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl4">
+            <amx:commandLink  id="cl4" action="myCart">
                 <amx:outputHtml id="oh2" styleClass="fa fa-shopping-cart fa-lg" inlineStyle="color:white;"/>
             </amx:commandLink>
         </amx:facet>
