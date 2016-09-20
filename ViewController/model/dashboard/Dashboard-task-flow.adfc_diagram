@@ -62,7 +62,7 @@
       <property
          name="fromOutcome">searchResults</property>
       <property
-         name="sdm:polyPoints">B44,150.5,180.8172,156.36426,292.08594,T50</property>
+         name="sdm:polyPoints">B44,150.5,180.82137,156.36426,292.08594,T50</property>
    </ControlFlowCase>
    <View
       id="View12">
