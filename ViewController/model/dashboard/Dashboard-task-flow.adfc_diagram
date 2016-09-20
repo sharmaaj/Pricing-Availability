@@ -149,4 +149,14 @@
       <property
          name="exceptionHandler">false</property>
    </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase19"
+      from="View18"
+      to="View18">
+      <property
+         name="fromOutcome">myCart</property>
+      <property
+         name="sdm:polyPoints">T44,356.0,210.09766,363.0,210.09766,T56</property>
+   </ControlFlowCase>
 </SDM>
