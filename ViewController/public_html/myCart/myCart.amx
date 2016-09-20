@@ -5,7 +5,7 @@
         <!--Header Section Starts -->
         <amx:facet name="header">
             <amx:panelGroupLayout id="pgl2" layout="horizontal" halign="center" valign="middle">
-                <amx:outputText value="My Search" id="ot1" inlineStyle="color:White; padding-left:40px;"/>
+                <amx:outputText value="My Cart" id="ot1" inlineStyle="color:White; padding-left:40px;"/>
             </amx:panelGroupLayout>
         </amx:facet>
         <amx:facet name="primary">
@@ -31,6 +31,9 @@
                     <amx:panelGroupLayout id="itemNumRow" layout="horizontal">
                         <amx:spacer width="15" id="s10"/>
                         <amx:outputText value="#{row.ITEM_NUMBER}" id="ot7" styleClass="label"/>
+                        <amx:spacer id="s2" width="10"/>
+                        <amx:commandButton text="X" id="cb1" styleClass="fa-times-circle"
+                                           actionListener="#{bindings.deleteItemFromCart.execute}"/>
                     </amx:panelGroupLayout>
                     <amx:panelGroupLayout id="pgl1" layout="vertical">
                         <amx:panelLabelAndMessage label="Item Description" id="plam7" styleClass="label"/>
@@ -46,7 +49,8 @@
                                 <amx:spacer width="25" id="s12"/>
                                 <amx:selectOneChoice value="#{pageFlowScope.newItemQuantity}"
                                                      inlineStyle="color:#000000;"
-                                                     label="#{bindings.ITEM_QUANTITY.label}" id="soc1">
+                                                     label="#{bindings.ITEM_QUANTITY.label}" id="soc1"
+                                                     valueChangeListener="#{NavigationListenerBean.updateItemQuantity}">
                                     <amx:selectItems value="#{bindings.ITEM_QUANTITY.items}" id="si1"/>
                                 </amx:selectOneChoice>
                             </amx:panelGroupLayout>
