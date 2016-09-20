@@ -6,14 +6,17 @@
     <page path="/springboard/Springboard.amx" usageId="mobile_SpringboardPageDef"/>
     <page path="/LovPage/ItemLOVPG.amx" usageId="mobile_ItemLOVPGPageDef"/>
     <page path="/pricingandAvailability/PricingandAvailabilityPG.amx" usageId="mobile_PricingandAvailabilityPGPageDef"/>
+    <page path="/myCart/myCart.amx" usageId="mobile_myCartPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="mobile_DashboardPGPageDef" path="dashboard.DashboardPGPageDef"/>
     <page id="mobile_SpringboardPageDef" path="springboard.SpringboardPageDef"/>
     <page id="mobile_ItemLOVPGPageDef" path="LovPage.ItemLOVPGPageDef"/>
     <page id="mobile_PricingandAvailabilityPGPageDef" path="pricingandAvailability.PricingandAvailabilityPGPageDef"/>
+    <page id="mobile_myCartPageDef" path="myCart.myCartPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="GetAllCartItemsDC" path="mobile.GetAllCartItemsDC"/>
     <dc id="AddToCartDC" path="mobile.AddToCartDC"/>
     <dc id="CheckUserDC" path="mobile.CheckUserDC"/>
     <dc id="PricingInfoDC" path="mobile.PricingInfoDC"/>
