@@ -289,7 +289,7 @@
         <amx:spacer id="s3"/>
         <amx:spacer id="s4"/>
         <amx:commandLink shortDesc="Add To Cart" styleClass="commandLink" text="Add To Cart" id="c3l2"
-                         action="AddToCart" actionListener="#{bindings.addtoCart.execute}">
+                         action="myCart" actionListener="#{bindings.addtoCart.execute}">
 
         </amx:commandLink>
     </amx:panelPage>
