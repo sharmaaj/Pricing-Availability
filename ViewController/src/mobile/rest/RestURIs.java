@@ -10,7 +10,7 @@ public class RestURIs {
     private static final String PRICING_INFO_URI = "/v1/Pricing/getPricingInformation";
     private static final String CREATE_ORDER_URI = "/v1/Order/createOrder";
     private static final String ADD_TO_CART_URI = "/v1/Cart/addToCart";
-    private static final String ADD_ITEM_QTY_URI = "v1/ItemQty/addQtyItemCart";
+    private static final String ADD_ITEM_QTY_URI = "/v1/ItemQty/addQtyItemCart";
     private static final String APPLY_DISCOUNT_URI = "/v1/Discount/applyDiscount";
     private static final String DELETE_ITEM_URI = "/v1/CartItem/deleteItemFromCart";
     private static final String SEARCH_HISTORY_URI = "/v1/Search/getSearchHistory";
