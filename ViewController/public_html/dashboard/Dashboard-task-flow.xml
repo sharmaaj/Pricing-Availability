@@ -35,11 +35,17 @@
     <view id="myCart">
       <page>/myCart/myCart.amx</page>
     </view>
+    <method-call id="getAllCartItems">
+      <method>#{bindings.getAllCartItems.execute}</method>
+      <outcome>
+        <fixed-outcome>getAllCartItems</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>DashboardPG</from-activity-id>
       <control-flow-case id="__2">
         <from-outcome>myCart</from-outcome>
-        <to-activity-id>myCart</to-activity-id>
+        <to-activity-id>getAllCartItems</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__10">
         <from-outcome>searchResults</from-outcome>
@@ -54,7 +60,7 @@
       <from-activity-id>PricingandAvailabilityPG</from-activity-id>
       <control-flow-case id="__6">
         <from-outcome>myCart</from-outcome>
-        <to-activity-id>myCart</to-activity-id>
+        <to-activity-id>getAllCartItems</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__13">
@@ -76,6 +82,13 @@
       <from-activity-id>myCart</from-activity-id>
       <control-flow-case id="__8">
         <from-outcome>myCart</from-outcome>
+        <to-activity-id>getAllCartItems</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>getAllCartItems</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome>getAllCartItems</from-outcome>
         <to-activity-id>myCart</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

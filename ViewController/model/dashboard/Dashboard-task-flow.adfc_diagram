@@ -23,22 +23,22 @@
       islink="true"
       id="ControlFlowCase5"
       from="View2"
-      to="View18">
+      to="MethodCall20">
       <property
          name="fromOutcome">myCart</property>
       <property
-         name="sdm:polyPoints">B56,157.5,178.58594,318.5,260.59766,L46</property>
+         name="sdm:polyPoints">B56,157.5,178.58594,296.0127,256.89648,L46</property>
    </ControlFlowCase>
    <View
       id="View5">
       <property
          name="activityId">PricingandAvailabilityPG</property>
       <property
-         name="x">156.36426</property>
+         name="x">155.36426</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>PricingandAvailabilityPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">346.43652</property>
+         name="y">345.73535</property>
       <property
          name="page">/pricingandAvailability/PricingandAvailabilityPG.amx</property>
       <property
@@ -48,11 +48,11 @@
       islink="true"
       id="ControlFlowCase7"
       from="View5"
-      to="View18">
+      to="MethodCall20">
       <property
          name="fromOutcome">myCart</property>
       <property
-         name="sdm:polyPoints">R50,197.36426,346.08594,318.5,267.59766,L54</property>
+         name="sdm:polyPoints">R50,196.36426,345.38477,296.0127,263.89648,L54</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -62,7 +62,7 @@
       <property
          name="fromOutcome">searchResults</property>
       <property
-         name="sdm:polyPoints">B44,150.5,180.82137,156.36426,292.08594,T50</property>
+         name="sdm:polyPoints">B44,150.5,180.70323,155.36426,291.38477,T50</property>
    </ControlFlowCase>
    <View
       id="View12">
@@ -87,7 +87,7 @@
       <property
          name="fromOutcome">itemLov</property>
       <property
-         name="sdm:polyPoints">R50,195.0,124.58594,324.0,125.49414,L50</property>
+         name="sdm:polyPoints">R46,196.51028,121.08594,324.0,125.49414,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall14">
@@ -139,11 +139,11 @@
       <property
          name="activityId">myCart</property>
       <property
-         name="x">359.5</property>
+         name="x">555.5</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>myCart&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">264.44824</property>
+         name="y">261.94238</property>
       <property
          name="page">/myCart/myCart.amx</property>
       <property
@@ -153,10 +153,33 @@
       islink="true"
       id="ControlFlowCase19"
       from="View18"
-      to="View18">
+      to="MethodCall20">
       <property
          name="fromOutcome">myCart</property>
       <property
-         name="sdm:polyPoints">T44,356.0,210.09766,363.0,210.09766,T56</property>
+         name="sdm:polyPoints">L54,514.46936,265.0918,378.0127,263.89648,R54</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall20">
+      <property
+         name="activityId">getAllCartItems</property>
+      <property
+         name="x">337.0127</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>getAllCartItems&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">260.74707</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase21"
+      from="MethodCall20"
+      to="View18">
+      <property
+         name="fromOutcome">getAllCartItems</property>
+      <property
+         name="sdm:polyPoints">R46,378.04333,256.89648,514.5,258.0918,L46</property>
    </ControlFlowCase>
 </SDM>
