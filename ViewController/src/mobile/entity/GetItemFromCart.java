@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 
 import java.util.Date;
 
+import javax.el.ValueExpression;
+
+import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.json.JSONException;
@@ -44,7 +47,10 @@ public class GetItemFromCart {
         this.setUSER_NAME(temp.getString("USER_NAME"));
         this.setITEM_NUMBER(temp.getString("ITEM_NUMBER"));
         this.setITEM_NAME(temp.getString("ITEM_NAME"));
-        this.setITEM_QUANTITY(new BigDecimal (temp.getString("ITEM_QUANTITY")));
+        String tempQty = temp.getString("ITEM_QUANTITY");
+        this.setITEM_QUANTITY(Integer.parseInt(tempQty));
+        String tempPList = temp.getString("ITEM_QUANTITY");
+        this.setPRICE_LIST(Integer.parseInt(tempPList));
         this.setITEM_DESCRIPTION(temp.getString("ITEM_DESCRIPTION"));
         this.setREQUEST_DATE(temp.getString("REQUEST_DATE"));
         this.setCUSTOMER_NUMBER(temp.getString("CUSTOMER_NUMBER"));
@@ -107,9 +113,12 @@ public class GetItemFromCart {
     }
 
     public void setITEM_QUANTITY(Number ITEM_QUANTITY) {
+        
+        System.out.println("Entry 1.0 ");
         Number oldITEM_QUANTITY = this.ITEM_QUANTITY;
         this.ITEM_QUANTITY = ITEM_QUANTITY;
         _propertyChangeSupport.firePropertyChange("ITEM_QUANTITY", oldITEM_QUANTITY, ITEM_QUANTITY);
+        System.out.println("Entry 2.0 ");
         
     }
 
