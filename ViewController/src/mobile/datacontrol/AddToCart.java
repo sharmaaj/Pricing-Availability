@@ -84,7 +84,7 @@ public class AddToCart {
         itemName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext()));
         System.out.println("Here 5-->"+itemName);
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.itemQuantity}", Number.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemQuantity}", Number.class);
         itemQuantity = (Number) (ve.getValue(AdfmfJavaUtilities.getELContext()));
         System.out.println("Here 6-->"+itemQuantity);
         
