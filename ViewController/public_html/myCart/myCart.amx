@@ -23,10 +23,11 @@
                       fetchSize="#{bindings.itemsFromCart.rangeSize}"
                       selectedRowKeys="#{bindings.itemsFromCart.collectionModel.selectedRow}"
                       initialScrollRowKeys="#{bindings.itemsFromCart.collectionModel.selectedRow}"
-                      selectionListener="#{bindings.itemsFromCart.collectionModel.makeCurrent}"
-                      dividerMode="all" showMoreStrategy="autoScroll"
-                      bufferStrategy="viewport" id="lv1">
+                      selectionListener="#{bindings.itemsFromCart.collectionModel.makeCurrent}" dividerMode="all"
+                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
             <amx:listItem id="li1">
+                <amx:setPropertyListener id="spl2" type="action" from="#{row.ITEM_NUMBER}"
+                                         to="#{pageFlowScope.currentRowItemNum}"/>
                 <amx:panelGroupLayout id="parentlayout" layout="vertical">
                     <amx:panelGroupLayout id="itemNumRow" layout="horizontal">
                         <amx:spacer width="15" id="s10"/>
@@ -50,18 +51,12 @@
                         <amx:panelGroupLayout id="labitemQtyRow" layout="vertical">
                             <amx:panelLabelAndMessage label="Quantity" id="plam8" styleClass="label"/>
                             <amx:panelGroupLayout id="pgl13" layout="horizontal">
-                                <amx:spacer width="25" id="s12"/>
-                                <amx:selectOneChoice value="#{pageFlowScope.newItemQuantity}" valueChangeListener="#{NavigationListenerBean.updateItemQuantity}"
-                                                     label="#{bindings.quantity.label}" id="soc2">
-                                    <amx:selectItems value="#{bindings.quantity.items}" id="si2"/>
-                                </amx:selectOneChoice>
-                               <!-- <amx:selectOneChoice value="#{pageFlowScope.newItemQuantity}"
-                                                     styleClass="cell-border"
-                                                     inlineStyle="color:#000000;"
-                                                     id="soc1"
-                                                     valueChangeListener="#{NavigationListenerBean.updateItemQuantity}">
+                                <!--   <amx:selectOneChoice value="#{pageFlowScope.updatedItemQty}" styleClass="cell-border"
+                                                      valueChangeListener="#{NavigationListenerBean.updateItemQuantity}" inlineStyle="text-align:left;color:#808080;" 
+                                                      id="smc1">
                                     <amx:selectItems value="#{bindings.ITEM_QUANTITY.items}" id="si1"/>
-                                </amx:selectOneChoice> -->
+                                </amx:selectOneChoice>-->
+                                <!--  <amx:inputText styleClass="cell-border" value="#{row.ITEM_QUANTITY}" id="ot81" valueChangeListener="#{NavigationListenerBean.updateItemQuantity}" inlineStyle="color:#000000;"/> -->
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
                         <amx:panelGroupLayout id="dateRow2" layout="vertical">
@@ -76,12 +71,27 @@
             </amx:listItem>
         </amx:listView>
         <amx:spacer id="s1" height="10"/>
-        <amx:spacer id="s3"/>
-        <amx:spacer id="s4"/>
+        <amx:panelGroupLayout id="pgl4" layout="vertical">
+            <amx:panelGroupLayout id="pgl5" layout="horizontal">
+                <amx:panelLabelAndMessage label="Total Amount" id="plam75" styleClass="label"
+                                          inlineStyle="color:#808080; font-size:36px;"/>
+                <amx:spacer id="s3" width="10"/>
+                <amx:inputText styleClass="cell-border" id="it2" value="#{pageFlowScope.TotalAmount}"/>
+            </amx:panelGroupLayout>
+            <amx:panelGroupLayout id="pgl6" layout="horizontal">
+                <amx:panelLabelAndMessage label="Total Discount" id="plam77" styleClass="label"
+                                          inlineStyle="color:#808080; font-size:36px;"/>
+                <amx:spacer id="s4" width="10"/>
+                <amx:inputText styleClass="cell-border" id="it3" value="#{pageFlowScope.TotalDiscount}"/>
+            </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:spacer id="s7" height="30"/>
         <amx:panelGroupLayout id="pgl3" layout="horizontal">
             <amx:inputText styleClass="cell-border" id="it1"/>
+            <amx:spacer id="s5" width="10"/>
             <amx:commandLink shortDesc="Apply Coupon" styleClass="commandLink" text="Apply Coupon" id="c3l25"/>
         </amx:panelGroupLayout>
+        <amx:spacer id="s6" height="30"/>
         <amx:commandLink shortDesc="Checkout" styleClass="commandLink" text="Checkout" id="c3l2"/>
     </amx:panelPage>
 </amx:view>
