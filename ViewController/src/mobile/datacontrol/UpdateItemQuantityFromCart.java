@@ -67,15 +67,19 @@ public class UpdateItemQuantityFromCart {
         
         
 
-        /*The current row of the iterator and delete based on row selection */
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
+        /*The current row of the iterator and update based on row selection */
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.currentRowItemNum}", String.class);
         itemNum = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-        System.out.println("Here 3-->"+itemNum);
+        System.out.println("Here 3 currentRowItemNum-->"+itemNum);
 
         /*The current row of the iterator and delete based on row selection */
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.itemQuantity}", Number.class);
-        itemQuantity = (Number) (ve.getValue(AdfmfJavaUtilities.getELContext()));
-        System.out.println("Here 6-->"+itemQuantity);
+        String qtyInString;
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.updatedItemQty}", Number.class);
+        itemQuantity = ((Number)ve.getValue(AdfmfJavaUtilities.getELContext()));
+        System.out.println("Here 6 itemQuantity -->"+itemQuantity);
+        
+        /*Number updatedItemQtyInInt = Integer.parseInt(itemQuantity);
+        System.out.println("Here 7 updatedItemQtyInInt -->"+updatedItemQtyInInt);*/
 
         String restURI = RestURIs.addQtyItemToCart();
         System.out.println("restURI is " + restURI);
@@ -83,7 +87,7 @@ public class UpdateItemQuantityFromCart {
 
         String payload =
             "{  \n" + "\"P_USER_NAME\" : \"" + userName + "\"," + "\n" + "\"P_ITEM_NUMBER\" : \"" + itemNum + "\"," +
-            "\n" + "\"P_ITEM_QUANTITY\" : \"" + itemQuantity + "\"\n" + "}";
+            "\n" + "\"P_QUANTITY\" : \"" + itemQuantity + "\"\n" + "}";
 
         System.out.println("paylod is " + payload);
         (rcu.invokeUPDATE(restURI, payload)).toString();
