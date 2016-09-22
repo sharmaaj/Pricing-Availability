@@ -100,7 +100,7 @@
                         <amx:cellFormat id="cf14" height="40px" styleClass="cell-border">
                             <amx:inputText hintText="Enter Quantity" inlineStyle="text-align:left;color:#808080;"
                                            id="it7" inputType="number"
-                                           value="#{pageFlowScope.pnaDashboardPGBean.itemQuantity}"/>
+                                           value="#{pageFlowScope.itemQuantity}"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
