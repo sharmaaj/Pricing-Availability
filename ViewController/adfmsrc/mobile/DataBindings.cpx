@@ -7,6 +7,8 @@
     <page path="/LovPage/ItemLOVPG.amx" usageId="mobile_ItemLOVPGPageDef"/>
     <page path="/pricingandAvailability/PricingandAvailabilityPG.amx" usageId="mobile_PricingandAvailabilityPGPageDef"/>
     <page path="/myCart/myCart.amx" usageId="mobile_myCartPageDef"/>
+    <page path="/dashboard/Dashboard-task-flow.xml#Dashboard-task-flow@getAllCartItems"
+          usageId="mobile_Dashboard_task_flow_Dashboard_task_flow_getAllCartItemsPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="mobile_DashboardPGPageDef" path="dashboard.DashboardPGPageDef"/>
@@ -14,6 +16,8 @@
     <page id="mobile_ItemLOVPGPageDef" path="LovPage.ItemLOVPGPageDef"/>
     <page id="mobile_PricingandAvailabilityPGPageDef" path="pricingandAvailability.PricingandAvailabilityPGPageDef"/>
     <page id="mobile_myCartPageDef" path="myCart.myCartPageDef"/>
+    <page id="mobile_Dashboard_task_flow_Dashboard_task_flow_getAllCartItemsPageDef"
+          path="dashboard.Dashboard_task_flow_Dashboard_task_flow_getAllCartItemsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="DeleteItemFromCartDC" path="mobile.DeleteItemFromCartDC"/>
