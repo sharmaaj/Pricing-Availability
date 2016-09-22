@@ -22,15 +22,21 @@
         <amx:listView var="row" value="#{bindings.itemsFromCart.collectionModel}"
                       fetchSize="#{bindings.itemsFromCart.rangeSize}"
                       selectedRowKeys="#{bindings.itemsFromCart.collectionModel.selectedRow}"
-                      initialScrollRowKeys="#{bindings.itemsFromCart.collectionModel.selectedRow}"
                       selectionListener="#{bindings.itemsFromCart.collectionModel.makeCurrent}" dividerMode="all"
                       showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
             <amx:listItem id="li1">
                 <amx:setPropertyListener id="spl2" type="action" from="#{row.ITEM_NUMBER}"
                                          to="#{pageFlowScope.currentRowItemNum}"/>
+                <amx:setPropertyListener id="spl3" type="action" from="#{row.ITEM_QUANTITY}"
+                                         to="#{pageFlowScope.updatedItemQty}"/>
+                <amx:setPropertyListener id="spl4" from="#{row.ITEM_QUANTITY * row.PRICE_LIST}" type="action"
+                                         to="#{pageFlowScope.Amount}"/>
                 <amx:panelGroupLayout id="parentlayout" layout="vertical">
                     <amx:panelGroupLayout id="itemNumRow" layout="horizontal">
                         <amx:spacer width="15" id="s10"/>
+                        <amx:outputText value="#{row.PRICE_LIST}" id="ot2" rendered="false">
+                            <amx:convertNumber groupingUsed="false" id="cn1"/>
+                        </amx:outputText>
                         <amx:outputText value="#{row.ITEM_NUMBER}" id="ot7" styleClass="label"/>
                         <amx:spacer id="s2" width="60"/>
                         <amx:commandButton text="X" id="cb1" styleClass="fa-times-circle"
@@ -51,11 +57,15 @@
                         <amx:panelGroupLayout id="labitemQtyRow" layout="vertical">
                             <amx:panelLabelAndMessage label="Quantity" id="plam8" styleClass="label"/>
                             <amx:panelGroupLayout id="pgl13" layout="horizontal">
-                                <!--   <amx:selectOneChoice value="#{pageFlowScope.updatedItemQty}" styleClass="cell-border"
-                                                      valueChangeListener="#{NavigationListenerBean.updateItemQuantity}" inlineStyle="text-align:left;color:#808080;" 
-                                                      id="smc1">
-                                    <amx:selectItems value="#{bindings.ITEM_QUANTITY.items}" id="si1"/>
-                                </amx:selectOneChoice>-->
+                                <amx:selectOneChoice value="#{row.ITEM_QUANTITY}" styleClass="cell-border" valueChangeListener="#{NavigationListenerBean.updateItemQuantity}"
+                                                     inlineStyle="text-align:left;color:#808080;"  id="soc1">
+                                    <amx:selectItems value="#{bindings.ITEM_QUANTITY.items}" id="si2"/>
+                                </amx:selectOneChoice>
+                                <!--<amx:selectOneChoice value="#{pageFlowScope.updatedItemQty}"
+                                                     valueChangeListener="#{NavigationListenerBean.updateItemQuantity}" inlineStyle="text-align:left;color:#808080;"
+                                                     label="#{bindings.staticQty.label}" id="soc1">
+                                    <amx:selectItems value="#{bindings.staticQty.items}" id="si2"/>
+                                </amx:selectOneChoice> -->
                                 <!--  <amx:inputText styleClass="cell-border" value="#{row.ITEM_QUANTITY}" id="ot81" valueChangeListener="#{NavigationListenerBean.updateItemQuantity}" inlineStyle="color:#000000;"/> -->
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
@@ -63,7 +73,7 @@
                             <amx:panelLabelAndMessage label="Amount" id="plam5" styleClass="label"/>
                             <amx:panelGroupLayout id="pgl14" layout="horizontal">
                                 <amx:spacer width="25" id="s13"/>
-                                <amx:outputText value="#{pageFlowScope.Amount}" id="ot3" inlineStyle=" color:#000000;"/>
+                                <amx:outputText value="#{row.ITEM_QUANTITY * row.PRICE_LIST}" id="ot3" inlineStyle=" color:#000000;"/>
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
