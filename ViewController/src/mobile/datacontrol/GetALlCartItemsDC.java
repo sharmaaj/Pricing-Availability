@@ -8,7 +8,6 @@ import javax.el.ValueExpression;
 
 import mobile.entity.GetItemFromCart;
 import mobile.entity.QtyLOV;
-import mobile.entity.SearchHistory;
 
 import mobile.rest.RestServiceManager;
 import mobile.rest.RestURIs;
@@ -21,13 +20,32 @@ import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONObject;
 
 public class GetALlCartItemsDC {
-    
+    private static List<GetItemFromCart> xxt;
     private static List<GetItemFromCart> s_getItemFromCart;
+    private static List<QtyLOV> s_qtyLovList;
     private transient ProviderChangeSupport providerChangeSupport = new ProviderChangeSupport(this);
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
     
     public GetALlCartItemsDC() {
         super();
+    }
+    
+    public QtyLOV[] getStaticQty() {
+        s_qtyLovList = new ArrayList<QtyLOV>();
+        s_qtyLovList.clear();
+        QtyLOV[] QtyLOVArray = null;
+        for (int i = 0; i < 500; i++) {
+            QtyLOV ql = new QtyLOV(i);
+            s_qtyLovList.add(ql);
+        }
+        QtyLOVArray = (QtyLOV[]) s_qtyLovList.toArray(new QtyLOV[s_qtyLovList.size()]);
+        
+        if (s_qtyLovList.size() != 0) {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.StatisQtyResults}", "");
+        } else {
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.StatisQtyResults}", "No Search Results");
+        }
+        return QtyLOVArray;
     }
     
     public GetItemFromCart[] getItemsFromCart() {
@@ -76,7 +94,14 @@ public class GetALlCartItemsDC {
         return getItemFromCartArray;
         
     }
-    
+
+    public void setProviderChangeSupport(ProviderChangeSupport providerChangeSupport) {
+        ProviderChangeSupport oldProviderChangeSupport = this.providerChangeSupport;
+        this.providerChangeSupport = providerChangeSupport;
+        propertyChangeSupport.firePropertyChange("providerChangeSupport", oldProviderChangeSupport,
+                                                 providerChangeSupport);
+    }
+
     public ProviderChangeSupport getProviderChangeSupport() {
         return providerChangeSupport;
     }
@@ -100,4 +125,9 @@ public class GetALlCartItemsDC {
         propertyChangeSupport.removePropertyChangeListener(l);
     }
     
+    public void getAllCartItems(){
+        this.getItemsFromCart();
+        this.getStaticQty();
+    }
+
 }
