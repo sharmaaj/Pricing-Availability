@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.1.20" id="myCartPageDef" Package="myCart">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="GetAllCartItemsDC" id="GetAllCartItemsDCIterator"/>
+    <accessorIterator MasterBinding="GetAllCartItemsDCIterator" Binds="itemsFromCart" RangeSize="-1"
+                      DataControl="GetAllCartItemsDC" BeanClass="mobile.entity.GetItemFromCart"
+                      id="itemsFromCartIterator" Refresh="always"/>
+    <accessorIterator MasterBinding="GetAllCartItemsDCIterator" Binds="staticQuantity" RangeSize="25"
+                      DataControl="GetAllCartItemsDC" BeanClass="mobile.entity.QtyLOV" id="staticQuantityIterator"/>
+    <accessorIterator MasterBinding="GetAllCartItemsDCIterator" Binds="staticQty" RangeSize="25"
+                      DataControl="GetAllCartItemsDC" BeanClass="mobile.entity.QtyLOV" id="staticQtyIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="itemsFromCartIterator" id="itemsFromCart">
+      <nodeDefinition DefName="mobile.entity.GetItemFromCart" Name="itemsFromCart0">
+        <AttrNames>
+          <Item Value="ITEM_NUMBER"/>
+          <Item Value="ATTRIBUTE1"/>
+          <Item Value="ATTRIBUTE10"/>
+          <Item Value="ATTRIBUTE11"/>
+          <Item Value="ATTRIBUTE12"/>
+          <Item Value="ATTRIBUTE13"/>
+          <Item Value="ATTRIBUTE14"/>
+          <Item Value="ATTRIBUTE15"/>
+          <Item Value="ATTRIBUTE2"/>
+          <Item Value="ATTRIBUTE3"/>
+          <Item Value="ATTRIBUTE4"/>
+          <Item Value="ATTRIBUTE5"/>
+          <Item Value="ATTRIBUTE6"/>
+          <Item Value="ATTRIBUTE7"/>
+          <Item Value="ATTRIBUTE8"/>
+          <Item Value="ATTRIBUTE9"/>
+          <Item Value="CUSTOMER_NUMBER"/>
+          <Item Value="ITEM_DESCRIPTION"/>
+          <Item Value="ITEM_NAME"/>
+          <Item Value="ITEM_QUANTITY"/>
+          <Item Value="PRICE_LIST"/>
+          <Item Value="REQUEST_DATE"/>
+          <Item Value="USER_NAME"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider"/>
+
+    <methodAction id="updateQtyFrmCart" RequiresUpdateModel="true" Action="invokeMethod" MethodName="updateQtyFrmCart"
+                  IsViewObjectMethod="false" DataControl="UpdateItemQuantityFromCartDC"
+                  InstanceName="data.UpdateItemQuantityFromCartDC.dataProvider"/>
+    <methodAction id="deleteItemFromCart" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="deleteItemFromCart" IsViewObjectMethod="false" DataControl="DeleteItemFromCartDC"
+                  InstanceName="data.DeleteItemFromCartDC.dataProvider"/>
+    <list IterBinding="staticQtyIterator" ListOperMode="multiSelect" ListIter="staticQtyIterator" id="staticQty"
+          SelectItemValueMode="ListObject" DTSupportsMRU="true">
+      <AttrNames>
+        <Item Value="quantity"/>
+      </AttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="itemNumber"/>
+        <Item Value="quantity"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="itemsFromCartIterator" StaticList="false" Uses="LOV_ITEM_QUANTITY" id="ITEM_QUANTITY"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>
