@@ -49,7 +49,7 @@ public class PricingInfoDC {
         String itemNum = null;
         String itemDesc = null;
         Number orgId = null;
-        Number quantity = null;
+        String quantity = null;
         String custNumber = null;
         String priceList = null;
         Date reqDate = null;
@@ -68,8 +68,8 @@ public class PricingInfoDC {
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemDesc}", String.class);
         itemDesc = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.itemQuantity}", Number.class);
-        quantity = (Number) (ve.getValue(AdfmfJavaUtilities.getELContext()));
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemQuantity}", String.class);
+         quantity =  ( (String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.customerNumber}", String.class);
         custNumber = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
