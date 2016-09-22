@@ -7,6 +7,7 @@ import java.util.List;
 import javax.el.ValueExpression;
 
 import mobile.entity.GetItemFromCart;
+import mobile.entity.QtyLOV;
 import mobile.entity.SearchHistory;
 
 import mobile.rest.RestServiceManager;
@@ -49,7 +50,7 @@ public class GetALlCartItemsDC {
         System.out.println("paylod is " + payload);
         
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
-        System.out.println("jsonArrayAsString for Search History-->"+jsonArrayAsString);
+        System.out.println("jsonArrayAsString for Get All Cart Items-->"+jsonArrayAsString);
         
         try {
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
@@ -98,4 +99,5 @@ public class GetALlCartItemsDC {
     public void removePropertyChangeListener(PropertyChangeListener l) {
         propertyChangeSupport.removePropertyChangeListener(l);
     }
+    
 }
