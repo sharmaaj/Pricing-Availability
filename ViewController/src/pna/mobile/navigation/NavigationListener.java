@@ -81,34 +81,7 @@ public class NavigationListener {
     
     public void updateItemQuantity(ValueChangeEvent valueChangeEvent) {
         System.out.println("In Here updatingItem");
-        
-      //  Number newQty = (Number) valueChangeEvent.getNewValue();
-    /*    Object[] newVal = (Object[]) valueChangeEvent.getNewValue();
-        Object[]  oldVal = (Object[]) valueChangeEvent.getOldValue();
-        
-        ArrayList<Integer> selectedCustomers = new ArrayList<Integer>();      
-         for (int i = 0; i < newVal.length; i++) {
-             selectedCustomers.add(new Integer((String)newVal[i]));
-         }
-        AmxAttributeBinding customerList = (AmxAttributeBinding) AdfmfJavaUtilities.getELValue(elExpression);
-
-        AmxIteratorBinding amxListIterator =  customerList.getIteratorBinding();
-        BasicIterator      basicIterator = amxListIterator.getIterator();
-        for (Integer customerIndx : selectedCustomers) {
-             //set new current row in list iterator
-             basicIterator.setCurrentIndex(customerIndx.intValue());
-
-             Customer customer = (Customer) basicIterator.getDataProvider();
-             //for this sample, print selected customers into a text field on the page
-             selectedCustomerNames.append("Customer on index  " + (customerIndx.intValue() + 1) + ": " + customer.getName()+"\n");
-          }
-          
-          //update the input text field with the selection. The set-method of the 
-          //selectedValue property uses the PropertyChane listener in MAF to trigger
-          //the field to refresh
-          this.setSelectedValues(selectedCustomerNames.toString()); */
-
-          
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.updatedItemQty}", valueChangeEvent.getNewValue());
         UpdateItemQuantityFromCart updQty =  new UpdateItemQuantityFromCart();
         updQty.updateQtyFrmCart();
         System.out.println("After updatingItem");
