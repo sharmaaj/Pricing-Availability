@@ -76,13 +76,14 @@
                 </amx:panelGroupLayout>
                 <amx:setPropertyListener id="spl2" type="action" from="#{row.ITEM_NUMBER}"
                                          to="#{pageFlowScope.currentRowItemNum}"/>
-                <amx:setPropertyListener id="spl3" type="action" from="#{row.ITEM_QUANTITY}"
-                                         to="#{pageFlowScope.updatedItemQty}"/>
+               <!-- <amx:setPropertyListener id="spl3" type="action" from="#{row.ITEM_QUANTITY}"
+                                         to="#{pageFlowScope.updatedItemQty}"/> -->
                 <amx:setPropertyListener id="spl4" from="#{row.ITEM_QUANTITY * row.PRICE_LIST}" type="action"
                                          to="#{pageFlowScope.currentRowAmount}"/>
             </amx:listItem>
         </amx:listView>
         <amx:spacer id="s1" height="10"/>
+        
         <amx:panelGroupLayout id="pgl4" layout="vertical">
             <amx:panelGroupLayout id="pgl5" layout="horizontal">
                 <amx:panelLabelAndMessage label="Total Amount" id="plam75" styleClass="label"
@@ -98,12 +99,14 @@
             </amx:panelGroupLayout>
         </amx:panelGroupLayout>
         <amx:spacer id="s7" height="30"/>
+        
         <amx:panelGroupLayout id="pgl3" layout="horizontal">
             <amx:inputText styleClass="cell-border" id="it1"/>
             <amx:spacer id="s5" width="10"/>
             <amx:commandLink shortDesc="Apply Coupon" styleClass="commandLink" text="Apply Coupon" id="c3l25"/>
         </amx:panelGroupLayout>
         <amx:spacer id="s6" height="30"/>
+        
         <amx:commandLink shortDesc="Checkout" styleClass="commandLink" text="Checkout" id="c3l2"/>
     </amx:panelPage>
 </amx:view>
