@@ -37,6 +37,7 @@ public class GetItemFromCart {
     private String ATTRIBUTE13;
     private String ATTRIBUTE14;
     private String ATTRIBUTE15;  
+    private Number Amount;
     private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
     
     public GetItemFromCart() {
@@ -44,13 +45,17 @@ public class GetItemFromCart {
     }
     
     public GetItemFromCart(JSONObject temp) throws JSONException {
+        System.out.println("Inside GetItemFromCart ");
         this.setUSER_NAME(temp.getString("USER_NAME"));
         this.setITEM_NUMBER(temp.getString("ITEM_NUMBER"));
         this.setITEM_NAME(temp.getString("ITEM_NAME"));
         String tempQty = temp.getString("ITEM_QUANTITY");
-        this.setITEM_QUANTITY(Integer.parseInt(tempQty));
-        String tempPList = temp.getString("ITEM_QUANTITY");
+        String tempPList = temp.getString("PRICE_LIST");
+        System.out.println("Price List Test Started ");
+        System.out.println("Price List is tempPList -->"+tempPList);
+        System.out.println("Price List is Integer.parseInt(tempPList) -->"+Integer.parseInt(tempPList));
         this.setPRICE_LIST(Integer.parseInt(tempPList));
+        this.setITEM_QUANTITY(Integer.parseInt(tempQty));
         this.setITEM_DESCRIPTION(temp.getString("ITEM_DESCRIPTION"));
         this.setREQUEST_DATE(temp.getString("REQUEST_DATE"));
         this.setCUSTOMER_NUMBER(temp.getString("CUSTOMER_NUMBER"));
@@ -71,6 +76,16 @@ public class GetItemFromCart {
         this.setATTRIBUTE15(temp.getString("ATTRIBUTE15"));
     }
 
+
+    public void setAmount(Number Amount) {
+        Number oldAmount = this.Amount;
+        this.Amount = Amount;
+        _propertyChangeSupport.firePropertyChange("amount", oldAmount, Amount);
+    }
+
+    public Number getAmount() {
+        return Amount;
+    }
 
     public void setUSER_NAME(String USER_NAME) {
         String oldUSER_NAME = this.USER_NAME;
@@ -118,7 +133,12 @@ public class GetItemFromCart {
         Number oldITEM_QUANTITY = this.ITEM_QUANTITY;
         this.ITEM_QUANTITY = ITEM_QUANTITY;
         _propertyChangeSupport.firePropertyChange("ITEM_QUANTITY", oldITEM_QUANTITY, ITEM_QUANTITY);
-        System.out.println("Entry 2.0 ");
+        
+        System.out.println("Entry 2.0 "+this.ITEM_QUANTITY.intValue());
+        System.out.println("Entry 3.0 "+this.getPRICE_LIST().intValue());
+        
+         setAmount(this.ITEM_QUANTITY.intValue() * this.getPRICE_LIST().intValue());
+        System.out.println("Entry 4.0 ");
         
     }
 
