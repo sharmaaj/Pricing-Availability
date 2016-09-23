@@ -71,16 +71,20 @@ public class GetALlCartItemsDC {
         System.out.println("jsonArrayAsString for Get All Cart Items-->"+jsonArrayAsString);
         
         try {
+            
+            System.out.println("Inside Try Block");
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
             JSONObject parentNode = (JSONObject) jsonObject.get("P_CART_DTLS");
             JSONArray nodeArray = parentNode.getJSONArray("P_CART_DTLS_ITEM");
             int size = nodeArray.length();
             for (int i = 0; i < size; i++) {
                 JSONObject temp = nodeArray.getJSONObject(i);
+                System.out.println("Before GetItemFromCart is called-->"+ i + "time");
                 GetItemFromCart getCartItms = new GetItemFromCart(temp);
                 s_getItemFromCart.add(getCartItms);
             }
         } catch (Exception e) {
+            System.out.println("Exception is -->"+e.getMessage());
             e.getMessage();
             e.printStackTrace();
         }
