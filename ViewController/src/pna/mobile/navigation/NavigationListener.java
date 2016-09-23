@@ -82,8 +82,75 @@ public class NavigationListener {
     public void updateItemQuantity(ValueChangeEvent valueChangeEvent) {
         System.out.println("In Here updatingItem");
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.updatedItemQty}", valueChangeEvent.getNewValue());
+        try{
         UpdateItemQuantityFromCart updQty =  new UpdateItemQuantityFromCart();
         updQty.updateQtyFrmCart();
+            
+            ValueExpression ve = null;
+            Number oldRowQtyValue = 0;
+            Number changedRowAmount =0;
+            Number currentPriceList = 0;
+            
+            ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.currentRowOldQty}", Number.class);
+            oldRowQtyValue = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext())); 
+            Number newValue = (Number) valueChangeEvent.getNewValue();
+            
+            System.out.println("1 currentRowOldQty-->"+oldRowQtyValue);
+            System.out.println("2 currentRow New Qty-->"+newValue);
+            
+        /*    ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.currentRowAmount}", Number.class);
+            changedRowAmount = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext())); */
+            
+            ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.currentRowPriceList}", Number.class);
+            currentPriceList = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext())); 
+            
+           // System.out.println("changedRowAmount-->"+changedRowAmount);
+            System.out.println("3 currentPriceList-->"+currentPriceList);
+            
+            
+            Number oldRowAmount = oldRowQtyValue.intValue() * currentPriceList.intValue();
+            Number newRowAmount = newValue.intValue() * currentPriceList.intValue();
+            
+            
+            System.out.println("4 Old Row Amount is-->"+oldRowAmount);
+            System.out.println("5 New Row Amount is-->"+newRowAmount);
+                
+            Number differenceInValue = 0;
+            Number oldTotalAmount = 0;
+            ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.totalAmountInCart}", Number.class);
+            oldTotalAmount = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext())); 
+            
+            Number newTotalAmount = 0;
+            
+            if ( oldRowAmount.intValue() > newRowAmount.intValue() ){
+                differenceInValue = oldRowAmount.intValue() - newRowAmount.intValue();
+                newTotalAmount = oldTotalAmount.intValue() + differenceInValue.intValue();
+            }
+            else if (oldRowAmount.intValue() == newRowAmount.intValue()){
+                differenceInValue = 0;
+                newTotalAmount = oldTotalAmount;
+            }
+            else{
+                differenceInValue = newRowAmount.intValue() - oldRowAmount.intValue();
+                newTotalAmount = oldTotalAmount.intValue() + differenceInValue.intValue();
+            }
+            
+
+
+            
+            
+            
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.totalAmountInCart}", newTotalAmount);
+            
+            System.out.println("6 difference in Amount is-->"+differenceInValue);
+            System.out.println("7 old Total Amount is-->"+oldTotalAmount);
+            System.out.println("8 New Total Amount is-->"+newTotalAmount);
+            
+        }
+        catch(Exception e){
+            e.getMessage();
+            e.printStackTrace();
+        }
         System.out.println("After updatingItem");
     }
 
