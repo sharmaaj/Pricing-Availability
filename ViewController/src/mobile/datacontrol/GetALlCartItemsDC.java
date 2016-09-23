@@ -82,6 +82,8 @@ public class GetALlCartItemsDC {
                 System.out.println("Before GetItemFromCart is called-->"+ i + "time");
                 GetItemFromCart getCartItms = new GetItemFromCart(temp);
                 s_getItemFromCart.add(getCartItms);
+                
+                
             }
         } catch (Exception e) {
             System.out.println("Exception is -->"+e.getMessage());
