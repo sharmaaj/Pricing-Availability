@@ -39,6 +39,7 @@
           <Item Value="PRICE_LIST"/>
           <Item Value="REQUEST_DATE"/>
           <Item Value="USER_NAME"/>
+          <Item Value="amount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
