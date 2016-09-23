@@ -68,45 +68,45 @@
                             <amx:panelLabelAndMessage label="Amount" id="plam5" styleClass="label"/>
                             <amx:panelGroupLayout id="pgl14" layout="horizontal">
                                 <amx:spacer width="25" id="s13"/>
-                                <amx:outputText value="#{row.amount}" id="ot3"
-                                                inlineStyle=" color:#000000;"/>
+                                <amx:outputText value="#{row.amount}" id="ot3" inlineStyle=" color:#000000;"/>
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
                 </amx:panelGroupLayout>
                 <amx:setPropertyListener id="spl2" type="action" from="#{row.ITEM_NUMBER}"
                                          to="#{pageFlowScope.currentRowItemNum}"/>
-               <!-- <amx:setPropertyListener id="spl3" type="action" from="#{row.ITEM_QUANTITY}"
-                                         to="#{pageFlowScope.updatedItemQty}"/> -->
-                <amx:setPropertyListener id="spl4" from="#{row.ITEM_QUANTITY * row.PRICE_LIST}" type="action"
+                <amx:setPropertyListener id="spl3" type="action" from="#{row.PRICE_LIST}"
+                                         to="#{pageFlowScope.currentRowPriceList}"/>
+                <amx:setPropertyListener id="spl4" from="#{row.amount}" type="action"
                                          to="#{pageFlowScope.currentRowAmount}"/>
+                <amx:setPropertyListener id="spl5" type="action" from="#{row.ITEM_QUANTITY}"
+                                         to="#{pageFlowScope.currentRowOldQty}"/>
             </amx:listItem>
         </amx:listView>
         <amx:spacer id="s1" height="10"/>
-        
         <amx:panelGroupLayout id="pgl4" layout="vertical">
             <amx:panelGroupLayout id="pgl5" layout="horizontal">
                 <amx:panelLabelAndMessage label="Total Amount" id="plam75" styleClass="label"
                                           inlineStyle="color:#808080; font-size:36px;"/>
                 <amx:spacer id="s3" width="10"/>
-                <amx:inputText styleClass="cell-border" id="it2" value="#{pageFlowScope.TotalAmount}"/>
+                <amx:outputText styleClass="cell-border" id="it2" value="#{pageFlowScope.totalAmountInCart}"
+                                inlineStyle="background-color:ThreeDFace;"/>
             </amx:panelGroupLayout>
             <amx:panelGroupLayout id="pgl6" layout="horizontal">
                 <amx:panelLabelAndMessage label="Total Discount" id="plam77" styleClass="label"
                                           inlineStyle="color:#808080; font-size:36px;"/>
                 <amx:spacer id="s4" width="10"/>
-                <amx:inputText styleClass="cell-border" id="it3" value="#{pageFlowScope.TotalDiscount}"/>
+                <amx:outputText styleClass="cell-border" id="it3" value="#{pageFlowScope.TotalDiscount}"
+                                inlineStyle="background-color:ThreeDFace;"/>
             </amx:panelGroupLayout>
         </amx:panelGroupLayout>
         <amx:spacer id="s7" height="30"/>
-        
         <amx:panelGroupLayout id="pgl3" layout="horizontal">
             <amx:inputText styleClass="cell-border" id="it1"/>
             <amx:spacer id="s5" width="10"/>
             <amx:commandLink shortDesc="Apply Coupon" styleClass="commandLink" text="Apply Coupon" id="c3l25"/>
         </amx:panelGroupLayout>
         <amx:spacer id="s6" height="30"/>
-        
         <amx:commandLink shortDesc="Checkout" styleClass="commandLink" text="Checkout" id="c3l2"/>
     </amx:panelPage>
 </amx:view>
