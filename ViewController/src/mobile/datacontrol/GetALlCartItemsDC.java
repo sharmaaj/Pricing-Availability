@@ -71,7 +71,7 @@ public class GetALlCartItemsDC {
         System.out.println("jsonArrayAsString for Get All Cart Items-->"+jsonArrayAsString);
         
         try {
-            
+            Number totalAmount = 0;
             System.out.println("Inside Try Block");
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
             JSONObject parentNode = (JSONObject) jsonObject.get("P_CART_DTLS");
@@ -83,8 +83,11 @@ public class GetALlCartItemsDC {
                 GetItemFromCart getCartItms = new GetItemFromCart(temp);
                 s_getItemFromCart.add(getCartItms);
                 
-                
+                totalAmount = totalAmount.intValue() + getCartItms.getAmount().intValue();
             }
+            
+            System.out.println("Total Amount is "+ totalAmount);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.totalAmountInCart}", totalAmount);
         } catch (Exception e) {
             System.out.println("Exception is -->"+e.getMessage());
             e.getMessage();
