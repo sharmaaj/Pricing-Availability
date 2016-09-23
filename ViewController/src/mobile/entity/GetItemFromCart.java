@@ -76,7 +76,6 @@ public class GetItemFromCart {
         this.setATTRIBUTE15(temp.getString("ATTRIBUTE15"));
     }
 
-
     public void setAmount(Number Amount) {
         Number oldAmount = this.Amount;
         this.Amount = Amount;
