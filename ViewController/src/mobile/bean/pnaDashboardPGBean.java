@@ -4,6 +4,7 @@ import java.text.DateFormat;
 
 import java.text.SimpleDateFormat;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import mobile.PnABeanClass;
@@ -30,15 +31,22 @@ public class pnaDashboardPGBean {
     private String searchHistoryTabClass = "sub-header-disable";
     private Number itemNumber;
     private Number itemQuantity = 1;
-    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    DateFormat dateFormat = new SimpleDateFormat("dd-MM-YYYY");
     Date date = new Date();
-    private String defaultDate = dateFormat.format(date);
+  //  private String defaultDate = dateFormat.format(date);
+    
+    DateFormat df = new SimpleDateFormat("dd-MM-YYYY");
+    Date today = Calendar.getInstance().getTime();
+    private String defaultDate = df.format(today);
 
 
     public void setDefaultDate(String defaultDate) {
         String oldDefaultDate = this.defaultDate;
         this.defaultDate = defaultDate;
         _propertyChangeSupport.firePropertyChange("defaultDate", oldDefaultDate, defaultDate);
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.defaultDate}", dateFormat.format(date));
+        
+        System.out.println("Default date is-->"+defaultDate);
     }
 
     public String getDefaultDate() {
@@ -49,6 +57,7 @@ public class pnaDashboardPGBean {
         String oldNewSearchTabClass = this.newSearchTabClass;
         this.newSearchTabClass = newSearchTabClass;
         _propertyChangeSupport.firePropertyChange("newSearchTabClass", oldNewSearchTabClass, newSearchTabClass);
+        
     }
 
     public String getNewSearchTabClass() {
@@ -71,8 +80,8 @@ public class pnaDashboardPGBean {
     private Date requestedDate = date;
 
     public void setRequestedDate(Date requestedDate) {
-  //      if (requestedDate == null)
- //           AdfmfJavaUtilities.setELValue("#{pageFlowScope.pnaDashboardPGBean.requestedDate}", dateFormat.format(date));
+      //  if (requestedDate == null)
+      //      AdfmfJavaUtilities.setELValue("#{pageFlowScope.requestedDate}", dateFormat.format(date));
      //       requestedDate = date;
         this.requestedDate = requestedDate;
     }
