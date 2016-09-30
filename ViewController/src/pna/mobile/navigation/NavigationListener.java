@@ -122,8 +122,8 @@ public class NavigationListener {
             
             Number newTotalAmount = 0;
             
-            if ( oldRowAmount.intValue() > newRowAmount.intValue() ){
-                differenceInValue = oldRowAmount.intValue() - newRowAmount.intValue();
+            if ( oldRowAmount.intValue() < newRowAmount.intValue() ){
+                differenceInValue = newRowAmount.intValue() - oldRowAmount.intValue();
                 newTotalAmount = oldTotalAmount.intValue() + differenceInValue.intValue();
             }
             else if (oldRowAmount.intValue() == newRowAmount.intValue()){
@@ -131,8 +131,8 @@ public class NavigationListener {
                 newTotalAmount = oldTotalAmount;
             }
             else{
-                differenceInValue = newRowAmount.intValue() - oldRowAmount.intValue();
-                newTotalAmount = oldTotalAmount.intValue() + differenceInValue.intValue();
+                differenceInValue = oldRowAmount.intValue()- newRowAmount.intValue();
+                newTotalAmount = oldTotalAmount.intValue() - differenceInValue.intValue();
             }
             
 
