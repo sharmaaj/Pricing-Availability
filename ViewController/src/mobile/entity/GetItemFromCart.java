@@ -18,9 +18,9 @@ public class GetItemFromCart {
     private String  ITEM_NUMBER;
     private String  ITEM_NAME;
     private String  ITEM_DESCRIPTION;
-    private Number  ITEM_QUANTITY;   
+    private String  ITEM_QUANTITY;   
     private String  REQUEST_DATE;  
-    private Number  PRICE_LIST;
+    private String  PRICE_LIST;
     private String CUSTOMER_NUMBER; 
     private String  ATTRIBUTE1; //Amount
     private String ATTRIBUTE2;
@@ -50,12 +50,14 @@ public class GetItemFromCart {
         this.setITEM_NUMBER(temp.getString("ITEM_NUMBER"));
         this.setITEM_NAME(temp.getString("ITEM_NAME"));
         String tempQty = temp.getString("ITEM_QUANTITY");
-        String tempPList = temp.getString("PRICE_LIST");
-        System.out.println("Price List Test Started ");
-        System.out.println("Price List is tempPList -->"+tempPList);
-        System.out.println("Price List is Integer.parseInt(tempPList) -->"+Integer.parseInt(tempPList));
-        this.setPRICE_LIST(Integer.parseInt(tempPList));
-        this.setITEM_QUANTITY(Integer.parseInt(tempQty));
+       // String tempPList = temp.getString("PRICE_LIST");
+      //  System.out.println("Price List Test Started ");
+       // System.out.println("Price List is tempPList -->"+tempPList);
+      //  System.out.println("Price List is Integer.parseInt(tempPList) -->"+Integer.parseInt(tempPList));
+      //  this.setPRICE_LIST(Integer.parseInt(tempPList));
+        this.setPRICE_LIST(temp.getString("PRICE_LIST"));
+        this.setITEM_QUANTITY(temp.getString("ITEM_QUANTITY"));
+  //      this.setITEM_QUANTITY(Integer.parseInt(tempQty));
         this.setITEM_DESCRIPTION(temp.getString("ITEM_DESCRIPTION"));
         this.setREQUEST_DATE(temp.getString("REQUEST_DATE"));
         this.setCUSTOMER_NUMBER(temp.getString("CUSTOMER_NUMBER"));
@@ -126,24 +128,43 @@ public class GetItemFromCart {
         return ITEM_DESCRIPTION;
     }
 
-    public void setITEM_QUANTITY(Number ITEM_QUANTITY) {
+   /* public void setITEM_QUANTITY(Number ITEM_QUANTITY) {
         
         System.out.println("Entry 1.0 ");
         Number oldITEM_QUANTITY = this.ITEM_QUANTITY;
         this.ITEM_QUANTITY = ITEM_QUANTITY;
         _propertyChangeSupport.firePropertyChange("ITEM_QUANTITY", oldITEM_QUANTITY, ITEM_QUANTITY);
-        
+        Integer.parseInt(this.getPRICE_LIST());
         System.out.println("Entry 2.0 "+this.ITEM_QUANTITY.intValue());
-        System.out.println("Entry 3.0 "+this.getPRICE_LIST().intValue());
+        System.out.println("Entry 3.0 "+Integer.parseInt(this.getPRICE_LIST()));
         
-         setAmount(this.ITEM_QUANTITY.intValue() * this.getPRICE_LIST().intValue());
+         setAmount(this.ITEM_QUANTITY.intValue() * Integer.parseInt(this.getPRICE_LIST()));
         System.out.println("Entry 4.0 ");
         
     }
 
     public Number getITEM_QUANTITY() {
         return ITEM_QUANTITY;
-    }
+    } */
+    
+   public void setITEM_QUANTITY(String ITEM_QUANTITY) {
+       
+       System.out.println("Entry 1.0 ");
+       String oldITEM_QUANTITY = this.ITEM_QUANTITY;
+       this.ITEM_QUANTITY = ITEM_QUANTITY;
+       _propertyChangeSupport.firePropertyChange("ITEM_QUANTITY", oldITEM_QUANTITY, ITEM_QUANTITY);
+       Integer.parseInt(this.getPRICE_LIST());
+       System.out.println("Entry 2.0 "+Integer.parseInt(this.ITEM_QUANTITY));
+       System.out.println("Entry 3.0 "+Integer.parseInt(this.getPRICE_LIST()));
+       
+        setAmount(Integer.parseInt(this.ITEM_QUANTITY) * Integer.parseInt(this.getPRICE_LIST()));
+       System.out.println("Entry 4.0 ");
+       
+   }
+
+   public String getITEM_QUANTITY() {
+       return ITEM_QUANTITY;
+   }
 
     public void setREQUEST_DATE(String REQUEST_DATE) {
         String oldREQUEST_DATE = this.REQUEST_DATE;
@@ -155,13 +176,22 @@ public class GetItemFromCart {
         return REQUEST_DATE;
     }
 
-    public void setPRICE_LIST(Number PRICE_LIST) {
+   /* public void setPRICE_LIST(Number PRICE_LIST) {
         Number oldPRICE_LIST = this.PRICE_LIST;
         this.PRICE_LIST = PRICE_LIST;
         _propertyChangeSupport.firePropertyChange("PRICE_LIST", oldPRICE_LIST, PRICE_LIST);
     }
 
     public Number getPRICE_LIST() {
+        return PRICE_LIST;
+    } */
+    public void setPRICE_LIST(String PRICE_LIST) {
+        String oldPRICE_LIST = this.PRICE_LIST;
+        this.PRICE_LIST = PRICE_LIST;
+        _propertyChangeSupport.firePropertyChange("PRICE_LIST", oldPRICE_LIST, PRICE_LIST);
+    }
+
+    public String getPRICE_LIST() {
         return PRICE_LIST;
     }
 
