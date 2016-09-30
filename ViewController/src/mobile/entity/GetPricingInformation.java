@@ -2,6 +2,7 @@ package mobile.entity;
 
 import java.math.BigDecimal;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import mobile.bean.AEntity;
@@ -60,7 +61,8 @@ public class GetPricingInformation extends AEntity {
        
         this.setP_item_description(temp.getString("P_ITEM_DESCRIPTION"));
         this.setP_item_quantity(temp.getString("P_ITEM_QUANTITY"));
-        this.setP_request_date(temp.getString("P_REQUEST_DATE"));
+        this.setP_request_date(temp.getString("P_REQUEST_DATE").substring(0,10));
+     //   this.setP_request_date(temp.getString("P_REQUEST_DATE"));
         this.setP_customer_number(temp.getString("P_CUSTOMER_NUMBER"));
         this.setCreated_by(temp.getString("CREATED_BY"));
         this.setLast_updated_by(temp.getString("LAST_UPDATED_BY"));
@@ -72,7 +74,7 @@ public class GetPricingInformation extends AEntity {
         this.setP_currency(temp.getString("P_CURRENCY"));
         this.setP_selling_price(temp.getString("P_SELLING_PRICE"));
         this.setP_availabe(temp.getString("P_AVAILABLE"));
-        this.setP_available_date(temp.getString("P_AVAILABLE_DATE"));
+        this.setP_available_date(temp.getString("P_AVAILABLE_DATE").substring(0,10));
         this.setP_uom(temp.getString("P_UOM"));
         this.setP_atp_flag(temp.getString("P_ATP_FLAG"));
         this.setP_discount(temp.getString("P_DISCOUNT"));
@@ -104,6 +106,10 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_item_description() {
+        AEntity ent = new AEntity();
+        p_item_description = ent.getValue(p_item_description);
+        if (p_item_description.equals(null) || p_item_description.equals("") )
+            p_item_description = "N/A";
         return p_item_description;
     }
 
@@ -114,6 +120,10 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_item_quantity() {
+        AEntity ent = new AEntity();
+        p_item_quantity = ent.getValue(p_item_quantity);
+        if (p_item_quantity.equals(null) || p_item_quantity.equals("") )
+            p_item_quantity = "0";
         return p_item_quantity;
     }
 
@@ -124,6 +134,10 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_request_date() {
+        AEntity ent = new AEntity();
+        p_request_date = ent.getValue(p_request_date);
+        if (p_request_date.equals(null) || p_request_date.equals("") )
+            p_request_date = "N/A";
         return p_request_date;
     }
 
@@ -134,6 +148,10 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_customer_number() {
+        AEntity ent = new AEntity();
+        p_customer_number = ent.getValue(p_customer_number);
+        if (p_customer_number.equals(null) || p_customer_number.equals("") )
+            p_customer_number = "N/A";
         return p_customer_number;
     }
 
@@ -194,8 +212,13 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_price_list() {
+        AEntity ent = new AEntity();
+        p_price_list = ent.getValue(p_price_list);
+        if (p_price_list.equals(null) || p_price_list.equals("") )
+            p_price_list = "0";
         return p_price_list;
     }
+
 
     public void setP_item_number(String p_item_number) {
         String oldP_item_number = this.p_item_number;
@@ -214,6 +237,10 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_currency() {
+        AEntity ent = new AEntity();
+        p_currency = ent.getValue(p_currency);
+        if (p_currency.equals(null) || p_currency.equals("") )
+            p_currency = "N/A";
         return p_currency;
     }
 
@@ -234,6 +261,14 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_availabe() {
+        AEntity ent = new AEntity();
+        p_availabe = ent.getValue(p_availabe);
+        if (p_availabe.equals(null) || p_availabe.equals("") ) {
+            p_availabe = "N/A";   
+            Date today = Calendar.getInstance().getTime();
+            String df = "dd-MM-YYYY";
+      //      p_availabe = df.format(today);
+        }
         return p_availabe;
     }
 
@@ -244,6 +279,10 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_available_date() {
+        AEntity ent = new AEntity();
+        p_available_date = ent.getValue(p_available_date);
+        if (p_available_date.equals(null) || p_available_date.equals("") )
+            p_available_date = "N/A";
         return p_available_date;
     }
 
@@ -254,6 +293,10 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_uom() {
+        AEntity ent = new AEntity();
+        p_uom = ent.getValue(p_uom);
+        if (p_uom.equals(null) || p_uom.equals("") )
+            p_uom = "N/A";
         return p_uom;
     }
 
@@ -274,6 +317,10 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_discount() {
+        AEntity ent = new AEntity();
+        p_discount = ent.getValue(p_discount);
+        if (p_discount.equals(null) || p_discount.equals("") )
+            p_discount = "N/A";
         return p_discount;
     }
 
@@ -284,6 +331,10 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_dis_desc() {
+        AEntity ent = new AEntity();
+        p_dis_desc = ent.getValue(p_dis_desc);
+        if (p_dis_desc.equals(null) || p_dis_desc.equals("") )
+            p_dis_desc = "N/A";
         return p_dis_desc;
     }
 
@@ -294,6 +345,10 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_dis_valid_date() {
+        AEntity ent = new AEntity();
+        p_dis_valid_date = ent.getValue(p_dis_valid_date);
+        if (p_dis_valid_date.equals(null) || p_dis_valid_date.equals("") )
+            p_dis_valid_date = "N/A";
         return p_dis_valid_date;
     }
 
@@ -304,6 +359,10 @@ public class GetPricingInformation extends AEntity {
     }
 
     public String getP_warehouse() {
+        AEntity ent = new AEntity();
+        p_warehouse = ent.getValue(p_warehouse);
+        if (p_warehouse.equals(null) || p_warehouse.equals("") )
+            p_warehouse = "N/A";
         return p_warehouse;
     }
 
