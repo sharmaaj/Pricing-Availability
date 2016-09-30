@@ -49,7 +49,7 @@ public class GetALlCartItemsDC {
     }
     
     public GetItemFromCart[] getItemsFromCart() {
-        
+        System.out.println("Here 10-->");
         ValueExpression ve = null;
         s_getItemFromCart = new ArrayList<GetItemFromCart>();
         s_getItemFromCart.clear();
