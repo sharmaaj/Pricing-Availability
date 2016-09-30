@@ -4,8 +4,10 @@ import java.math.BigDecimal;
 
 import java.text.DateFormat;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import mobile.bean.AEntity;
@@ -20,11 +22,13 @@ public class SearchHistory extends AEntity {
     private String itemNumber;
     private String itemDescription;
     private String itemQuantity;
-    private Date requestDate;
+   // private Date requestDate;
+    private String requestDate;
     private String customerNumber;
     private String priceList;
     private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
-
+    AEntity ent = new AEntity();
+    
     public SearchHistory() {
         super();
     }
@@ -33,15 +37,33 @@ public class SearchHistory extends AEntity {
         this.setItemNumber(temp.getString("ITEM_NUMBER"));
         this.setItemDescription(temp.getString("ITEM_DESCRIPTION"));
         this.setItemQuantity(temp.getString("ITEM_QUANTITY"));
-        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
-        try{
+        DateFormat df = new SimpleDateFormat("dd-MM-YYYY");
+        /*try{
         Date startDate = df.parse(temp.getString("REQUEST_DATE").substring(0,10));
+            System.out.println("Start Date is Request Date-->"+startDate);
         this.setRequestDate(startDate);
         }catch(Exception e){
             System.out.println("Error during request date conversion");
-        }
+        } */
+        
+        this.setRequestDate(temp.getString("REQUEST_DATE").substring(0,10));
+        System.out.println("Start Date is Request Date-->"+temp.getString("REQUEST_DATE").substring(0,10));
         this.setCustomerNumber(temp.getString("CUSTOMER_NUMBER"));
         this.setPriceList(temp.getString("PRICE_LIST"));
+    }
+
+
+    public void setRequestDate(String requestDate) {
+        String oldRequestDate = this.requestDate;
+        this.requestDate = requestDate;
+        _propertyChangeSupport.firePropertyChange("requestDate", oldRequestDate, requestDate);
+    }
+
+    public String getRequestDate() {
+        requestDate = ent.getValue(requestDate);
+        if (requestDate.equals(null) || requestDate.equals("") )
+            requestDate = "N/A";
+        return requestDate;
     }
 
     public void setItemNumber(String itemNumber) {
@@ -51,6 +73,9 @@ public class SearchHistory extends AEntity {
     }
 
     public String getItemNumber() {
+        itemNumber = ent.getValue(itemNumber);
+        if (itemNumber.equals(null) || itemNumber.equals("") )
+            itemNumber = "N/A";
         return super.getAttributeValue(itemNumber);
     }
 
@@ -61,6 +86,9 @@ public class SearchHistory extends AEntity {
     }
 
     public String getItemDescription() {
+        itemDescription = ent.getValue(itemDescription);
+        if (itemDescription.equals(null) || itemDescription.equals("") )
+            itemDescription = "N/A";
         return super.getAttributeValue(itemDescription);
     }
 
@@ -71,18 +99,21 @@ public class SearchHistory extends AEntity {
     }
 
     public String getItemQuantity() {
+        itemQuantity = ent.getValue(itemQuantity);
+        if (itemQuantity.equals(null) || itemQuantity.equals("") )
+            itemQuantity = "0";
         return super.getAttributeValue(itemQuantity);
     }
 
-    public void setRequestDate(Date requestDate) {
+ /*   public void setRequestDate(Date requestDate) {
         Date oldRequestDate = this.requestDate;
         this.requestDate = requestDate;
         _propertyChangeSupport.firePropertyChange("requestDate", oldRequestDate, requestDate);
-    }
+    } 
 
     public Date getRequestDate() {
         return requestDate;
-    }
+    } */
 
     public void setCustomerNumber(String customerNumber) {
         String oldCustomerNumber = this.customerNumber;
@@ -91,6 +122,9 @@ public class SearchHistory extends AEntity {
     }
 
     public String getCustomerNumber() {
+        customerNumber = ent.getValue(customerNumber);
+        if (customerNumber.equals(null) || customerNumber.equals("") )
+            customerNumber = "N/A";
         return super.getAttributeValue(customerNumber);
     }
 
@@ -101,6 +135,9 @@ public class SearchHistory extends AEntity {
     }
 
     public String getPriceList() {
+        priceList = ent.getValue(priceList);
+        if (priceList.equals(null) || priceList.equals("") )
+            priceList = "N/A";
         return super.getAttributeValue(priceList);
     }
 
