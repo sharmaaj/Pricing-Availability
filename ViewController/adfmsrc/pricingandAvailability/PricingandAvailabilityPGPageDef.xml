@@ -152,11 +152,6 @@
         <Item Value="p_availabe"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="pricingInformationIterator" id="p_available_date">
-      <AttrNames>
-        <Item Value="p_available_date"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="pricingInformationIterator" id="p_uom">
       <AttrNames>
         <Item Value="p_uom"/>
@@ -184,5 +179,10 @@
     </attributeValues>
     <methodAction id="addtoCart" RequiresUpdateModel="true" Action="invokeMethod" MethodName="addtoCart"
                   IsViewObjectMethod="false" DataControl="AddToCartDC" InstanceName="data.AddToCartDC.dataProvider"/>
+    <attributeValues IterBinding="pricingInformationIterator" id="p_available_date">
+      <AttrNames>
+        <Item Value="p_available_date"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
