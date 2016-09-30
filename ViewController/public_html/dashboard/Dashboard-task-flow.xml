@@ -41,6 +41,12 @@
         <fixed-outcome>getAllCartItems</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="fetchPricingInformation">
+      <method>#{bindings.fetchPricingInformation.execute}</method>
+      <outcome>
+        <fixed-outcome>fetchPricingInformation</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>DashboardPG</from-activity-id>
       <control-flow-case id="__2">
@@ -54,6 +60,10 @@
       <control-flow-case id="__11">
         <from-outcome>itemLov</from-outcome>
         <to-activity-id>ItemLovPG</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome>fetchPnA</from-outcome>
+        <to-activity-id>fetchPricingInformation</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__5">
@@ -90,6 +100,13 @@
       <control-flow-case id="__17">
         <from-outcome>getAllCartItems</from-outcome>
         <to-activity-id>myCart</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>fetchPricingInformation</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome>fetchPricingInformation</from-outcome>
+        <to-activity-id>PricingandAvailabilityPG</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>
