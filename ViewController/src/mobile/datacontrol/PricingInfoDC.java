@@ -52,21 +52,30 @@ public class PricingInfoDC {
         String quantity = null;
         String custNumber = null;
         String priceList = null;
-        Date reqDate = null;
+    //    Date reqDate = null;
+        String reqDate = null;
+        String dateFormatinString ="dd-MM-YYYY";
         
         
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orgId}", Number.class);
         orgId = (Number) (ve.getValue(AdfmfJavaUtilities.getELContext()));
         orgId = 204;
         
+        System.out.println("orgId-->"+orgId);
+        
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userId = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        System.out.println("UserId-->"+userId);
         
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
         itemNum = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         
+        System.out.println("itemNum-->"+itemNum);
+        
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemDesc}", String.class);
         itemDesc = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        System.out.println("itemDesc-->"+itemDesc);
         
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemQuantity}", String.class);
          quantity =  ( (String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
@@ -76,27 +85,28 @@ public class PricingInfoDC {
         AEntity ent = new AEntity();
         custNumber = ent.getValue(custNumber);
         
+        System.out.println("custNumber-->"+custNumber);
+        
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.priceList}", String.class);
         priceList = ( (String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        System.out.println("priceList-->"+priceList);
     
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.pnaDashboardPGBean.requestedDate}", Date.class);
-        reqDate = (Date) (ve.getValue(AdfmfJavaUtilities.getELContext()));
+        String tempreDate = null;
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.requestedDate}", String.class);
+        tempreDate = ( (String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        reqDate = tempreDate.replace('/', '-');
+        
+        
+        System.out.println("reqDate-->"+reqDate);
         
         
         String restURI = RestURIs.getPricingInformation();
         RestServiceManager rcu = new RestServiceManager();
         
         System.out.println("UserId-->"+userId);
-        System.out.println("itemNum-->"+itemNum);
-        System.out.println("itemDesc-->"+itemDesc);
-        System.out.println("orgId-->"+orgId);
-        System.out.println("quantity-->"+quantity);
-        System.out.println("custNumber-->"+custNumber);
-        System.out.println("priceList-->"+priceList);
-        System.out.println("reqDate-->"+reqDate);
         
-        
-
         String payload = "{  \n" + "\"P_USER_ID\" : \"" + userId + "\"," +
                             "\n" + "\"P_ITEM_NUMBER\" : \"" + itemNum + "\"," +
                             "\n" + "\"P_ITEM_DESCRIPTION\" : \"" + itemDesc + "\"," +
@@ -104,7 +114,7 @@ public class PricingInfoDC {
                             "\n" + "\"P_QUANTITY\" : \"" + quantity + "\"," +
                             "\n" + "\"P_CUSTOMER_NUMBER\" : \"" + custNumber + "\"," +
                             "\n" + "\"P_PRICE_LIST\" : \"" + priceList + "\"," +
-                            "\n" + "\"P_REQUESTED_DATE\" : \"" +dateFormat.format(reqDate) + "\"\n" + "}";
+                            "\n" + "\"P_REQUESTED_DATE\" : \"" +reqDate + "\"\n" + "}";
         
         
         System.out.println("paylod is " + payload);
