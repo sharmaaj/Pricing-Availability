@@ -59,8 +59,8 @@ public class AddToCart {
         String itemNum = null;
         String itemName = null;
         String itemDesc = null;
-        Number itemQuantity = null;
-        Number listPrice = null;
+        String itemQuantity = null;
+        String listPrice = null;
 
 
         ValueExpression ve = null;
@@ -84,19 +84,19 @@ public class AddToCart {
         itemName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext()));
         System.out.println("Here 5-->"+itemName);
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemQuantity}", Number.class);
-        itemQuantity = (Number) (ve.getValue(AdfmfJavaUtilities.getELContext()));
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemQuantity}", String.class);
+        itemQuantity = ((String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         System.out.println("Here 6-->"+itemQuantity);
         
         String listPriceInString = null;
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.listPrice}", String.class);
         listPriceInString = ((String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-        
+        listPrice = listPriceInString;
         System.out.println("Here 7 listPriceInString-->"+listPriceInString);
         
-        listPrice = Integer.parseInt(listPriceInString);
+        //listPrice = Integer.parseInt(listPriceInString);
         
-        System.out.println("Here 8 listPrice in Integer-->"+listPrice);
+        //System.out.println("Here 8 listPrice in Integer-->"+Integer.parseInt(listPriceInString));
 
         String restURI = RestURIs.addToCart();
         System.out.println("restURI is " + restURI);
@@ -110,11 +110,9 @@ public class AddToCart {
          
         System.out.println("paylod is " + payload);
         (rcu.invokeUPDATE(restURI, payload)).toString();
+        
+        System.out.println("Here 9-->");
 
     }
     
-    public static void Main(String args[]){
-        AddToCart a = new AddToCart();
-        a.addtoCart();
-    }
 }
