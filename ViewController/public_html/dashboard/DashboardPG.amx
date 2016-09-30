@@ -55,8 +55,8 @@
                 <amx:tableLayout id="tl3" width="90%">
                     <amx:rowLayout id="rl10">
                         <amx:cellFormat height="40px" styleClass="cell-border" id="cf11" width="80%">
-                            <amx:inputText hintText="Enter Item Number"  id="it6" 
-                                           inputType="text" value="#{pageFlowScope.searchKeyword}"
+                            <amx:inputText hintText="Enter Item Number" id="it6" inputType="text"
+                                           value="#{pageFlowScope.searchKeyword}"
                                            inlineStyle="border-bottom-color:transparent; border-top-color:transparent; border-left-color:transparent; border-right-color:transparent;"/>
                         </amx:cellFormat>
                         <amx:cellFormat styleClass="cell-border" id="cf12">
@@ -76,9 +76,7 @@
                         <amx:cellFormat height="40px" styleClass="cell-border" id="cf13"
                                         inlineStyle="background-color:ThreeDFace;">
                             <amx:spacer id="s1"/>
-                            <amx:outputText id="ot2" 
-                                            inlineStyle="text-align:right;"
-                                            value="#{pageFlowScope.itemDesc}"/>
+                            <amx:outputText id="ot2" inlineStyle="text-align:right;" value="#{pageFlowScope.itemDesc}"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
@@ -99,8 +97,7 @@
                     <amx:rowLayout id="rl12">
                         <amx:cellFormat id="cf14" height="40px" styleClass="cell-border">
                             <amx:inputText hintText="Enter Quantity" inlineStyle="text-align:left;color:#808080;"
-                                           id="it7" inputType="number"
-                                           value="#{pageFlowScope.itemQuantity}"/>
+                                           id="it7" inputType="number" value="#{pageFlowScope.itemQuantity}"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
@@ -110,7 +107,7 @@
                     <amx:rowLayout id="rl13">
                         <amx:cellFormat id="cf15" height="40px" width="100%" styleClass="cell-border">
                             <amx:inputDate inlineStyle="text-align:left;color:#808080;" id="it8" inputType="date"
-                                           value="#{pageFlowScope.pnaDashboardPGBean.requestedDate}"/>
+                                           value="#{pageFlowScope.requestedDate}"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
@@ -125,8 +122,8 @@
                                 <amx:selectItem label="Choose" value="0" id="si4"/>
                                 <amx:selectItems value="#{bindings.LISTDESC.items}" id="si1"/>
                             </amx:selectOneChoice>
-                            <amx:selectManyChoice value="#{pageFlowScope.priceList}"
-                                                  label="Choose" id="smc1" rendered="false">
+                            <amx:selectManyChoice value="#{pageFlowScope.priceList}" label="Choose" id="smc1"
+                                                  rendered="false">
                                 <amx:selectItems value="#{bindings.priceList2.items}" id="si2"/>
                             </amx:selectManyChoice>
                         </amx:cellFormat>
@@ -139,13 +136,25 @@
                          actionListener="#{bindings.fetchPricingInformation.execute}" action="searchResults"/>
         <!--New Search Page Section Ends -->
         <!--Search History Section Begins -->
-                <amx:listView var="row" value="#{bindings.searchHistory.collectionModel}"
+        <amx:listView var="row" value="#{bindings.searchHistory.collectionModel}"
                       rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}"
-                      fetchSize="#{bindings.searchHistory.rangeSize}" id="lv1" showMoreStrategy="autoScroll"
+                      fetchSize="5" id="lv1" showMoreStrategy="autoScroll"
                       bufferStrategy="viewport" selectedRowKeys="#{bindings.searchHistory.collectionModel.selectedRow}"
                       selectionListener="#{bindings.searchHistory.collectionModel.makeCurrent}"
                       initialScrollRowKeys="#{bindings.searchHistory.collectionModel.selectedRow}">
-            <amx:listItem id="li1" >
+            <amx:listItem id="li1" action="fetchPnA">
+                <amx:setPropertyListener id="spl9" from="#{row.itemNumber}" to="#{pageFlowScope.searchKeyword}"
+                                         type="action"/>
+                <amx:setPropertyListener id="spl10" from="#{row.itemDescription}" type="action"
+                                         to="#{pageFlowScope.itemDesc}"/>
+                <amx:setPropertyListener id="spl11" to="#{pageFlowScope.itemQuantity}" type="action"
+                                         from="#{row.itemQuantity}"/>
+                <amx:setPropertyListener id="spl12" to="#{pageFlowScope.customerNumber}" type="action"
+                                         from="#{row.customerNumber}"/>
+                <amx:setPropertyListener id="spl14" to="#{pageFlowScope.priceList}" type="action"
+                                         from="#{row.priceList}"/>
+                <amx:setPropertyListener id="spl15" to="#{pageFlowScope.requestedDate}" type="action"
+                                         from="#{row.requestDate}"/>
                 <amx:panelGroupLayout id="parentlayout" layout="vertical">
                     <amx:panelGroupLayout id="itemNumRow" layout="horizontal">
                         <amx:spacer width="15" id="s10"/>
@@ -166,18 +175,22 @@
                                 <amx:outputText value="#{row.itemQuantity}" id="ot5" inlineStyle="color:#000000;"/>
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
-                        <amx:panelGroupLayout  id="dateRow2" layout="vertical"
-                                              rendered="#{applicationScope.UserType eq 'external' || applicationScope.UserType eq 'External' || applicationScope.UserType eq 'EXTERNAL' }">
+                        <amx:panelGroupLayout id="dateRow2" layout="vertical"
+                                              rendered="#{applicationScope.UserType eq 'internal' || applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL' }">
                             <amx:panelLabelAndMessage label="Customer Number" id="plam5" styleClass="label"/>
                             <amx:panelGroupLayout id="pgl14" layout="horizontal">
                                 <amx:spacer width="25" id="s13"/>
                                 <amx:outputText value="#{row.customerNumber}" id="ot3" inlineStyle=" color:#000000;"/>
                             </amx:panelGroupLayout>
+                            <amx:outputText value="#{row.priceList}" id="ot31" inlineStyle=" color:#000000;"
+                                            rendered="false"/>
+                            <amx:outputText value="#{row.requestDate}"
+                                            id="ot32" inlineStyle=" color:#000000;" rendered="false"/>
                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
                 </amx:panelGroupLayout>
                 <!--amx:spacer id="s2" inlineStyle="color:#86BC25; border-style:solid;"/-->
-                <amx:setPropertyListener id="spl5" from="#{row.itemNumber}" type="tapHold"
+                <!--<amx:setPropertyListener id="spl5" from="#{row.itemNumber}" type="tapHold"
                                          to="#{pageFlowScope.searchKeyword}"/>
                 <amx:setPropertyListener id="spl6" from="#{row.itemDescription}" type="tapHold"
                                          to="#{pageFlowScope.itemDesc}"/>
@@ -189,7 +202,7 @@
                                          type="tapHold" id="sp20"/>
                 <amx:setPropertyListener from="sub-header-disable"
                                          to="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass}" type="tapHold"
-                                         id="sp21"/>
+                                         id="sp21"/> -->
             </amx:listItem>
         </amx:listView>
         <!--      <amx:panelFormLayout id="pfl2" rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}"> -->
