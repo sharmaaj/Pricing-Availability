@@ -149,7 +149,7 @@
                         <amx:spacer height="5" id="s0090"/>
                         <amx:panelGroupLayout id="pg99" layout="horizontal">
                             <amx:spacer width="25" id="s99"/>
-                            <amx:outputText value="#{bindings.p_discount.inputValue eq 0 ? 'N/A' : bindings.p_discount.inputValue}"
+                            <amx:outputText value="#{bindings.p_discount.inputValue}"
                                             id="ot99" inlineStyle="color:#000000; "/>
                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
