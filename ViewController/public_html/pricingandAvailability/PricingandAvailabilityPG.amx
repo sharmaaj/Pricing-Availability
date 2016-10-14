@@ -239,7 +239,7 @@
                         <amx:spacer height="5" id="s119"/>
                                                 <amx:panelGroupLayout id="pgl5" layout="horizontal">
                             <amx:spacer width="25" id="s22"/>
-                        <amx:outputText value="#{bindings.p_price_list.inputValue}" id="ot13"
+                        <amx:outputText value="$#{bindings.p_price_list.inputValue}" id="ot13"
                                         inlineStyle="color:#000000; "/>
                                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
@@ -255,7 +255,7 @@
                         <amx:spacer height="5" id="s008"/>
                                                 <amx:panelGroupLayout id="pgl6" layout="horizontal">
                             <amx:spacer width="25" id="s23"/>
-                        <amx:outputText value="#{bindings.p_selling_price.inputValue}" id="ot6115"
+                        <amx:outputText value="$#{bindings.p_selling_price.inputValue}" id="ot6115"
                                         inlineStyle="color:#000000; "/>
                                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
@@ -370,7 +370,7 @@
                         <amx:spacer height="5" id="s74"/>
                         <amx:panelGroupLayout id="pg4l114" layout="horizontal">
                             <amx:spacer width="25" id="s1213"/>
-                            <amx:outputText value="#{bindings.p_price_list.inputValue}" id="ot213"
+                            <amx:outputText value="$#{bindings.p_price_list.inputValue}" id="ot213"
                                             inlineStyle="color:#000000; "/>
                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
