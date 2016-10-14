@@ -1,0 +1,2 @@
+create or replace
+TYPE      XXPNA_ITEM_TAB AS TABLE OF XXPNA_ITEM;
