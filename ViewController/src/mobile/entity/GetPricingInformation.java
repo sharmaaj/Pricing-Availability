@@ -66,8 +66,8 @@ public class GetPricingInformation extends AEntity {
         this.setP_customer_number(temp.getString("P_CUSTOMER_NUMBER"));
         this.setCreated_by(temp.getString("CREATED_BY"));
         this.setLast_updated_by(temp.getString("LAST_UPDATED_BY"));
-        this.setLast_updated_date(temp.getString("LAST_UPDATED_DATE"));
-        this.setCreation_date(temp.getString("CREATION_DATE"));
+        this.setLast_updated_date(temp.getString("LAST_UPDATED_DATE").substring(0,10));
+        this.setCreation_date(temp.getString("CREATION_DATE").substring(0,10));
         this.setLast_update_login(temp.getString("LAST_UPDATE_LOGIN"));
         this.setP_price_list(temp.getString("P_PRICE_LIST"));
         this.setP_item_number(temp.getString("P_ITEM_NUMBER"));
@@ -79,7 +79,7 @@ public class GetPricingInformation extends AEntity {
         this.setP_atp_flag(temp.getString("P_ATP_FLAG"));
         this.setP_discount(temp.getString("P_DISCOUNT"));
         this.setP_dis_desc(temp.getString("P_DIS_DESC"));
-        this.setP_dis_valid_date(temp.getString("P_DIS_VALID_DATE"));
+        this.setP_dis_valid_date(temp.getString("P_DIS_VALID_DATE").substring(0,10));
         this.setP_warehouse(temp.getString("P_WAREHOUSE"));
         this.setAttribute1(temp.getString("ATTRIBUTE1"));
         this.setAttribute2(temp.getString("ATTRIBUTE2"));
