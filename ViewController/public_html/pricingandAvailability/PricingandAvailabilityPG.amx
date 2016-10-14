@@ -438,7 +438,7 @@
         <amx:spacer id="s1" height="10"/>
         <amx:spacer id="s3"/>
         <amx:spacer id="s4"/>
-        <amx:commandLink shortDesc="Add To Cart" styleClass="commandLink" text="Add To Cart" id="c3l2" action="myCart"
+        <amx:commandLink shortDesc="Add to Cart" styleClass="commandLink" text="Add to Cart" id="c3l2" action="myCart"
                          actionListener="#{bindings.addtoCart.execute}">
             <amx:setPropertyListener id="spl5" from="#{bindings.p_price_list.inputValue}"
                                      to="#{pageFlowScope.listPrice}" type="action"/>
