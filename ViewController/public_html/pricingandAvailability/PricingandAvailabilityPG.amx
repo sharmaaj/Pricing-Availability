@@ -5,7 +5,7 @@
         <amx:facet name="header">
             <amx:panelGroupLayout id="pgl2" layout="horizontal" halign="center" valign="middle">
                 <amx:outputText value="Item Details" id="ot1"
-                                inlineStyle="color:White; padding-left:40px;font-size:50px;"/>
+                                inlineStyle="color:White; padding-left:40px;font-size:40px;"/>
             </amx:panelGroupLayout>
         </amx:facet>
         <amx:facet name="primary">
@@ -18,7 +18,7 @@
         <amx:facet name="secondary">
             <amx:commandLink id="cl4" action="myCart">
                 <amx:outputHtml id="oh2" styleClass="fa fa-shopping-cart fa-lg"
-                                inlineStyle="color:white;font-size:50px;"/>
+                                inlineStyle="color:white;font-size:40px;"/>
             </amx:commandLink>
         </amx:facet>
         <!--Header Section Starts -->
@@ -114,6 +114,7 @@
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
+                <amx:spacer id="s10" height="2"/>
             </amx:panelLabelAndMessage>
             <!--Add first seperator here -->
             <amx:panelLabelAndMessage styleClass="label" label="" id="plam3"
@@ -170,6 +171,7 @@
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
+                <amx:spacer id="s9" height="2"/>
             </amx:panelLabelAndMessage>
         </amx:panelGroupLayout>
         <!--Pricing Section ends -->
@@ -235,6 +237,7 @@
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
+                <amx:spacer id="s6" height="2"/>
             </amx:panelLabelAndMessage>
             <!--Enter Seperator here -->
             <amx:panelLabelAndMessage label="" id="plam2" styleClass="label"
@@ -278,9 +281,10 @@
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
+                <amx:spacer id="s8" height="2"/>
             </amx:panelLabelAndMessage>
             <amx:spacer id="s2" height="10"/>
-            <amx:panelLabelAndMessage label="Warning!Item is not ATP enabled" id="plam1" styleClass="label"
+            <amx:panelLabelAndMessage label="Warning!Item is not ATP enabled" id="plam1" 
                                       rendered="#{bindings.p_atp_flag.inputValue eq 'N' || bindings.p_atp_flag.inputValue eq 'n'}"
                                       inlineStyle="color:#808080; font-size:46px;border-bottom-width:1px;"/>
             <amx:spacer id="s7" height="10"/>
@@ -290,7 +294,7 @@
         <amx:spacer id="s3"/>
         <amx:spacer id="s4"/>
         <amx:commandLink shortDesc="Add to Cart" styleClass="commandLink" text="Add to Cart" id="c3l2" action="myCart"
-                         actionListener="#{bindings.addtoCart.execute}">
+                         actionListener="#{bindings.addtoCart.execute}" inlineStyle="font-size:30px;">
             <amx:setPropertyListener id="spl5" from="#{bindings.p_price_list.inputValue}"
                                      to="#{pageFlowScope.listPrice}" type="action"/>
         </amx:commandLink>
