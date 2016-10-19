@@ -284,7 +284,7 @@
                 <amx:spacer id="s8" height="2"/>
             </amx:panelLabelAndMessage>
             <amx:spacer id="s2" height="10"/>
-            <amx:panelLabelAndMessage label="Warning!Item is not ATP enabled" id="plam1" 
+            <amx:panelLabelAndMessage label="Warning!Item is not ATP enabled" id="plam1"
                                       rendered="#{bindings.p_atp_flag.inputValue eq 'N' || bindings.p_atp_flag.inputValue eq 'n'}"
                                       inlineStyle="color:#808080; font-size:46px;border-bottom-width:1px;"/>
             <amx:spacer id="s7" height="10"/>
@@ -293,10 +293,17 @@
         <amx:spacer id="s1" height="10"/>
         <amx:spacer id="s3"/>
         <amx:spacer id="s4"/>
-        <amx:commandLink shortDesc="Add to Cart" styleClass="commandLink" text="Add to Cart" id="c3l2" action="myCart"
-                         actionListener="#{bindings.addtoCart.execute}" inlineStyle="font-size:30px;">
-            <amx:setPropertyListener id="spl5" from="#{bindings.p_price_list.inputValue}"
-                                     to="#{pageFlowScope.listPrice}" type="action"/>
-        </amx:commandLink>
+        <amx:tableLayout id="tl5" width="30%">
+            <amx:rowLayout id="rl26">
+                <amx:cellFormat id="cf43">
+                    <amx:commandLink shortDesc="Add to Cart" styleClass="commandLink" text="Add to Cart" id="c3l2"
+                                     action="myCart" actionListener="#{bindings.addtoCart.execute}"
+                                     inlineStyle="font-size:30px;">
+                        <amx:setPropertyListener id="spl5" from="#{bindings.p_price_list.inputValue}"
+                                                 to="#{pageFlowScope.listPrice}" type="action"/>
+                    </amx:commandLink>
+                </amx:cellFormat>
+            </amx:rowLayout>
+        </amx:tableLayout>
     </amx:panelPage>
 </amx:view>
