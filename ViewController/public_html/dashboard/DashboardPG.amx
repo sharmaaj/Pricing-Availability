@@ -5,18 +5,18 @@
         <amx:facet name="header">
             <amx:panelGroupLayout id="pgl2" layout="horizontal" halign="center" valign="middle">
                 <amx:outputText value="My Search" id="ot1"
-                                inlineStyle="color:White; padding-left:40px; font-size:50px;"/>
+                                inlineStyle="color:White; padding-left:40px; font-size:40px;"/>
             </amx:panelGroupLayout>
         </amx:facet>
         <amx:facet name="primary">
             <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl3">
-                <amx:outputHtml id="oh1" styleClass="fa fa-bars fa-lg" inlineStyle="color:white;font-size:50px;"/>
+                <amx:outputHtml id="oh1" styleClass="fa fa-bars fa-lg" inlineStyle="color:white;font-size:40px;"/>
             </amx:commandLink>
         </amx:facet>
         <amx:facet name="secondary">
             <amx:commandLink id="cl4" action="myCart">
                 <amx:outputHtml id="oh2" styleClass="fa fa-shopping-cart fa-lg"
-                                inlineStyle="color:white; font-size:50px;"/>
+                                inlineStyle="color:white; font-size:40px;"/>
             </amx:commandLink>
         </amx:facet>
         <!--Header Section Ebds -->
@@ -74,7 +74,7 @@
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
             <amx:panelLabelAndMessage styleClass="label" label="Item Description"
-                                      inlineStyle="text-align:center; outline-style:none;"
+                                      inlineStyle="text-align:center; outline-style:none; border-color:White; outline-color:transparent;"
                                       id="plam6">
                 <amx:tableLayout id="tl4" width="90%">
                     <amx:rowLayout id="rl11">
@@ -142,7 +142,7 @@
             </amx:panelLabelAndMessage>
             
         </amx:panelFormLayout>
-        <amx:commandLink shortDesc="Search" styleClass="commandLink" text="Search" id="cl2" inlineStyle="font-size:50px;"
+        <amx:commandLink shortDesc="Search" styleClass="commandLink" text="Search" id="cl2" inlineStyle="font-size:30px;"
                          rendered="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass eq 'sub-header'}"
                          actionListener="#{bindings.fetchPricingInformation.execute}" action="searchResults"/>
         <!--New Search Page Section Ends -->
