@@ -5,18 +5,18 @@
         <amx:facet name="header">
             <amx:panelGroupLayout id="pgl2" layout="horizontal" halign="center" valign="middle">
                 <amx:outputText value="My Search" id="ot1"
-                                inlineStyle="color:White; padding-left:40px; font-size:40px;"/>
+                                inlineStyle="color:White; padding-left:40px; font-size:25px;"/>
             </amx:panelGroupLayout>
         </amx:facet>
         <amx:facet name="primary">
             <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl3">
-                <amx:outputHtml id="oh1" styleClass="fa fa-bars fa-lg" inlineStyle="color:white;font-size:40px;"/>
+                <amx:outputHtml id="oh1" styleClass="fa fa-bars fa-lg" inlineStyle="color:white;font-size:25px;"/>
             </amx:commandLink>
         </amx:facet>
         <amx:facet name="secondary">
             <amx:commandLink id="cl4" action="myCart">
                 <amx:outputHtml id="oh2" styleClass="fa fa-shopping-cart fa-lg"
-                                inlineStyle="color:white; font-size:40px;"/>
+                                inlineStyle="color:white; font-size:25px;"/>
             </amx:commandLink>
         </amx:facet>
         <!--Header Section Ebds -->
@@ -51,35 +51,112 @@
         <!---->
         <!---->
         <!--New Search Page Section Begins -->
-        <amx:panelFormLayout id="pfl1" labelPosition="topStart"
+       <!-- <amx:panelFormLayout id="pfl1" labelPosition="topStart"
                              rendered="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass eq 'sub-header'}"
-                             inlineStyle="outline-style:none;" showHorizontalDividers="false">
-            <amx:panelLabelAndMessage styleClass="label" label="Item Number" id="plm1" showRequired="true"
-                                      inlineStyle="outline-style:none; outline-color:transparent; border-color:White;">
-                <amx:tableLayout id="tl3" width="90%">
-                    <amx:rowLayout id="rl10">
-                        <amx:cellFormat height="40px" id="cf11" width="80%">
-                            <amx:inputText id="it6" inputType="text"
-                                           value="#{pageFlowScope.searchKeyword}"
-                                           inlineStyle="outline-style:none;"/>
-                        </amx:cellFormat>
-                        <amx:cellFormat id="cf12">
-                            <amx:spacer width="20" id="s14"/>
-                            <amx:commandLink id="cl13" action="#{NavigationListenerBean.validateAndNavigateItem}">
-                                <amx:outputHtml id="oh11" styleClass="fa fa-search" inlineStyle="color:#808080;"/>
-                                <amx:spacer width="4" id="s114"/>
-                            </amx:commandLink>
-                        </amx:cellFormat>
-                    </amx:rowLayout>
-                </amx:tableLayout>
-            </amx:panelLabelAndMessage>
-            <amx:panelLabelAndMessage styleClass="label" label="Item Description"
+                             inlineStyle="outline-style:none;" showHorizontalDividers="false"/> -->
+            <!--<amx:panelLabelAndMessage styleClass="label" label="Item Number" id="plm1" showRequired="true"
+                                      inlineStyle="outline-style:none; outline-color:transparent; border-color:White;"/>-->
+        <amx:panelGroupLayout id="pgl3">
+            <amx:tableLayout id="tl3" width="100%"
+                             rendered="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass eq 'sub-header'}">
+                <amx:rowLayout id="rl9">
+                    <amx:cellFormat id="cf17">
+                        <amx:outputText id="lbl1" inlineStyle="color:#808080;font-size:10px;" value="Item Number"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl10">
+                    <amx:cellFormat height="40px" id="cf11" width="80%">
+                        <amx:inputText id="it6" inputType="text" value="#{pageFlowScope.searchKeyword}"
+                                       inlineStyle="outline-style:none;"/>
+                    </amx:cellFormat>
+                    <amx:cellFormat id="cf12">
+                        <amx:spacer width="20" id="s14"/>
+                        <amx:commandLink id="cl13" action="#{NavigationListenerBean.validateAndNavigateItem}"
+                                         inlineStyle="border-style:ridge;">
+                            <amx:outputHtml id="oh11" styleClass="fa fa-search" inlineStyle="color:#808080;"/>
+                            <amx:spacer width="4" id="s114"/>
+                        </amx:commandLink>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl14">
+                    <amx:cellFormat id="cf18">
+                        <amx:spacer id="s5" height="2"/>
+                        <amx:outputText id="ot10" inlineStyle="color:#808080;font-size:10px;" value="Item Description"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl15">
+                    <amx:cellFormat id="cf19">
+                        <amx:outputText id="ot2" inlineStyle="background-color:ButtonFace;font-size:15px;"
+                                        value="#{pageFlowScope.itemDesc}"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl16">
+                    <amx:cellFormat id="cf20">
+                        <amx:spacer id="s1" height="2"/>
+                        <amx:outputText inlineStyle="color:#808080;font-size:10px;" value="Customer Number" id="ot14"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl6">
+                    <amx:cellFormat id="cf6" height="40px" inlineStyle="outline-style:none;">
+                        <amx:inputText hintText="Enter Customer Number"
+                                       inlineStyle="text-align:left; color:#808080;outline-color:transparent; outline-style:none;"
+                                       id="it4" inputType="number" value="#{pageFlowScope.customerNumber}"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl18">
+                    <amx:cellFormat id="cf22">
+                        <amx:spacer id="s6" height="2"/>
+                        <amx:outputText inlineStyle="color:#808080;font-size:10px;" value="Quantity" id="ot13"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl12">
+                    <amx:cellFormat id="cf14" height="40px">
+                        <amx:inputText hintText="Enter Quantity" inlineStyle="text-align:left;color:#808080;" id="it7"
+                                       inputType="number" value="#{pageFlowScope.itemQuantity}"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl20">
+                    <amx:cellFormat id="cf24"
+                                    rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
+                        <amx:spacer id="s7" height="2"/>
+                        <amx:outputText inlineStyle="color:#808080;font-size:10px;" value="Price List" id="ot12"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl2">
+                    <amx:cellFormat id="cf3" height="40px"
+                                    rendered="#{applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL'}">
+                        <amx:selectOneChoice value="#{pageFlowScope.priceList}"
+                                             inlineStyle="text-align:left;color:#808080;" id="soc1">
+                            <amx:selectItem label="Choose" value="0" id="si4"/>
+                            <amx:selectItems value="#{bindings.LISTDESC.items}" id="si1"/>
+                        </amx:selectOneChoice>
+                        <amx:selectManyChoice value="#{pageFlowScope.priceList}" label="Choose" id="smc1"
+                                              rendered="false">
+                            <amx:selectItems value="#{bindings.priceList2.items}" id="si2"/>
+                        </amx:selectManyChoice>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl22">
+                    <amx:cellFormat id="cf26">
+                        <amx:spacer id="s8" height="2"/>
+                        <amx:outputText inlineStyle="color:#808080;font-size:10px;" value="Requested Date" id="ot11"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl13">
+                    <amx:cellFormat id="cf15" height="40px" width="100%">
+                        <amx:inputDate inlineStyle="amx-inputDate-text;text-align:left; color:#808080;background-clip:content-box;"
+                                       id="it8" inputType="date" value="#{pageFlowScope.requestedDate}"/>
+                        <amx:spacer id="s9" height="2"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+        <!--<amx:panelLabelAndMessage styleClass="label" label="Item Description"
                                       inlineStyle="text-align:center; outline-style:none; border-color:White; outline-color:transparent;"
                                       id="plam6">
                 <amx:tableLayout id="tl4" width="90%">
                     <amx:rowLayout id="rl11">
-                        <amx:cellFormat height="40px" id="cf13"
-                                        inlineStyle="background-color:ButtonFace;">
+                        <amx:cellFormat height="40px" id="cf13" inlineStyle="background-color:ButtonFace;">
                             <amx:spacer id="s1"/>
                             <amx:outputText id="ot2" inlineStyle="text-align:right;" value="#{pageFlowScope.itemDesc}"/>
                         </amx:cellFormat>
@@ -139,18 +216,18 @@
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
-            </amx:panelLabelAndMessage>
-            
-        </amx:panelFormLayout>
-        <amx:commandLink shortDesc="Search" styleClass="commandLink" text="Search" id="cl2" inlineStyle="font-size:30px;"
+            </amx:panelLabelAndMessage> -->
+
+        <amx:commandLink shortDesc="Search" styleClass="commandLink" text="Search" id="cl2"
+                         inlineStyle="font-size:25px;"
                          rendered="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass eq 'sub-header'}"
                          actionListener="#{bindings.fetchPricingInformation.execute}" action="searchResults"/>
         <!--New Search Page Section Ends -->
         <!--Search History Section Begins -->
         <amx:listView var="row" value="#{bindings.searchHistory.collectionModel}"
-                      rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}"
-                      fetchSize="5" id="lv1" showMoreStrategy="autoScroll"
-                      bufferStrategy="viewport" selectedRowKeys="#{bindings.searchHistory.collectionModel.selectedRow}"
+                      rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}" fetchSize="5"
+                      id="lv1" showMoreStrategy="autoScroll" bufferStrategy="viewport"
+                      selectedRowKeys="#{bindings.searchHistory.collectionModel.selectedRow}"
                       selectionListener="#{bindings.searchHistory.collectionModel.makeCurrent}"
                       initialScrollRowKeys="#{bindings.searchHistory.collectionModel.selectedRow}">
             <amx:listItem id="li1" action="fetchPnA">
@@ -166,18 +243,71 @@
                                          from="#{row.priceList}"/>
                 <amx:setPropertyListener id="spl15" to="#{pageFlowScope.requestedDate}" type="action"
                                          from="#{row.requestDate}"/>
-                <amx:panelGroupLayout id="parentlayout" layout="vertical">
-                    <amx:panelGroupLayout id="itemNumRow" layout="horizontal">
+                <amx:panelGroupLayout id="pgl1" styleClass="label">
+                    <amx:tableLayout id="tl5" width="100%">
+                        <amx:rowLayout id="rl3">
+                            <amx:cellFormat id="cf4">
+                                <amx:outputText value="#{row.itemNumber}" id="ot7"
+                                                inlineStyle="color:#000000; font-weight:bold;"/>
+                                <amx:spacer id="s3" height="2"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl4">
+                            <amx:cellFormat id="cf5">
+                                <amx:outputText value="Item Description" inlineStyle="color:#808080; font-size:10px;"
+                                                id="ot4"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl5">
+                            <amx:cellFormat id="cf7">
+                                <amx:outputText value="#{row.itemDescription}"
+                                                inlineStyle="color:#000000; font-size:15px;" id="ot8"/>
+                                <amx:spacer id="s4" height="2"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl7">
+                            <amx:cellFormat id="cf8">
+                                <amx:outputText value="Quantity" inlineStyle="color:#808080;font-size:10px;" id="ot6"/>
+                            </amx:cellFormat>
+                            <amx:cellFormat id="cf9">
+                                <amx:outputText value="Customer Number" inlineStyle="color:#808080;font-size:10px;"
+                                                id="ot9"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                        <amx:rowLayout id="rl8">
+                            <amx:cellFormat id="cf10">
+                                <amx:outputText value="#{row.itemQuantity}" id="ot5"
+                                                inlineStyle="color:#000000; font-size:15px;"/>
+                                <amx:spacer id="s2" height="2"/>
+                            </amx:cellFormat>
+                            <amx:cellFormat id="cf16">
+                                <amx:outputText rendered="#{applicationScope.UserType eq 'internal' || applicationScope.UserType eq 'Internal' || applicationScope.UserType eq 'INTERNAL' }"
+                                                value="#{row.customerNumber}" id="ot3"
+                                                inlineStyle="color:#000000; font-size:15px;"/>
+                                <amx:outputText value="#{row.priceList}" id="ot31"
+                                                inlineStyle="color:#000000; font-size:15px;" rendered="false"/>
+                                <amx:outputText value="#{row.requestDate}" id="ot32"
+                                                inlineStyle="color:#000000; font-size:15px;" rendered="false"/>
+                            </amx:cellFormat>
+                        </amx:rowLayout>
+                    </amx:tableLayout>
+                </amx:panelGroupLayout>
+                <!--<amx:panelGroupLayout id="parentlayout" layout="vertical">
+                    -->
+                <!--<amx:panelGroupLayout id="itemNumRow" layout="horizontal">
                         <amx:spacer width="15" id="s10"/>
                         <amx:outputText value="#{row.itemNumber}" id="ot7" styleClass="label"/>
-                    </amx:panelGroupLayout>
-                    <amx:panelGroupLayout id="pgl1" layout="vertical">
+                    </amx:panelGroupLayout>-->
+                <!--
+                    -->
+                <!--<amx:panelGroupLayout id="pgl1" layout="vertical">
                         <amx:panelLabelAndMessage label="Item Description" id="plam7" inlineStyle="color:#808080; font-size:10px;" styleClass="label"/>
                         <amx:panelGroupLayout id="pgl12" layout="horizontal">
                             <amx:spacer width="25" id="s11"/>
                             <amx:outputText value="#{row.itemDescription}" inlineStyle="color:#000000; font-size:15px;" id="ot8" />
                         </amx:panelGroupLayout>
-                    </amx:panelGroupLayout>
+                    </amx:panelGroupLayout>-->
+                <!--
                     <amx:panelGroupLayout id="lastRow" layout="horizontal">
                         <amx:panelGroupLayout id="labitemQtyRow" layout="vertical">
                             <amx:panelLabelAndMessage label="Quantity" id="plam8" inlineStyle="color:#808080; font-size:10px;" styleClass="label"/>
@@ -195,11 +325,10 @@
                             </amx:panelGroupLayout>
                             <amx:outputText value="#{row.priceList}" id="ot31" inlineStyle="color:#000000; font-size:15px;"
                                             rendered="false"/>
-                            <amx:outputText value="#{row.requestDate}"
-                                            id="ot32" inlineStyle="color:#000000; font-size:15px;" rendered="false"/>
+                            <amx:outputText value="#{row.requestDate}" id="ot32" inlineStyle="color:#000000; font-size:15px;" rendered="false"/>
                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
-                </amx:panelGroupLayout>
+                </amx:panelGroupLayout>-->
             </amx:listItem>
         </amx:listView>
         <!--Search History Section Ends -->
