@@ -5,27 +5,27 @@
         <!--Header Section Starts -->
         <amx:facet name="header">
             <amx:panelGroupLayout id="pgl2" layout="horizontal" halign="center" valign="middle">
-                <amx:outputText value="My Cart" id="ot1" inlineStyle="color:White; padding-left:40px; font-size:40px;"/>
+                <amx:outputText value="My Cart" id="ot1" inlineStyle="color:White; padding-left:25px; font-size:25px;"/>
             </amx:panelGroupLayout>
         </amx:facet>
         <amx:facet name="primary">
             <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl3">
-                <amx:outputHtml id="oh1" styleClass="fa fa-bars fa-lg" inlineStyle="color:white;font-size:40px;"/>
+                <amx:outputHtml id="oh1" styleClass="fa fa-bars fa-lg" inlineStyle="color:white;font-size:25px;"/>
             </amx:commandLink>
         </amx:facet>
         <amx:facet name="secondary">
             <amx:commandLink id="cl4" action="myCart">
                 <amx:outputHtml id="oh2" styleClass="fa fa-shopping-cart fa-lg"
-                                inlineStyle="color:white; font-size:40px;"/>
+                                inlineStyle="color:white; font-size:25px;"/>
             </amx:commandLink>
         </amx:facet>
         <!--Header Section Ends -->
-        <amx:listView var="row" value="#{bindings.itemsFromCart.collectionModel}" fetchSize="10"
+        <amx:listView var="row" value="#{bindings.itemsFromCart.collectionModel}" fetchSize="10" styleClass="label"
                       selectionListener="#{bindings.itemsFromCart.collectionModel.makeCurrent}" dividerMode="all"
                       showMoreStrategy="off" bufferStrategy="viewport" id="lv1" sectionIndex="off">
-            <amx:listItem id="li1">
-                <amx:panelLabelAndMessage label="" id="plam4" styleClass="label"
-                                          inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px;">
+            <amx:listItem id="li1" inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px;">
+            <!--<amx:panelLabelAndMessage label="" id="plam4" styleClass="label"
+                                          inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px;"/>-->
                     <amx:tableLayout id="tl1" width="100%">
                         <amx:rowLayout id="rl1">
                             <amx:cellFormat id="cf1">
@@ -37,7 +37,7 @@
                             <amx:cellFormat id="cf2">
                                 <amx:commandButton id="cb1" styleClass="fa-times-circle"
                                                    actionListener="#{bindings.deleteItemFromCart.execute}"
-                                                   inlineStyle="color:#000000;" text="x">
+                                                   inlineStyle="color:#000000;" text="">
                                     <amx:setPropertyListener id="spl1" from="#{row.ITEM_NUMBER}"
                                                              to="#{pageFlowScope.deleteItemNum}" type="action"/>
                                 </amx:commandButton>
@@ -136,8 +136,8 @@
                             </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
                     </amx:panelGroupLayout>
-                </amx:panelGroupLayout>-->
-                </amx:panelLabelAndMessage>
+                </amx:panelGroupLayout>
+                </amx:panelLabelAndMessage>-->
                 <amx:setPropertyListener id="spl2" type="action" from="#{row.ITEM_NUMBER}"
                                          to="#{pageFlowScope.currentRowItemNum}"/>
                 <amx:setPropertyListener id="spl3" type="action" from="#{row.PRICE_LIST}"
@@ -192,7 +192,7 @@
             </amx:tableLayout>
         </amx:panelLabelAndMessage>
         <amx:spacer id="s2" height="30"/>
-        <amx:commandLink shortDesc="Checkout" styleClass="commandLink" text="Checkout" id="c3l2"/>
+        <amx:commandLink shortDesc="Checkout" styleClass="commandLink" text="Checkout" inlineStyle="font-size:25px;" id="c3l2"/>
         <!--<amx:panelGroupLayout id="pgl4" layout="vertical">
             <amx:panelGroupLayout id="pgl5" layout="horizontal">
                 <amx:panelLabelAndMessage label="Total Amount" id="plam75" styleClass="label"
