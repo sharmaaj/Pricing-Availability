@@ -51,7 +51,7 @@
         </amx:tableLayout>
         <!--Header Section ends -->
         <!--Pricing Section starts -->
-        <amx:spacer id="s5" inlineStyle="background-color:ButtonText;" width="2"/>
+        <!--<amx:spacer id="s5" inlineStyle="background-color:ButtonText;" width="1"/>-->
         <amx:panelGroupLayout id="parentlayout1" layout="vertical"
                               rendered="#{pageFlowScope.pnaDashboardPGBean.newSearchTabClass eq 'sub-header'}"
                               inlineStyle="border-bottom-color:ButtonText;">
@@ -61,7 +61,7 @@
                     <amx:rowLayout id="rl2">
                         <amx:cellFormat id="cf3">
                             <amx:outputText value="#{bindings.p_item_number.inputValue}" id="o4t2"
-                                            inlineStyle="color:#000000;"/>
+                                            inlineStyle="color:#000000; font-weight:bold;"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                     <amx:rowLayout id="rl3">
@@ -71,7 +71,7 @@
                         </amx:cellFormat>
                     </amx:rowLayout>
                     <amx:rowLayout id="rl4">
-                        <amx:cellFormat id="cf5" width="30%">
+                        <amx:cellFormat id="cf5" width="70%">
                             <amx:outputText value="#{bindings.p_item_description.inputValue}" id="o2t8"
                                             inlineStyle="color:#000000; font-size:15px;"/>
                         </amx:cellFormat>
@@ -177,14 +177,15 @@
         <!--Pricing Section ends -->
         <!--Availability Section starts -->
         <amx:panelGroupLayout id="parentlayout" layout="vertical"
-                              rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}">
+                              rendered="#{pageFlowScope.pnaDashboardPGBean.searchHistoryTabClass eq 'sub-header'}"
+                              inlineStyle="text-align:start;">
             <amx:panelLabelAndMessage label="" id="plam4" styleClass="label"
                                       inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px;">
                 <amx:tableLayout id="tl4" width="100%">
                     <amx:rowLayout id="rl13">
                         <amx:cellFormat id="cf20">
                             <amx:outputText value="#{bindings.p_item_number.inputValue}" id="ot2"
-                                            inlineStyle="color:#000000;"/>
+                                            inlineStyle="color:#000000; font-weight:bold;"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                     <amx:rowLayout id="rl14">
@@ -194,7 +195,7 @@
                         </amx:cellFormat>
                     </amx:rowLayout>
                     <amx:rowLayout id="rl15">
-                        <amx:cellFormat id="cf22">
+                        <amx:cellFormat id="cf22" width="70%">
                             <amx:outputText value="#{bindings.p_item_description.inputValue}" id="ot8"
                                             inlineStyle="color:#000000;font-size:15px; "/>
                         </amx:cellFormat>
