@@ -36,8 +36,13 @@ public class GETDiscountRateDC {
 
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
-        itemNumber = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+//        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
+//        itemNumber = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.couponCode}", String.class);
+        couponCode = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+
 
         String restURI = RestURIs.applyDiscount();
         RestServiceManager rcu = new RestServiceManager();
@@ -76,6 +81,8 @@ public class GETDiscountRateDC {
     }
 
     public void fetchDiscountUsingCoupon() {
+        System.out.println("Inside fetchDiscountUsingCoupon before applyCouponCode called");
         this.applyCouponCode();
+        System.out.println("Inside fetchDiscountUsingCoupon after applyCouponCode called");
     }
 }
