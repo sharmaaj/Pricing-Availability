@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <!--Header Section Starts -->
+        <amx:facet name="header">
+            <amx:panelGroupLayout id="pgl2" layout="horizontal" halign="center" valign="middle">
+                <amx:outputText value="My Cart" id="ot1" inlineStyle="color:White; padding-left:40px;"/>
+            </amx:panelGroupLayout>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl3">
+                <amx:outputHtml id="oh1" styleClass="fa fa-bars fa-lg" inlineStyle="color:white;"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandLink id="cl4" action="myCart">
+                <amx:outputHtml id="oh2" styleClass="fa fa-shopping-cart fa-lg" inlineStyle="color:white;"/>
+            </amx:commandLink>
+        </amx:facet>
+        <!--Header Section Ends -->
+        <amx:listView var="row" value="#{bindings.itemsFromCart.collectionModel}"
+                      fetchSize="#{bindings.itemsFromCart.rangeSize}"
+                      selectedRowKeys="#{bindings.itemsFromCart.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.itemsFromCart.collectionModel.makeCurrent}" dividerMode="all"
+                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
+            <amx:listItem id="li1">
+                <amx:panelGroupLayout id="parentlayout" layout="vertical">
+                    <amx:panelGroupLayout id="itemNumRow" layout="horizontal">
+                        <amx:spacer width="15" id="s10"/>
+                        <amx:outputText value="#{row.PRICE_LIST}" id="ot2" rendered="false">
+                            <amx:convertNumber groupingUsed="false" id="cn1"/>
+                        </amx:outputText>
+                        <amx:outputText value="#{row.ITEM_NUMBER}" id="ot7" styleClass="label"/>
+                        <amx:spacer id="s2" width="60"/>
+                        <amx:commandButton text="X" id="cb1" styleClass="fa-times-circle"
+                                           actionListener="#{bindings.deleteItemFromCart.execute}"
+                                           inlineStyle="color:#000000;">
+                            <amx:setPropertyListener id="spl1" from="#{row.ITEM_NUMBER}"
+                                                     to="#{pageFlowScope.deleteItemNum}" type="action"/>
+                        </amx:commandButton>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="pgl1" layout="vertical">
+                        <amx:panelLabelAndMessage label="Item Description" id="plam7" styleClass="label"/>
+                        <amx:panelGroupLayout id="pgl12" layout="horizontal">
+                            <amx:spacer width="25" id="s11"/>
+                            <amx:outputText value="#{row.ITEM_DESCRIPTION}" id="ot8" inlineStyle="color:#000000;"/>
+                        </amx:panelGroupLayout>
+                    </amx:panelGroupLayout>
+                    <amx:panelGroupLayout id="lastRow" layout="horizontal">
+                        <amx:panelGroupLayout id="labitemQtyRow" layout="vertical">
+                            <amx:panelLabelAndMessage label="Quantity" id="plam8" styleClass="label"/>
+                            <amx:panelGroupLayout id="pgl13" layout="horizontal">
+                                <amx:selectOneChoice value="#{row.ITEM_QUANTITY}" styleClass="cell-border"
+                                                     valueChangeListener="#{NavigationListenerBean.updateItemQuantity}"
+                                                     inlineStyle="text-align:left;color:#808080;" id="soc1">
+                                    <amx:selectItems value="#{bindings.ITEM_QUANTITY.items}" id="si2"/>
+                                </amx:selectOneChoice>
+                                <!--<amx:selectOneChoice value="#{pageFlowScope.updatedItemQty}"
+                                                     valueChangeListener="#{NavigationListenerBean.updateItemQuantity}" inlineStyle="text-align:left;color:#808080;"
+                                                     label="#{bindings.staticQty.label}" id="soc1">
+                                    <amx:selectItems value="#{bindings.staticQty.items}" id="si2"/>
+                                </amx:selectOneChoice> -->
+                                <!--  <amx:inputText styleClass="cell-border" value="#{row.ITEM_QUANTITY}" id="ot81" valueChangeListener="#{NavigationListenerBean.updateItemQuantity}" inlineStyle="color:#000000;"/> -->
+                            </amx:panelGroupLayout>
+                        </amx:panelGroupLayout>
+                        <amx:panelGroupLayout id="dateRow2" layout="vertical">
+                            <amx:panelLabelAndMessage label="Amount" id="plam5" styleClass="label"/>
+                            <amx:panelGroupLayout id="pgl14" layout="horizontal">
+                                <amx:spacer width="25" id="s13"/>
+                                <amx:outputText value="#{row.amount}" id="ot3" inlineStyle=" color:#000000;"/>
+                            </amx:panelGroupLayout>
+                        </amx:panelGroupLayout>
+                    </amx:panelGroupLayout>
+                </amx:panelGroupLayout>
+                <amx:setPropertyListener id="spl2" type="action" from="#{row.ITEM_NUMBER}"
+                                         to="#{pageFlowScope.currentRowItemNum}"/>
+                <amx:setPropertyListener id="spl3" type="action" from="#{row.PRICE_LIST}"
+                                         to="#{pageFlowScope.currentRowPriceList}"/>
+                <amx:setPropertyListener id="spl4" from="#{row.amount}" type="action"
+                                         to="#{pageFlowScope.currentRowAmount}"/>
+                <amx:setPropertyListener id="spl5" type="action" from="#{row.ITEM_QUANTITY}"
+                                         to="#{pageFlowScope.currentRowOldQty}"/>
+            </amx:listItem>
+        </amx:listView>
+        <amx:spacer id="s1" height="10"/>
+        <amx:panelGroupLayout id="pgl4" layout="vertical">
+            <amx:panelGroupLayout id="pgl5" layout="horizontal">
+                <amx:panelLabelAndMessage label="Total Amount" id="plam75" styleClass="label"
+                                          inlineStyle="color:#808080; font-size:36px;"/>
+                <amx:spacer id="s3" width="10"/>
+                <amx:outputText styleClass="cell-border" id="it2" value="#{pageFlowScope.totalAmountInCart}"
+                                inlineStyle="background-color:ThreeDFace;"/>
+            </amx:panelGroupLayout>
+            <amx:panelGroupLayout id="pgl6" layout="horizontal">
+                <amx:panelLabelAndMessage label="Total Discount" id="plam77" styleClass="label"
+                                          inlineStyle="color:#808080; font-size:36px;"/>
+                <amx:spacer id="s4" width="10"/>
+                <amx:outputText styleClass="cell-border" id="it3" value="#{pageFlowScope.TotalDiscount}"
+                                inlineStyle="background-color:ThreeDFace;"/>
+            </amx:panelGroupLayout>
+        </amx:panelGroupLayout>
+        <amx:spacer id="s7" height="30"/>
+        <amx:panelGroupLayout id="pgl3" layout="horizontal">
+            <amx:inputText styleClass="cell-border" id="it1"/>
+            <amx:spacer id="s5" width="10"/>
+            <amx:commandLink shortDesc="Apply Coupon" styleClass="commandLink" text="Apply Coupon" id="c3l25"/>
+        </amx:panelGroupLayout>
+        <amx:spacer id="s6" height="30"/>
+        <amx:commandLink shortDesc="Checkout" styleClass="commandLink" text="Checkout" id="c3l2"/>
+    </amx:panelPage>
+</amx:view>

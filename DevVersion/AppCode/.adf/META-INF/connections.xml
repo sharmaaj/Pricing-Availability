@@ -1,0 +1,43 @@
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+  <Reference name="EBSSecurity" className="oracle.adf.model.connection.adfmf.LoginConnection"
+             adfCredentialStoreKey="EBSSecurity" partial="false" manageInOracleEnterpriseManager="true"
+             deployable="true" xmlns="">
+    <Factory className="oracle.adf.model.connection.adfmf.LoginConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="adfmfLogin">
+        <Contents>
+          <login url="http://10.118.37.124:8000//OA_HTML//RF.jsp?function_id=mLogin"/>
+          <logout url="http://10.118.37.124:8000//OA_HTML//RF.jsp?function_id=mLogout"/>
+          <stsModule/>
+          <stsEndpoint/>
+          <stsAppliesTo/>
+          <stsLifetime value="3600"/>
+          <authenticationMode value="hybrid"/>
+          <idleTimeout value="300"/>
+          <sessionTimeout value="28800"/>
+          <maxFailuresBeforeCredentialCleared value="3"/>
+          <rememberCredentials>
+            <enableRememberUserName value="true"/>
+            <rememberUserNameDefault value="true"/>
+            <enableRememberPassword value="true"/>
+            <rememberPasswordDefault value="false"/>
+            <enableStayLoggedIn value="true"/>
+            <stayLoggedInDefault value="false"/>
+          </rememberCredentials>
+          <accessControl/>
+          <userObjectFilter/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+  <Reference name="SNET" className="oracle.adf.model.connection.rest.RestConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="SNET">
+        <Contents>
+          <restconnection name="SNET" url="http://10.118.37.123:7004/pna"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
+</References>

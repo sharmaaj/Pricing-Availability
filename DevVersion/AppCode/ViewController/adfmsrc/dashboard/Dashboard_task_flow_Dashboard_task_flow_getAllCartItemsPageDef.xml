@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.1.20"
+                id="Dashboard_task_flow_Dashboard_task_flow_getAllCartItemsPageDef" Package="dashboard"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="getAllCartItems" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getAllCartItems"
+                  IsViewObjectMethod="false" DataControl="GetAllCartItemsDC"
+                  InstanceName="data.GetAllCartItemsDC.dataProvider"/>
+  </bindings>
+</pageDefinition>

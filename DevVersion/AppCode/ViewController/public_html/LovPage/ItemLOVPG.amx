@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <amx:facet name="header">
+            <amx:outputText value="Items" inlineStyle="color:White;" id="ot1"/>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink id="cl2" action="__back">
+                <amx:panelGroupLayout id="pglbackBtn" layout="horizontal">
+                    <amx:image source="/images/Back.png" inlineStyle="width:50px;height:50px"/>
+                </amx:panelGroupLayout>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="footer">
+            <amx:outputText value="Select an Item" inlineStyle="color:White;" id="ot2"/>
+        </amx:facet>
+        <amx:panelFormLayout id="pfl1">
+            <amx:inputText value="#{pageFlowScope.searchKeyword}" inlineStyle="text-align:left;color:#808080;"
+                           label="Item Number" id="it3"/>
+        </amx:panelFormLayout>
+         <amx:commandLink shortDesc="Search" styleClass="commandLink" text="Search" id="cl1"
+                          actionListener="#{bindings.refreshItems.execute}"/>
+        <amx:outputText id="ot3" value="#{pageFlowScope.ItemServiceResults}"
+                        inlineStyle="text-align:left;color:#808080;"/>
+        <amx:listView var="row" value="#{bindings.itemDetails.collectionModel}"
+                      fetchSize="#{bindings.itemDetails.rangeSize}"
+                      selectedRowKeys="#{bindings.itemDetails.collectionModel.selectedRow}"
+                      initialScrollRowKeys="#{bindings.itemDetails.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.itemDetails.collectionModel.makeCurrent}"
+                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1" layout="cards">
+            <amx:listItem action="__back" actionListener="#{bindings.fetchPriceList.execute}"  showLinkIcon="false" id="li1">
+                <amx:tableLayout width="100%" id="tl1">
+                    <amx:rowLayout id="rl1">
+                        <amx:cellFormat width="20px" rowSpan="2" id="cf5"/>
+                        <amx:cellFormat width="40%" height="50px" id="cf2">
+                            <amx:outputText value="#{row.itemNum}"
+                                            inlineStyle="white-space:pre-wrap; vertical-align:middle;color:#808080;"
+                                            styleClass="adfmf-listItem-captionText" id="ot43"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat width="20px" rowSpan="2" id="cf53"/>
+                        <amx:cellFormat width="60%" height="50px" valign="middle" halign="start" id="cf3">
+                            <amx:outputText value="#{row.itemDesc}"
+                                            inlineStyle="white-space:pre-wrap; vertical-align:middle;color:#808080;"
+                                            styleClass="adfmf-listItem-captionText" id="ot4"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:setPropertyListener from="#{row.itemNum}" type="action" to="#{pageFlowScope.searchKeyword}"
+                                         id="spl1"/>
+                <amx:setPropertyListener from="#{row.itemDesc}" type="action" to="#{pageFlowScope.itemDesc}" id="spl2"/>
+                <amx:setPropertyListener from="#{row.orgId}" type="action" to="#{pageFlowScope.orgId}" id="spl3"/>
+            </amx:listItem>
+        </amx:listView>
+    </amx:panelPage>
+</amx:view>
