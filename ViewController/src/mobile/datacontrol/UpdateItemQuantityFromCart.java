@@ -91,6 +91,7 @@ public class UpdateItemQuantityFromCart {
 
         System.out.println("paylod is " + payload);
         (rcu.invokeUPDATE(restURI, payload)).toString();
+        System.out.println("After invokeUpdated is ");
 
     }
 }
