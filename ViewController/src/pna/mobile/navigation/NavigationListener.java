@@ -196,13 +196,13 @@ public class NavigationListener {
         Number oldDiscount = 0;
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.TotalDiscount}", Number.class);
         oldDiscount = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
+        
+        if (oldDiscount == null)
+            oldDiscount = 0.0;
 
         Number newDiscount = 0;
         if (TotalAmtAfterDiscount.doubleValue() < TotalAmount.doubleValue()) {
             System.out.println("First Condition ");
-            if (oldDiscount.doubleValue() == 0 || oldDiscount == null) {
-                oldDiscount = 0;
-            } else {
                 if (codeDiscount.doubleValue() > oldDiscount.doubleValue()) {
                     System.out.println("Inside IF Condition ");
                     newDiscount = codeDiscount.doubleValue() - oldDiscount.doubleValue();
@@ -212,7 +212,7 @@ public class NavigationListener {
                     newDiscount = oldDiscount.doubleValue() - codeDiscount.doubleValue();
                     AdfmfJavaUtilities.setELValue("#{pageFlowScope.TotalDiscount}", newDiscount);
                 }
-            }
+
         } else {
             System.out.println("Inside Outer Else Condition ");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.TotalDiscount}", 0);
