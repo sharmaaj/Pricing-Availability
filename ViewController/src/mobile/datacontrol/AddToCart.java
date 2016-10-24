@@ -65,34 +65,34 @@ public class AddToCart {
 
         ValueExpression ve = null;
         
-        System.out.println("Here 1");
+        System.out.println("Add to Cart Service 1");
 
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         
-        System.out.println("Here 2-->"+userName);
+        System.out.println("Add to Cart Service 2-->"+userName);
 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.searchKeyword}", String.class);
         itemNum = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-        System.out.println("Here 3-->"+itemNum);
+        System.out.println("Add to Cart Service 3-->"+itemNum);
 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemDesc}", String.class);
         itemDesc = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-        System.out.println("Here 4-->"+itemDesc);
+        System.out.println("Add to Cart Service 4-->"+itemDesc);
 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemDesc}", String.class);
         itemName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext()));
-        System.out.println("Here 5-->"+itemName);
+        System.out.println("Add to Cart Service 5-->"+itemName);
 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.itemQuantity}", String.class);
         itemQuantity = ((String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-        System.out.println("Here 6-->"+itemQuantity);
+        System.out.println("Add to Cart Service 6-->"+itemQuantity);
         
         String listPriceInString = null;
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.listPrice}", String.class);
         listPriceInString = ((String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         listPrice = listPriceInString;
-        System.out.println("Here 7 listPriceInString-->"+listPriceInString);
+        System.out.println("Add to Cart Service 7 listPriceInString-->"+listPriceInString);
         
         //listPrice = Integer.parseInt(listPriceInString);
         
@@ -111,7 +111,7 @@ public class AddToCart {
         System.out.println("paylod is " + payload);
         (rcu.invokeUPDATE(restURI, payload)).toString();
         
-        System.out.println("Here 9-->");
+        System.out.println("Add to Cart Service 9-->");
 
     }
     
