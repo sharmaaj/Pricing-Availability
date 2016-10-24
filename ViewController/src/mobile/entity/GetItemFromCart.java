@@ -38,6 +38,17 @@ public class GetItemFromCart {
     private String ATTRIBUTE14;
     private String ATTRIBUTE15;  
     private Number Amount;
+    private Number Test;
+
+    public void setTest(Number Test) {
+        Number oldTest = this.Test;
+        this.Test = Test;
+        _propertyChangeSupport.firePropertyChange("test", oldTest, Test);
+    }
+
+    public Number getTest() {
+        return Test;
+    }
     private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
     
     public GetItemFromCart() {
@@ -56,6 +67,7 @@ public class GetItemFromCart {
       //  System.out.println("Price List is Integer.parseInt(tempPList) -->"+Integer.parseInt(tempPList));
       //  this.setPRICE_LIST(Integer.parseInt(tempPList));
         this.setPRICE_LIST(temp.getString("PRICE_LIST"));
+        this.setTest(new BigDecimal(temp.getString("PRICE_LIST")));
         this.setITEM_QUANTITY(temp.getString("ITEM_QUANTITY"));
   //      this.setITEM_QUANTITY(Integer.parseInt(tempQty));
         this.setITEM_DESCRIPTION(temp.getString("ITEM_DESCRIPTION"));
@@ -150,14 +162,17 @@ public class GetItemFromCart {
    public void setITEM_QUANTITY(String ITEM_QUANTITY) {
        
        System.out.println("Entry 1.0 ");
+       System.out.println("This dot getTest-->"+this.getTest());
+       
        String oldITEM_QUANTITY = this.ITEM_QUANTITY;
        this.ITEM_QUANTITY = ITEM_QUANTITY;
        _propertyChangeSupport.firePropertyChange("ITEM_QUANTITY", oldITEM_QUANTITY, ITEM_QUANTITY);
-       Integer.parseInt(this.getPRICE_LIST());
+    //   Integer.parseInt(this.getPRICE_LIST());
        System.out.println("Entry 2.0 "+Integer.parseInt(this.ITEM_QUANTITY));
-       System.out.println("Entry 3.0 "+Integer.parseInt(this.getPRICE_LIST()));
+    //   System.out.println("Entry 3.0 "+Integer.parseInt(this.getPRICE_LIST()));
        
-        setAmount(Integer.parseInt(this.ITEM_QUANTITY) * Integer.parseInt(this.getPRICE_LIST()));
+       setAmount(Integer.parseInt(this.ITEM_QUANTITY) * this.getTest().intValue());
+   //     setAmount(Integer.parseInt(this.ITEM_QUANTITY) * Integer.parseInt(this.getPRICE_LIST()));
        System.out.println("Entry 4.0 ");
        
    }
