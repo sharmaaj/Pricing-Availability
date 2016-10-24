@@ -14,9 +14,12 @@ import javax.el.ValueExpression;
 
 import mobile.datacontrol.CheckUserDC;
 
+import mobile.datacontrol.GETDiscountRateDC;
 import mobile.datacontrol.SearchHistoryDC;
 
 import mobile.datacontrol.UpdateItemQuantityFromCart;
+
+import mobile.entity.GetItemFromCart;
 
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.amx.event.SelectionEvent;
@@ -87,22 +90,30 @@ public class NavigationListener {
         updQty.updateQtyFrmCart();
             
             ValueExpression ve = null;
-            Number oldRowQtyValue = 0;
+            String oldRowQtyValuetemp = null;
             Number changedRowAmount =0;
             Number currentPriceList = 0;
             
-            ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.currentRowOldQty}", Number.class);
-            oldRowQtyValue = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext())); 
+//            ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.currentRowOldQty}", Number.class);
+//            oldRowQtyValuetemp = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext())); 
+            
+            ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.currentRowOldQty}", String.class);
+            oldRowQtyValuetemp = ((String) ve.getValue(AdfmfJavaUtilities.getELContext()));
+            Number oldRowQtyValue = Integer.parseInt(oldRowQtyValuetemp);
+            
             Number newValue = (Number) valueChangeEvent.getNewValue();
             
             System.out.println("1 currentRowOldQty-->"+oldRowQtyValue);
             System.out.println("2 currentRow New Qty-->"+newValue);
             
+            
         /*    ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.currentRowAmount}", Number.class);
             changedRowAmount = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext())); */
-            
-            ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.currentRowPriceList}", Number.class);
-            currentPriceList = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext())); 
+            String currentPriceListtemp = null;
+            ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.currentRowPriceList}", String.class);
+            currentPriceListtemp = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())); 
+            System.out.println("currentPriceListtemp-->"+currentPriceListtemp);
+            currentPriceList = Integer.parseInt(currentPriceListtemp);
             
            // System.out.println("changedRowAmount-->"+changedRowAmount);
             System.out.println("3 currentPriceList-->"+currentPriceList);
@@ -150,11 +161,71 @@ public class NavigationListener {
         catch(Exception e){
             e.getMessage();
             e.printStackTrace();
+            System.out.println("Exception while updating quantity for item-->"+e.getMessage());
         }
         System.out.println("After updatingItem");
     }
 
     public void navigateToCartPage(ActionEvent actionEvent) {
         NavigateToCartPage();
+    }
+
+    public void applyDiscountAL(ActionEvent actionEvent) {
+        System.out.println("Inside applyDiscountAL");
+        GETDiscountRateDC dis = new GETDiscountRateDC();
+        dis.fetchDiscountUsingCoupon();
+        
+        System.out.println("After GETDiscountRateDC Class's ; fetchDiscountUsingCoupon method call ");
+        
+        Number couponDiscountRate = 0;
+        ValueExpression ve = null;
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.couponDiscount}", Number.class);
+        couponDiscountRate = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext())); 
+        
+        System.out.println("couponDiscountRate from Service is :--"+couponDiscountRate);
+        
+        Number TotalAmount = 0;
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.totalAmountInCart}", Number.class);
+        TotalAmount = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext())); 
+        
+        System.out.println("Current TotalAmount is :--"+TotalAmount);
+        
+        Number TotalAmtAfterDiscount = 0;
+        Number codeDiscount = 0;
+        codeDiscount = (couponDiscountRate.doubleValue()/100.00)* TotalAmount.doubleValue();
+        System.out.println("New Discount After code is applied :--"+codeDiscount);
+        
+        TotalAmtAfterDiscount = TotalAmount.doubleValue() - codeDiscount.doubleValue();
+        
+        System.out.println("Current TotalAmount After Discount is :--"+TotalAmtAfterDiscount);
+        
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.totalAmountInCart}", TotalAmtAfterDiscount);
+        
+        Number oldDiscount = 0;
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.TotalDiscount}", Number.class);
+        oldDiscount = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
+        
+        Number newDiscount = 0;
+        if (TotalAmtAfterDiscount.doubleValue() < TotalAmount.doubleValue()) {
+            System.out.println("First Condition ");
+            
+            if (codeDiscount.doubleValue() > oldDiscount.doubleValue() ){
+                System.out.println("Inside IF Condition ");
+                newDiscount = codeDiscount.doubleValue() - oldDiscount.doubleValue();
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.TotalDiscount}", newDiscount);
+            }
+            else{
+                System.out.println("Inside Else Condition");
+                newDiscount = oldDiscount.doubleValue() - codeDiscount.doubleValue() ;
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.TotalDiscount}", newDiscount);
+            }
+        }
+        else{
+            System.out.println("Inside Outer Else Condition ");
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.TotalDiscount}", 0);
+        }
+            
+        
+        
     }
 }
