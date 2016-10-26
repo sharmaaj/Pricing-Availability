@@ -199,28 +199,8 @@
         </amx:panelLabelAndMessage>
         <amx:spacer id="s2" height="30"/>
         <amx:commandLink shortDesc="Checkout" styleClass="commandLink" text="Checkout" inlineStyle="font-size:25px;"
-                         id="c3l2" action="checkout"/>
-        <!--<amx:panelGroupLayout id="pgl4" layout="vertical">
-            <amx:panelGroupLayout id="pgl5" layout="horizontal">
-                <amx:panelLabelAndMessage label="Total Amount" id="plam75" styleClass="label"
-                                          inlineStyle="color:#808080; font-size:36px;"/>
-                <amx:spacer id="s3" width="10"/>
-                <amx:outputText styleClass="cell-border" id="it2" value="#{pageFlowScope.totalAmountInCart}" inlineStyle="background-color:ThreeDFace;"/>
-            </amx:panelGroupLayout>
-            <amx:panelGroupLayout id="pgl6" layout="horizontal">
-                <amx:panelLabelAndMessage label="Total Discount" id="plam77" styleClass="label"
-                                          inlineStyle="color:#808080; font-size:36px;"/>
-                <amx:spacer id="s4" width="10"/>
-                <amx:outputText styleClass="cell-border" id="it3" value="#{pageFlowScope.TotalDiscount}" inlineStyle="background-color:ThreeDFace;"/>
-            </amx:panelGroupLayout>
-        </amx:panelGroupLayout>
-        <amx:spacer id="s7" height="30"/>
-        <amx:panelGroupLayout id="pgl3" layout="horizontal">
-            <amx:inputText styleClass="cell-border" id="it1" rows="3"/>
-            <amx:spacer id="s5" width="10"/>
-            <amx:commandLink shortDesc="Apply Coupon" styleClass="commandLink" text="Apply Coupon" id="c3l25"/>
-        </amx:panelGroupLayout>
-        <amx:spacer id="s6" height="30"/>
-        <amx:commandLink shortDesc="Checkout" styleClass="commandLink" text="Checkout" id="c3l2"/>-->
+                         id="c3l2" action="checkout">
+            <amx:setPropertyListener id="spl6"/>
+        </amx:commandLink>
     </amx:panelPage>
 </amx:view>
