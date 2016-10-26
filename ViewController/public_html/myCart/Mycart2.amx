@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
+          xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+    <amx:panelPage id="pp1">
+        <!--Header Section Starts -->
+        <amx:facet name="header">
+            <amx:panelGroupLayout id="pgl2" layout="horizontal" halign="center" valign="middle">
+                <amx:outputText value="My Cart" id="ot1" inlineStyle="color:White; padding-left:40px; font-size:25px;"/>
+            </amx:panelGroupLayout>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl3">
+                <amx:outputHtml id="oh1" styleClass="fa fa-bars fa-lg" inlineStyle="color:white;font-size:25px;"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:facet name="secondary">
+            <amx:commandLink id="cl4" action="myCart">
+                <amx:outputHtml id="oh2" styleClass="fa fa-shopping-cart fa-lg"
+                                inlineStyle="color:white; font-size:25px;"/>
+            </amx:commandLink>
+        </amx:facet>
+        <!--Header Section Ends -->
+        <amx:panelLabelAndMessage label="" id="plam1" styleClass="label"
+                                  inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px;">
+            <amx:tableLayout id="tl1" width="100%">
+                <amx:rowLayout id="rl1">
+                    <amx:cellFormat id="cf1" width="100%">
+                        <amx:outputText value="Bill to Account Number" id="plam77"
+                                        inlineStyle="color:#808080; font-size:12px;"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl2">
+                    <amx:cellFormat id="cf2" width="100%">
+                        <amx:inputText id="it3" value="#{pageFlowScope.billToAccNum}"
+                                       inlineStyle="color:#808080;font-size:15px;" rows="1"/>
+                        <amx:spacer id="s6" height="3"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl3">
+                    <amx:cellFormat id="cf3" width="100%">
+                        <amx:outputText value="Ship to Account Number" id="ot2"
+                                        inlineStyle="color:#808080; font-size:12px;"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl4">
+                    <amx:cellFormat id="cf4" width="100%">
+                        <amx:inputText id="it1" value="#{pageFlowScope.shipToAccNum}"
+                                       inlineStyle="color:#808080;font-size:15px;" rows="1"/>
+                        <amx:spacer id="s1" height="3"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl5">
+                    <amx:cellFormat id="cf5" width="100%">
+                        <amx:outputText value="Order Type" id="ot3" inlineStyle="color:#808080; font-size:12px;"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+                <amx:rowLayout id="rl6">
+                    <amx:cellFormat id="cf6" width="100%">
+                        <amx:inputText id="it2" value="#{pageFlowScope.orderType}"
+                                       inlineStyle="color:#808080;font-size:15px;" rows="1"/>
+                        <amx:spacer id="s2" height="3"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelLabelAndMessage>
+        <amx:spacer id="s3" height="40"/>
+        <amx:commandLink shortDesc="ConfirmOrder" styleClass="commandLink" text="Confirm Order"
+                         inlineStyle="font-size:25px;" id="c3l2"></amx:commandLink>
+    </amx:panelPage>
+</amx:view>
