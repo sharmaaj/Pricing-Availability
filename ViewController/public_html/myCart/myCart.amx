@@ -25,8 +25,6 @@
                       showMoreStrategy="off" bufferStrategy="viewport" id="lv1" sectionIndex="off">
             <amx:listItem id="li1"
                           inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px;">
-                <!--<amx:panelLabelAndMessage label="" id="plam4" styleClass="label"
-                                          inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px;"/>-->
                 <amx:panelGroupLayout id="pgl1" styleClass="label">
                     <amx:tableLayout id="tl1" width="100%">
                         <amx:rowLayout id="rl1">
