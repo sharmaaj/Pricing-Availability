@@ -185,13 +185,12 @@
             <amx:tableLayout id="tl3" width="100%">
                 <amx:rowLayout id="rl8">
                     <amx:cellFormat id="cf13">
-                        <amx:inputText id="it4" inlineStyle="color:#808080; font-size:15px;" rows="1"
-                                       value="#{pageFlowScope.couponCode}"/>
-                    </amx:cellFormat>
-                    <amx:cellFormat id="cf14">
-                        <amx:commandLink shortDesc="Apply Coupon" styleClass="commandLink" text="Apply Coupon"
-                                         id="c3l25" actionListener="#{NavigationListenerBean.applyDiscountAL}"></amx:commandLink>
-                        <amx:spacer id="s5" height="10"/>
+                        <amx:panelGroupLayout id="pgl3" inlineStyle="width:100%;">
+                            <amx:inputText id="it4" inlineStyle="color:#808080; font-size:15px;" rows="1"
+                                           value="#{pageFlowScope.couponCode}"/>
+                            <amx:commandLink shortDesc="Apply Coupon" styleClass="commandLink" text="Apply Coupon"
+                                             id="c3l25" actionListener="#{NavigationListenerBean.applyDiscountAL}"/>
+                        </amx:panelGroupLayout>
                     </amx:cellFormat>
                 </amx:rowLayout>
             </amx:tableLayout>
