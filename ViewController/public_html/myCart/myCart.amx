@@ -199,7 +199,7 @@
         </amx:panelLabelAndMessage>
         <amx:spacer id="s2" height="30"/>
         <amx:commandLink shortDesc="Checkout" styleClass="commandLink" text="Checkout" inlineStyle="font-size:25px;"
-                         id="c3l2"/>
+                         id="c3l2" action="checkout"/>
         <!--<amx:panelGroupLayout id="pgl4" layout="vertical">
             <amx:panelGroupLayout id="pgl5" layout="horizontal">
                 <amx:panelLabelAndMessage label="Total Amount" id="plam75" styleClass="label"
