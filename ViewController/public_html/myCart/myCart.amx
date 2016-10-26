@@ -143,7 +143,7 @@
         </amx:panelLabelAndMessage>
         <amx:spacer id="s2" height="30"/>
         <amx:commandLink shortDesc="Checkout" styleClass="commandLink" text="Checkout" inlineStyle="font-size:25px;"
-                         id="c3l2" action="checkout">
+                         id="c3l2" action="checkout" actionListener="#{NavigationListenerBean.checkoutButtonAL}">
             <amx:setPropertyListener id="spl6"/>
         </amx:commandLink>
     </amx:panelPage>
