@@ -6,9 +6,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import java.util.List;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.MethodExpression;
+
+import mobile.entity.GetItemFromCart;
 
 import javax.el.ValueExpression;
 
@@ -21,6 +25,9 @@ import mobile.datacontrol.UpdateItemQuantityFromCart;
 
 import mobile.entity.GetItemFromCart;
 
+import mobile.rest.RestServiceManager;
+import mobile.rest.RestURIs;
+
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.amx.event.SelectionEvent;
 import oracle.adfmf.amx.event.ValueChangeEvent;
@@ -31,6 +38,9 @@ import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 
 import oracle.adfmf.framework.internal.AdfmfJavaUtilitiesInternal;
+
+import oracle.adfmf.json.JSONArray;
+import oracle.adfmf.json.JSONObject;
 
 import oracle.jbo.Row;
 
@@ -196,28 +206,35 @@ public class NavigationListener {
         Number oldDiscount = 0;
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.TotalDiscount}", Number.class);
         oldDiscount = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
-        
+
         if (oldDiscount == null)
             oldDiscount = 0.0;
 
         Number newDiscount = 0;
         if (TotalAmtAfterDiscount.doubleValue() < TotalAmount.doubleValue()) {
             System.out.println("First Condition ");
-                if (codeDiscount.doubleValue() > oldDiscount.doubleValue()) {
-                    System.out.println("Inside IF Condition ");
-                    newDiscount = codeDiscount.doubleValue() - oldDiscount.doubleValue();
-                    AdfmfJavaUtilities.setELValue("#{pageFlowScope.TotalDiscount}", newDiscount);
-                } else {
-                    System.out.println("Inside Else Condition");
-                    newDiscount = oldDiscount.doubleValue() - codeDiscount.doubleValue();
-                    AdfmfJavaUtilities.setELValue("#{pageFlowScope.TotalDiscount}", newDiscount);
-                }
+            if (codeDiscount.doubleValue() > oldDiscount.doubleValue()) {
+                System.out.println("Inside IF Condition ");
+                newDiscount = codeDiscount.doubleValue() - oldDiscount.doubleValue();
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.TotalDiscount}", newDiscount);
+            } else {
+                System.out.println("Inside Else Condition");
+                newDiscount = oldDiscount.doubleValue() - codeDiscount.doubleValue();
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.TotalDiscount}", newDiscount);
+            }
 
         } else {
             System.out.println("Inside Outer Else Condition ");
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.TotalDiscount}", 0);
         }
 
+
+    }
+
+    public void checkoutButtonAL(ActionEvent actionEvent) {
+    System.out.println("Inside Checkout Button Action Listener");
+    
+    
 
     }
 }
