@@ -47,6 +47,9 @@
         <fixed-outcome>fetchPricingInformation</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="Mycart2">
+      <page>/myCart/Mycart2.amx</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>DashboardPG</from-activity-id>
       <control-flow-case id="__2">
@@ -93,6 +96,10 @@
       <control-flow-case id="__8">
         <from-outcome>myCart</from-outcome>
         <to-activity-id>getAllCartItems</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__20">
+        <from-outcome>checkout</from-outcome>
+        <to-activity-id>Mycart2</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__9">

@@ -180,7 +180,7 @@
       <property
          name="fromOutcome">getAllCartItems</property>
       <property
-         name="sdm:polyPoints">R46,378.04333,256.89648,514.5,258.0918,L46</property>
+         name="sdm:polyPoints">R46,378.0127,256.89648,513.0015,254.5918,L42</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -214,5 +214,30 @@
          name="fromOutcome">fetchPricingInformation</property>
       <property
          name="sdm:polyPoints">R50,29.362305,353.79883,126.36426,410.03418,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View25">
+      <property
+         name="activityId">Mycart2</property>
+      <property
+         name="x">406.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Mycart2&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">426.79883</property>
+      <property
+         name="page">/myCart/Mycart2.amx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase27"
+      from="View18"
+      to="View25">
+      <property
+         name="fromOutcome">checkout</property>
+      <property
+         name="sdm:polyPoints">R35,R4</property>
    </ControlFlowCase>
 </SDM>
