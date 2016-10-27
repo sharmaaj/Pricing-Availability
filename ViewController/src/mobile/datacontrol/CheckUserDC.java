@@ -18,6 +18,26 @@ import oracle.adfmf.java.beans.ProviderChangeSupport;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONObject;
 
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: CheckUserDC Class
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : CheckUserDC Data Control Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Data Control Class is used to call CheckUser  REST Service
+*                     to check if the current user is an INTERNAL/EXTERNAL/ADMIN user
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           15-July-2016            Tushar Pant              Final Version
+
+*********************************************************************************************** */
+
 public class CheckUserDC {
     
     private static List<CheckUser> s_CheckUserList;
