@@ -67,6 +67,6 @@
         </amx:panelLabelAndMessage>
         <amx:spacer id="s3" height="40"/>
         <amx:commandLink shortDesc="ConfirmOrder" styleClass="commandLink" text="Confirm Order"
-                         inlineStyle="font-size:25px;" id="c3l2"></amx:commandLink>
+                         inlineStyle="font-size:25px;" id="c3l2" actionListener="#{bindings.createOrder.execute}"></amx:commandLink>
     </amx:panelPage>
 </amx:view>
