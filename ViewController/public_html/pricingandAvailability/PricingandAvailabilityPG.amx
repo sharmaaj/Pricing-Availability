@@ -62,6 +62,7 @@
                         <amx:cellFormat id="cf3">
                             <amx:outputText value="#{bindings.p_item_number.inputValue}" id="o4t2"
                                             inlineStyle="color:#000000; font-weight:bold;"/>
+                            <amx:outputText value="#{bindings.attribute1.inputValue}" id="ot26" rendered="false"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                     <amx:rowLayout id="rl3">
@@ -304,6 +305,8 @@
                          actionListener="#{bindings.addtoCart.execute}" inlineStyle="font-size:25px;">
             <amx:setPropertyListener id="spl5" from="#{bindings.p_price_list.inputValue}"
                                      to="#{pageFlowScope.listPrice}" type="action"/>
+            <amx:setPropertyListener id="spl6" from="#{bindings.attribute1.inputValue}"
+                                     to="#{pageFlowScope.inventoryItemId}" type="action"/>
         </amx:commandLink>
     </amx:panelPage>
 </amx:view>
