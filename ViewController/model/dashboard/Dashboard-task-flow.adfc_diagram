@@ -238,7 +238,7 @@
       <property
          name="fromOutcome">checkout</property>
       <property
-         name="sdm:polyPoints">L58,514.5,268.5918,406.5,372.44824,T50</property>
+         name="sdm:polyPoints">L58,514.5,268.5918,410.0,372.44824,T56</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -249,5 +249,30 @@
          name="fromOutcome">myCart</property>
       <property
          name="sdm:polyPoints">T44,403.0,372.44824,337.0127,314.39648,B50</property>
+   </ControlFlowCase>
+   <View
+      id="View29">
+      <property
+         name="activityId">myOrders</property>
+      <property
+         name="x">586.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>myOrders&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">460.79883</property>
+      <property
+         name="page">/MyOrders/myOrders.amx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase30"
+      from="View25"
+      to="View29">
+      <property
+         name="fromOutcome">orderDetails</property>
+      <property
+         name="sdm:polyPoints">R50,447.5,426.44824,545.5,460.44824,L50</property>
    </ControlFlowCase>
 </SDM>
