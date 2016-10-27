@@ -20,6 +20,26 @@ import oracle.adfmf.java.beans.ProviderChangeSupport;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONObject;
 
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: GetALlCartItemsDC Class
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : GetALlCartItemsDC Data Control Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Data Control Class is used to call order creation REST Service
+*                     to create order in ERP system
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           26-Oct-2016            Tushar Pant              Final Version
+
+*********************************************************************************************** */
+
 public class GetALlCartItemsDC {
     private static List<GetItemFromCart> xxt;
     private static List<GetItemFromCart> s_getItemFromCart;
@@ -157,26 +177,52 @@ public class GetALlCartItemsDC {
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
 
+        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", Number.class);
+        orgId = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
+
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orderTypeId}", Number.class);
+        orderTypeId = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
+
+        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", Number.class);
+        billToAccNum = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
+
+        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", Number.class);
+        shipTpAccNum = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
+
+        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", Number.class);
+        inventoryItemId = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
+
+        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", Number.class);
+        priceListId = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
+
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.couponCode}", String.class);
+        coupon = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+
+
         String restURI = RestURIs.createOrder();
         RestServiceManager rcu = new RestServiceManager();
 
         String payload =
-            "{\n" + "\"USER_ID\" : \"" + userName + "\",\"ORG_ID\": \"" + null + "\",\"ORDER_TYPE_ID\": \"" + null +
-            "\",\"PRICE_LIST_ID\": \"" + null + "\",\"BILL_TO\": \"" + null + "\",\"SHIP_TO\": \"" + null +
-            "\",\"COUPON\": \"" + null + "\",\"ATTRIBUTE1\": \"" + null + "\",\"ATTRIBUTE2\": \"" + null +
-            "\",\"ATTRIBUTE3\": \"" + null + "\",\"ATTRIBUTE4\": \"" + null + "\",\"ATTRIBUTE5\": \"" + null +
-            "\",\"ATTRIBUTE6\": \"" + null + "\",\"ATTRIBUTE7\": \"" + null + "\",\"ATTRIBUTE8\": \"" + null +
-            "\",\"ATTRIBUTE9\": \"" + null + "\",\"ATTRIBUTE10\": \"" + null + "\",\"ATTRIBUTE11\": \"" + null +
-            "\",\"ATTRIBUTE12\": \"" + null + "\",\"ATTRIBUTE13\": \"" + null + "\",\"ATTRIBUTE14\": \"" + null +
-            "\",\"ATTRIBUTE15\": \"" + null + "\n" + "}";
+            "{\n" + "\"USER_ID\" : \"" + userName + "\",\"ORG_ID\": \"" + orgId + "\",\"ORDER_TYPE_ID\": \"" +
+            orderTypeId + "\",\"PRICE_LIST_ID\": \"" + priceListId + "\",\"BILL_TO\": \"" + billToAccNum +
+            "\",\"SHIP_TO\": \"" + shipTpAccNum + "\",\"COUPON\": \"" + coupon + "\",\"ATTRIBUTE1\": \"" + null +
+            "\",\"ATTRIBUTE2\": \"" + null + "\",\"ATTRIBUTE3\": \"" + null + "\",\"ATTRIBUTE4\": \"" + null +
+            "\",\"ATTRIBUTE5\": \"" + null + "\",\"ATTRIBUTE6\": \"" + null + "\",\"ATTRIBUTE7\": \"" + null +
+            "\",\"ATTRIBUTE8\": \"" + null + "\",\"ATTRIBUTE9\": \"" + null + "\",\"ATTRIBUTE10\": \"" + null +
+            "\",\"ATTRIBUTE11\": \"" + null + "\",\"ATTRIBUTE12\": \"" + null + "\",\"ATTRIBUTE13\": \"" + null +
+            "\",\"ATTRIBUTE14\": \"" + null + "\",\"ATTRIBUTE15\": \"" + null + "\n";
+
+        payload = payload + ", \"P_ITEM_LINES\": { \"P_ITEM_LINES_ITEM\": [  ";
+
+        System.out.println("Order Header paylod is " + payload);
+
+        //  Iterator i = s_getItemFromCart.iterator();
+
+        for (int i = 0; i < s_getItemFromCart.size(); i++) {
+            s_getItemFromCart.get(i);
+            //     GetItemFromCart getCartLineItms = GetItemFromCart;
 
 
-        System.out.println("paylod is " + payload);
-
-        Iterator i = s_getItemFromCart.iterator();
-
-        while (i.hasNext()) {
-            //      serial = (SerialBO) i.next();
             payload =
                 payload + "{\"INVENTORY_ITEM_ID\":\"" + null + "\",\"PRICE_LIST_ID\": \"" + null +
                 "\",\"ORDERED_QUANTITY\": \"" + null + "\",\"ATTRIBUTE1\": \"" + null + "\",\"ATTRIBUTE2\": \"" + null +
@@ -186,13 +232,16 @@ public class GetALlCartItemsDC {
                 "\",\"ATTRIBUTE12\": \"" + null + "\",\"ATTRIBUTE13\": \"" + null + "\",\"ATTRIBUTE14\": \"" + null +
                 "\",\"ATTRIBUTE15\": \"" + null + "\"},";
         }
-        
-        System.out.println("paylod is " + payload);
+        System.out.println("Order Line paylod is " + payload);
+
+        payload = payload.substring(0, payload.length() - 1);
+        payload = payload + "]}\n" + "}}}}";
 
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
         System.out.println("jsonArrayAsString for Get All Cart Items-->" + jsonArrayAsString);
-
+        System.out.println("Received response");
 
     }
+
 
 }
