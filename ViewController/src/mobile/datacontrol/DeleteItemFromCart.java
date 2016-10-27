@@ -15,6 +15,25 @@ import oracle.adfmf.util.GenericType;
 
 import oracle.jbo.Row;
 
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: DeleteItemFromCart Class
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : DeleteItemFromCart Data Control Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Data Control Class is used to call DeleteItemFromCart REST Service
+*                     to Delete Items From Cart
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           20-Sep-2016            Tushar Pant              Final Version
+*********************************************************************************************** */
+
 public class DeleteItemFromCart {
     
     private transient ProviderChangeSupport providerChangeSupport = new ProviderChangeSupport(this);
