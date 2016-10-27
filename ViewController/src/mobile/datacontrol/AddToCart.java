@@ -114,6 +114,11 @@ public class AddToCart {
         listPrice = listPriceInString;
         System.out.println("Add to Cart Service 7 listPriceInString-->"+listPriceInString);
         
+        String inventoryItemId = null;
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.inventoryItemId}", String.class);
+        inventoryItemId = ((String)ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        System.out.println("Add to Cart Service 8 inventoryItemId-->"+inventoryItemId);
+        
         //listPrice = Integer.parseInt(listPriceInString);
         
         //System.out.println("Here 8 listPrice in Integer-->"+Integer.parseInt(listPriceInString));
