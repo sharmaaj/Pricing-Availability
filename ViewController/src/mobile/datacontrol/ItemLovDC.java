@@ -25,7 +25,7 @@ import oracle.adfmf.json.JSONObject;
 All Rights Reserved
 $Header: ItemLovDC Class
 Ver    : 1.0
-Author : Tushar Pant
+Author : Ajay Sharma
 +==================================================================+
 * TYPE              : ItemLovDC Data Control Class
 * INPUT Parameters  : None
@@ -35,7 +35,7 @@ Author : Tushar Pant
 * History
 * Version        Date                  Author                  Description
 * --------------------------------------------------------------------------------------------
-* 1.0           15-Jul-2016            Tushar Pant              Final Version
+* 1.0           15-Jul-2016            Ajay Sharma             Final Version
 *********************************************************************************************** */
 
 public class ItemLovDC {
