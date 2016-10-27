@@ -216,12 +216,8 @@ public class GetALlCartItemsDC {
 
         System.out.println("Order Header paylod is " + payload);
 
-        //  Iterator i = s_getItemFromCart.iterator();
-
-        for (int i = 0; i < s_getItemFromCart.size(); i++) {
+       for (int i = 0; i < s_getItemFromCart.size(); i++) {
             s_getItemFromCart.get(i);
-            //     GetItemFromCart getCartLineItms = GetItemFromCart;
-
 
             payload =
                 payload + "{\"INVENTORY_ITEM_ID\":\"" + null + "\",\"PRICE_LIST_ID\": \"" + null +
@@ -235,7 +231,7 @@ public class GetALlCartItemsDC {
         System.out.println("Order Line paylod is " + payload);
 
         payload = payload.substring(0, payload.length() - 1);
-        payload = payload + "]}\n" + "}}}}";
+        payload = payload + "]}\n" + "}";
 
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
         System.out.println("jsonArrayAsString for Get All Cart Items-->" + jsonArrayAsString);
