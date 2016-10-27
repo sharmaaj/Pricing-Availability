@@ -217,7 +217,8 @@ public class GetALlCartItemsDC {
         System.out.println("Order Header paylod is " + payload);
 
        for (int i = 0; i < s_getItemFromCart.size(); i++) {
-            s_getItemFromCart.get(i);
+            s_getItemFromCart.get(i).getITEM_QUANTITY();
+            s_getItemFromCart.get(i).getPRICE_LIST();
 
             payload =
                 payload + "{\"INVENTORY_ITEM_ID\":\"" + null + "\",\"PRICE_LIST_ID\": \"" + null +
