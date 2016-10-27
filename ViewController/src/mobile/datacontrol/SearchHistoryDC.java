@@ -17,6 +17,26 @@ import oracle.adfmf.java.beans.ProviderChangeSupport;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONObject;
 
+
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: SearchHistoryDC Class
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : SearchHistoryDC Data Control Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Data Control Class is used to call SearchHistory REST Service
+*                     to fetch rescent item searches made by the user
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           23-August-2016            Tushar Pant             Final Version
+*********************************************************************************************** */
+
 public class SearchHistoryDC {
 
     private static List<SearchHistory> s_searchHistory;
