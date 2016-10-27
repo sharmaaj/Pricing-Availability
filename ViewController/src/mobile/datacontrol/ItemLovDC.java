@@ -19,6 +19,25 @@ import oracle.adfmf.java.beans.ProviderChangeSupport;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONObject;
 
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: ItemLovDC Class
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : ItemLovDC Data Control Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Data Control Class is used to call ItemLov REST Service
+*                     to fetch list of items based on user search
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           15-Jul-2016            Tushar Pant              Final Version
+*********************************************************************************************** */
+
 public class ItemLovDC {
     public ItemLovDC() {
         super();
