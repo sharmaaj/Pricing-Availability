@@ -19,6 +19,25 @@ import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONObject;
 
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: GETDiscountRateDC Class
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : GETDiscountRateDC Data Control Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Data Control Class is used to call Apply Coupon REST Service
+*                     to fetch discount rate corresponsing to the coupon code applied
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           23-Oct-2016            Tushar Pant              Final Version
+*********************************************************************************************** */
+
 public class GETDiscountRateDC {
     public GETDiscountRateDC() {
         super();
