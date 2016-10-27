@@ -170,9 +170,6 @@ public class GetALlCartItemsDC {
         Number billToAccNum = 0;
         Number shipTpAccNum = 0;
         String coupon = null;
-        Number inventoryItemId = 0;
-        Number priceListId = 0;
-        Number orderedQty = 0;
 
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
@@ -180,20 +177,14 @@ public class GetALlCartItemsDC {
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", Number.class);
         orgId = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orderTypeId}", Number.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orderType}", Number.class);
         orderTypeId = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", Number.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.billToAccNum}", Number.class);
         billToAccNum = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", Number.class);
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.shipToAccNum}", Number.class);
         shipTpAccNum = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
-
-        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", Number.class);
-        inventoryItemId = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
-
-        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", Number.class);
-        priceListId = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.couponCode}", String.class);
         coupon = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
@@ -204,7 +195,7 @@ public class GetALlCartItemsDC {
 
         String payload =
             "{\n" + "\"USER_ID\" : \"" + userName + "\",\"ORG_ID\": \"" + orgId + "\",\"ORDER_TYPE_ID\": \"" +
-            orderTypeId + "\",\"PRICE_LIST_ID\": \"" + priceListId + "\",\"BILL_TO\": \"" + billToAccNum +
+            orderTypeId + "\",\"BILL_TO\": \"" + billToAccNum +
             "\",\"SHIP_TO\": \"" + shipTpAccNum + "\",\"COUPON\": \"" + coupon + "\",\"ATTRIBUTE1\": \"" + null +
             "\",\"ATTRIBUTE2\": \"" + null + "\",\"ATTRIBUTE3\": \"" + null + "\",\"ATTRIBUTE4\": \"" + null +
             "\",\"ATTRIBUTE5\": \"" + null + "\",\"ATTRIBUTE6\": \"" + null + "\",\"ATTRIBUTE7\": \"" + null +
