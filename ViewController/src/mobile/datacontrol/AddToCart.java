@@ -14,6 +14,26 @@ import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.java.beans.ProviderChangeSupport;
 
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: AddToCart Class
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : AddToCart Data Control Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Data Control Class is used to call order addtoCart REST Service
+*                     to add items to cart
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           15-Sep-2016            Tushar Pant              Final Version
+
+*********************************************************************************************** */
+
 public class AddToCart {
     
     private transient ProviderChangeSupport providerChangeSupport = new ProviderChangeSupport(this);
