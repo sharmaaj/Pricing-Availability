@@ -18,6 +18,25 @@ import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: pnaDashboardPGBean Bean
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : pnaDashboardPGBean Bean Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Generic Bean Class is used to handle UI request
+*                     through different methods / action listeners
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           13-Aug-2016            Tushar Pant              Incremental Version
+*********************************************************************************************** */
+
 public class pnaDashboardPGBean {
     private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
 
