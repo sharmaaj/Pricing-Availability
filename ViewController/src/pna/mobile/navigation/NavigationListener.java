@@ -44,6 +44,25 @@ import oracle.adfmf.json.JSONObject;
 
 import oracle.jbo.Row;
 
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: NavigationListener Bean
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : NavigationListener Bean Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Bean Class is used to handle navigation logic driven by UI
+*                     actions and process validations through action listeners
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           10-Aug-2016            Tushar Pant              Incremental Version
+*********************************************************************************************** */
+
 public class NavigationListener {
     public NavigationListener() {
     }
