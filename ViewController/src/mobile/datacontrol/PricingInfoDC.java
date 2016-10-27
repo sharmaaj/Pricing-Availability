@@ -28,6 +28,25 @@ import oracle.adfmf.json.JSONObject;
 
 import pna.mobile.navigation.NavigationListener;
 
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: PricingInfoDC Class
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : PricingInfoDC Data Control Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Data Control Class is used to call PricingInfo REST Service
+*                     to fetch pricing and availability information of the item
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           10-Oct-2016            Tushar Pant             Final Version
+*********************************************************************************************** */
+
 public class PricingInfoDC {
 
     private static List<GetPricingInformation> s_pricngInfo;
