@@ -50,6 +50,9 @@
     <view id="Mycart2">
       <page>/myCart/Mycart2.amx</page>
     </view>
+    <view id="myOrders">
+      <page>/MyOrders/myOrders.amx</page>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>DashboardPG</from-activity-id>
       <control-flow-case id="__2">
@@ -121,6 +124,10 @@
       <control-flow-case id="__23">
         <from-outcome>myCart</from-outcome>
         <to-activity-id>getAllCartItems</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__24">
+        <from-outcome>orderDetails</from-outcome>
+        <to-activity-id>myOrders</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>
