@@ -31,8 +31,10 @@ Author : Tushar Pant
 * TYPE              : GetALlCartItemsDC Data Control Class
 * INPUT Parameters  : None
 * OUTPUT Parametrs  : None
-* PURPOSE           : This Data Control Class is used to call order creation REST Service
-*                     to create order in ERP system
+* PURPOSE           : This Data Control Class is used to :-
+*                     1: Call getAllitemsfromCart REST Service and fetch all the items from the cart
+*                     2: Call order creation REST Service to create order in ERP system
+*                     
 * History
 * Version        Date                  Author                  Description
 * --------------------------------------------------------------------------------------------
