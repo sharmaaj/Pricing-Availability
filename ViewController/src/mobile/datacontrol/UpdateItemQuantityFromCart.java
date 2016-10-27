@@ -10,6 +10,25 @@ import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.java.beans.ProviderChangeSupport;
 
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: UpdateItemQuantityFromCart Class
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : UpdateItemQuantityFromCart Data Control Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Data Control Class is used to call UpdateItemQuantityFromCart REST Service
+*                     to Update quantity for cart line items
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           15-Oct-2016            Tushar Pant             Final Version
+*********************************************************************************************** */
+
 public class UpdateItemQuantityFromCart {
     
     private transient ProviderChangeSupport providerChangeSupport = new ProviderChangeSupport(this);
