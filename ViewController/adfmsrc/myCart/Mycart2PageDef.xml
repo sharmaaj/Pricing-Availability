@@ -8,5 +8,8 @@
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <methodAction id="createOrder" RequiresUpdateModel="true" Action="invokeMethod" MethodName="createOrder"
+                  IsViewObjectMethod="false" DataControl="GetAllCartItemsDC"
+                  InstanceName="data.GetAllCartItemsDC.dataProvider"/>
   </bindings>
 </pageDefinition>
