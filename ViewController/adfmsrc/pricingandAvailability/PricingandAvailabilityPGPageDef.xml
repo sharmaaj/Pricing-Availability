@@ -184,5 +184,10 @@
         <Item Value="p_available_date"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="pricingInformationIterator" id="attribute1">
+      <AttrNames>
+        <Item Value="attribute1"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
