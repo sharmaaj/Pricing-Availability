@@ -178,6 +178,7 @@ public class GetALlCartItemsDC {
 
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", Number.class);
         orgId = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
+        orgId =204;
 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orderType}", Number.class);
         orderTypeId = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
@@ -213,10 +214,13 @@ public class GetALlCartItemsDC {
             s_getItemFromCart.get(i).getATTRIBUTE1();  //Inventory_Item_Id
             s_getItemFromCart.get(i).getITEM_QUANTITY();
             s_getItemFromCart.get(i).getPRICE_LIST();
+           System.out.println("Inventory Item Id-->"+s_getItemFromCart.get(i).getATTRIBUTE1());
+            System.out.println("Item Quantity-->"+s_getItemFromCart.get(i).getITEM_QUANTITY());
+            System.out.println("Price List-->"+s_getItemFromCart.get(i).getPRICE_LIST());
 
             payload =
-                payload + "{\"INVENTORY_ITEM_ID\":\"" + null + "\",\"PRICE_LIST_ID\": \"" + null +
-                "\",\"ORDERED_QUANTITY\": \"" + null + "\",\"ATTRIBUTE1\": \"" + null + "\",\"ATTRIBUTE2\": \"" + null +
+                payload + "{\"INVENTORY_ITEM_ID\":\"" + s_getItemFromCart.get(i).getATTRIBUTE1() + "\",\"PRICE_LIST_ID\": \"" + s_getItemFromCart.get(i).getPRICE_LIST() +
+                "\",\"ORDERED_QUANTITY\": \"" + s_getItemFromCart.get(i).getITEM_QUANTITY() + "\",\"ATTRIBUTE1\": \"" + null + "\",\"ATTRIBUTE2\": \"" + null +
                 "\",\"ATTRIBUTE3\": \"" + null + "\",\"ATTRIBUTE4\": \"" + null + "\",\"ATTRIBUTE5\": \"" + null +
                 "\",\"ATTRIBUTE6\": \"" + null + "\",\"ATTRIBUTE7\": \"" + null + "\",\"ATTRIBUTE8\": \"" + null +
                 "\",\"ATTRIBUTE9\": \"" + null + "\",\"ATTRIBUTE10\": \"" + null + "\",\"ATTRIBUTE11\": \"" + null +
