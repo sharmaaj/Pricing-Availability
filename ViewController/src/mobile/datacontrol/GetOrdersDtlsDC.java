@@ -35,6 +35,8 @@ public class GetOrdersDtlsDC {
 
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        userName= "HSPRAGUE";   //To be removed once the order creation logic is working
 
         String restURI = RestURIs.getAllItemsFromCart();
         RestServiceManager rcu = new RestServiceManager();
