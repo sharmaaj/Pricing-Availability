@@ -3,7 +3,7 @@ package mobile.rest;
 import java.util.Date;
 
 public class RestURIs {
-    
+
     private static final String USER_TYPE_URI = "/v1/User/checkUserType";
     private static final String ITEM_DETAILS_URI = "/v1/Item/getItemLov";
     private static final String PRICE_LIST_URI = "/v1/PriceList/getPriceListLov";
@@ -15,23 +15,28 @@ public class RestURIs {
     private static final String DELETE_ITEM_URI = "/v1/CartItem/deleteItemFromCart";
     private static final String SEARCH_HISTORY_URI = "/v1/Search/getSearchHistory";
     private static final String GET_ALL_ITEMS_FROM_URI = "/v1/CartItems/getCartItems";
-    
+    private static final String GET_ORDER_DTLS_URI = "/v1/OrderDetails/getOrderDetails";
+
     public RestURIs() {
         super();
     }
-    
+
     public static String addToCart() {
         return ADD_TO_CART_URI;
     }
-    
+
     public static String getAllItemsFromCart() {
         return GET_ALL_ITEMS_FROM_URI;
     }
-    
+
+    public static String getOrdrDtls() {
+        return GET_ORDER_DTLS_URI;
+    }
+
     public static String addQtyItemToCart() {
         return ADD_ITEM_QTY_URI;
     }
-    
+
     public static String applyDiscount() {
         return APPLY_DISCOUNT_URI;
     }
@@ -43,23 +48,23 @@ public class RestURIs {
     public static String createOrder() {
         return CREATE_ORDER_URI;
     }
-    
+
     public static String getPricingInformation() {
         return PRICING_INFO_URI;
     }
-    
+
     public static String getSearchHistory() {
         return SEARCH_HISTORY_URI;
     }
-    
+
     public static String checkUserType() {
         return USER_TYPE_URI;
     }
-    
+
     public static String getItemNumberLov() {
         return ITEM_DETAILS_URI;
     }
-    
+
     public static String getPriceListLov() {
         return PRICE_LIST_URI;
     }
