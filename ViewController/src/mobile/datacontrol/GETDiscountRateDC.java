@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.el.ValueExpression;
 
+import mobile.bean.AEntity;
+
 import mobile.entity.ApplyDiscount;
 import mobile.entity.GetPricingInformation;
 import mobile.entity.PriceListEntity;
@@ -15,6 +17,7 @@ import mobile.entity.PriceListEntity;
 import mobile.rest.RestServiceManager;
 import mobile.rest.RestURIs;
 
+import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONObject;
@@ -76,28 +79,29 @@ public class GETDiscountRateDC {
         Number discountRate = 0;
         try {
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
-            //JSONObject parentNode = (JSONObject) jsonObject.get("P_DISCOUNT_RATE");
-            discountRate = Integer.parseInt(jsonObject.getString("P_DISCOUNT_RATE"));
+            if(jsonObject.getString("P_DISCOUNT_RATE")!=null){
+                AEntity aentity = new AEntity();
+                String value = aentity.getValue(jsonObject.getString("P_DISCOUNT_RATE"));
+                if(value=="" || value == null){
+                    discountRate = 0;
+                    AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(), "showAlert",
+                                                                                  new Object[] { "Invalid",
+                                                                                                 "Invalid Coupon! Please enter valid coupon",
+                                                                                                 "Ok" });
+                }
+                else{
+                    discountRate = Integer.parseInt(jsonObject.getString("P_DISCOUNT_RATE"));
+                }
+         }
+            else{
+            discountRate = 0;
+            }
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.couponDiscount}", discountRate);
-            //            ApplyDiscount apDis = new ApplyDiscount(parentNode);
-            //            s_ApplyDisc.add(apDis);
-            //            if (apDis.getDiscount_rate() != null && apDis.getDiscount_rate() != new BigDecimal(0)) {
-            //                System.out.println(" Printing Discount Rate Fetched from Web Service");
-            //                AdfmfJavaUtilities.setELValue("#{pageFlowScope.couponDiscount}", apDis.getDiscount_rate());
-            //            }
 
         } catch (Exception e) {
             e.getMessage();
             e.printStackTrace();
         }
-        //
-        //        applyDiscArray = (ApplyDiscount[]) s_ApplyDisc.toArray(new ApplyDiscount[s_ApplyDisc.size()]);
-        //        if (s_ApplyDisc.size() != 0) {
-        //            AdfmfJavaUtilities.setELValue("#{pageFlowScope.ApplyDiscountServiceResults}", "");
-        //        } else {
-        //            AdfmfJavaUtilities.setELValue("#{pageFlowScope.ApplyDiscountServiceResults}", "No Search Results");
-        //        }
-
     }
 
     public void fetchDiscountUsingCoupon() {
