@@ -38,7 +38,7 @@ public class GetOrdersDtlsDC {
         
         userName= "HSPRAGUE";   //To be removed once the order creation logic is working
 
-        String restURI = RestURIs.getAllItemsFromCart();
+        String restURI = RestURIs.getOrdrDtls();
         RestServiceManager rcu = new RestServiceManager();
 
         String payload = "{\n" + "\"P_USER_NAME\" : \"" + userName + "\"\n" + "}";
