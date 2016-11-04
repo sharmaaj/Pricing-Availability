@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-  <amx:panelPage id="pp1">
-          <!--Header Section Starts -->
+    <amx:panelPage id="pp1">
+        <!--Header Section Starts -->
         <amx:facet name="header">
             <amx:panelGroupLayout id="pgl2" layout="horizontal" halign="center" valign="middle">
-                <amx:outputText value="My Orders" id="ot1" inlineStyle="color:White; padding-left:40px; font-size:40px;"/>
+                <amx:outputText value="My Orders" id="ot1"
+                                inlineStyle="color:White; padding-left:40px; font-size:40px;"/>
             </amx:panelGroupLayout>
         </amx:facet>
         <amx:facet name="primary">
@@ -20,36 +21,54 @@
             </amx:commandLink>
         </amx:facet>
         <!--Header Section Ends -->
-        
-                <amx:listView var="row" value=""
-                      fetchSize="#{bindings.itemsFromCart.rangeSize}"
-                      selectedRowKeys="#{bindings.itemsFromCart.collectionModel.selectedRow}"
-                      selectionListener="#{bindings.itemsFromCart.collectionModel.makeCurrent}" dividerMode="all"
-                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1">
-            <amx:listItem id="li1">
+        <amx:listView var="row" value="" fetchSize="#{bindings.orderDtls.rangeSize}"
+                      initialScrollRowKeys="#{bindings.orderDtls.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.orderDtls.collectionModel.makeCurrent}"
+                      showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv2">
+            <amx:listItem id="li1"
+                          inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px;">
                 <amx:panelLabelAndMessage label="" id="plam4" styleClass="label"
                                           inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px;">
-                    <amx:tableLayout id="tl1" width="30%">
+                    <amx:tableLayout id="tl1" width="100%">
                         <amx:rowLayout id="rl1">
-                            <amx:cellFormat id="cf1"/>
+                            <amx:cellFormat id="cf1" width="100%">
+                                <amx:outputText value="#{bindings.order_number.inputValue}"
+                                                inlineStyle="color:#000000; font-weight:bold;" id="ot2"/>
+                            </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl2">
-                            <amx:cellFormat id="cf2"/>
-                            <amx:cellFormat id="cf3"/>
+                            <amx:cellFormat id="cf2" width="100%">
+                                <amx:outputText value="Order Date" inlineStyle="color:#808080; font-size:10px;"
+                                                id="ot6"/>
+                            </amx:cellFormat>
+                            <amx:cellFormat id="cf3" width="100%">
+                                <amx:outputText value="Amount" inlineStyle="color:#808080; font-size:10px;" id="ot7"/>
+                            </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl3">
-                            <amx:cellFormat id="cf4"/>
-                            <amx:cellFormat id="cf5"/>
+                            <amx:cellFormat id="cf4" width="100%">
+                                <amx:outputText value="#{bindings.order_date.inputValue}"
+                                                inlineStyle="color:#000000; font-size:15px;" id="ot3"/>
+                            </amx:cellFormat>
+                            <amx:cellFormat id="cf5" width="100%">
+                                <amx:outputText value="#{bindings.amount.inputValue}"
+                                                inlineStyle="color:#000000; font-size:15px;" id="ot4"/>
+                            </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl4">
-                            <amx:cellFormat id="cf6"/>
+                            <amx:cellFormat id="cf6" width="100%">
+                                <amx:outputText value="Status" inlineStyle="color:#808080; font-size:10px;" id="ot8"/>
+                            </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl5">
-                            <amx:cellFormat id="cf7"/>
+                            <amx:cellFormat id="cf7">
+                                <amx:outputText value="#{bindings.order_status.inputValue}"
+                                                inlineStyle="color:#000000; font-size:15px;" id="ot5"/>
+                            </amx:cellFormat>
                         </amx:rowLayout>
                     </amx:tableLayout>
                 </amx:panelLabelAndMessage>
             </amx:listItem>
-            </amx:listView>
-  </amx:panelPage>
+        </amx:listView>
+    </amx:panelPage>
 </amx:view>
