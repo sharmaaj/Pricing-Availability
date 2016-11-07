@@ -37,13 +37,17 @@
                             </amx:cellFormat>
                             <amx:cellFormat id="cf2">
                                 <amx:spacer id="s5" width="5"/>
-                                <amx:commandButton id="cb1" styleClass="fa-times-circle"
+                                <amx:commandLink id="cl1" action="myCart"  actionListener="#{bindings.deleteItemFromCart.execute}">
+                                <amx:outputHtml id="oh3" styleClass="fa fa-times-circle" inlineStyle="padding-left:40px;color:#000000"/>
+                                               <amx:setPropertyListener id="spl1" from="#{row.ITEM_NUMBER}"
+                                                             to="#{pageFlowScope.deleteItemNum}" type="action"/>
+   
+                                </amx:commandLink>
+                                <!--<amx:commandButton id="cb1" styleClass="fa-times-circle"
                                                    actionListener="#{bindings.deleteItemFromCart.execute}"
                                                    inlineStyle="padding-left:40px;color:#000000;" text="x"
                                                    action="myCart">
-                                    <amx:setPropertyListener id="spl1" from="#{row.ITEM_NUMBER}"
-                                                             to="#{pageFlowScope.deleteItemNum}" type="action"/>
-                                </amx:commandButton>
+                                                  </amx:commandButton>-->
                             </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl2">
