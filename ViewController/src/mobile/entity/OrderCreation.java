@@ -7,6 +7,26 @@ import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.json.JSONException;
 import oracle.adfmf.json.JSONObject;
 
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: GetALlCartItemsDC Class
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : OrderCreation Data Control Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Entity Class is used to define attributes for fetch order details
+*                     
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           04-Nov-2016            Tushar Pant              Final Version
+
+*********************************************************************************************** */
+
 public class OrderCreation {
 
     private String order_date;
