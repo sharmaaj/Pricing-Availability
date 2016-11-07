@@ -9,9 +9,34 @@
     <methodAction id="gotoFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider">
-      <NamedData NDName="featureId" NDType="java.lang.String"/>
+      <NamedData NDName="featureId" NDValue="orders" NDType="java.lang.String"/>
     </methodAction>
     <methodAction id="signOut" RequiresUpdateModel="true" Action="invokeMethod" MethodName="signOut"
                   IsViewObjectMethod="false" DataControl="CheckUserDC" InstanceName="data.CheckUserDC.dataProvider"/>
+    <methodAction id="gotoFeature1" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="featureId" NDValue="myCart" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="gotoFeature2" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="featureId" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="gotoFeature3" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="featureId" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="gotoFeature4" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="featureId" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="gotoFeature5" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
+                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
+                  InstanceName="data.ApplicationFeatures.dataProvider">
+      <NamedData NDName="featureId" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>
