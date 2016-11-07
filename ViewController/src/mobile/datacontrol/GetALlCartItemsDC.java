@@ -167,7 +167,7 @@ public class GetALlCartItemsDC {
         ValueExpression ve = null;
 
         String userName = null;
-        Number orgId = 0;
+        String orgId = null;
         Number orderTypeId = 0;
         Number billToAccNum = 0;
         Number shipTpAccNum = 0;
@@ -176,9 +176,9 @@ public class GetALlCartItemsDC {
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
 
-        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", Number.class);
-        orgId = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
-        orgId =204;
+        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", String.class);
+        orgId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        orgId ="204";
 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orderType}", Number.class);
         orderTypeId = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
