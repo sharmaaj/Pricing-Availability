@@ -14,6 +14,28 @@ import oracle.adfmf.java.beans.ProviderChangeSupport;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONObject;
 
+/* ********************************************************************************************
++==================================================================+
+(c) Copyright Deloitte Consulting India Private Limited (DCIPL)
+All Rights Reserved
+$Header: GetALlCartItemsDC Class
+Ver    : 1.0
+Author : Tushar Pant
++==================================================================+
+* TYPE              : GetOrdersDtlsDC Data Control Class
+* INPUT Parameters  : None
+* OUTPUT Parametrs  : None
+* PURPOSE           : This Data Control Class is used to :-
+*                     1: Call getAllOrdersfromCart REST Service and fetch all the items from the cart
+*                     2: Call get order details REST Service to fetch order from ERP system
+*                     
+* History
+* Version        Date                  Author                  Description
+* --------------------------------------------------------------------------------------------
+* 1.0           04-Nov-2016            Tushar Pant              Final Version
+
+*********************************************************************************************** */
+
 public class GetOrdersDtlsDC {
 
     private static List<OrderCreation> s_getAllOrders;
