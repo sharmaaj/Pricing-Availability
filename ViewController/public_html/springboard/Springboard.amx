@@ -38,8 +38,8 @@
           <amx:outputHtml id="oh4" styleClass="fa fa-folder fa-lg"/>
         </amx:cellFormat>
         <amx:cellFormat id="cf8" styleClass="springboard-cell-border">
-          <!--<amx:outputText value="My Orders" id="ot8"/>-->
-          <amx:commandLink text="My Orders" id="cl3" />
+          <amx:outputText value="My Orders" id="ot8"/>
+          <!--<amx:commandLink text="My Orders" id="cl3" />-->
         </amx:cellFormat>
       </amx:rowLayout>
       <amx:rowLayout id="rl6">
