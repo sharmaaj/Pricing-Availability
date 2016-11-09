@@ -31,18 +31,18 @@
                 <amx:panelGroupLayout id="pgl1" styleClass="label">
                     <amx:tableLayout id="tl1" width="100%">
                         <amx:rowLayout id="rl1">
-                            <amx:cellFormat id="cf1" width="100%">
+                            <amx:cellFormat id="cf1">
                                 <amx:outputText value="#{row.order_number}"
                                                 inlineStyle="color:#000000; font-weight:bold;" id="ot2"/>
                                 <amx:spacer id="s3" height="2"/>
                             </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl2">
-                            <amx:cellFormat id="cf2" width="100%">
+                            <amx:cellFormat id="cf2">
                                 <amx:outputText value="Order Date" inlineStyle="color:#808080; font-size:10px;"
                                                 id="ot6"/>
                             </amx:cellFormat>
-                            <amx:cellFormat id="cf3" width="100%">
+                            <amx:cellFormat id="cf3">
                                 <amx:outputText value="Amount" inlineStyle="color:#808080; font-size:10px;" id="ot7"/>
                             </amx:cellFormat>
                         </amx:rowLayout>
@@ -58,7 +58,7 @@
                             </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl4">
-                            <amx:cellFormat id="cf6" width="100%">
+                            <amx:cellFormat id="cf6">
                                 <amx:outputText value="Status" inlineStyle="color:#808080; font-size:10px;" id="ot8"/>
                             </amx:cellFormat>
                         </amx:rowLayout>
