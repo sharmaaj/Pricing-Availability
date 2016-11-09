@@ -34,7 +34,8 @@
                 <amx:rowLayout id="rl2">
                     <amx:cellFormat id="cf2" width="100%">
                         <amx:inputText id="it3" value="#{pageFlowScope.billToAccNum}"
-                                       inlineStyle="padding-left:40px;color:#808080;font-size:15px;" rows="1"/>
+                                       inlineStyle="padding-left:40px;color:#808080;font-size:15px;" rows="1"
+                                       inputType="number"/>
                         <amx:spacer id="s6" height="3"/>
                     </amx:cellFormat>
                 </amx:rowLayout>
@@ -47,7 +48,8 @@
                 <amx:rowLayout id="rl4">
                     <amx:cellFormat id="cf4" width="100%">
                         <amx:inputText id="it1" value="#{pageFlowScope.shipToAccNum}"
-                                       inlineStyle="padding-left:40px;color:#808080;font-size:15px;" rows="1"/>
+                                       inlineStyle="padding-left:40px;color:#808080;font-size:15px;" rows="1"
+                                       inputType="number"/>
                         <amx:spacer id="s1" height="3"/>
                     </amx:cellFormat>
                 </amx:rowLayout>
@@ -59,7 +61,8 @@
                 <amx:rowLayout id="rl6">
                     <amx:cellFormat id="cf6" width="100%">
                         <amx:inputText id="it2" value="#{pageFlowScope.orderType}"
-                                       inlineStyle="padding-left:40px;color:#808080;font-size:15px;" rows="1"/>
+                                       inlineStyle="padding-left:40px;color:#808080;font-size:15px;" rows="1"
+                                       inputType="number"/>
                         <amx:spacer id="s2" height="3"/>
                     </amx:cellFormat>
                 </amx:rowLayout>
