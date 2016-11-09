@@ -22,25 +22,15 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="orderDtlsIterator" id="order_number">
-      <AttrNames>
-        <Item Value="order_number"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="orderDtlsIterator" id="order_date">
-      <AttrNames>
-        <Item Value="order_date"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="orderDtlsIterator" id="amount">
-      <AttrNames>
-        <Item Value="amount"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="orderDtlsIterator" id="order_status">
-      <AttrNames>
-        <Item Value="order_status"/>
-      </AttrNames>
-    </attributeValues>
+    <tree IterBinding="orderDtlsIterator" id="orderDtls1">
+      <nodeDefinition DefName="mobile.entity.OrderCreation" Name="orderDtls10">
+        <AttrNames>
+          <Item Value="order_date"/>
+          <Item Value="amount"/>
+          <Item Value="order_number"/>
+          <Item Value="order_status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
