@@ -47,12 +47,12 @@
                             </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl3">
-                            <amx:cellFormat id="cf4" width="100%">
+                            <amx:cellFormat id="cf4">
                                 <amx:outputText value="#{row.order_date}" inlineStyle="color:#000000; font-size:15px;"
                                                 id="ot3"/>
                             </amx:cellFormat>
-                            <amx:cellFormat id="cf5" width="100%">
-                                <amx:outputText value="$#{row.amount  != null ? row.amount : 0}"
+                            <amx:cellFormat id="cf5">
+                                <amx:outputText value="$#{row.amount!= null ? row.amount : 0}"
                                                 inlineStyle="color:#000000; font-size:15px;" id="ot4"/>
                                 <amx:spacer id="s1" height="2"/>
                             </amx:cellFormat>
