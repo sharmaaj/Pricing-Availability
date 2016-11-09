@@ -34,6 +34,7 @@
                             <amx:cellFormat id="cf1" width="100%">
                                 <amx:outputText value="#{row.order_number}"
                                                 inlineStyle="color:#000000; font-weight:bold;" id="ot2"/>
+                                <amx:spacer id="s3" height="2"/>
                             </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl2">
@@ -53,6 +54,7 @@
                             <amx:cellFormat id="cf5" width="100%">
                                 <amx:outputText value="$#{row.amount  != null ? row.amount : 0}"
                                                 inlineStyle="color:#000000; font-size:15px;" id="ot4"/>
+                                <amx:spacer id="s1" height="2"/>
                             </amx:cellFormat>
                         </amx:rowLayout>
                         <amx:rowLayout id="rl4">
@@ -64,6 +66,7 @@
                             <amx:cellFormat id="cf7">
                                 <amx:outputText value="#{row.order_status}" inlineStyle="color:#000000; font-size:15px;"
                                                 id="ot5"/>
+                                <amx:spacer id="s2" height="2"/>
                             </amx:cellFormat>
                         </amx:rowLayout>
                     </amx:tableLayout>
