@@ -3,6 +3,10 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="GetOrderTypeLOVDC" id="GetOrderTypeLOVDCIterator"/>
+    <accessorIterator MasterBinding="GetOrderTypeLOVDCIterator" Binds="orderTypeLov" RangeSize="25"
+                      DataControl="GetOrderTypeLOVDC" BeanClass="mobile.entity.GetOrderTypeLOV"
+                      id="orderTypeLovIterator"/>
   </executables>
   <bindings>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
@@ -11,5 +15,11 @@
     <methodAction id="createOrder" RequiresUpdateModel="true" Action="invokeMethod" MethodName="createOrder"
                   IsViewObjectMethod="false" DataControl="GetAllCartItemsDC"
                   InstanceName="data.GetAllCartItemsDC.dataProvider"/>
+    <list IterBinding="orderTypeLovIterator" ListOperMode="navigation" ListIter="orderTypeLovIterator"
+          id="orderTypeLov" DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="orderTypeName"/>
+      </AttrNames>
+    </list>
   </bindings>
 </pageDefinition>
