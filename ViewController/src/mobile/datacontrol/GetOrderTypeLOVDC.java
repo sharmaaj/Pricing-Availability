@@ -113,4 +113,8 @@ public class GetOrderTypeLOVDC {
     public void removePropertyChangeListener(PropertyChangeListener l) {
         propertyChangeSupport.removePropertyChangeListener(l);
     }
+    
+    public void callGetOrderTypeMtd(){
+        this.getorderTypeLov();
+    }
 }
