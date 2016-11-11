@@ -63,8 +63,13 @@
                     </amx:rowLayout>
                     <amx:rowLayout id="rl6">
                         <amx:cellFormat id="cf6">
+                            <amx:selectOneChoice value="#{pageFlowScope.orderType}" inlineStyle="color:#808080;font-size:15px;"
+                                                 label="#{bindings.orderTypeLov.label}" id="soc1">
+                                <amx:selectItems value="#{bindings.orderTypeLov.items}" id="si1"/>
+                            </amx:selectOneChoice>
                             <amx:inputText id="it2" value="#{pageFlowScope.orderType}"
-                                           inlineStyle="color:#808080;font-size:15px;" rows="1" inputType="number"/>
+                                           inlineStyle="color:#808080;font-size:15px;" rows="1" inputType="number"
+                                           rendered="false"/>
                             <amx:spacer id="s2" height="3"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
