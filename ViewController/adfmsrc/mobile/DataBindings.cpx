@@ -28,6 +28,7 @@
     <page id="mobile_myOrdersPageDef" path="MyOrders.myOrdersPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="GetOrderTypeLOVDC" path="mobile.GetOrderTypeLOVDC"/>
     <dc id="GetOrdersDtlsDC" path="mobile.GetOrdersDtlsDC"/>
     <dc id="DeleteItemFromCartDC" path="mobile.DeleteItemFromCartDC"/>
     <dc id="UpdateItemQuantityFromCartDC" path="mobile.UpdateItemQuantityFromCartDC"/>
