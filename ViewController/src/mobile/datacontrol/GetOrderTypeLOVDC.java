@@ -12,6 +12,7 @@ import mobile.rest.RestServiceManager;
 import mobile.rest.RestURIs;
 
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
+import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.java.beans.ProviderChangeSupport;
 import oracle.adfmf.json.JSONArray;
@@ -70,5 +71,46 @@ public class GetOrderTypeLOVDC {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrderTypeLOVServiceResults}", "No Search Results");
         }
         return itemDetailsArray;
+    }
+
+
+    public void setItemList(List<GetOrderTypeLOV> s_ItemList) {
+        List<GetOrderTypeLOV> oldItemList = GetOrderTypeLOVDC.s_ItemList;
+        GetOrderTypeLOVDC.s_ItemList = s_ItemList;
+        propertyChangeSupport.firePropertyChange("itemList", oldItemList, s_ItemList);
+    }
+
+    public static List<GetOrderTypeLOV> getItemList() {
+        return s_ItemList;
+    }
+
+    public void setProviderChangeSupport(ProviderChangeSupport providerChangeSupport) {
+        ProviderChangeSupport oldProviderChangeSupport = this.providerChangeSupport;
+        this.providerChangeSupport = providerChangeSupport;
+        propertyChangeSupport.firePropertyChange("providerChangeSupport", oldProviderChangeSupport,
+                                                 providerChangeSupport);
+    }
+
+    public ProviderChangeSupport getProviderChangeSupport() {
+        return providerChangeSupport;
+    }
+
+    public void setPropertyChangeSupport(PropertyChangeSupport propertyChangeSupport) {
+        PropertyChangeSupport oldPropertyChangeSupport = this.propertyChangeSupport;
+        this.propertyChangeSupport = propertyChangeSupport;
+        propertyChangeSupport.firePropertyChange("propertyChangeSupport", oldPropertyChangeSupport,
+                                                 propertyChangeSupport);
+    }
+
+    public PropertyChangeSupport getPropertyChangeSupport() {
+        return propertyChangeSupport;
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        propertyChangeSupport.addPropertyChangeListener(l);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        propertyChangeSupport.removePropertyChangeListener(l);
     }
 }
