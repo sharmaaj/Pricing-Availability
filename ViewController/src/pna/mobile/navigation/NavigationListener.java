@@ -19,6 +19,7 @@ import javax.el.ValueExpression;
 import mobile.datacontrol.CheckUserDC;
 
 import mobile.datacontrol.GETDiscountRateDC;
+import mobile.datacontrol.GetOrderTypeLOVDC;
 import mobile.datacontrol.SearchHistoryDC;
 
 import mobile.datacontrol.UpdateItemQuantityFromCart;
@@ -253,7 +254,8 @@ public class NavigationListener {
     public void checkoutButtonAL(ActionEvent actionEvent) {
     System.out.println("Inside Checkout Button Action Listener");
     
-    
+    GetOrderTypeLOVDC obj = new GetOrderTypeLOVDC();
+    obj.callGetOrderTypeMtd();
 
     }
 }
