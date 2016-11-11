@@ -16,6 +16,7 @@ public class RestURIs {
     private static final String SEARCH_HISTORY_URI = "/v1/Search/getSearchHistory";
     private static final String GET_ALL_ITEMS_FROM_URI = "/v1/CartItems/getCartItems";
     private static final String GET_ORDER_DTLS_URI = "/v1/OrderDetails/getOrderDetails";
+    private static final String GET_ORDER_TYPE_LOV = "/v1/GetOrderType/getOrderType";
 
     public RestURIs() {
         super();
@@ -23,6 +24,10 @@ public class RestURIs {
 
     public static String addToCart() {
         return ADD_TO_CART_URI;
+    }
+
+    public static String getOrderTypeLov() {
+        return GET_ORDER_TYPE_LOV;
     }
 
     public static String getAllItemsFromCart() {
