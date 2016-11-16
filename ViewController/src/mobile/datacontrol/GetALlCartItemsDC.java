@@ -250,7 +250,7 @@ public class GetALlCartItemsDC {
         System.out.println("Request to order "+payload);
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
         System.out.println("createOrder: jsonArrayAsString for Get All Cart Items-->" + jsonArrayAsString);
-        System.out.println("createOrder: Received response");
+        System.out.println("createOrder: Received  response");
 
     }
 
