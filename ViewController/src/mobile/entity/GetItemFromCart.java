@@ -6,13 +6,15 @@ import java.util.Date;
 
 import javax.el.ValueExpression;
 
+import mobile.bean.AEntity;
+
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 import oracle.adfmf.json.JSONException;
 import oracle.adfmf.json.JSONObject;
 
-public class GetItemFromCart {
+public class GetItemFromCart extends AEntity {
     
     private String  USER_NAME ;
     private String  ITEM_NUMBER;
@@ -227,7 +229,8 @@ public class GetItemFromCart {
     }
 
     public String getATTRIBUTE1() {
-        return ATTRIBUTE1;
+      return super.getValue(ATTRIBUTE1);
+        
     }
 
     public void setATTRIBUTE2(String ATTRIBUTE2) {

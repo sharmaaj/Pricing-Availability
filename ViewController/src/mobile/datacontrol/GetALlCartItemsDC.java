@@ -215,12 +215,12 @@ public class GetALlCartItemsDC {
         String payload =
             "{\n" + "\"USER_ID\" : \"" + userName + "\",\"ORG_ID\": \"" + orgId + "\",\"ORDER_TYPE_ID\": \"" +
             orderTypeId + "\",\"BILL_TO\": \"" + billToAccNum +
-            "\",\"SHIP_TO\": \"" + shipTpAccNum + "\",\"COUPON\": \"" + coupon + "\",\"ATTRIBUTE1\": \"" + null +
-            "\",\"ATTRIBUTE2\": \"" + null + "\",\"ATTRIBUTE3\": \"" + null + "\",\"ATTRIBUTE4\": \"" + null +
-            "\",\"ATTRIBUTE5\": \"" + null + "\",\"ATTRIBUTE6\": \"" + null + "\",\"ATTRIBUTE7\": \"" + null +
-            "\",\"ATTRIBUTE8\": \"" + null + "\",\"ATTRIBUTE9\": \"" + null + "\",\"ATTRIBUTE10\": \"" + null +
-            "\",\"ATTRIBUTE11\": \"" + null + "\",\"ATTRIBUTE12\": \"" + null + "\",\"ATTRIBUTE13\": \"" + null +
-            "\",\"ATTRIBUTE14\": \"" + null + "\",\"ATTRIBUTE15\": \"" + null + "\n";
+            "\",\"SHIP_TO\": \"" + shipTpAccNum + "\",\"COUPON\": \"" + coupon + "\",\"ATTRIBUTE1\": \"" + "\"" +
+            ",\"ATTRIBUTE2\": \"" + "\"" + ",\"ATTRIBUTE3\": \"" + "\"" + ",\"ATTRIBUTE4\": \"" + "\"" +
+            ",\"ATTRIBUTE5\": \"" + "\"" + ",\"ATTRIBUTE6\": \"" + "\"" + ",\"ATTRIBUTE7\": \"" + "\"" +
+            ",\"ATTRIBUTE8\": \"" + "\"" + ",\"ATTRIBUTE9\": \"" + "\"" + ",\"ATTRIBUTE10\": \"" + "\"" +
+            ",\"ATTRIBUTE11\": \"" + "\"" + ",\"ATTRIBUTE12\": \"" + "\"" + ",\"ATTRIBUTE13\": \"" + "\"" +
+            ",\"ATTRIBUTE14\": \"" + "\"" + ",\"ATTRIBUTE15\": \"" + "\"" + "\n";
 
         payload = payload + ", \"P_ITEM_LINES\": { \"P_ITEM_LINES_ITEM\": [  ";
 
@@ -236,18 +236,18 @@ public class GetALlCartItemsDC {
 
             payload =
                 payload + "{\"INVENTORY_ITEM_ID\":\"" + s_getItemFromCart.get(i).getATTRIBUTE1() + "\",\"PRICE_LIST_ID\": \"" + s_getItemFromCart.get(i).getPRICE_LIST() +
-                "\",\"ORDERED_QUANTITY\": \"" + s_getItemFromCart.get(i).getITEM_QUANTITY() + "\",\"ATTRIBUTE1\": \"" + null + "\",\"ATTRIBUTE2\": \"" + null +
-                "\",\"ATTRIBUTE3\": \"" + null + "\",\"ATTRIBUTE4\": \"" + null + "\",\"ATTRIBUTE5\": \"" + null +
-                "\",\"ATTRIBUTE6\": \"" + null + "\",\"ATTRIBUTE7\": \"" + null + "\",\"ATTRIBUTE8\": \"" + null +
-                "\",\"ATTRIBUTE9\": \"" + null + "\",\"ATTRIBUTE10\": \"" + null + "\",\"ATTRIBUTE11\": \"" + null +
-                "\",\"ATTRIBUTE12\": \"" + null + "\",\"ATTRIBUTE13\": \"" + null + "\",\"ATTRIBUTE14\": \"" + null +
-                "\",\"ATTRIBUTE15\": \"" + null + "\"},";
+                "\",\"ORDERED_QUANTITY\": \"" + s_getItemFromCart.get(i).getITEM_QUANTITY() + "\",\"ATTRIBUTE1\": \"" + "\"" + ",\"ATTRIBUTE2\": \"" + "\"" +
+                ",\"ATTRIBUTE3\": \"" + "\"" + ",\"ATTRIBUTE4\": \"\"" +",\"ATTRIBUTE5\": \"" + "\"" +
+                ",\"ATTRIBUTE6\": \"" + "\"" + ",\"ATTRIBUTE7\": \"" + "\"" + ",\"ATTRIBUTE8\": \"" + "\"" +
+                ",\"ATTRIBUTE9\": \"" + "\"" + ",\"ATTRIBUTE10\": \"" + "\"" + ",\"ATTRIBUTE11\": \"" + "\"" +
+                ",\"ATTRIBUTE12\": \"" + "\"" + ",\"ATTRIBUTE13\": \"" + "\"" + ",\"ATTRIBUTE14\": \"" + "\"" +
+                ",\"ATTRIBUTE15\": \"" + "\"" + "},";
         }
         System.out.println("createOrder: Order Line paylod is " + payload);
 
         payload = payload.substring(0, payload.length() - 1);
         payload = payload + "]}\n" + "}";
-
+        System.out.println("Request to order "+payload);
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
         System.out.println("createOrder: jsonArrayAsString for Get All Cart Items-->" + jsonArrayAsString);
         System.out.println("createOrder: Received response");
