@@ -3,10 +3,10 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="root" RangeSize="25" DataControl="GetOrderTypeLOVDC" id="GetOrderTypeLOVDCIterator"/>
-    <accessorIterator MasterBinding="GetOrderTypeLOVDCIterator" Binds="orderTypeLov" RangeSize="25"
-                      DataControl="GetOrderTypeLOVDC" BeanClass="mobile.entity.GetOrderTypeLOV"
-                      id="orderTypeLovIterator"/>
+    <iterator id="GetOrderTypeLOVDC_dataProvider_rootIter" Binds="root" DataControl="GetOrderTypeLOVDC" RangeSize="25"/>
+    <accessorIterator id="orderTypeLovIterator" MasterBinding="GetOrderTypeLOVDC_dataProvider_rootIter"
+                      Binds="orderTypeLov" RangeSize="25" DataControl="GetOrderTypeLOVDC"
+                      BeanClass="mobile.entity.GetOrderTypeLOV"/>
   </executables>
   <bindings>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
@@ -15,6 +15,9 @@
     <methodAction id="createOrder" RequiresUpdateModel="true" Action="invokeMethod" MethodName="createOrder"
                   IsViewObjectMethod="false" DataControl="GetAllCartItemsDC"
                   InstanceName="data.GetAllCartItemsDC.dataProvider"/>
+    <methodAction id="callGetOrderTypeMtd" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="callGetOrderTypeMtd" IsViewObjectMethod="false" DataControl="GetOrderTypeLOVDC"
+                  InstanceName="data.GetOrderTypeLOVDC.dataProvider"/>
     <list IterBinding="orderTypeLovIterator" ListOperMode="navigation" ListIter="orderTypeLovIterator"
           id="orderTypeLov" DTSupportsMRU="true" SelectItemValueMode="ListObject">
       <AttrNames>
