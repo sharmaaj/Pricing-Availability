@@ -5,7 +5,7 @@
     <variableIterator id="variables"/>
     <iterator id="GetOrderTypeLOVDC_dataProvider_rootIter" Binds="root" DataControl="GetOrderTypeLOVDC" RangeSize="25"/>
     <accessorIterator id="orderTypeLovIterator" MasterBinding="GetOrderTypeLOVDC_dataProvider_rootIter"
-                      Binds="orderTypeLov" RangeSize="25" DataControl="GetOrderTypeLOVDC"
+                      Binds="orderType" RangeSize="25" DataControl="GetOrderTypeLOVDC"
                       BeanClass="mobile.entity.GetOrderTypeLOV"/>
   </executables>
   <bindings>

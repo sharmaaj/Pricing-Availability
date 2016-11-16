@@ -30,7 +30,7 @@ public class GetOrderTypeLOVDC {
         super();
     }
 
-    public GetOrderTypeLOV[] getorderTypeLov() {
+    public GetOrderTypeLOV[] getOrderType() {
         System.out.println("getOrderType: Inside getorderTypeLov");
         ValueExpression ve = null;
         s_order = new ArrayList<GetOrderTypeLOV>();
@@ -112,7 +112,7 @@ public class GetOrderTypeLOVDC {
 
 
     public void callGetOrderTypeMtd() {
-        this.getorderTypeLov();
+        this.getOrderType();
     }
 
     public void addPropertyChangeListener(PropertyChangeListener l) {
