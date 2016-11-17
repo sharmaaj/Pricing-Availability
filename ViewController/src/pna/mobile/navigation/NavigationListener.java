@@ -16,9 +16,12 @@ import mobile.entity.GetItemFromCart;
 
 import javax.el.ValueExpression;
 
+import javax.persistence.criteria.Order;
+
 import mobile.datacontrol.CheckUserDC;
 
 import mobile.datacontrol.GETDiscountRateDC;
+import mobile.datacontrol.GetALlCartItemsDC;
 import mobile.datacontrol.GetOrderTypeLOVDC;
 import mobile.datacontrol.SearchHistoryDC;
 
@@ -251,11 +254,49 @@ public class NavigationListener {
 
     }
 
-    public void checkoutButtonAL(ActionEvent actionEvent) {
-    System.out.println("Inside Checkout Button Action Listener");
+    public String checkoutButtonAL() {
+        System.out.println("Inside Checkout Button Action Listener");
+        ValueExpression ve = null;
+        Number totalAmtinCart = 0;
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.totalAmountInCart}", Number.class);
+        totalAmtinCart = ((Number) ve.getValue(AdfmfJavaUtilities.getELContext()));
     
-    GetOrderTypeLOVDC obj = new GetOrderTypeLOVDC();
-    obj.callGetOrderTypeMtd();
+        Number zero = 0;
+        if (totalAmtinCart == zero || totalAmtinCart == null) {
+            System.out.println("Inside if , if cart is empty");
+            AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(), "showAlert",
+                                                                      new Object[] { "Error",
+                                                                                     "Please enter atleast 1 item to cart to proceed.",
+                                                                                     "Ok" });
+            return "";
+        } else {
+            System.out.println("Inside if , if cart is  NOT empty");
+            GetOrderTypeLOVDC obj = new GetOrderTypeLOVDC();
+            obj.callGetOrderTypeMtd();
+            return "checkout";
+        }
 
+    }
+
+    public String placeOrderAL() {
+
+        GetALlCartItemsDC createOrder = new GetALlCartItemsDC();
+        createOrder.createOrder();
+
+        ValueExpression ve = null;
+        String getOrderStatus = null;
+        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orderStatus}", String.class);
+        getOrderStatus = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        System.out.println("placeOrderAL: Order Status is  " + getOrderStatus);
+        if (getOrderStatus.equals("E")) {
+            System.out.println("placeOrderAL: getOrderStatus is Error");
+            AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(), "showAlert",
+                                                                      new Object[] { "Error", "Order Creation Failed",
+                                                                                     "Ok" });
+            return "";
+        } else {
+            System.out.println("placeOrderAL: getOrderStatus is Success");
+            return "orderDetails";
+        }
     }
 }
