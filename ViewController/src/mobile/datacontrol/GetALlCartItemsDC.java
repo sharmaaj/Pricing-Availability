@@ -34,7 +34,7 @@ Author : Tushar Pant
 * PURPOSE           : This Data Control Class is used to :-
 *                     1: Call getAllitemsfromCart REST Service and fetch all the items from the cart
 *                     2: Call order creation REST Service to create order in ERP system
-*
+*                     
 * History
 * Version        Date                  Author                  Description
 * --------------------------------------------------------------------------------------------
@@ -164,7 +164,7 @@ public class GetALlCartItemsDC {
     }
 
     public void createOrder() {
-
+        
         System.out.println("createOrder: - Inside createOrder method call");
         ValueExpression ve = null;
 
@@ -177,68 +177,67 @@ public class GetALlCartItemsDC {
 
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-
-        System.out.println("createOrder: - userName is :" + userName);
+        
+        System.out.println("createOrder: - userName is :"+userName);
 
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.orgId}", String.class);
         orgId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-        orgId = "204";
-
-        System.out.println("createOrder: - orgId is :" + orgId);
+        orgId ="204";
+        
+        System.out.println("createOrder: - orgId is :"+orgId);
 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orderType}", String.class);
-        orderTypeId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-
-        System.out.println("createOrder: - orderTypeId is :" + orderTypeId);
+         orderTypeId = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        System.out.println("createOrder: - orderTypeId is :"+orderTypeId);
 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.billToAccNum}", String.class);
         billToAccNum = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-
-        System.out.println("createOrder: - billToAccNum is :" + billToAccNum);
+        
+        System.out.println("createOrder: - billToAccNum is :"+billToAccNum);
 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.shipToAccNum}", String.class);
         shipTpAccNum = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-
-        System.out.println("createOrder: - shipTpAccNum is :" + shipTpAccNum);
+        
+        System.out.println("createOrder: - shipTpAccNum is :"+shipTpAccNum);
 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.couponCode}", String.class);
         coupon = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
-
-        System.out.println("createOrder: - coupon is :" + coupon);
+        
+        System.out.println("createOrder: - coupon is :"+coupon);
 
 
         String restURI = RestURIs.createOrder();
         RestServiceManager rcu = new RestServiceManager();
-
-        System.out.println("createOrder: - restURI is :" + restURI);
+        
+        System.out.println("createOrder: - restURI is :"+restURI);
 
         String payload =
             "{\n" + "\"USER_ID\" : \"" + userName + "\",\"ORG_ID\": \"" + orgId + "\",\"ORDER_TYPE_ID\": \"" +
-            orderTypeId + "\",\"BILL_TO\": \"" + billToAccNum + "\",\"SHIP_TO\": \"" + shipTpAccNum +
-            "\",\"COUPON\": \"" + coupon + "\",\"ATTRIBUTE1\": \"" + "\"" + ",\"ATTRIBUTE2\": \"" + "\"" +
-            ",\"ATTRIBUTE3\": \"" + "\"" + ",\"ATTRIBUTE4\": \"" + "\"" + ",\"ATTRIBUTE5\": \"" + "\"" +
-            ",\"ATTRIBUTE6\": \"" + "\"" + ",\"ATTRIBUTE7\": \"" + "\"" + ",\"ATTRIBUTE8\": \"" + "\"" +
-            ",\"ATTRIBUTE9\": \"" + "\"" + ",\"ATTRIBUTE10\": \"" + "\"" + ",\"ATTRIBUTE11\": \"" + "\"" +
-            ",\"ATTRIBUTE12\": \"" + "\"" + ",\"ATTRIBUTE13\": \"" + "\"" + ",\"ATTRIBUTE14\": \"" + "\"" +
-            ",\"ATTRIBUTE15\": \"" + "\"" + "\n";
+            orderTypeId + "\",\"BILL_TO\": \"" + billToAccNum +
+            "\",\"SHIP_TO\": \"" + shipTpAccNum + "\",\"COUPON\": \"" + coupon + "\",\"ATTRIBUTE1\": \"" + null +
+            "\",\"ATTRIBUTE2\": \"" + null + "\",\"ATTRIBUTE3\": \"" + null + "\",\"ATTRIBUTE4\": \"" + null +
+            "\",\"ATTRIBUTE5\": \"" + null + "\",\"ATTRIBUTE6\": \"" + null + "\",\"ATTRIBUTE7\": \"" + null +
+            "\",\"ATTRIBUTE8\": \"" + null + "\",\"ATTRIBUTE9\": \"" + null + "\",\"ATTRIBUTE10\": \"" + null +
+            "\",\"ATTRIBUTE11\": \"" + null + "\",\"ATTRIBUTE12\": \"" + null + "\",\"ATTRIBUTE13\": \"" + null +
+            "\",\"ATTRIBUTE14\": \"" + null + "\",\"ATTRIBUTE15\": \"" + null + "\"\n";
 
         payload = payload + ", \"P_ITEM_LINES\": { \"P_ITEM_LINES_ITEM\": [  ";
 
         System.out.println("createOrder: Order Header paylod is " + payload);
 
-        for (int i = 0; i < s_getItemFromCart.size(); i++) {
-            s_getItemFromCart.get(i).getATTRIBUTE1(); //Inventory_Item_Id
+       for (int i = 0; i < s_getItemFromCart.size(); i++) {
+            s_getItemFromCart.get(i).getATTRIBUTE1();  //Inventory_Item_Id
             s_getItemFromCart.get(i).getITEM_QUANTITY();
             s_getItemFromCart.get(i).getPRICE_LIST();
-            System.out.println("createOrder: Inventory Item Id-->" + s_getItemFromCart.get(i).getATTRIBUTE1());
-            System.out.println("createOrder: Item Quantity-->" + s_getItemFromCart.get(i).getITEM_QUANTITY());
-            System.out.println("createOrder: Price List-->" + s_getItemFromCart.get(i).getPRICE_LIST());
+           System.out.println("createOrder: Inventory Item Id-->"+s_getItemFromCart.get(i).getATTRIBUTE1());
+            System.out.println("createOrder: Item Quantity-->"+s_getItemFromCart.get(i).getITEM_QUANTITY());
+            System.out.println("createOrder: Price List-->"+s_getItemFromCart.get(i).getPRICE_LIST());
 
             payload =
-                payload + "{\"INVENTORY_ITEM_ID\":\"" + s_getItemFromCart.get(i).getATTRIBUTE1() +
-                "\",\"PRICE_LIST_ID\": \"" + s_getItemFromCart.get(i).getPRICE_LIST() + "\",\"ORDERED_QUANTITY\": \"" +
-                s_getItemFromCart.get(i).getITEM_QUANTITY() + "\",\"ATTRIBUTE1\": \"" + "\"" + ",\"ATTRIBUTE2\": \"" +
-                "\"" + ",\"ATTRIBUTE3\": \"" + "\"" + ",\"ATTRIBUTE4\": \"\"" + ",\"ATTRIBUTE5\": \"" + "\"" +
+                payload + "{\"INVENTORY_ITEM_ID\":\"" + s_getItemFromCart.get(i).getATTRIBUTE1() + "\",\"PRICE_LIST_ID\": \"" + s_getItemFromCart.get(i).getPRICE_LIST() +
+                "\",\"ORDERED_QUANTITY\": \"" + s_getItemFromCart.get(i).getITEM_QUANTITY() + "\",\"ATTRIBUTE1\": \"" + "\"" + ",\"ATTRIBUTE2\": \"" + "\"" +
+                ",\"ATTRIBUTE3\": \"" + "\"" + ",\"ATTRIBUTE4\": \"\"" +",\"ATTRIBUTE5\": \"" + "\"" +
                 ",\"ATTRIBUTE6\": \"" + "\"" + ",\"ATTRIBUTE7\": \"" + "\"" + ",\"ATTRIBUTE8\": \"" + "\"" +
                 ",\"ATTRIBUTE9\": \"" + "\"" + ",\"ATTRIBUTE10\": \"" + "\"" + ",\"ATTRIBUTE11\": \"" + "\"" +
                 ",\"ATTRIBUTE12\": \"" + "\"" + ",\"ATTRIBUTE13\": \"" + "\"" + ",\"ATTRIBUTE14\": \"" + "\"" +
@@ -248,20 +247,10 @@ public class GetALlCartItemsDC {
 
         payload = payload.substring(0, payload.length() - 1);
         payload = payload + "]}\n" + "}";
-        System.out.println("Request to order " + payload);
+        System.out.println("Request to order "+payload);
         String jsonArrayAsString = (rcu.invokeUPDATE(restURI, payload)).toString();
-        String status = null;
-        try {
-            JSONObject jsonObject = new JSONObject(jsonArrayAsString);
-            status = jsonObject.getString("P_STATUS");
-            AdfmfJavaUtilities.setELValue("#{pageFlowScope.orderStatus}", status);
-            System.out.println("Order Status is  " + status);
-        } catch (Exception e) {
-            e.getMessage();
-            e.printStackTrace();
-        }
         System.out.println("createOrder: jsonArrayAsString for Get All Cart Items-->" + jsonArrayAsString);
-        System.out.println("createOrder: Received  response");
+        System.out.println("createOrder: Received response");
 
     }
 
