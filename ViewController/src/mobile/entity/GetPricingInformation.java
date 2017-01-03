@@ -78,7 +78,9 @@ public class GetPricingInformation extends AEntity {
         this.setP_uom(temp.getString("P_UOM"));
         this.setP_atp_flag(temp.getString("P_ATP_FLAG"));
         this.setP_discount(temp.getString("P_DISCOUNT"));
+        System.out.println("DIscount from Pricing Info-->"+temp.getString("P_DISCOUNT"));
         this.setP_dis_desc(temp.getString("P_DIS_DESC"));
+        System.out.println("DIscount Description from Pricing Info-->"+temp.getString("P_DIS_DESC"));
         this.setP_dis_valid_date(temp.getString("P_DIS_VALID_DATE").substring(0,10));
         this.setP_warehouse(temp.getString("P_WAREHOUSE"));
         this.setAttribute1(temp.getString("ATTRIBUTE1"));
