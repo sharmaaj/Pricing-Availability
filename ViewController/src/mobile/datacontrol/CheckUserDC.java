@@ -58,6 +58,7 @@ public class CheckUserDC {
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
 
         String restURI = RestURIs.checkUserType();
+        
         RestServiceManager rcu = new RestServiceManager();
         String payload = "{\n"  + "\"PIV_USER_NAME\" : \"" +userName + "\"\n" +  "}";
         System.out.println("paylod is "+payload);
