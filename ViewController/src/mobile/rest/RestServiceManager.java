@@ -66,7 +66,12 @@ public class RestServiceManager {
         }
 
         try {
+            System.out.println("Before response");
+            System.out.println("GetConnectionEndPoint" + restServiceAdapter.getConnectionEndPoint("SNET"));
+            System.out.println("GetRequestURI--"+restServiceAdapter.getRequestURI());
             response = (restServiceAdapter.send(restPayload)).toString();
+            System.out.println("After response--"+response);
+            
         } catch (Exception e) {
             //log error
             Trace.log("REST_JSON", Level.SEVERE, this.getClass(), "invokeRestRequest",
