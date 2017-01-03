@@ -74,7 +74,7 @@
                     <amx:rowLayout id="rl4">
                         <amx:cellFormat id="cf5" width="100%">
                             <amx:outputText value="#{bindings.p_item_description.inputValue}" id="o2t8"
-                                            inlineStyle="color:#000000; font-size:15px;"/>
+                                            inlineStyle="color:#000000; font-size:15px;width:100%;"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                     <amx:rowLayout id="rl5">
@@ -198,7 +198,7 @@
                     <amx:rowLayout id="rl15">
                         <amx:cellFormat id="cf22" width="100%">
                             <amx:outputText value="#{bindings.p_item_description.inputValue}" id="ot8"
-                                            inlineStyle="color:#000000;font-size:15px; "/>
+                                            inlineStyle="color:#000000;font-size:15px;width:100%; "/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                     <amx:rowLayout id="rl16">
