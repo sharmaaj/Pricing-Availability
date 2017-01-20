@@ -13,6 +13,8 @@
           usageId="mobile_Dashboard_task_flow_Dashboard_task_flow_fetchPricingInformationPageDef"/>
     <page path="/myCart/Mycart2.amx" usageId="mobile_Mycart2PageDef"/>
     <page path="/MyOrders/myOrders.amx" usageId="mobile_myOrdersPageDef"/>
+    <page path="/dashboard/Dashboard-task-flow.xml#Dashboard-task-flow@deleteItemFromCart"
+          usageId="mobile_Dashboard_task_flow_Dashboard_task_flow_deleteItemFromCartPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="mobile_DashboardPGPageDef" path="dashboard.DashboardPGPageDef"/>
@@ -26,6 +28,8 @@
           path="dashboard.Dashboard_task_flow_Dashboard_task_flow_fetchPricingInformationPageDef"/>
     <page id="mobile_Mycart2PageDef" path="myCart.Mycart2PageDef"/>
     <page id="mobile_myOrdersPageDef" path="MyOrders.myOrdersPageDef"/>
+    <page id="mobile_Dashboard_task_flow_Dashboard_task_flow_deleteItemFromCartPageDef"
+          path="dashboard.Dashboard_task_flow_Dashboard_task_flow_deleteItemFromCartPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="GetOrderTypeLOVDC" path="mobile.GetOrderTypeLOVDC"/>
