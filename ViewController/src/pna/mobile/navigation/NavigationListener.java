@@ -310,13 +310,9 @@ public class NavigationListener {
             //Empty Cart 
             DeleteItemFromCart emptyCart = new DeleteItemFromCart();
             emptyCart.emptyCart();
-            initializeOrderDtls();
             return "orderDetails";
         }
         
     }
     
-    public void initializeOrderDtls(){
-        
-    }
 }
