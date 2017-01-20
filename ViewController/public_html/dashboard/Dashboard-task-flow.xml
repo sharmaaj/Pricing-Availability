@@ -53,6 +53,12 @@
     <view id="myOrders">
       <page>/MyOrders/myOrders.amx</page>
     </view>
+    <method-call id="deleteItemFromCart">
+      <method>#{bindings.deleteItemFromCart.execute}</method>
+      <outcome>
+        <fixed-outcome>deleteItemFromCart</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>DashboardPG</from-activity-id>
       <control-flow-case id="__2">
@@ -104,6 +110,10 @@
         <from-outcome>checkout</from-outcome>
         <to-activity-id>Mycart2</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__27">
+        <from-outcome>deleteItemFromCart</from-outcome>
+        <to-activity-id>deleteItemFromCart</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__9">
       <from-activity-id>getAllCartItems</from-activity-id>
@@ -128,6 +138,20 @@
       <control-flow-case id="__24">
         <from-outcome>orderDetails</from-outcome>
         <to-activity-id>myOrders</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id>myOrders</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome>dashboard</from-outcome>
+        <to-activity-id>DashboardPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id>deleteItemFromCart</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome>deleteItemFromCart</from-outcome>
+        <to-activity-id>myCart</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>
