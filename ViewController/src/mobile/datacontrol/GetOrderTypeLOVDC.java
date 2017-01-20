@@ -62,7 +62,10 @@ public class GetOrderTypeLOVDC {
                 JSONObject temp = nodeArray.getJSONObject(i);
                 GetOrderTypeLOV item = new GetOrderTypeLOV(temp);
                 s_order.add(item);
+                System.out.println("print values for ordertyupe DB @ index "+i+"is-->"+s_order.get(i).getOrderTypeName());
             }
+      //     AdfmfJavaUtilities.setELValue("#{pageFlowScope.orderTypeLov}", "Standard"); 
+            
         } catch (Exception e) {
             e.getMessage();
             e.printStackTrace();
@@ -75,6 +78,20 @@ public class GetOrderTypeLOVDC {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.OrderTypeLOVServiceResults}", "No Search Results");
         }
         return orderTypesArray;
+    }
+    
+    public void getCurrentOrderId(){
+       ValueExpression ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.orderTypeLov}", String.class);
+        String currSelectedOrderType = ((String) ve.getValue(AdfmfJavaUtilities.getELContext()));
+        System.out.println("Inside getCurrentOrderIdDC to fecth value for getCurrentOrderId:--"+currSelectedOrderType);
+        String getIdforOrderType = null;
+        for (int i = 0; i < s_order.size(); i++) {
+            if(s_order.get(i).getOrderTypeName().equalsIgnoreCase(currSelectedOrderType)){
+              getIdforOrderType =  s_order.get(i).getOrderTypeId();
+              AdfmfJavaUtilities.setELValue("#{pageFlowScope.getIdforOrderType}", getIdforOrderType);
+              break;
+            }
+        }
     }
 
 

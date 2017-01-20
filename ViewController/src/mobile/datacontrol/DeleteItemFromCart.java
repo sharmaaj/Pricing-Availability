@@ -2,6 +2,8 @@ package mobile.datacontrol;
 
 import javax.el.ValueExpression;
 
+import mobile.entity.GetItemFromCart;
+
 import mobile.rest.RestServiceManager;
 import mobile.rest.RestURIs;
 
@@ -87,23 +89,16 @@ public class DeleteItemFromCart {
         
         System.out.println("Here 2-->"+userName);
         
-     /*   try {
-             ve = AdfmfJavaUtilities.getValueExpression("#{bindings.itemsFromCart.IteratorBinding}", String.class);
-            AmxIteratorBinding iter = (AmxIteratorBinding)ve.getValue(AdfmfJavaUtilities.getAdfELContext());
-            
-            BasicIterator bIter = iter.getIterator();
-            Row row = (Row) iter.getCurrentRow();
-            
-            System.out.println("itemNum in Delete Method is -->"+itemNum);
-            itemNum = row.getAttribute("ITEM_NUMBER").toString();
-            }
-        catch(Exception e){
-            System.out.println("Exception in Delete Method is -->"+e);
-        }  */
-
        /*The current row of the iterator and delete based on row selection */
+        if(AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.deleteItemNum}", String.class) !=null){ 
         ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.deleteItemNum}", String.class);
         itemNum = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        }
+        else{
+            itemNum = null;
+        }
+        
+        
         System.out.println("Here 3-->"+itemNum);
 
 
@@ -114,6 +109,76 @@ public class DeleteItemFromCart {
         String payload =
             "{  \n" + "\"P_USER_NAME\" : \"" + userName + "\"," + 
                 "\n" + "\"P_ITEM_NUMBER\" : \"" + itemNum + "\"\n" + "}";
+
+        System.out.println("paylod is " + payload);
+        
+        (rcu.invokeUPDATE(restURI, payload)).toString();
+
+    }
+    
+    public void deleteItemFromCart(String itemNum) {
+
+        String userName = null;
+      //  String itemNum = null;
+
+        ValueExpression ve = null;
+        
+        System.out.println("Here 1");
+
+        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
+        userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        System.out.println("Here 2-->"+userName);
+        
+       /*The current row of the iterator and delete based on row selection */
+//        if(AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.deleteItemNum}", String.class) !=null){ 
+//        ve = AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.deleteItemNum}", String.class);
+//        itemNum = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+//        }
+//        else{
+//            itemNum = null;
+//        }
+        
+        
+        System.out.println("Here 3-->"+itemNum);
+
+
+        String restURI = RestURIs.deleteItemFromCart();
+        System.out.println("restURI is " + restURI);
+        RestServiceManager rcu = new RestServiceManager();
+
+        String payload =
+            "{  \n" + "\"P_USER_NAME\" : \"" + userName + "\"," + 
+                "\n" + "\"P_ITEM_NUMBER\" : \"" + itemNum + "\"\n" + "}";
+
+        System.out.println("paylod is " + payload);
+        
+        (rcu.invokeUPDATE(restURI, payload)).toString();
+
+    }
+    
+    
+    public void emptyCart() {
+
+        String userName = null;
+        String itemNum = null;
+
+        ValueExpression ve = null;
+        
+        System.out.println("Here 1");
+
+        ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
+        userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
+        
+        System.out.println("Here 2-->"+userName);
+        
+        String restURI = RestURIs.deleteItemFromCart();
+        System.out.println("restURI is " + restURI);
+        RestServiceManager rcu = new RestServiceManager();
+
+        String payload =
+            "{  \n" + "\"P_USER_NAME\" : \"" + userName + "\"," + 
+                "\n" + "\"P_ITEM_NUMBER\" : \"" + null + "\"\n" + "}";
 
         System.out.println("paylod is " + payload);
         (rcu.invokeUPDATE(restURI, payload)).toString();

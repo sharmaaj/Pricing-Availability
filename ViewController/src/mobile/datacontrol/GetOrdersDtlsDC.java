@@ -58,7 +58,7 @@ public class GetOrdersDtlsDC {
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         
-        userName= "HSPRAGUE";   //To be removed once the order creation logic is working
+       // userName= "HSPRAGUE";   //To be removed once the order creation logic is working
 
         String restURI = RestURIs.getOrdrDtls();
         RestServiceManager rcu = new RestServiceManager();
@@ -76,6 +76,8 @@ public class GetOrdersDtlsDC {
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
             JSONObject parentNode = (JSONObject) jsonObject.get("P_ORDER_DETAILS");
             JSONArray nodeArray = parentNode.getJSONArray("P_ORDER_DETAILS_ITEM");
+          // JSONObject parentNode = (JSONObject) jsonObject.get("P_ORDER_DETAILS");
+//            JSONArray nodeArray = jsonObject.getJSONArray("P_ORDER_DETAILS");
             int size = nodeArray.length();
             for (int i = 0; i < size; i++) {
                 JSONObject temp = nodeArray.getJSONObject(i);
