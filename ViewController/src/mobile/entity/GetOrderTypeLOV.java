@@ -9,6 +9,7 @@ public class GetOrderTypeLOV {
 
     private String orderTypeName;
     private String ordertypedesc;
+    private String orderTypeId;
     private PropertyChangeSupport _propertyChangeSupport = new PropertyChangeSupport(this);
 
 
@@ -19,6 +20,8 @@ public class GetOrderTypeLOV {
     public GetOrderTypeLOV(JSONObject temp) throws JSONException {
         this.setOrderTypeName(temp.getString("ORDERTYPENAME"));
         this.setOrdertypedesc(temp.getString("ORDERTYPEDESC"));
+        System.out.println("Here inside order type 999999999999");
+        this.setOrdertypedesc(temp.getString("ORDERTYPEID"));
     }
 
     public void setOrderTypeName(String orderTypeName) {
@@ -58,5 +61,15 @@ public class GetOrderTypeLOV {
 
     public void removePropertyChangeListener(PropertyChangeListener l) {
         _propertyChangeSupport.removePropertyChangeListener(l);
+    }
+
+    public void setOrderTypeId(String orderTypeId) {
+        String oldOrderTypeId = this.orderTypeId;
+        this.orderTypeId = orderTypeId;
+        _propertyChangeSupport.firePropertyChange("orderTypeId", oldOrderTypeId, orderTypeId);
+    }
+
+    public String getOrderTypeId() {
+        return orderTypeId;
     }
 }
