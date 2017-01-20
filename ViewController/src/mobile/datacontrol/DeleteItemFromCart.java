@@ -123,12 +123,12 @@ public class DeleteItemFromCart {
 
         ValueExpression ve = null;
         
-        System.out.println("Here 1");
+        System.out.println("deleteItemFromCart DC: 1 itemNum from Param-->"+itemNum);
 
         ve = AdfmfJavaUtilities.getValueExpression("#{securityContext.userName}", String.class);
         userName = ((String) ve.getValue(AdfmfJavaUtilities.getELContext())).trim();
         
-        System.out.println("Here 2-->"+userName);
+        System.out.println("deleteItemFromCart DC:  2-->"+userName);
         
        /*The current row of the iterator and delete based on row selection */
 //        if(AdfmfJavaUtilities.getValueExpression("#{pageFlowScope.deleteItemNum}", String.class) !=null){ 
@@ -139,9 +139,6 @@ public class DeleteItemFromCart {
 //            itemNum = null;
 //        }
         
-        
-        System.out.println("Here 3-->"+itemNum);
-
 
         String restURI = RestURIs.deleteItemFromCart();
         System.out.println("restURI is " + restURI);
@@ -154,6 +151,9 @@ public class DeleteItemFromCart {
         System.out.println("paylod is " + payload);
         
         (rcu.invokeUPDATE(restURI, payload)).toString();
+        
+        GetALlCartItemsDC refresh =  new GetALlCartItemsDC();
+        refresh.getAllCartItems();
 
     }
     
@@ -178,10 +178,13 @@ public class DeleteItemFromCart {
 
         String payload =
             "{  \n" + "\"P_USER_NAME\" : \"" + userName + "\"," + 
-                "\n" + "\"P_ITEM_NUMBER\" : \"" + null + "\"\n" + "}";
+                "\n" + "\"P_ITEM_NUMBER\" : \"" + 'E' + "\"\n" + "}";
 
         System.out.println("paylod is " + payload);
         (rcu.invokeUPDATE(restURI, payload)).toString();
+        
+        GetALlCartItemsDC refresh =  new GetALlCartItemsDC();
+        refresh.getAllCartItems();
 
     }
 }
