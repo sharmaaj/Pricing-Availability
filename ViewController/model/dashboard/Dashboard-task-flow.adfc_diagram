@@ -87,7 +87,7 @@
       <property
          name="fromOutcome">itemLov</property>
       <property
-         name="sdm:polyPoints">R50,195.0,124.58594,324.0,125.49414,L50</property>
+         name="sdm:polyPoints">R46,196.44467,121.08594,324.0,125.49414,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall14">
@@ -273,6 +273,49 @@
       <property
          name="fromOutcome">orderDetails</property>
       <property
-         name="sdm:polyPoints">R50,447.5,426.44824,545.5,460.44824,L50</property>
+         name="sdm:polyPoints">R50,447.5,426.44824,543.4683,463.94824,L54</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase31"
+      from="View29"
+      to="View2">
+      <property
+         name="fromOutcome">dashboard</property>
+      <property
+         name="sdm:polyPoints">L46,545.5,456.94824,195.0,128.08594,R54</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall33">
+      <property
+         name="activityId">deleteItemFromCart</property>
+      <property
+         name="x">553.3496</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>deleteItemFromCart&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">124.44824</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase34"
+      from="View18"
+      to="MethodCall33">
+      <property
+         name="fromOutcome">deleteItemFromCart</property>
+      <property
+         name="sdm:polyPoints">T44,552.0,207.5918,549.8496,178.3536,B44</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase35"
+      from="MethodCall33"
+      to="View18">
+      <property
+         name="fromOutcome">deleteItemFromCart</property>
+      <property
+         name="sdm:polyPoints">B56,556.8496,178.09766,559.0,207.33696,T56</property>
    </ControlFlowCase>
 </SDM>
