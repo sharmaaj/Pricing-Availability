@@ -21,7 +21,7 @@
     <methodAction id="gotoFeature2" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider">
-      <NamedData NDName="featureId" NDType="java.lang.String"/>
+      <NamedData NDName="featureId" NDValue="dashboard" NDType="java.lang.String"/>
     </methodAction>
     <methodAction id="gotoFeature3" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
