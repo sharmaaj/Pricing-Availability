@@ -5,7 +5,7 @@
     <variableIterator id="variables"/>
     <iterator id="GetOrderTypeLOVDC_dataProvider_rootIter" Binds="root" DataControl="GetOrderTypeLOVDC" RangeSize="25"/>
     <accessorIterator id="orderTypeLovIterator" MasterBinding="GetOrderTypeLOVDC_dataProvider_rootIter"
-                      Binds="orderType" RangeSize="25" DataControl="GetOrderTypeLOVDC"
+                      Binds="orderType" RangeSize="-1" DataControl="GetOrderTypeLOVDC"
                       BeanClass="mobile.entity.GetOrderTypeLOV"/>
   </executables>
   <bindings>
@@ -20,6 +20,18 @@
       <AttrNames>
         <Item Value="orderTypeName"/>
       </AttrNames>
+    </list>
+    <list IterBinding="GetOrderTypeLOVDC_dataProvider_rootIter" id="orderTypeId" DTSupportsMRU="true" SelectItemValueMode="ListObject"
+          StaticList="false" ListIter="orderTypeLovIterator">
+      <AttrNames>
+        <Item Value="orderType"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="orderTypeId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="orderTypeName"/>
+      </ListDisplayAttrNames>
     </list>
   </bindings>
 </pageDefinition>
