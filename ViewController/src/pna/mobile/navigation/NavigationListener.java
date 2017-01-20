@@ -20,6 +20,7 @@ import javax.persistence.criteria.Order;
 
 import mobile.datacontrol.CheckUserDC;
 
+import mobile.datacontrol.DeleteItemFromCart;
 import mobile.datacontrol.GETDiscountRateDC;
 import mobile.datacontrol.GetALlCartItemsDC;
 import mobile.datacontrol.GetOrderTypeLOVDC;
@@ -31,6 +32,7 @@ import mobile.entity.GetItemFromCart;
 
 import mobile.rest.RestServiceManager;
 import mobile.rest.RestURIs;
+
 
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.amx.event.SelectionEvent;
@@ -46,7 +48,10 @@ import oracle.adfmf.framework.internal.AdfmfJavaUtilitiesInternal;
 import oracle.adfmf.json.JSONArray;
 import oracle.adfmf.json.JSONObject;
 
+import oracle.binding.BindingContainer;
+
 import oracle.jbo.Row;
+import oracle.jbo.uicli.binding.JUCtrlListBinding;
 
 /* ********************************************************************************************
 +==================================================================+
@@ -279,6 +284,12 @@ public class NavigationListener {
     }
 
     public String placeOrderAL() {
+        
+       
+        //fetch order Type Id
+//        GetOrderTypeLOVDC obj = new GetOrderTypeLOVDC();
+//        obj.getCurrentOrderId();
+        
 
         GetALlCartItemsDC createOrder = new GetALlCartItemsDC();
         createOrder.createOrder();
@@ -296,7 +307,16 @@ public class NavigationListener {
             return "";
         } else {
             System.out.println("placeOrderAL: getOrderStatus is Success");
+            //Empty Cart 
+            DeleteItemFromCart emptyCart = new DeleteItemFromCart();
+            emptyCart.emptyCart();
+            initializeOrderDtls();
             return "orderDetails";
         }
+        
+    }
+    
+    public void initializeOrderDtls(){
+        
     }
 }
