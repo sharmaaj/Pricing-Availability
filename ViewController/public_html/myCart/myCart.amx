@@ -9,6 +9,11 @@
             </amx:panelGroupLayout>
         </amx:facet>
         <amx:facet name="primary">
+            <!--<amx:commandLink id="cl2" action="__back">
+                <amx:panelGroupLayout id="pglbackBtn" layout="horizontal">
+                    <amx:image source="/images/Back.png" inlineStyle="width:50px;height:50px"/>
+                </amx:panelGroupLayout>
+            </amx:commandLink>-->
             <amx:commandLink actionListener="#{bindings.gotoSpringboard.execute}" id="cl3">
                 <amx:outputHtml id="oh1" styleClass="fa fa-bars fa-lg" inlineStyle="color:white;font-size:25px;"/>
             </amx:commandLink>
@@ -37,11 +42,11 @@
                             </amx:cellFormat>
                             <amx:cellFormat id="cf2">
                                 <amx:spacer id="s5" width="5"/>
-                                <amx:commandLink id="cl1" action="myCart"  actionListener="#{bindings.deleteItemFromCart.execute}">
-                                <amx:outputHtml id="oh3" styleClass="fa fa-times-circle" inlineStyle="padding-left:40px;color:#000000"/>
-                                               <amx:setPropertyListener id="spl1" from="#{row.ITEM_NUMBER}"
+                                <amx:commandLink id="cl1" action="deleteItemFromCart">
+                                    <amx:outputHtml id="oh3" styleClass="fa fa-times-circle"
+                                                    inlineStyle="padding-left:40px;color:#000000"/>
+                                    <amx:setPropertyListener id="spl1" from="#{row.ITEM_NUMBER}"
                                                              to="#{pageFlowScope.deleteItemNum}" type="action"/>
-   
                                 </amx:commandLink>
                                 <!--<amx:commandButton id="cb1" styleClass="fa-times-circle"
                                                    actionListener="#{bindings.deleteItemFromCart.execute}"
@@ -103,7 +108,7 @@
         </amx:listView>
         <amx:spacer id="s1" height="10"/>
         <amx:panelLabelAndMessage label="" id="plam1" styleClass="label"
-                                  inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px;">
+                                  inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px; background-origin:content-box; position:relative;">
             <amx:tableLayout id="tl2" width="100%">
                 <amx:rowLayout id="rl6">
                     <amx:cellFormat id="cf9">
@@ -130,15 +135,19 @@
         </amx:panelLabelAndMessage>
         <amx:spacer id="s7" height="10"/>
         <amx:panelLabelAndMessage label="" id="plam2" styleClass="label"
-                                  inlineStyle="border-style:ridge; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px;">
-            <amx:tableLayout id="tl3" width="100%">
+                                  inlineStyle="border-style:ridge; width:100%; border-color:#86BC25 #86BC26; border-top-color:transparent; border-bottom-color:#86BC25; border-right-color:transparent; border-left-color:transparent; border-bottom-width:1px; ">
+            <amx:tableLayout id="tl3" width="100%" inlineStyle="">
                 <amx:rowLayout id="rl8">
-                    <amx:cellFormat id="cf13" width="100%">
-                        <amx:panelGroupLayout id="pgl3" inlineStyle="width:100%;" layout="horizontal">
-                            <amx:inputText id="it4" inlineStyle="color:#808080; font-size:15px;" rows="1"
+                    <amx:cellFormat id="cf14" width="100%" inlineStyle="">
+                        <amx:panelGroupLayout id="pgl3" layout="vertical">
+                            <amx:inputText id="it4" inlineStyle="color:#808080; font-size:8px;" rows="1"
                                            value="#{pageFlowScope.couponCode}"/>
-                            <amx:commandLink shortDesc="Apply Coupon" styleClass="commandLink" text="Apply Coupon"
-                                             id="c3l25" actionListener="#{NavigationListenerBean.applyDiscountAL}"/>
+                            <amx:panelGroupLayout id="pgl4" layout="horizontal">
+                                <amx:spacer id="s11" width="35"/>
+                                <amx:commandLink shortDesc="Apply Coupon" styleClass="commandLink" text="Apply Coupon"
+                                                 inlineStyle="font-size:8px;" id="c3l25"
+                                                 actionListener="#{NavigationListenerBean.applyDiscountAL}"></amx:commandLink>
+                            </amx:panelGroupLayout>
                         </amx:panelGroupLayout>
                     </amx:cellFormat>
                 </amx:rowLayout>

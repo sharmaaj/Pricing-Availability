@@ -64,10 +64,14 @@
                     <amx:rowLayout id="rl6">
                         <amx:cellFormat id="cf6">
                             <amx:selectOneChoice value="#{pageFlowScope.orderTypeLov}"
+                                                 inlineStyle="color:#808080;font-size:15px;" id="soc2">
+                                <amx:selectItems value="#{bindings.orderTypeId.items}" id="si2"/>
+                            </amx:selectOneChoice>
+                            <!--<amx:selectOneChoice value="#{pageFlowScope.orderTypeLov}"
                                                  inlineStyle="color:#808080;font-size:15px;"
                                                  id="soc1">
                                 <amx:selectItems value="#{bindings.orderTypeLov.items}" id="si1"/>
-                            </amx:selectOneChoice>
+                            </amx:selectOneChoice>-->
                             <amx:spacer id="s2" height="3"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
@@ -76,7 +80,7 @@
         </amx:panelGroupLayout>
         <amx:spacer id="s3" height="40"/>
         <amx:commandLink shortDesc="ConfirmOrder" styleClass="commandLink" text="Confirm Order"
-                         inlineStyle="font-size:25px;" id="c3l2"
+                         inlineStyle="font-size:20px;" id="c3l2"
                          action="#{NavigationListenerBean.placeOrderAL}"></amx:commandLink>
     </amx:panelPage>
 </amx:view>
